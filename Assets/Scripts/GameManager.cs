@@ -5,12 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public Presets.ProcessState processState;
-    public Presets.ExperimentState experimentState;
+    public Presets.ProcessState currentState;
+    //public Presets.ExperimentState experimentState;
+    public  
 
     void Start()
     {
-        processState = Presets.ProcessState.WelcomeState;
+        currentState = Presets.ProcessState.WelcomeState;
     }
 
     // Update is called once per frame

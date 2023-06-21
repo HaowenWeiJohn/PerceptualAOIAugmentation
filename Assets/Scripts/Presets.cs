@@ -65,18 +65,24 @@ public static class Presets
 
     public enum ExperimentState
     {
-        PracticeInstructionState = 1,
-        ExperimentInstructionState = 2,
-        CalibrationState = 3,
-        AOIAugmentationState = 4,
+        
+        CalibrationState = 1,
+
+        NoAOIAugmentationInstructionState = 2,
+        NoAOIAugmentationState = 3,
+
+        StaticAOIAugmentationInstructionState = 4,
         StaticAOIAugmentationState = 5,
-        PerceptiveAOIAugmentationState = 6,
-        SurveyState = 7,
+
+        PerceptiveAOIAugmentationInstructionState = 6,
+        PerceptiveAOIAugmentationState = 7,
+
+        SurveyState = 8,
     }
 
-    public static List<ExperimentState> AOIAugmentationBlock = new List<ExperimentState> {
+    public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState, 
-        ExperimentState.AOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
         ExperimentState.SurveyState
     };
 

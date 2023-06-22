@@ -4,68 +4,24 @@ using UnityEngine;
 
 public static class Presets
 {
-    //public static int ExperimentMode = 1;
-    //public static int PracticeMode = 2;
+    public static string GameManagerName = "GameManager";
 
-    //// game state
-    //public static int WelcomeState = 1;
-    //public static int PracticeInstructionState = 2;
-    //public static int ExperimentInstructionState = 3;
-    //public static int EndStateGUI = 4;
-
-    //public static int ExperimentStateCalibrationState = 1;
-    //public static int ExperimentNoAOIAugmentationState = 2;
-    //public static int ExperimentStaticAOIAugmentationState = 3;
-    //public static int ExperimentPerceptiveAOIAugmentationState = 4;
-    //public static int ExperimentStateSurveyState = 5;
-
-    ////public static int PracticeState = 3;
+    public static KeyCode NextStateKey = KeyCode.Space;
+    public static KeyCode InterruptKey = KeyCode.Escape;
 
 
-    ////public static int ExperimentState = 5;
-
-
-
-
-
-    ////public static int ExperimentStateInteractionState = 8;
-
-    //public static List<int> ExperimentNoAOIAugmentationBlock = new List<int> {
-    //Presets.ExperimentStateCalibrationState,
-    //Presets.ExperimentNoAOIAugmentationState,
-    //Presets.ExperimentStateSurveyState
-    //};
-
-    //public static List<int> ExperimentStaticAOIAugmentationBlock = new List<int> {
-    //Presets.ExperimentStateCalibrationState,
-    //Presets.ExperimentStaticAOIAugmentationState,
-    //Presets.ExperimentStateSurveyState
-    //};
-
-
-    //public static List<int> ExperimentPerceptiveAOIAugmentationStateBlock = new List<int> {
-    //Presets.ExperimentStateCalibrationState,
-    //Presets.ExperimentPerceptiveAOIAugmentationState,
-    //Presets.ExperimentStateSurveyState
-    //};
-
-    //public static int ExperimentNoAOIAugmentationState = 2;
-    //public static int ExperimentStaticAOIAugmentationState = 3;
-    //public static int ExperimentPerceptiveAOIAugmentationState = 4;
-
-
-    //public enum ProcessState
-    //{
-    //    WelcomeState = 1,
-    //    InstructionState = 2,
-    //    ExperimentState = 3,
-    //    PracticeState = 4,
-    //    EndState = 5
-    //}
-
+    public enum State
+    {
+        IdleState = 0,
+        RunningState = 1,
+        EndingState = 2,
+        InterruptState = 3
+    }
     public enum ExperimentState
     {
-        WelcomeState = 1,
+        StartState = 0,
+
+        IntroductionInstructionState = 1,
         PracticeInstructionState = 2,
 
 
@@ -77,32 +33,63 @@ public static class Presets
         StaticAOIAugmentationInstructionState = 6,
         StaticAOIAugmentationState = 7,
 
-        PerceptiveAOIAugmentationInstructionState = 8,
-        PerceptiveAOIAugmentationState = 9,
+        InteractiveAOIAugmentationInstructionState = 8,
+        InteractiveAOIAugmentationState = 9,
 
-        SurveyState = 10,
+        FeedbackState = 10,
 
         EndState = 11
 
     }
 
+    public static List<ExperimentState> WelcomeBlock = new List<ExperimentState> {
+        ExperimentState.StartState,
+        ExperimentState.IntroductionInstructionState
+    };
+
+    public static List<ExperimentState> PracticeStartBlock = new List<ExperimentState>
+    {
+        ExperimentState.PracticeInstructionState,
+    };
+
     public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {
-        ExperimentState.CalibrationState, 
+        ExperimentState.CalibrationState,
         ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.SurveyState
+        ExperimentState.FeedbackState
     };
 
 
     public static List<ExperimentState> StaticAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
         ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.SurveyState
+        ExperimentState.FeedbackState
     };
 
-    public static List<ExperimentState> PerceptiveAOIAugmentationBlock = new List<ExperimentState> {
+    public static List<ExperimentState> InteractiveAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
-        ExperimentState.PerceptiveAOIAugmentationState,
-        ExperimentState.SurveyState
+        ExperimentState.InteractiveAOIAugmentationState,
+        ExperimentState.FeedbackState
+    };
+
+    public static List<ExperimentState> NoAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
+        ExperimentState.NoAOIAugmentationInstructionState,
+        ExperimentState.CalibrationState,
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.FeedbackState
+    };
+
+    public static List<ExperimentState> StaticAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
+        ExperimentState.StaticAOIAugmentationInstructionState,
+        ExperimentState.CalibrationState,
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.FeedbackState
+    };
+
+    public static List<ExperimentState> InteractiveAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
+        ExperimentState.InteractiveAOIAugmentationInstructionState,
+        ExperimentState.CalibrationState,
+        ExperimentState.InteractiveAOIAugmentationState,
+        ExperimentState.FeedbackState
     };
 
 

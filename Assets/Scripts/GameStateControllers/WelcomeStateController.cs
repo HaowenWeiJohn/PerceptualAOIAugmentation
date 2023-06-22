@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WelComeStateController : MonoBehaviour
+public class WelcomeStateController : MonoBehaviour
 {
 
 
@@ -16,7 +16,7 @@ public class WelComeStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGameButton.onClick.AddListener(exitState);
     }
 
     // Update is called once per frame
@@ -25,16 +25,33 @@ public class WelComeStateController : MonoBehaviour
         
     }
 
+    public void StartGameButtonOnClicked()
+    {
+        gameObject.SetActive(false);
+    }
+
+
+    public void enterState()
+    {
+        WelcomeStateGUI.SetActive(true);
+    }
+
+    public void exitState()
+    {
+        WelcomeStateGUI.SetActive(false);
+    }
+
+
 
     public void OnEnable()
     {
-        WelcomeStateGUI.SetActive(true);
+        enterState();
     }
 
 
     public void OnDisable()
     {
-        WelcomeStateGUI.SetActive(false);
+        exitState();   
     }
 
 

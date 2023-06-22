@@ -54,30 +54,36 @@ public static class Presets
     //public static int ExperimentPerceptiveAOIAugmentationState = 4;
 
 
-    public enum ProcessState
-    {
-        WelcomeState = 1,
-        InstructionState = 2,
-        ExperimentState = 3,
-        PracticeState = 4,
-        EndState = 5
-    }
+    //public enum ProcessState
+    //{
+    //    WelcomeState = 1,
+    //    InstructionState = 2,
+    //    ExperimentState = 3,
+    //    PracticeState = 4,
+    //    EndState = 5
+    //}
 
     public enum ExperimentState
     {
-        
-        CalibrationState = 1,
+        WelcomeState = 1,
+        PracticeInstructionState = 2,
 
-        NoAOIAugmentationInstructionState = 2,
-        NoAOIAugmentationState = 3,
 
-        StaticAOIAugmentationInstructionState = 4,
-        StaticAOIAugmentationState = 5,
+        CalibrationState = 3,
 
-        PerceptiveAOIAugmentationInstructionState = 6,
-        PerceptiveAOIAugmentationState = 7,
+        NoAOIAugmentationInstructionState = 4,
+        NoAOIAugmentationState = 5,
 
-        SurveyState = 8,
+        StaticAOIAugmentationInstructionState = 6,
+        StaticAOIAugmentationState = 7,
+
+        PerceptiveAOIAugmentationInstructionState = 8,
+        PerceptiveAOIAugmentationState = 9,
+
+        SurveyState = 10,
+
+        EndState = 11
+
     }
 
     public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {

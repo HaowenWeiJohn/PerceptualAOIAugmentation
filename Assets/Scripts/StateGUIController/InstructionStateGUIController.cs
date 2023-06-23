@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InstructionStateGUI : MonoBehaviour
+public class InstructionStateGUIController : GUIController
 {
     // Start is called before the first frame update
     public TextMeshProUGUI instructionTitle;
@@ -12,13 +12,13 @@ public class InstructionStateGUI : MonoBehaviour
 
     void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        base.Update();
     }
 
     public void setInstructionTitle(string text)
@@ -31,14 +31,14 @@ public class InstructionStateGUI : MonoBehaviour
         instuctionContent.text = text;
     }
 
-    public void SetEnabled()
-    {
-        gameObject.SetActive(true);
-    }
+    //public void EnableSelf()
+    //{
+    //    gameObject.SetActive(true);
+    //}
 
-    public void SetDisabled()
-    {
-        gameObject.SetActive(false);
-    }
+    //public void DisableSelf()
+    //{
+    //    gameObject.SetActive(false);
+    //}
 
 }

@@ -1,22 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class StartStateController : StateController
+public class CalibrationStateController : StateController
 {
-
-
-
-
-    public StartStateGUIController startStateGUIController;
-
-
+    public CalibrationStateGUIController calibrationStateGUIController;
     // Start is called before the first frame update
     void Start()
     {
-
-        startStateGUIController.startButton.onClick.AddListener(startButtonOnClicked);
+        
     }
 
     // Update is called once per frame
@@ -26,21 +18,17 @@ public class StartStateController : StateController
     }
 
 
+
     public override void enterState()
     {
         base.enterState();
-        startStateGUIController.EnableSelf();
+        calibrationStateGUIController.EnableSelf();
     }
 
     public override void exitState()
     {
         base.exitState();
-        startStateGUIController.DisableSelf();
-    }
-
-    void startButtonOnClicked()
-    {
-        exitState();
+        calibrationStateGUIController.DisableSelf();
     }
 
 

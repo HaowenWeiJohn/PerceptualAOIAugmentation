@@ -14,7 +14,16 @@ public class GameManager : MonoBehaviour
     /// 
 
     public StartStateController startStateController;
-    public IntroductionStateController introductionStateController;
+    public IntroductionInstructionStateController introductionInstructionStateController;
+    public PracticeInstructionStateController practiceInstructionStateController;
+    public CalibrationStateController calibrationStateController ;
+
+    public NoAOIAugmentationStateController noAOIAugmentationStateController;
+    public StaticAOIAugmentationStateController staticAOIAugmentationStateController;
+    public InteractiveAOIAugmentationStateController interactiveAOIAugmentationStateController;
+
+    public EndStateController endStateController;
+
 
     int experimentStateIndex = 0;
 
@@ -23,6 +32,17 @@ public class GameManager : MonoBehaviour
         experimentStateIndex = 0;
         expermentProcedure.Add(Presets.ExperimentState.StartState);
         expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
+        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationState);
+        expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationState);
+        expermentProcedure.Add(Presets.ExperimentState.EndState);
+
 
         stateSelector(expermentProcedure[experimentStateIndex]);
         currentGameState.enterState();
@@ -31,7 +51,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentGameState.getCurrentState()==Presets.State.EndingState)
+        if (currentGameState.getCurrentState()==Presets.State.EndingState && currentGameState!=endStateController)
         {
             // reset previous state
             currentGameState.setCurrentState(Presets.State.IdleState);
@@ -53,8 +73,33 @@ public class GameManager : MonoBehaviour
                 currentGameState = startStateController;
                 break;
             case Presets.ExperimentState.IntroductionInstructionState:
-                currentGameState = introductionStateController;
+                currentGameState = introductionInstructionStateController;
                 break;
+            case Presets.ExperimentState.PracticeInstructionState:
+                currentGameState = practiceInstructionStateController;
+                break;
+            case Presets.ExperimentState.CalibrationState:
+                currentGameState = calibrationStateController;
+                break;
+
+
+            case Presets.ExperimentState.NoAOIAugmentationState:
+                currentGameState = noAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.StaticAOIAugmentationState:
+                currentGameState = staticAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.InteractiveAOIAugmentationState:
+                currentGameState = interactiveAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.EndState:
+                currentGameState = endStateController;
+                break;
+
+
         }
 
 

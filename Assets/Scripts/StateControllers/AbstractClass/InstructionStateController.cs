@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PracticeInstructionStateController : MonoBehaviour
+public class InstructionStateController : StateController
 {
     // Start is called before the first frame update
     void Start()
@@ -11,8 +11,8 @@ public class PracticeInstructionStateController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 }

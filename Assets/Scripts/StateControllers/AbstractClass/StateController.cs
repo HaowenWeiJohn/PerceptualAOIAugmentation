@@ -50,7 +50,7 @@ public class StateController : MonoBehaviour
 
     public void DisableSelf()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false); 
     }
 
     public Presets.State getCurrentState()
@@ -68,7 +68,7 @@ public class StateController : MonoBehaviour
         // check the key press and do state shfit
         if (Input.GetKeyDown(Presets.NextStateKey))
         {
-            currentState = Presets.State.EndingState;
+            exitState();
         }
         if (Input.GetKeyDown(Presets.InterruptKey))
         {

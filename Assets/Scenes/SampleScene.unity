@@ -1135,16 +1135,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567425301}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.538157, y: 0.49832273, z: 1297.0482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 321473761}
   - {fileID: 1315262008}
   - {fileID: 1061065697}
-  m_Father: {fileID: 1791685808}
-  m_RootOrder: 8
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &635158799
 GameObject:
@@ -2562,8 +2562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82454b89f7d088140a93ef50d93c9509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  endStateGUIController: {fileID: 0}
+  gameManager: {fileID: 2060634373}
+  endStateGUIController: {fileID: 1530333568}
 --- !u!1 &1172298749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,13 +3719,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530333567}
+  - component: {fileID: 1530333568}
   m_Layer: 5
   m_Name: EndStateGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1530333567
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3748,6 +3749,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1530333568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530333566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f182cf90db4dc1d4c87e70359b0af8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1564057677
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,7 +4094,6 @@ Transform:
   - {fileID: 1388072443}
   - {fileID: 663282354}
   - {fileID: 1145392330}
-  - {fileID: 567425302}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4903,8 +4915,9 @@ MonoBehaviour:
   practiceInstructionStateController: {fileID: 365139248}
   calibrationStateController: {fileID: 1055088876}
   noAOIAugmentationStateController: {fileID: 680620833}
-  staticAOIAugmentationStateController: {fileID: 0}
-  interactiveAOIAugmentationStateController: {fileID: 0}
+  staticAOIAugmentationStateController: {fileID: 1388072444}
+  interactiveAOIAugmentationStateController: {fileID: 663282355}
+  endStateController: {fileID: 1145392331}
 --- !u!4 &2060634374
 Transform:
   m_ObjectHideFlags: 0

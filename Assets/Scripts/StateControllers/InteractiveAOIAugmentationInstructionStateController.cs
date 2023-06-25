@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PracticeInstructionStateController : StateController
+public class InteractiveAOIAugmentationInstructionStateController : StateController
 {
     // Start is called before the first frame update
     public InstructionStateGUIController instructionStateGUIController;
@@ -23,7 +23,7 @@ public class PracticeInstructionStateController : StateController
     {
         base.enterState();
         instructionStateGUIController.EnableSelf();
-        instructionStateGUIController.setInstructionTitle("N State");
+        instructionStateGUIController.setInstructionTitle("I");
         instructionStateGUIController.setInstructionContent("Instruction Content");
     }
 

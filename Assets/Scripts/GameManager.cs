@@ -12,16 +12,31 @@ public class GameManager : MonoBehaviour
     ///  avaliable states
     /// </summary>
     /// 
-
+    [Header("Start State")]
     public StartStateController startStateController;
+
+    [Header("Introduction State")]
     public IntroductionInstructionStateController introductionInstructionStateController;
+
+    [Header("Practice Instruction State")]
     public PracticeInstructionStateController practiceInstructionStateController;
+
+    [Header("Calibration State")]
     public CalibrationStateController calibrationStateController ;
 
+    [Header("NoAOIAugmentation")]
+    public NoAOIAugmentationInstructionStateController noAOIAugmentationInstructionStateController;
     public NoAOIAugmentationStateController noAOIAugmentationStateController;
+
+    [Header("StaticAOIAugmentation")]
+    public StaticAOIAugmentationInstructionStateController staticAOIAugmentationInstructionStateController;
     public StaticAOIAugmentationStateController staticAOIAugmentationStateController;
+
+    [Header("InteractiveAOIAugmentation")]
+    public InteractiveAOIAugmentationInstructionStateController interactiveAOIAugmentationInstructionStateController;
     public InteractiveAOIAugmentationStateController interactiveAOIAugmentationStateController;
 
+    [Header("EndState")]
     public EndStateController endStateController;
 
 
@@ -31,6 +46,9 @@ public class GameManager : MonoBehaviour
     {
         experimentStateIndex = 0;
         expermentProcedure.Add(Presets.ExperimentState.StartState);
+        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationInstructionState);
+        expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationInstructionState);
         expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
         expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
         expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
@@ -82,6 +100,19 @@ public class GameManager : MonoBehaviour
                 currentGameState = calibrationStateController;
                 break;
 
+            /////////////////////////////////////
+            case Presets.ExperimentState.NoAOIAugmentationInstructionState:
+                currentGameState = noAOIAugmentationInstructionStateController;
+                break;
+
+            case Presets.ExperimentState.StaticAOIAugmentationInstructionState:
+                currentGameState = staticAOIAugmentationInstructionStateController;
+                break;
+
+            case Presets.ExperimentState.InteractiveAOIAugmentationInstructionState:
+                currentGameState = interactiveAOIAugmentationInstructionStateController;
+                break;
+            /////////////////////////////////////
 
             case Presets.ExperimentState.NoAOIAugmentationState:
                 currentGameState = noAOIAugmentationStateController;

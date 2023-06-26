@@ -45,22 +45,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         experimentStateIndex = 0;
-        expermentProcedure.Add(Presets.ExperimentState.StartState);
-        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
-        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
-        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
-        expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationState);
-        expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
-        expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationState);
-        expermentProcedure.Add(Presets.ExperimentState.EndState);
+        //expermentProcedure.Add(Presets.ExperimentState.StartState);
+        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
+        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationState);
+        //expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        //expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationState);
+        //expermentProcedure.Add(Presets.ExperimentState.EndState);
 
+        expermentProcedure = ExperimentPreset.ConstructExperimentStates();
 
         stateSelector(expermentProcedure[experimentStateIndex]);
         currentGameState.enterState();

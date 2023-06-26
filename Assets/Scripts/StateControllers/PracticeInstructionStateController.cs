@@ -23,7 +23,7 @@ public class PracticeInstructionStateController : StateController
     {
         base.enterState();
         instructionStateGUIController.EnableSelf();
-        instructionStateGUIController.setInstructionTitle("N State");
+        instructionStateGUIController.setInstructionTitle("Practice");
         instructionStateGUIController.setInstructionContent("Instruction Content");
     }
 

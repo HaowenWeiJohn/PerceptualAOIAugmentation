@@ -24,17 +24,20 @@ public class GameManager : MonoBehaviour
     [Header("Calibration State")]
     public CalibrationStateController calibrationStateController ;
 
-    [Header("NoAOIAugmentation")]
+    [Header("NoAOIAugmentationState")]
     public NoAOIAugmentationInstructionStateController noAOIAugmentationInstructionStateController;
     public NoAOIAugmentationStateController noAOIAugmentationStateController;
 
-    [Header("StaticAOIAugmentation")]
+    [Header("StaticAOIAugmentationState")]
     public StaticAOIAugmentationInstructionStateController staticAOIAugmentationInstructionStateController;
     public StaticAOIAugmentationStateController staticAOIAugmentationStateController;
 
-    [Header("InteractiveAOIAugmentation")]
+    [Header("InteractiveAOIAugmentationState")]
     public InteractiveAOIAugmentationInstructionStateController interactiveAOIAugmentationInstructionStateController;
     public InteractiveAOIAugmentationStateController interactiveAOIAugmentationStateController;
+
+    [Header("FeedbackState")]
+    public FeedbackStateController feedbackStateController;
 
     [Header("EndState")]
     public EndStateController endStateController;
@@ -125,6 +128,10 @@ public class GameManager : MonoBehaviour
 
             case Presets.ExperimentState.InteractiveAOIAugmentationState:
                 currentGameState = interactiveAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.FeedbackState:
+                currentGameState = feedbackStateController;
                 break;
 
             case Presets.ExperimentState.EndState:

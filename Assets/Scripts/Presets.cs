@@ -6,6 +6,8 @@ public static class Presets
 {
     public static string GameManagerName = "GameManager";
 
+    public static int MaxScore = 100;
+
     public static KeyCode NextStateKey = KeyCode.Space;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
@@ -42,10 +44,15 @@ public static class Presets
 
     }
 
-    public static List<ExperimentState> WelcomeBlock = new List<ExperimentState> {
+    public static List<ExperimentState> StartBlock = new List<ExperimentState> {
         ExperimentState.StartState,
         ExperimentState.IntroductionInstructionState
     };
+
+    public static List<ExperimentState> EndBlock = new List<ExperimentState> {
+        ExperimentState.EndState
+    };
+
 
     public static List<ExperimentState> PracticeStartBlock = new List<ExperimentState>
     {

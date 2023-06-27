@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurveyStateController : StateController
+public class FeedbackStateController : StateController
 {
     // Start is called before the first frame update
 
-    public SurveyStateGUIController surveyStateGUIController;
+    public FeedbackStateGUIController surveyStateGUIController;
 
     void Start()
     {

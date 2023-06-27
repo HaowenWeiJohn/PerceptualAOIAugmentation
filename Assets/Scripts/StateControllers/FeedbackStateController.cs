@@ -6,7 +6,7 @@ public class FeedbackStateController : StateController
 {
     // Start is called before the first frame update
 
-    public FeedbackStateGUIController surveyStateGUIController;
+    public FeedbackStateGUIController feedbackStateGUIController;
 
     void Start()
     {
@@ -23,14 +23,14 @@ public class FeedbackStateController : StateController
 
     public override void enterState()
     {
-        surveyStateGUIController.EnableSelf();
+        feedbackStateGUIController.EnableSelf();
         base.enterState();
 
     }
 
     public override void exitState()
     {
-        surveyStateGUIController.DisableSelf();
+        feedbackStateGUIController.DisableSelf();
         base.exitState();
 
     }

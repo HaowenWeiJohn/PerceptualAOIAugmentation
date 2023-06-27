@@ -23,6 +23,10 @@ public class FeedbackStateGUIController : GUIController
     public Button eightButton;
     public Button nineButton;
 
+    [Header("Delete Buttons")]
+    public Button deleteButton;
+
+
 
 
     void Start()
@@ -40,6 +44,9 @@ public class FeedbackStateGUIController : GUIController
         sevenButton.onClick.AddListener(sevenButtonPressed);
         eightButton.onClick.AddListener(eightButtonPressed);
         nineButton.onClick.AddListener(nineButtonPressed);
+
+        deleteButton.onClick.AddListener(deleteButtonPressed);
+
 
 
 
@@ -173,9 +180,44 @@ public class FeedbackStateGUIController : GUIController
     }
 
 
+    private void deleteButtonPressed()
+    {
+        string scoreText = scoreInputField.text;
+        if (!string.IsNullOrEmpty(scoreText))
+        {
+            scoreInputField.text = scoreText.Substring(0, scoreText.Length - 1);
+        }
+    }
 
 
+    public int getScore() {
+        int score;
+        int.TryParse(scoreInputField.text, out score);
+        return score;
+    }
+
+    public string getMessage()
+    {
+        return messageInputField.text;
+    }
+
+    public void clearFeedback()
+    {
+        scoreInputField.text = "";
+        messageInputField.text = "";
+    }
 
 
+    public void EnableSelf()
+    {
+        clearFeedback();
+        base.EnableSelf();
+    }
+
+    public void DisableSelf()
+    {
+        clearFeedback();
+        base.DisableSelf();
+    }
 
 }

@@ -11,7 +11,7 @@ public class InteractiveAOIAugmentationStateController : StateController
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

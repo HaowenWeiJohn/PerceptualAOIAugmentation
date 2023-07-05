@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5396251423183091257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5396251423183091254}
+  - component: {fileID: 5396251423183091253}
+  - component: {fileID: 5396251423183091252}
+  - component: {fileID: 5396251423183091255}
+  - component: {fileID: 1224505303650986708}
+  - component: {fileID: 300890467310684118}
+  - component: {fileID: 1893241223}
+  m_Layer: 5
+  m_Name: PolygonMeshRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5396251423183091254
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.47, y: -5.96}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!23 &5396251423183091253
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &5396251423183091252
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Mesh: {fileID: 0}
+--- !u!114 &5396251423183091255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f8671de591ab54faff62aadcbab79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygonPoints:
+  - {x: 7, y: 0, z: 0}
+  - {x: 6.8470335, y: 1.455382, z: 0}
+  - {x: 6.394818, y: 2.8471568, z: 0}
+  - {x: 5.6631184, y: 4.114497, z: 0}
+  - {x: 4.683914, y: 5.202014, z: 0}
+  - {x: 3.499999, y: 6.0621786, z: 0}
+  - {x: 2.163118, y: 6.657396, z: 0}
+  - {x: 0.7316981, y: 6.961653, z: 0}
+  - {x: -0.7317004, y: 6.9616528, z: 0}
+  - {x: -2.16312, y: 6.6573954, z: 0}
+  - {x: -3.5000017, y: 6.0621767, z: 0}
+  - {x: -4.6839156, y: 5.2020125, z: 0}
+  - {x: -5.6631203, y: 4.1144953, z: 0}
+  - {x: -6.3948193, y: 2.8471544, z: 0}
+  - {x: -6.847034, y: 1.4553796, z: 0}
+  - {x: -7, y: -0.0000022808895, z: 0}
+  - {x: -6.8470325, y: -1.4553841, z: 0}
+  - {x: -6.3948174, y: -2.8471587, z: 0}
+  - {x: -5.6631174, y: -4.1144986, z: 0}
+  - {x: -4.6839123, y: -5.2020154, z: 0}
+  - {x: -3.4999964, y: -6.0621796, z: 0}
+  - {x: -2.1631165, y: -6.6573963, z: 0}
+  - {x: -0.73169506, y: -6.9616537, z: 0}
+  - {x: 0.73170185, y: -6.9616528, z: 0}
+  - {x: 2.163123, y: -6.657394, z: 0}
+  - {x: 3.5000024, y: -6.0621767, z: 0}
+  - {x: 4.6839175, y: -5.2020106, z: 0}
+  - {x: 5.6631207, y: -4.114495, z: 0}
+  - {x: 6.39482, y: -2.8471522, z: 0}
+  - {x: 6.847034, y: -1.4553791, z: 0}
+  - {x: 5, y: 0, z: 0}
+  - {x: 4.890738, y: 1.0395585, z: 0}
+  - {x: 4.567727, y: 2.0336833, z: 0}
+  - {x: 4.045085, y: 2.9389265, z: 0}
+  - {x: 3.3456528, y: 3.7157245, z: 0}
+  - {x: 2.4999995, y: 4.3301277, z: 0}
+  - {x: 1.5450842, y: 4.755283, z: 0}
+  - {x: 0.5226415, y: 4.9726095, z: 0}
+  - {x: -0.52264315, y: 4.9726095, z: 0}
+  - {x: -1.5450858, y: 4.7552824, z: 0}
+  - {x: -2.5000012, y: 4.3301263, z: 0}
+  - {x: -3.345654, y: 3.715723, z: 0}
+  - {x: -4.045086, y: 2.938925, z: 0}
+  - {x: -4.567728, y: 2.0336816, z: 0}
+  - {x: -4.8907385, y: 1.0395569, z: 0}
+  - {x: -5, y: -0.0000016292068, z: 0}
+  - {x: -4.8907375, y: -1.0395601, z: 0}
+  - {x: -4.5677266, y: -2.0336847, z: 0}
+  - {x: -4.045084, y: -2.9389277, z: 0}
+  - {x: -3.3456516, y: -3.7157252, z: 0}
+  - {x: -2.4999974, y: -4.3301287, z: 0}
+  - {x: -1.5450833, y: -4.755283, z: 0}
+  - {x: -0.5226393, y: -4.97261, z: 0}
+  - {x: 0.52264416, y: -4.9726095, z: 0}
+  - {x: 1.5450878, y: -4.7552814, z: 0}
+  - {x: 2.500002, y: -4.330126, z: 0}
+  - {x: 3.3456554, y: -3.715722, z: 0}
+  - {x: 4.0450864, y: -2.9389248, z: 0}
+  - {x: 4.5677285, y: -2.0336802, z: 0}
+  - {x: 4.8907385, y: -1.0395565, z: 0}
+  polygonTriangles: 000000001e00000001000000000000003b0000001e000000010000001f00000002000000010000001e0000001f000000020000002000000003000000020000001f0000002000000003000000210000000400000003000000200000002100000004000000220000000500000004000000210000002200000005000000230000000600000005000000220000002300000006000000240000000700000006000000230000002400000007000000250000000800000007000000240000002500000008000000260000000900000008000000250000002600000009000000270000000a0000000900000026000000270000000a000000280000000b0000000a00000027000000280000000b000000290000000c0000000b00000028000000290000000c0000002a0000000d0000000c000000290000002a0000000d0000002b0000000e0000000d0000002a0000002b0000000e0000002c0000000f0000000e0000002b0000002c0000000f0000002d000000100000000f0000002c0000002d000000100000002e00000011000000100000002d0000002e000000110000002f00000012000000110000002e0000002f000000120000003000000013000000120000002f0000003000000013000000310000001400000013000000300000003100000014000000320000001500000014000000310000003200000015000000330000001600000015000000320000003300000016000000340000001700000016000000330000003400000017000000350000001800000017000000340000003500000018000000360000001900000018000000350000003600000019000000370000001a0000001900000036000000370000001a000000380000001b0000001a00000037000000380000001b000000390000001c0000001b00000038000000390000001c0000003a0000001d0000001c000000390000003a0000001d0000003b000000000000001d0000003a0000003b000000
+  isFilled: 0
+  polygonSides: 30
+  polygonRadius: 7
+  centerRadius: 5
+--- !u!210 &1224505303650986708
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Enabled: 1
+  m_SortingLayerID: 473264505
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+--- !u!114 &300890467310684118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4749a1ce6e97a7d47af0d14806793ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygonMaterial: {fileID: 2100000, guid: 9261ee76e5335e842999e2ba7e977025, type: 2}
+  polygonMeshRendererController: {fileID: 5396251423183091255}
+--- !u!114 &1893241223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396251423183091257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4749a1ce6e97a7d47af0d14806793ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygonMaterial: {fileID: 2100000, guid: 9261ee76e5335e842999e2ba7e977025, type: 2}
+  polygonMeshRendererController: {fileID: 5396251423183091255}

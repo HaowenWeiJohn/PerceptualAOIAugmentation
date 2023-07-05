@@ -12,6 +12,44 @@ public static class Presets
     public static KeyCode InterruptKey = KeyCode.Escape;
 
 
+    public enum DisplayState
+    {
+        Hide = 1,
+        Show = 2,
+        ShowToHide = 3,
+        HideToShow = 4
+    }
+
+    public enum ShowStateAlphaVisualizaton
+    {
+        Static = 1,
+        DynamicOnOff = 2,
+    }
+
+    public enum ShowStateColorVisualization
+    {
+        Static = 1,
+        DynamicTransfer = 2,
+    }
+
+    public enum ShowStateGeometryVisualization
+    {
+        Static = 1,
+        DynmicCenterRadius = 2,
+    }
+
+
+
+    public enum ShowToHideStateVisualization
+    {
+        Static = 1,
+        Fade = 2,
+        Explode = 3,
+        Shrink = 4,
+    }
+
+
+
     public enum State
     {
         IdleState = 0,

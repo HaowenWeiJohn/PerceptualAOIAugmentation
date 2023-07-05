@@ -7,22 +7,79 @@ public class PolygonMeshRendererController : MonoBehaviour
     #region setup
     //mesh properties
     Mesh mesh;
+
+    public Material materialPrefab;
+    public MeshRenderer meshRenderer;
+
     public Vector3[] polygonPoints;
     public int[] polygonTriangles;
 
     //polygon properties
     public bool isFilled;
+
+    [Header("Initial Prameters")]
+    public int initialPolygonSides;
+    public float initialPolygonRadius;
+    public float initialPolygonCenterRadius;
+    public Material initialPolygonMaterial;
+
+    [Header ("Dynamic Prameters")]
     public int polygonSides;
     public float polygonRadius;
-    public float centerRadius;
+    public float polygonCenterRadius;
+    public Material polygonMaterial;
+
 
     void Start()
     {
         mesh = new Mesh();
         this.GetComponent<MeshFilter>().mesh = mesh;
+        // set initial geometry
+        setInitialGeometry();
+        setInitialMaterial();
+        // set initial material
+
+
     }
 
+
     void Update()
+    {
+        draw();
+        //if (isFilled)
+        //{
+        //    DrawFilled(polygonSides, polygonRadius);
+        //}
+        //else
+        //{
+        //    DrawHollow(polygonSides, polygonRadius, polygonCenterRadius);
+        //}
+    }
+
+    public void setInitialGeometryMaterial()
+    {
+        setInitialGeometry();
+        setInitialMaterial();
+    }
+
+
+    void setInitialGeometry()
+    {
+        polygonSides = initialPolygonSides;
+        polygonRadius = initialPolygonRadius;
+        polygonCenterRadius = initialPolygonCenterRadius;
+
+        draw();
+    }
+
+    void setInitialMaterial()
+    {
+        polygonMaterial = Instantiate(materialPrefab);
+        meshRenderer.material = polygonMaterial;
+    }
+
+
+    void draw()
     {
         if (isFilled)
         {
@@ -30,9 +87,12 @@ public class PolygonMeshRendererController : MonoBehaviour
         }
         else
         {
-            DrawHollow(polygonSides, polygonRadius, centerRadius);
+            DrawHollow(polygonSides, polygonRadius, polygonCenterRadius);
         }
     }
+
+
+
     #endregion
 
     void DrawFilled(int sides, float radius)

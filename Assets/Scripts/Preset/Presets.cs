@@ -4,6 +4,12 @@ using UnityEngine;
 
 public static class Presets
 {
+    public static string GazeDataLSLOutletStreamName = "TobiiProFusion";
+    public static string GazeDataLSLOutletStreamType = "GazeData";
+    public static string GazeDataLSLOutletStreamID = "0";
+    public static int GazeDataChannelNum = 51;
+    public static float GazeDataNominalSamplingRate = 250;
+
     public static string GameManagerName = "GameManager";
 
     public static int MaxScore = 100;

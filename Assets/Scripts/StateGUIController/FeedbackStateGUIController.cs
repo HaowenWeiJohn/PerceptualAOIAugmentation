@@ -22,6 +22,7 @@ public class FeedbackStateGUIController : GUIController
     public Button sevenButton;
     public Button eightButton;
     public Button nineButton;
+    public Button zeroButton;
 
     [Header("Delete Buttons")]
     public Button deleteButton;
@@ -44,6 +45,7 @@ public class FeedbackStateGUIController : GUIController
         sevenButton.onClick.AddListener(sevenButtonPressed);
         eightButton.onClick.AddListener(eightButtonPressed);
         nineButton.onClick.AddListener(nineButtonPressed);
+        zeroButton.onClick.AddListener(zeroButtonPressed);
 
         deleteButton.onClick.AddListener(deleteButtonPressed);
 
@@ -93,7 +95,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "1", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "1";
         }
@@ -103,7 +105,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "2", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "2";
         }
@@ -113,7 +115,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "3", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "3";
         }
@@ -123,7 +125,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "4", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "4";
         }
@@ -133,7 +135,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "5", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "5";
         }
@@ -143,7 +145,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "6", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "6";
         }
@@ -153,7 +155,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "7", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "7";
         }
@@ -163,7 +165,7 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "8", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "8";
         }
@@ -173,9 +175,20 @@ public class FeedbackStateGUIController : GUIController
     {
         int score;
         int.TryParse(scoreInputField.text + "9", out score);
-        if (score < Presets.MaxScore)
+        if (score <= Presets.MaxScore)
         {
             scoreInputField.text = scoreInputField.text + "9";
+        }
+    }
+
+
+    private void zeroButtonPressed()
+    {
+        int score;
+        int.TryParse(scoreInputField.text + "0", out score);
+        if (score <= Presets.MaxScore)
+        {
+            scoreInputField.text = scoreInputField.text + "0";
         }
     }
 

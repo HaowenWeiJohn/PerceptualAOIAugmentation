@@ -27,8 +27,8 @@ public class LSLTobiiProGazeDataOutlet : MonoBehaviour
         {
             float[] gazeDataArray = new float[51];
             GazeDataUtils.UnpackGazeData(data, gazeDataArray);
-            // push gazeDataArray
-            gazeDataOutlet.push_sample(gazeDataArray);
+            float timestamp = gazeDataArray[50] / 1000000;
+            gazeDataOutlet.push_sample(gazeDataArray, timestamp);
 
             data = _eyeTracker.NextData;
             

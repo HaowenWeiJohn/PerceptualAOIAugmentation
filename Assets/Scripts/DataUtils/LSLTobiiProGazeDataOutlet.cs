@@ -25,13 +25,17 @@ public class LSLTobiiProGazeDataOutlet : MonoBehaviour
         var data = _eyeTracker.NextData;
         while (data != default(IGazeData))
         {
+            float startTime = Time.time;
             float[] gazeDataArray = new float[51];
             GazeDataUtils.UnpackGazeData(data, gazeDataArray);
             float timestamp = gazeDataArray[50] / 1000000;
             gazeDataOutlet.push_sample(gazeDataArray, timestamp);
+            float endTime = Time.time;
+            Debug.Log(startTime-endTime);
 
             data = _eyeTracker.NextData;
             
+
         }
     }
 

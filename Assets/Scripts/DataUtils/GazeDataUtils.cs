@@ -200,13 +200,13 @@ public static class GazeDataUtils
 
 
         // convert gaze data to 0 if nan
-        //for (int i = 0; i < gazeDataArray.Length; i++)
-        //{
-        //    if (float.IsNaN(gazeDataArray[i]))
-        //    {
-        //        gazeDataArray[i] = 0;
-        //    }
-        //}
+        for (int i = 0; i < gazeDataArray.Length; i++)
+            {
+                if (float.IsNaN(gazeDataArray[i]))
+                {
+                    gazeDataArray[i] = 0;
+                }
+            }
 
     }
 }

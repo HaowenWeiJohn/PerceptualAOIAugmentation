@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchDisplayMode : MonoBehaviour
+public class SwitchDisplayModeController : MonoBehaviour
 {
     public bool fullScreenOn = false;
 

@@ -10,6 +10,21 @@ public static class GazeDataUtils
 
     //public static float[] gazeDataArray = new float[51];
 
+
+    public static Vector2 tobiiGazePointOnScreenLocationToScreenCanvasCoordinate(float tobiiGazePointOnScreenLocationX, float tobiiGazePointOnScreenLocationY, float ScreenWidth, float ScreenHeight)
+    {
+        float x = tobiiGazePointOnScreenLocationX * ScreenWidth - ScreenWidth / 2;
+        float y = ScreenHeight / 2 - tobiiGazePointOnScreenLocationY * ScreenHeight;
+        return new Vector2(x, y);
+    }
+
+    public static Vector2 tobiiGazePointOnScreenLocationToScreenPixelCoordinte(float tobiiGazePointOnScreenLocationX, float tobiiGazePointOnScreenLocationY, float ScreenWidth, float ScreenHeight)
+    {
+        float x = tobiiGazePointOnScreenLocationX * ScreenWidth;
+        float y = ScreenHeight - tobiiGazePointOnScreenLocationY * ScreenHeight;
+        return new Vector2(x, y);
+    }
+
     public static void UnpackGazeData(IGazeData gazeData, float[] gazeDataArray)
     {
 

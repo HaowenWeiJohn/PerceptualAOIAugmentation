@@ -7184,6 +7184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485843176}
     m_Modifications:
+    - target: {fileID: 1804673388081056141, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+      propertyPath: polygonMeshRendererController
+      value: 
+      objectReference: {fileID: 1748089264}
     - target: {fileID: 1804673388081056142, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: initialPolygonRadius
       value: 60
@@ -7866,6 +7870,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1804673388081056178, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
   m_PrefabInstance: {fileID: 1552672449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1748089264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1804673388081056142, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+  m_PrefabInstance: {fileID: 1552672449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748089261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f8671de591ab54faff62aadcbab79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1748089267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7881,7 +7896,10 @@ MonoBehaviour:
   polygonMaterial: {fileID: 2100000, guid: 9261ee76e5335e842999e2ba7e977025, type: 2}
   maxAlpha: 0.8
   minAlpha: 0.2
-  speed: 10
+  alphaPeriod: 1
+  colorPeriod: 1
+  color1: {r: 1, g: 1, b: 1, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1775351146
 GameObject:
   m_ObjectHideFlags: 0
@@ -8941,7 +8959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1976997953
 RectTransform:
   m_ObjectHideFlags: 0

@@ -39,7 +39,6 @@ public class PolygonMeshRendererController : MonoBehaviour
         setInitialMaterial();
         // set initial material
 
-
     }
 
 
@@ -54,6 +53,23 @@ public class PolygonMeshRendererController : MonoBehaviour
         //{
         //    DrawHollow(polygonSides, polygonRadius, polygonCenterRadius);
         //}
+        Vector3[] vertices = mesh.vertices;
+
+        // create new colors array where the colors will be created.
+        Color32[] colors = new Color32[vertices.Length];
+
+        for (int i = 0; i < vertices.Length; i++)
+            //colors[i] = Color.Lerp(Color.black, Color.yellow, vertices[i].y);
+            //if (i % 4 < 2) colors[i] = Color.black;
+            //else colors[i] = Color.yellow;
+            //if(i < 0.5 * vertices.Length) colors[i] = Color.HSVToRGB(((float)i)/(vertices.Length), 1f, 1f);
+            //else colors[i] = Color.HSVToRGB(0.5f, 1f, 1f);
+            colors[i] = Color.white;
+        // assign the array of colors to the Mesh.
+        colors[0] = Color.yellow;
+        colors[vertices.Length - 1] = Color.red;
+        colors[(int)0.5 * vertices.Length] = Color.black;
+        mesh.colors32 = colors;
     }
 
     public void setInitialGeometryMaterial()

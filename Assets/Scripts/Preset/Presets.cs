@@ -65,28 +65,27 @@ public static class Presets
     }
     public enum ExperimentState
     {
-        StartState = 0,
+        CalibrationState = 1,
+        StartState = 2,
 
-        IntroductionInstructionState = 1,
-        PracticeInstructionState = 2,
+        IntroductionInstructionState = 3,
+        
+        PracticeInstructionState = 4,
 
+        NoAOIAugmentationInstructionState = 5,
+        NoAOIAugmentationState = 6,
 
-        CalibrationState = 3,
+        StaticAOIAugmentationInstructionState = 7,
+        StaticAOIAugmentationState = 8,
 
-        NoAOIAugmentationInstructionState = 4,
-        NoAOIAugmentationState = 5,
+        InteractiveAOIAugmentationInstructionState = 9,
+        InteractiveAOIAugmentationState = 10,
 
-        StaticAOIAugmentationInstructionState = 6,
-        StaticAOIAugmentationState = 7,
+        FeedbackState = 11,
 
-        InteractiveAOIAugmentationInstructionState = 8,
-        InteractiveAOIAugmentationState = 9,
+        EndState = 12
 
-        FeedbackState = 10,
-
-        EndState = 11
-
-    }
+    }                                                   
 
     public static List<ExperimentState> StartBlock = new List<ExperimentState> {
         ExperimentState.StartState,

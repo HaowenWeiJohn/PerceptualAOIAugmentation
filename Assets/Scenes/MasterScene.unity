@@ -1953,7 +1953,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516646961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9720}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 30, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3819,6 +3819,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832719274}
   m_CullTransparentMesh: 1
+--- !u!114 &846851546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1804673388081056142, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+  m_PrefabInstance: {fileID: 1552672449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f8671de591ab54faff62aadcbab79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!23 &846851548 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1804673388081056143, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+  m_PrefabInstance: {fileID: 1552672449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &859907962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,7 +4481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025647192}
   m_Layer: 0
-  m_Name: LSLControllers
+  m_Name: NetworkControllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7184,6 +7200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485843176}
     m_Modifications:
+    - target: {fileID: 1804673388081056141, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+      propertyPath: polygonMeshRendererController
+      value: 
+      objectReference: {fileID: 846851546}
+    - target: {fileID: 1804673388081056142, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 846851548}
     - target: {fileID: 1804673388081056178, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_Name
       value: Polygon
@@ -7194,7 +7218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.y

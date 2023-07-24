@@ -40,15 +40,20 @@ public class PolygonAnimationController : MonoBehaviour
     [SerializeField] private Color color2 = new Color(0.5f, 0.5f, 0.5f, 1f);
 
     private Color color;
+    private Material materialCopy;
 
     // Start is called before the first frame update
     void Start()
     {
+        materialCopy = Instantiate(polygonMaterial);
+        Renderer objectRenderer = GetComponent<Renderer>();
+        objectRenderer.material = materialCopy;
+
         color = color1;
         polygonMaterial.color = color;
         color = polygonMaterial.color;
 
-        if(radiusChangingEffect == true)
+        if (radiusChangingEffect == true)
         {
             meshRenderer.polygonRadius = maxOuterRadius;
             meshRenderer.polygonCenterRadius = maxInnerRadius;
@@ -59,7 +64,7 @@ public class PolygonAnimationController : MonoBehaviour
     void Update()
     {
         //Rotation
-        if(rotatingEffect)
+        if (rotatingEffect)
         {
             angularSpeed = Mathf.Abs(angularSpeed);
             if (direction == Direction.Clockwise) directedAngularSpeed = angularSpeed;
@@ -71,31 +76,32 @@ public class PolygonAnimationController : MonoBehaviour
         }
 
         //Radius
-        if(radiusChangingEffect)
+        if (radiusChangingEffect)
         {
-            meshRenderer.polygonRadius = maxOuterRadius - (maxOuterRadius - minOuterRadius) * Mathf.Sin(Time.time * outerRadiusChangingPeriod + 1f) * 0.5f;
-            meshRenderer.polygonCenterRadius = maxInnerRadius - (maxInnerRadius - minInnerRadius) * Mathf.Sin(Time.time * innerRadiusChangingPeriod + 1f) * 0.5f;
+            meshRenderer.polygonRadius = maxOuterRadius - (maxOuterRadius - minOuterRadius) * Mathf.Sin((Time.time * 2 * Mathf.PI + 1f) / outerRadiusChangingPeriod) * 0.5f;
+            meshRenderer.polygonCenterRadius = maxInnerRadius - (maxInnerRadius - minInnerRadius) * Mathf.Sin((Time.time * 2 * Mathf.PI + 1f) / innerRadiusChangingPeriod) * 0.5f;
         }
-        if(!radiusChangingEffect)
+        if (!radiusChangingEffect)
         {
             meshRenderer.polygonRadius = meshRenderer.initialPolygonRadius;
             meshRenderer.polygonCenterRadius = meshRenderer.initialPolygonCenterRadius;
         }
 
         //Material
-        if(materialChangingEffect)
+        if (materialChangingEffect)
         {
             color.r = compareRGB(color1.r, color2.r);
             color.g = compareRGB(color1.g, color2.g);
             color.b = compareRGB(color1.b, color2.b);
-            color.a = minAlpha + (maxAlpha - minAlpha) * (Mathf.Sin(Time.time * alphaPeriod) + 1f) * 0.5f;
-            polygonMaterial.color = color;
+            color.a = minAlpha + (maxAlpha - minAlpha) * (Mathf.Sin((Time.time * 2 * Mathf.PI + 1f) / alphaPeriod)) * 0.5f;
+            materialCopy.color = color;
         }
+        if (!materialChangingEffect) materialCopy.color = new Color(1f, 1f, 1f, 1f);
     }
 
     private float compareRGB(float color1, float color2)
     {
-        if (color1 > color2) return color1 - 0.5f * (Mathf.Sin(Time.time * colorPeriod) + 1f) * (color1 - color2);
-        else return color1 + 0.5f * (Mathf.Sin(Time.time * colorPeriod) + 1f) * (color2 - color1);
+        if (color1 > color2) return color1 - 0.5f * (Mathf.Sin((Time.time * 2 * Mathf.PI) + 1f) / colorPeriod) * (color1 - color2);
+        else return color1 + 0.5f * (Mathf.Sin((Time.time * 2 * Mathf.PI) + 1f) / colorPeriod) * (color2 - color1);
     }
 }

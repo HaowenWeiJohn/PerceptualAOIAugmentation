@@ -39,7 +39,6 @@ public class PolygonMeshRendererController : MonoBehaviour
         setInitialMaterial();
         // set initial material
 
-
     }
 
 
@@ -54,6 +53,16 @@ public class PolygonMeshRendererController : MonoBehaviour
         //{
         //    DrawHollow(polygonSides, polygonRadius, polygonCenterRadius);
         //}
+
+        Vector3[] vertices = mesh.vertices;
+        Vector2[] uv = new Vector2[vertices.Length];
+        for (int i = 0; i < uv.Length; i++)
+        {
+            uv[i] = new Vector2(vertices[i].x, vertices[i].y);
+        }
+
+        // Assign the UV data to the mesh
+        mesh.uv = uv;
     }
 
     public void setInitialGeometryMaterial()

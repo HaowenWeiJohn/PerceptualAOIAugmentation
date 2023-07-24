@@ -13,7 +13,7 @@ public class EventMarkerLSLOutletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        initLSLEventMarkerOutlet();
     }
 
     // Update is called once per frame
@@ -22,15 +22,17 @@ public class EventMarkerLSLOutletController : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+
+
+    void initLSLEventMarkerOutlet()
     {
         StreamInfo streamInfo = new StreamInfo(
-                                        Presets.EventMarkerLSLOutletStreamName,
-                                        Presets.EventMarkerLSLOutletStreamType,
-                                        Presets.EventMarkerChannelNum,
-                                        Presets.EventMarkerNominalSamplingRate,
-                                        LSL.channel_format_t.cf_float32
-                                        );
+                                Presets.EventMarkerLSLOutletStreamName,
+                                Presets.EventMarkerLSLOutletStreamType,
+                                Presets.EventMarkerChannelNum,
+                                Presets.EventMarkerNominalSamplingRate,
+                                LSL.channel_format_t.cf_float32
+                                );
 
         eventMarkerLSLOutlet = new StreamOutlet(streamInfo);
 

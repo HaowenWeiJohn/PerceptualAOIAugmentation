@@ -1652,6 +1652,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionTitle: {fileID: 1481252159}
   instuctionContent: {fileID: 2046446551}
+--- !u!1 &405985192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405985193}
+  m_Layer: 0
+  m_Name: LSLController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405985193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405985192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1065392283}
+  - {fileID: 1614001335}
+  m_Father: {fileID: 1025647192}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &435572575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4988019072819320, guid: 2c899a56a2dccaf4184601eaee3fe739, type: 3}
@@ -4499,8 +4532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1065392283}
-  - {fileID: 1614001335}
+  - {fileID: 405985193}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4781,8 +4813,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065392283}
+  - component: {fileID: 1065392284}
   m_Layer: 0
-  m_Name: LSLEventMarkerOutlet
+  m_Name: EventMarkerLSLOutlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4800,9 +4833,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1025647192}
+  m_Father: {fileID: 405985193}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065392284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065392282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957c3c385b5c62848a759df9075dcb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1071089561
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,7 +7497,7 @@ GameObject:
   - component: {fileID: 1614001335}
   - component: {fileID: 1614001336}
   m_Layer: 0
-  m_Name: LSLTobiiProGazeDataOutlet
+  m_Name: TobiiProGazeDataLSLOutlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7470,7 +7515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1025647192}
+  m_Father: {fileID: 405985193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1614001336
@@ -9523,6 +9568,8 @@ MonoBehaviour:
   interactiveAOIAugmentationStateController: {fileID: 663282355}
   feedbackStateController: {fileID: 1486175699}
   endStateController: {fileID: 1145392331}
+  eventMarkerLSLOutletController: {fileID: 1065392284}
+  tobiiProGazeDataOutletLSLController: {fileID: 1614001336}
 --- !u!4 &2060634374
 Transform:
   m_ObjectHideFlags: 0

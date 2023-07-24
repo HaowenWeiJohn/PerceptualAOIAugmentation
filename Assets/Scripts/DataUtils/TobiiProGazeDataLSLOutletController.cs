@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using Tobii.Research.Unity;
 using UnityEngine;
 
-public class LSLTobiiProGazeDataOutlet : MonoBehaviour
+public class TobiiProGazeDataLSLOutletController : MonoBehaviour
 {
     // Start is called before the first frame update
 
 
     private EyeTracker _eyeTracker;
-    private StreamOutlet gazeDataOutlet;
+    public StreamOutlet tobiiProGazeDataLSLOutlet;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class LSLTobiiProGazeDataOutlet : MonoBehaviour
             float[] gazeDataArray = new float[51];
             GazeDataUtils.UnpackGazeData(data, gazeDataArray);
             float timestamp = gazeDataArray[50] / 1000000;
-            gazeDataOutlet.push_sample(gazeDataArray, timestamp);
+            tobiiProGazeDataLSLOutlet.push_sample(gazeDataArray, timestamp);
             float endTime = Time.time;
             Debug.Log(startTime-endTime);
 
@@ -51,7 +51,7 @@ public class LSLTobiiProGazeDataOutlet : MonoBehaviour
                                                 LSL.channel_format_t.cf_float32
                                                 );
 
-        gazeDataOutlet = new StreamOutlet(streamInfo);
+        tobiiProGazeDataLSLOutlet = new StreamOutlet(streamInfo);
 
     }
     

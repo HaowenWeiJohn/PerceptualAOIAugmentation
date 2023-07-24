@@ -43,6 +43,13 @@ public class GameManager : MonoBehaviour
     public EndStateController endStateController;
 
 
+
+    [Header("Network Controllers")]
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+    public TobiiProGazeDataLSLOutletController tobiiProGazeDataOutletLSLController;
+
+    
+
     int experimentStateIndex = 0;
 
     void Start()

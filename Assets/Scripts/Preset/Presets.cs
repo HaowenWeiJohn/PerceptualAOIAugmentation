@@ -4,11 +4,24 @@ using UnityEngine;
 
 public static class Presets
 {
+
+
+    public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
+    public static string EventMarkerLSLOutletStreamType = "EventMarker";
+    public static string EventMarkerLSLOutletStreamID = "1";
+    public static int EventMarkerChannelNum = 1;
+    public static float EventMarkerNominalSamplingRate = 1;
+
+
+
     public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSLOutlet";
     public static string GazeDataLSLOutletStreamType = "GazeData";
-    public static string GazeDataLSLOutletStreamID = "0";
+    public static string GazeDataLSLOutletStreamID = "2";
     public static int GazeDataChannelNum = 51;
     public static float GazeDataNominalSamplingRate = 250;
+
+
+
 
     public static string GameManagerName = "GameManager";
 

@@ -1640,11 +1640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 376
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 153
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4301,16 +4301,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105d6467d554ddd4ca9e624faafc02dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatingEffect: 0
+  rotatingEffect: 1
   polygonTransform: {fileID: 951545106}
-  angularSpeed: 90
-  direction: 0
-  radiusChangingEffect: 0
+  angularSpeed: 180
+  direction: 1
+  radiusChangingEffect: 1
   maxInnerRadius: 30
   minInnerRadius: 20
   innerRadiusChangingPeriod: 5
   maxOuterRadius: 40
-  minOuterRadius: 30
+  minOuterRadius: 40
   outerRadiusChangingPeriod: 5
   meshRenderer: {fileID: 951545110}
   materialChangingEffect: 0
@@ -7353,11 +7353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -299
+      value: -176
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 146
       objectReference: {fileID: 0}
     - target: {fileID: 1804673388081056179, guid: cf055e50503472949b6f29956b0f2ee7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8040,11 +8040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105d6467d554ddd4ca9e624faafc02dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatingEffect: 0
+  rotatingEffect: 1
   polygonTransform: {fileID: 230907858}
   angularSpeed: 90
   direction: 0
-  radiusChangingEffect: 0
+  radiusChangingEffect: 1
   maxInnerRadius: 30
   minInnerRadius: 20
   innerRadiusChangingPeriod: 5

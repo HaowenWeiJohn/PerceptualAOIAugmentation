@@ -66,7 +66,7 @@ public class PolygonAnimationController : MonoBehaviour
             else directedAngularSpeed = -angularSpeed;
 
             Quaternion currentRotation = polygonTransform.rotation;
-            float rotationAmount = -angularSpeed * Time.deltaTime;
+            float rotationAmount = -directedAngularSpeed * Time.deltaTime;
             polygonTransform.Rotate(Vector3.forward, rotationAmount, Space.Self);
         }
 

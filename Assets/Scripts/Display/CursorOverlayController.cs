@@ -32,9 +32,9 @@ public class CursorOverlayController : MonoBehaviour
         cursorOverlay.transform.position = mousePosition;
 
         
-        Debug.Log("Start");
-        Debug.Log(mouseInputPos);
-        Debug.Log(mousePosition);
+        //Debug.Log("Start");
+        //Debug.Log(mouseInputPos);
+        //Debug.Log(mousePosition);
 
     }
 }

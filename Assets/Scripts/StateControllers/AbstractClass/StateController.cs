@@ -1,15 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameManager gameManager;
+    public Presets.ExperimentState experimentState;
+
     Presets.State currentState = Presets.State.IdleState;
+
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
     void Start()
     {
-        
+        //eventMarkerLSLOutletController = GameObject.Find("Game").compopen;
     }
 
     // Update is called once per frame
@@ -22,12 +28,17 @@ public class StateController : MonoBehaviour
     {
         EnableSelf();
         setCurrentState(Presets.State.RunningState);
+
+        eventMarkerLSLOutletController.sendStateOnEnterMarker(experimentState);
+
     }
 
     public virtual void exitState()
     {
         DisableSelf();
         setCurrentState(Presets.State.EndingState);
+
+        eventMarkerLSLOutletController.sendStateOnExitMarker(experimentState);
     }
 
 

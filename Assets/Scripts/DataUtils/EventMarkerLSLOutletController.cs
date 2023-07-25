@@ -38,6 +38,19 @@ public class EventMarkerLSLOutletController : MonoBehaviour
 
     }
 
+    public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState)
+    {
+        float[] currentStateMarker = new float[] {(float)currentExperimentState};
+        eventMarkerLSLOutlet.push_sample(currentStateMarker);
+    }
+
+
+    public void sendStateOnExitMarker(Presets.ExperimentState currentExperimentState)
+    {
+        float[] currentStateMarker = new float[] { -(float)currentExperimentState };
+        eventMarkerLSLOutlet.push_sample(currentStateMarker);
+    }
+
 
 
 }

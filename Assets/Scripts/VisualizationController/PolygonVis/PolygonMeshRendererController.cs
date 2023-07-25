@@ -53,15 +53,15 @@ public class PolygonMeshRendererController : MonoBehaviour
         //{
         //    DrawHollow(polygonSides, polygonRadius, polygonCenterRadius);
         //}
-
         Vector3[] vertices = mesh.vertices;
         Vector2[] uv = new Vector2[vertices.Length];
+        //Color[] colors = new Color[mesh.vertices.Length];
         for (int i = 0; i < uv.Length; i++)
         {
-            uv[i] = new Vector2(vertices[i].x, vertices[i].y);
+            
+            uv[i] = new Vector2(0.8f* (vertices[i].x / polygonRadius) * 0.5f + 0.5f, 0.8f * (vertices[i].y / polygonRadius) * 0.5f + 0.5f);
+            Debug.Log("i: " + i + " (" + vertices[i].x + ", " + vertices[i].y + ")");
         }
-
-        // Assign the UV data to the mesh
         mesh.uv = uv;
     }
 

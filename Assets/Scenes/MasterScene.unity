@@ -1020,6 +1020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 3
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 797895051}
 --- !u!1 &321473760
 GameObject:
@@ -1066,6 +1068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 5
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 1775351148}
 --- !u!1 &322916463
 GameObject:
@@ -1458,6 +1462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 4
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 400283929}
 --- !u!1 &372247479
 GameObject:
@@ -2965,6 +2971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 10
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
 --- !u!1 &669890354
 GameObject:
@@ -3097,6 +3105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 6
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
 --- !u!1 &687767833
 GameObject:
@@ -4736,6 +4746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 1
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   calibrationStateGUIController: {fileID: 2135467453}
 --- !u!1 &1061065696
 GameObject:
@@ -4782,6 +4794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 9
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 1387476974}
 --- !u!1 &1065392282
 GameObject:
@@ -5292,6 +5306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 12
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   endStateGUIController: {fileID: 1530333568}
 --- !u!1 &1172298749
 GameObject:
@@ -5892,6 +5908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 7
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 475090992}
 --- !u!1 &1362829182
 GameObject:
@@ -6113,6 +6131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 8
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
 --- !u!1 &1393011392
 GameObject:
@@ -6908,6 +6928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 11
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   feedbackStateGUIController: {fileID: 2027213426}
 --- !u!1 &1497451714
 GameObject:
@@ -8940,6 +8962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
+  experimentState: 2
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   startStateGUIController: {fileID: 298716547}
 --- !u!1 &1976997952
 GameObject:

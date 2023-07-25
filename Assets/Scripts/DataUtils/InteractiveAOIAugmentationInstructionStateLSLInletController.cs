@@ -1,9 +1,14 @@
+using LSL;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticAOIAugmentationStateZMQClientController : MonoBehaviour
+public class InteractiveAOIAugmentationInstructionStateLSLInletController : MonoBehaviour
 {
+
+
+    //public StreamInlet eventMarkerLSLOutlet;
+
     // Start is called before the first frame update
     void Start()
     {

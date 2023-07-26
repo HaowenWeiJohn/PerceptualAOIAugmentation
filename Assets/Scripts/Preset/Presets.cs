@@ -5,6 +5,9 @@ using UnityEngine;
 public static class Presets
 {
 
+    public static int[] AttentionGridShape = new int[] {25, 50};
+    public static int[] OriginalImageShape = new int[] {1000, 2000};
+
 
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
@@ -19,6 +22,20 @@ public static class Presets
     public static string GazeDataLSLOutletStreamID = "2";
     public static int GazeDataChannelNum = 51;
     public static float GazeDataNominalSamplingRate = 250;
+
+
+
+
+
+    public static string StaticAOIAugmentationStateLSLInletStreamName = "StaticAOIAugmentationStateLSLInlet";
+    public static string StaticAOIAugmentationStateLSLInletStreamType = "AOIAugmentationInlet";
+    public static string StaticAOIAugmentationStateLSLInletStreamID = "3";
+
+    public static int StaticAOIAugmentationStateLSLInletChannelNum = AttentionGridShape[0] * AttentionGridShape[1];
+
+    public static float StaticAOIAugmentationStateLSLInletNominalSamplingRate = 10;
+
+
 
 
 

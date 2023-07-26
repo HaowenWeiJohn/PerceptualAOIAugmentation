@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1502479499326982305
+--- !u!1 &6477453493041400630
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1502479499326982304}
-  - component: {fileID: 1502479499326982300}
-  - component: {fileID: 118344775413199708}
-  - component: {fileID: 1502479499326982301}
-  - component: {fileID: 1502479499326982302}
-  - component: {fileID: 1502479499326982303}
-  - component: {fileID: 996031942860693099}
+  - component: {fileID: 6477453493041400631}
+  - component: {fileID: 6477453493041400587}
+  - component: {fileID: 5519470807982502091}
+  - component: {fileID: 6477453493041400586}
+  - component: {fileID: 6477453493041400585}
+  - component: {fileID: 6477453493041400584}
+  - component: {fileID: 4679228196196900348}
   m_Layer: 0
   m_Name: Polygon
   m_TagString: Untagged
@@ -22,28 +22,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1502479499326982304
+--- !u!4 &6477453493041400631
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -176, y: 146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1502479499326982300
+--- !u!23 &6477453493041400587
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ba79b14107168244b69850171f4ff76, type: 2}
+  - {fileID: 2100000, guid: ec497599d9f7cb44aa9a4921fbcd8185, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,21 +79,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &118344775413199708
+--- !u!33 &5519470807982502091
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Mesh: {fileID: 0}
---- !u!114 &1502479499326982301
+--- !u!114 &6477453493041400586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f8671de591ab54faff62aadcbab79a, type: 3}
@@ -104,7 +104,7 @@ MonoBehaviour:
   polygonPoints: []
   polygonTriangles: 
   isFilled: 0
-  initialPolygonSides: 60
+  initialPolygonSides: 30
   initialPolygonRadius: 60
   initialPolygonCenterRadius: 40
   initialPolygonMaterial: {fileID: 2100000, guid: 9261ee76e5335e842999e2ba7e977025, type: 2}
@@ -112,63 +112,63 @@ MonoBehaviour:
   polygonRadius: 20
   polygonCenterRadius: 10
   polygonMaterial: {fileID: 0}
---- !u!114 &1502479499326982302
+--- !u!114 &6477453493041400585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef856ae33b11eb4f86cc69f73478ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  polygonMeshRendererController: {fileID: 1502479499326982301}
+  polygonMeshRendererController: {fileID: 6477453493041400586}
   currentDisplayState: 2
   showStateAlphaVisualizaton: 1
   showStateColorVisualizaton: 1
   showStateGeometryVisualizaton: 1
   showToHideStateVisualization: 1
---- !u!210 &1502479499326982303
+--- !u!210 &6477453493041400584
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Enabled: 1
   m_SortingLayerID: 473264505
   m_SortingLayer: 3
   m_SortingOrder: 0
---- !u!114 &996031942860693099
+--- !u!114 &4679228196196900348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502479499326982305}
+  m_GameObject: {fileID: 6477453493041400630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 105d6467d554ddd4ca9e624faafc02dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotatingEffect: 1
-  polygonTransform: {fileID: 1502479499326982304}
+  polygonTransform: {fileID: 6477453493041400631}
   angularSpeed: 90
   direction: 0
   radiusChangingEffect: 1
   maxInnerRadius: 30
   minInnerRadius: 20
-  innerRadiusChangingPeriod: 2
+  innerRadiusChangingPeriod: 5
   maxOuterRadius: 40
   minOuterRadius: 30
-  outerRadiusChangingPeriod: 2
-  meshRenderer: {fileID: 1502479499326982301}
+  outerRadiusChangingPeriod: 5
+  meshRenderer: {fileID: 6477453493041400586}
   materialChangingEffect: 0
-  polygonMaterial: {fileID: 2100000, guid: d9ea5100942e6474d895d2a177b6d17d, type: 2}
+  polygonMaterial: {fileID: 2100000, guid: ec497599d9f7cb44aa9a4921fbcd8185, type: 2}
   maxAlpha: 1
-  minAlpha: 1
+  minAlpha: 0.3
   alphaPeriod: 1
   colorPeriod: 1
   color1: {r: 1, g: 1, b: 1, a: 1}

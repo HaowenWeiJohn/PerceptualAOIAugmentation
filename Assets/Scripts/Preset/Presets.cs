@@ -5,8 +5,8 @@ using UnityEngine;
 public static class Presets
 {
 
-    public static int[] AttentionGridShape = new int[] {25, 50};
-    public static int[] OriginalImageShape = new int[] {1000, 2000};
+    public static Vector2Int AttentionGridShape = new Vector2Int (25, 50);
+    public static Vector2Int OriginalImageShape = new Vector2Int (1000, 2000);
 
 
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";

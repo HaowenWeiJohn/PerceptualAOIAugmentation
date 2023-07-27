@@ -28,7 +28,7 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
 
     void constructPolygonGrid()
     {
-        polygonVector2 = GeneralUtils.getPatchPositions(Presets.AttentionGridShape, targetImageController.targetImageShape, )
+        //polygonVector2 = GeneralUtils.getPatchPositions(Presets.AttentionGridShape, targetImageController.targetImageShape, )
     }
 
     

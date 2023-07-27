@@ -46,6 +46,7 @@ public class PolygonAnimationController : MonoBehaviour
     void Start()
     {
         materialCopy = Instantiate(polygonMaterial);
+        materialCopy.name = polygonMaterial.name;
         Renderer objectRenderer = GetComponent<Renderer>();
         objectRenderer.material = materialCopy;
 
@@ -88,6 +89,15 @@ public class PolygonAnimationController : MonoBehaviour
         }
 
         //Material
+        if(materialCopy.name != polygonMaterial.name) 
+        {
+            Destroy(materialCopy);
+            materialCopy = Instantiate(polygonMaterial);
+            materialCopy.name = polygonMaterial.name;
+            Renderer objectRenderer = GetComponent<Renderer>();
+            objectRenderer.material = materialCopy;
+        }
+
         if (materialChangingEffect)
         {
             color.r = compareRGB(color1.r, color2.r);
@@ -103,5 +113,21 @@ public class PolygonAnimationController : MonoBehaviour
     {
         if (color1 > color2) return color1 - 0.5f * (Mathf.Sin((Time.time * 2 * Mathf.PI) + 1f) / colorPeriod) * (color1 - color2);
         else return color1 + 0.5f * (Mathf.Sin((Time.time * 2 * Mathf.PI) + 1f) / colorPeriod) * (color2 - color1);
+    }
+
+    public void ResetColor(Color newColor)
+    {
+        color1 = newColor;
+        color2 = newColor;
+    }
+
+    public void SetColor1(Color newColor)
+    {
+        color1 = newColor;
+    }
+
+    public void SetMaterial(Material newMaterial)
+    {
+        polygonMaterial = newMaterial;
     }
 }

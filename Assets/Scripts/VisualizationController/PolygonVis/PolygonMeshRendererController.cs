@@ -60,7 +60,7 @@ public class PolygonMeshRendererController : MonoBehaviour
         {
             
             uv[i] = new Vector2(0.8f* (vertices[i].x / polygonRadius) * 0.5f + 0.5f, 0.8f * (vertices[i].y / polygonRadius) * 0.5f + 0.5f);
-            Debug.Log("i: " + i + " (" + vertices[i].x + ", " + vertices[i].y + ")");
+            //Debug.Log("i: " + i + " (" + vertices[i].x + ", " + vertices[i].y + ")");
         }
         mesh.uv = uv;
     }

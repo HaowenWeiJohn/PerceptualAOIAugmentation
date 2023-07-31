@@ -1826,6 +1826,8 @@ MonoBehaviour:
   polygonFast: {fileID: 1101433831825961563, guid: d6578666ecffa2940871959e0561af60, type: 3}
   displayCoordinateController: {fileID: 130040157}
   targetImageController: {fileID: 322916467}
+  polygonList: []
+  polygonFastList: []
 --- !u!1 &465662173
 GameObject:
   m_ObjectHideFlags: 0

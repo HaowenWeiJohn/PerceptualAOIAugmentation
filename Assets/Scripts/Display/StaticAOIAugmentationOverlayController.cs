@@ -23,6 +23,7 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        targetImageController.updateTargetImageInfo();
         getPatchCenterPositions();
         constructPolygon();
         constructPolygonFast();
@@ -116,5 +117,32 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
             }
         }
     }
+
+
+    void disableAllPolygonFast()
+    {
+        foreach (var polygonFast in polygonFastList)
+        {
+            polygonFast.SetActive(false);
+        }
+    }
+
+    void enableAllPolygonFast()
+    {
+        foreach (var polygonFast in polygonFastList)
+        {
+            polygonFast.SetActive(true);
+        }
+    }
+
+    void disableAllPolygon()
+    {
+        foreach (var polygon in polygonList)
+        {
+            polygon.SetActive(false);
+        }
+    }
+
+    // we cannot enable all polygons, this will kill the process!!!!
 
 }

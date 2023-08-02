@@ -12,9 +12,10 @@ public class TargetImageController : MonoBehaviour
 
     public float width = 0;
     public float height = 0;
-    public Vector3 localPosition = new Vector3(); 
+    public Vector3 localPosition = new Vector3();
     //public Vector2 targetImageShape = new Vector2 (0, 0); // in matrix format height, width
     //public Vector2 targetImagePosition = new Vector2(0, 0); // center position. in canvas space
+    public Image targetImage;
 
     void Start()
     {
@@ -42,6 +43,12 @@ public class TargetImageController : MonoBehaviour
 
     }
 
+    public void setSourceImage()
+    {
+        //targetImage.sprite = new Sprite() a;
+    }
+
+    
 
 
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AOIAugmentationStateGUIController : GUIController
 {
     // Start is called before the first frame update
-    public Image targetImage;
+    public TargetImageController targetImageController;
     void Start()
     {
         

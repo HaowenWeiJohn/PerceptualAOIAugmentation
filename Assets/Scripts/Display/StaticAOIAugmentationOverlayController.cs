@@ -41,12 +41,14 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
 
     void getPatchCenterPositions()
     {
+
         patchCenterPositions = GeneralUtils.getPatchCenterPositions(
             targetImageController.width, 
             targetImageController.height, 
             targetImageController.localPosition, 
             Presets.AttentionGridShape, 
             Presets.OriginalImageShape);
+
     }
 
     void constructPolygonFast()

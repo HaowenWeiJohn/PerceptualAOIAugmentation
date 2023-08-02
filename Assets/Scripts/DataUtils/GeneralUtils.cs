@@ -58,7 +58,7 @@ public class GeneralUtils
 
 
 
-        for (int i = 0; i < (int)patchGridShape[0]; i++) // row
+         for (int i = 0; i < (int)patchGridShape[0]; i++) // row
         {
             for (int j = 0; j < (int)patchGridShape[1]; j++)
             {

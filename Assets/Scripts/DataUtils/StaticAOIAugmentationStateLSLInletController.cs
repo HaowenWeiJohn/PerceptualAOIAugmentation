@@ -39,7 +39,6 @@ public class StaticAOIAugmentationStateLSLInletController : LSLInletInterface
         {
             pullSample();
             clearBuffer();
-            Debug.Log(chunkSampleNumber); // the number of samples in this update 
         }
     }
 

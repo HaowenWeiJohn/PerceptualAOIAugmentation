@@ -13,12 +13,15 @@ public class LSLInletInterface : MonoBehaviour
     public float[] frameDataBuffer;
     public double frameTimestamp = 0;
 
-    float[,] chunkDataBuffer = new float[1000, 8];
-    double[] chunkTimestampsBuffer = new double[1000];
 
 
-    float[,] trashDataBuffer = new float[1000, 8];
-    double[] trashTimestampsBuffer = new double[1000];
+    public float[,] chunkDataBuffer = new float[1000, 8];
+    public double[] chunkTimestampsBuffer = new double[1000];
+    public int chunkSampleNumber = 0;
+
+    public float[,] trashDataBuffer = new float[1000, 8];
+    public double[] trashTimestampsBuffer = new double[1000];
+
 
 
     public bool activated = false;
@@ -53,8 +56,17 @@ public class LSLInletInterface : MonoBehaviour
 
     protected void initFrameBuffer()
     {
-        frameDataBuffer = new float[streamInlet.info().channel_count()];
+        int channelCount = streamInlet.info().channel_count();
+        frameDataBuffer = new float[channelCount];
         //timestampBuffer = new double[streamInlet.info().channel_count()];
+
+        chunkDataBuffer = new float[1000, channelCount];
+        chunkTimestampsBuffer = new double[1000];
+
+
+        trashDataBuffer = new float[1000, channelCount];
+        trashTimestampsBuffer = new double[1000];
+
     }
 
 
@@ -87,6 +99,7 @@ public class LSLInletInterface : MonoBehaviour
 
         streamInlet = new StreamInlet(results[0]);
         initFrameBuffer();
+        clearBuffer();
 
         activated = true;
     }
@@ -114,18 +127,17 @@ public class LSLInletInterface : MonoBehaviour
     }
 
 
-    protected int pullChunk()
+    protected void pullChunk()
     {
 
-        int numSamples = streamInlet.pull_chunk(chunkDataBuffer, chunkTimestampsBuffer);
-        return numSamples;
+        chunkSampleNumber = streamInlet.pull_chunk(chunkDataBuffer, chunkTimestampsBuffer);
     }
 
 
     protected void clearBuffer()
     {
         while (streamInlet.samples_available()>0) {
-            int numSamples = streamInlet.samples_available();
+            streamInlet.pull_chunk(trashDataBuffer, trashTimestampsBuffer);
         }
         Debug.Log("Buffer Cleared");
     }

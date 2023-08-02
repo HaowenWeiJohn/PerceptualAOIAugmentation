@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1502479499326982304
 Transform:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502479499326982305}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -155,14 +155,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotatingEffect: 1
   polygonTransform: {fileID: 1502479499326982304}
-  angularSpeed: 90
+  angularSpeed: 45
   direction: 0
   radiusChangingEffect: 1
-  maxInnerRadius: 30
-  minInnerRadius: 20
+  maxInnerRadius: 20
+  minInnerRadius: 15
   innerRadiusChangingPeriod: 2
-  maxOuterRadius: 40
-  minOuterRadius: 30
+  maxOuterRadius: 30
+  minOuterRadius: 25
   outerRadiusChangingPeriod: 2
   meshRenderer: {fileID: 1502479499326982301}
   materialChangingEffect: 0

@@ -17,6 +17,7 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
 
     public List<GameObject> polygonList = new List<GameObject>();
     public List<GameObject> polygonFastList = new List<GameObject>();
+    public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
     {
         float updateFrequency = 1.0f / Time.deltaTime;
         Debug.Log("Update Frequency: " + updateFrequency + " FPS");
+        updatePolygonVisualization();
     }
 
 
@@ -85,13 +87,32 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
         }
     }
 
-
-
     
+    void updatePolygonVisualization()
+    {
+        if (staticAOIAugmentationStateLSLInletController.activated)
+        {
+            if (staticAOIAugmentationStateLSLInletController.frameTimestamp != 0)
+            {
+                //Debug.Log("John");
+                setPolyonVisualization(staticAOIAugmentationStateLSLInletController.frameDataBuffer);
+            }
+        }
+    }
 
-    
-
-
-
+    void setPolyonVisualization(float[] polygonsState)
+    {
+        for (int i = 0; i < polygonsState.Length; i++)
+        {
+            if (polygonsState[i] == 1 && polygonList[i].activeSelf == false)
+            {
+                polygonList[i].SetActive(true);
+            }
+            else if (polygonsState[i] == 0 && polygonList[i].activeSelf == true)
+            {
+                polygonList[i].SetActive(false);
+            }
+        }
+    }
 
 }

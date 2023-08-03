@@ -7798,6 +7798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180163312}
+  - component: {fileID: 1180163313}
   m_Layer: 0
   m_Name: ExperimentBlock
   m_TagString: Untagged
@@ -7820,6 +7821,19 @@ Transform:
   m_Father: {fileID: 1460573194}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180163313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180163311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b47cae1b255ceb4c8a97bb1fffeb1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expermentProcedure: 
 --- !u!1 &1184148287
 GameObject:
   m_ObjectHideFlags: 0
@@ -8309,6 +8323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1318442875}
+  - component: {fileID: 1318442876}
   m_Layer: 0
   m_Name: StartBlock
   m_TagString: Untagged
@@ -8331,6 +8346,19 @@ Transform:
   m_Father: {fileID: 1460573194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318442876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318442874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf56af4d018dae49aba4917d0be1a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expermentProcedure: 
 --- !u!1 &1362829182
 GameObject:
   m_ObjectHideFlags: 0
@@ -9702,6 +9730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1550005663}
+  - component: {fileID: 1550005664}
   m_Layer: 0
   m_Name: EndBlock
   m_TagString: Untagged
@@ -9724,6 +9753,19 @@ Transform:
   m_Father: {fileID: 1460573194}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550005664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550005662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a7a46bd64733641a8e5d637578c6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expermentProcedure: 
 --- !u!1 &1564057677
 GameObject:
   m_ObjectHideFlags: 0
@@ -9960,6 +10002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636664700}
+  - component: {fileID: 1636664701}
   m_Layer: 0
   m_Name: PracticeBlock
   m_TagString: Untagged
@@ -9982,6 +10025,19 @@ Transform:
   m_Father: {fileID: 1460573194}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1636664701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636664699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e033c44bcf954286d45f1ca271eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expermentProcedure: 
 --- !u!1 &1695930315
 GameObject:
   m_ObjectHideFlags: 0

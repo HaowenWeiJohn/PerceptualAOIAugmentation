@@ -115,7 +115,16 @@ public static class Presets
 
         EndState = 12
 
-    }                                                   
+    }
+    
+    public enum ExperimentBlockState
+    {
+        InitBlock = 0,
+        StartBlock = 1,
+        PracticeBlock = 2,
+        GameBlock = 3,
+        EndBlock = 4,
+    }
 
     public static List<ExperimentState> StartBlock = new List<ExperimentState> {
         ExperimentState.StartState,

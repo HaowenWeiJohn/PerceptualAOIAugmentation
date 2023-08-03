@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndBlockController : BlockController
+public class BlockController : MonoBehaviour
 {
-
     // Start is called before the first frame update
+
+    public List<Presets.ExperimentState> expermentProcedure = new List<Presets.ExperimentState>();
+
     void Start()
     {
         
@@ -16,4 +18,14 @@ public class EndBlockController : BlockController
     {
         
     }
+
+    public virtual void initExperimentBlockStates()
+    {
+        
+    }
+
+
+    
+
+
 }

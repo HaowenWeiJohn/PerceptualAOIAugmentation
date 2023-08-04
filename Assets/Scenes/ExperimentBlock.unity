@@ -5234,6 +5234,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071089561}
   m_CullTransparentMesh: 1
+--- !u!1 &1074028165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074028167}
+  - component: {fileID: 1074028166}
+  m_Layer: 0
+  m_Name: IntroductionBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1074028166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074028165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cdda1cafd110841bfcb535c5a7d862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experimentStates: 
+  experimentBlock: 2
+  gameManager: {fileID: 2060634373}
+  blockState: 0
+--- !u!4 &1074028167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074028165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1460573194}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077251472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,6 +5616,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100565478}
   m_CullTransparentMesh: 1
+--- !u!1 &1145191563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145191564}
+  - component: {fileID: 1145191565}
+  m_Layer: 0
+  m_Name: UserInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1145191564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145191563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145191565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145191563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf5d999b8c29414e9df96a161f0267b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initExperimentKey: 115
 --- !u!1 &1145392329
 GameObject:
   m_ObjectHideFlags: 0
@@ -7819,7 +7912,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1460573194}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1180163313
 MonoBehaviour:
@@ -7833,8 +7926,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b47cae1b255ceb4c8a97bb1fffeb1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expermentProcedure: 
+  experimentStates: 
   experimentBlock: 3
+  gameManager: {fileID: 2060634373}
+  blockState: 0
 --- !u!1 &1184148287
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,8 +8454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf56af4d018dae49aba4917d0be1a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expermentProcedure: 
+  experimentStates: 
   experimentBlock: 1
+  gameManager: {fileID: 2060634373}
+  blockState: 0
 --- !u!1 &1362829182
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,6 +8832,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1318442875}
+  - {fileID: 1074028167}
   - {fileID: 1636664700}
   - {fileID: 1180163312}
   - {fileID: 1550005663}
@@ -9361,7 +9459,7 @@ RectTransform:
   - {fileID: 677446137}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 166.319}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -9753,7 +9851,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1460573194}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1550005664
 MonoBehaviour:
@@ -9767,8 +9865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7a46bd64733641a8e5d637578c6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expermentProcedure: 
+  experimentStates: 
   experimentBlock: 4
+  gameManager: {fileID: 2060634373}
+  blockState: 0
 --- !u!1 &1564057677
 GameObject:
   m_ObjectHideFlags: 0
@@ -10026,7 +10126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1460573194}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1636664701
 MonoBehaviour:
@@ -10040,8 +10140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385e033c44bcf954286d45f1ca271eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expermentProcedure: 
+  experimentStates: 
   experimentBlock: 2
+  gameManager: {fileID: 2060634373}
+  blockState: 0
 --- !u!1 &1695930315
 GameObject:
   m_ObjectHideFlags: 0
@@ -12100,8 +12202,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d6cf702f0d7aa46bdd89497acebbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameState: {fileID: 0}
-  expermentProcedure: 
+  currentGameState: 0
+  currentState: {fileID: 0}
+  currentBlock: {fileID: 0}
+  experimentBlocks: 
+  startBlockController: {fileID: 1318442876}
+  introductionBlockController: {fileID: 1074028166}
+  practiceBlockController: {fileID: 1636664701}
+  experimentBlockController: {fileID: 1180163313}
+  endBlockController: {fileID: 1550005664}
   startStateController: {fileID: 1975410767}
   introductionInstructionStateController: {fileID: 311712170}
   practiceInstructionStateController: {fileID: 365139248}

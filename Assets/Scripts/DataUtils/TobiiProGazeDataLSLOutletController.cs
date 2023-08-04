@@ -4,18 +4,26 @@ using System.Collections.Generic;
 using Tobii.Research.Unity;
 using UnityEngine;
 
-public class TobiiProGazeDataLSLOutletController : MonoBehaviour
+public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
 {
     // Start is called before the first frame update
 
 
     private EyeTracker _eyeTracker;
-    public StreamOutlet tobiiProGazeDataLSLOutlet;
+    public StreamOutlet streamOutlet;
 
     void Start()
     {
         _eyeTracker = EyeTracker.Instance;
-        initLSLTobiiProGazeDataOutlet();
+        initLSLStreamOutlet(                                               
+                    Presets.GazeDataLSLOutletStreamName,
+                    Presets.GazeDataLSLOutletStreamType,
+                    Presets.GazeDataChannelNum,
+                    Presets.GazeDataNominalSamplingRate,
+                    LSL.channel_format_t.cf_float32
+                    );
+
+        //initLSLTobiiProGazeDataOutlet();
     }
 
     // Update is called once per frame
@@ -29,7 +37,7 @@ public class TobiiProGazeDataLSLOutletController : MonoBehaviour
             float[] gazeDataArray = new float[51];
             GazeDataUtils.UnpackGazeData(data, gazeDataArray);
             float timestamp = gazeDataArray[50] / 1000000;
-            tobiiProGazeDataLSLOutlet.push_sample(gazeDataArray, timestamp);
+            streamOutlet.push_sample(gazeDataArray, timestamp);
             float endTime = Time.time;
             Debug.Log(startTime-endTime);
 
@@ -40,20 +48,20 @@ public class TobiiProGazeDataLSLOutletController : MonoBehaviour
     }
 
     // unpack data
-    void initLSLTobiiProGazeDataOutlet()
-    {
-        // TODO: init gaze data outlet LSL
-        StreamInfo streamInfo = new StreamInfo(
-                                                Presets.GazeDataLSLOutletStreamName,
-                                                Presets.GazeDataLSLOutletStreamType,
-                                                Presets.GazeDataChannelNum,
-                                                Presets.GazeDataNominalSamplingRate,
-                                                LSL.channel_format_t.cf_float32
-                                                );
+    //void initLSLTobiiProGazeDataOutlet()
+    //{
+    //    // TODO: init gaze data outlet LSL
+    //    StreamInfo streamInfo = new StreamInfo(
+    //                                            Presets.GazeDataLSLOutletStreamName,
+    //                                            Presets.GazeDataLSLOutletStreamType,
+    //                                            Presets.GazeDataChannelNum,
+    //                                            Presets.GazeDataNominalSamplingRate,
+    //                                            LSL.channel_format_t.cf_float32
+    //                                            );
 
-        tobiiProGazeDataLSLOutlet = new StreamOutlet(streamInfo);
+    //    streamOutlet = new StreamOutlet(streamInfo);
 
-    }
+    //}
     
 
 

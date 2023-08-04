@@ -1,17 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
+using static Presets;
 
 public class GameManager : MonoBehaviour
 {
 
-    public StateController currentGameState;
-    public List<Presets.ExperimentState> expermentProcedure = new List<Presets.ExperimentState>();
+    public Presets.GameState currentGameState;
+
+    public StateController currentState;
+    public BlockController currentBlock;
+    //public List<Presets.ExperimentState> expermentProcedure = new List<Presets.ExperimentState>();
+    public List<Presets.ExperimentBlock> experimentBlocks;
+    
 
     /// <summary>
     ///  avaliable states
     /// </summary>
     /// 
+
+    //[Header("Network Experiment State")]
+    //public UserInputController userInputController;
+
+    [Header("Experiment Blocks")]
+
+    public StartBlockController startBlockController;
+    public IntroductionBlockController introductionBlockController;
+    public PracticeBlockController practiceBlockController;
+    public ExperimentBlockController experimentBlockController;
+    public EndBlockController endBlockController;
+
+
+
+
     [Header("Start State")]
     public StartStateController startStateController;
 
@@ -50,107 +72,177 @@ public class GameManager : MonoBehaviour
 
     
 
-    int experimentStateIndex = 0;
+    //int experimentStateIndex = 0;
+    int experimentBlockIndex = 0;
+
 
     void Start()
     {
-        experimentStateIndex = 0;
-        //expermentProcedure.Add(Presets.ExperimentState.StartState);
-        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
-        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
-        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
-        //expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationState);
-        //expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
-        //expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationState);
-        //expermentProcedure.Add(Presets.ExperimentState.EndState);
 
-        expermentProcedure = ExperimentPreset.ConstructExperimentStates();
+        //experimentStateIndex = 0;
+        ////expermentProcedure.Add(Presets.ExperimentState.StartState);
+        ////expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.CalibrationState);
+        ////expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        ////expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.NoAOIAugmentationState);
+        ////expermentProcedure.Add(Presets.ExperimentState.PracticeInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.StaticAOIAugmentationState);
+        ////expermentProcedure.Add(Presets.ExperimentState.IntroductionInstructionState);
+        ////expermentProcedure.Add(Presets.ExperimentState.InteractiveAOIAugmentationState);
+        ////expermentProcedure.Add(Presets.ExperimentState.EndState);
 
-        stateSelector(expermentProcedure[experimentStateIndex]);
-        currentGameState.enterState();
+        //expermentProcedure = ExperimentPreset.ConstructExperimentStates();
+
+
+        //stateSelector(expermentProcedure[experimentStateIndex]);
+        //currentGameState.enterState();
+        currentGameState = Presets.GameState.IdleState;
+        experimentBlocks = ExperimentPreset.ConstructExperimentBlocks(); // list of Enums
+
+        
+        // use a key to enter the first game block.
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
-        if (currentGameState.getCurrentState()==Presets.State.EndingState && currentGameState!=endStateController)
+
+        if (currentGameState == Presets.GameState.IdleState) // the previous block has been finished
         {
-            // reset previous state
-            currentGameState.setCurrentState(Presets.State.IdleState);
-            experimentStateIndex += 1;
-            // get new current state
-            stateSelector(expermentProcedure[experimentStateIndex]);
-            // activate current state
-            currentGameState.enterState();
-            Debug.Log("State Updated");
+            // check if there is more blocks to run
+
+            if (experimentBlockIndex < experimentBlocks.Count)
+            {
+                blockSelector(experimentBlocks[experimentBlockIndex]);
+                currentBlock.enterBlock();
+                currentGameState = Presets.GameState.RunningState;
+                experimentBlockIndex += 1;
+            }
+            else
+            {
+                Debug.Log("Experiment End");
+            }
+            
+
         }
+
+
+
+        //if (currentGameState.getCurrentState()==Presets.State.EndingState && currentGameState!=endStateController)
+        //{
+        //    // reset previous state
+        //    currentGameState.setCurrentState(Presets.State.IdleState);
+        //    experimentStateIndex += 1;
+        //    // get new current state
+        //    stateSelector(expermentProcedure[experimentStateIndex]);
+        //    // activate current state
+        //    currentGameState.enterState();
+        //    Debug.Log("State Updated");
+        //}
     }
+
+
+
+    public void blockSelector(Presets.ExperimentBlock nextBlock)
+    {
+        switch (nextBlock)
+        {
+
+            case Presets.ExperimentBlock.StartBlock:
+                currentBlock = startBlockController;
+                break;
+
+            case Presets.ExperimentBlock.IntroductionBlock:
+                currentBlock = introductionBlockController;
+                break;
+
+            case Presets.ExperimentBlock.PracticeBlock:
+                currentBlock = practiceBlockController;
+                break;
+            case Presets.ExperimentBlock.ExperimentBlock:
+                currentBlock = experimentBlockController;
+                break;
+            case Presets.ExperimentBlock.EndBlock:
+                currentBlock = endBlockController;
+                break;
+        }
+
+    }
+
 
 
     public void stateSelector(Presets.ExperimentState nextState)
     {
-        switch (nextState)
-        {
-            case Presets.ExperimentState.StartState:
-                currentGameState = startStateController;
-                break;
-            case Presets.ExperimentState.IntroductionInstructionState:
-                currentGameState = introductionInstructionStateController;
-                break;
-            case Presets.ExperimentState.PracticeInstructionState:
-                currentGameState = practiceInstructionStateController;
-                break;
-            case Presets.ExperimentState.CalibrationState:
-                currentGameState = calibrationStateController;
-                break;
+        //switch (nextState)
+        //{
+        //    case Presets.ExperimentState.StartState:
+        //        currentGameState = startStateController;
+        //        break;
+        //    case Presets.ExperimentState.IntroductionInstructionState:
+        //        currentGameState = introductionInstructionStateController;
+        //        break;
+        //    case Presets.ExperimentState.PracticeInstructionState:
+        //        currentGameState = practiceInstructionStateController;
+        //        break;
+        //    case Presets.ExperimentState.CalibrationState:
+        //        currentGameState = calibrationStateController;
+        //        break;
 
-            /////////////////////////////////////
-            case Presets.ExperimentState.NoAOIAugmentationInstructionState:
-                currentGameState = noAOIAugmentationInstructionStateController;
-                break;
+        //    /////////////////////////////////////
+        //    case Presets.ExperimentState.NoAOIAugmentationInstructionState:
+        //        currentGameState = noAOIAugmentationInstructionStateController;
+        //        break;
 
-            case Presets.ExperimentState.StaticAOIAugmentationInstructionState:
-                currentGameState = staticAOIAugmentationInstructionStateController;
-                break;
+        //    case Presets.ExperimentState.StaticAOIAugmentationInstructionState:
+        //        currentGameState = staticAOIAugmentationInstructionStateController;
+        //        break;
 
-            case Presets.ExperimentState.InteractiveAOIAugmentationInstructionState:
-                currentGameState = interactiveAOIAugmentationInstructionStateController;
-                break;
-            /////////////////////////////////////
+        //    case Presets.ExperimentState.InteractiveAOIAugmentationInstructionState:
+        //        currentGameState = interactiveAOIAugmentationInstructionStateController;
+        //        break;
+        //    /////////////////////////////////////
 
-            case Presets.ExperimentState.NoAOIAugmentationState:
-                currentGameState = noAOIAugmentationStateController;
-                break;
+        //    case Presets.ExperimentState.NoAOIAugmentationState:
+        //        currentGameState = noAOIAugmentationStateController;
+        //        break;
 
-            case Presets.ExperimentState.StaticAOIAugmentationState:
-                currentGameState = staticAOIAugmentationStateController;
-                break;
+        //    case Presets.ExperimentState.StaticAOIAugmentationState:
+        //        currentGameState = staticAOIAugmentationStateController;
+        //        break;
 
-            case Presets.ExperimentState.InteractiveAOIAugmentationState:
-                currentGameState = interactiveAOIAugmentationStateController;
-                break;
+        //    case Presets.ExperimentState.InteractiveAOIAugmentationState:
+        //        currentGameState = interactiveAOIAugmentationStateController;
+        //        break;
 
-            case Presets.ExperimentState.FeedbackState:
-                currentGameState = feedbackStateController;
-                break;
+        //    case Presets.ExperimentState.FeedbackState:
+        //        currentGameState = feedbackStateController;
+        //        break;
 
-            case Presets.ExperimentState.EndState:
-                currentGameState = endStateController;
-                break;
+        //    case Presets.ExperimentState.EndState:
+        //        currentGameState = endStateController;
+        //        break;
 
 
-        }
+        //}
 
 
     }
 
     //void WelcomeStateToInstructionState()
+    //void initGame()
+    //{
+        
+    //}
+
+    
+
+
 
 }

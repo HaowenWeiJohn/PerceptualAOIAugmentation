@@ -12,7 +12,7 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 1;
+    public static int EventMarkerChannelNum = 2; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
@@ -93,6 +93,30 @@ public static class Presets
         EndingState = 2,
         InterruptState = 3
     }
+
+
+
+
+
+    public enum GameState
+    {
+        InitState = 0,
+        IdleState = 1,
+        RunningState = 2,
+        EndingState = 3,
+        InterruptState = 4
+    }
+
+
+    public enum BlockState
+    {
+        IdleState = 0,
+        RunningState = 1,
+        EndingState = 2,
+        InterruptState = 3
+    }
+
+
     public enum ExperimentState
     {
         CalibrationState = 1,
@@ -117,19 +141,28 @@ public static class Presets
 
     }
     
-    public enum ExperimentBlockState
+    public enum ExperimentBlock
     {
         InitBlock = 0,
         StartBlock = 1,
-        PracticeBlock = 2,
-        GameBlock = 3,
-        EndBlock = 4,
+        IntroductionBlock = 2,
+        PracticeBlock = 3,
+        ExperimentBlock = 4,
+        EndBlock = 5,
     }
 
     public static List<ExperimentState> StartBlock = new List<ExperimentState> {
         ExperimentState.StartState,
+        //ExperimentState.IntroductionInstructionState
+    };
+
+
+    public static List<ExperimentState> IntroductionBlock = new List<ExperimentState> {
+        //ExperimentState.StartState,
         ExperimentState.IntroductionInstructionState
     };
+
+
 
     public static List<ExperimentState> EndBlock = new List<ExperimentState> {
         ExperimentState.EndState

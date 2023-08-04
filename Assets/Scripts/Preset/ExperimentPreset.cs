@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;  // Import the LINQ library
+using static Presets;
 
 public static class ExperimentPreset
 {
@@ -59,6 +60,17 @@ public static class ExperimentPreset
 
 
 
+    public static List<Presets.ExperimentState> ConstructIntroductionBlock()
+    {
+        List<Presets.ExperimentState> ExperimentStates = new List<Presets.ExperimentState> { };
+        ExperimentStates = ExperimentStates.Concat(Presets.IntroductionBlock).ToList();
+        return ExperimentStates;
+
+    }
+
+
+
+
     public static List<Presets.ExperimentState> ConstructPracticeBlock()
     {
         List<Presets.ExperimentState> ExperimentStates = new List<Presets.ExperimentState> { };
@@ -81,6 +93,27 @@ public static class ExperimentPreset
 
         return ExperimentStates;
     }
+
+
+
+
+    public static List<Presets.ExperimentBlock> ConstructExperimentBlocks()
+    {
+        List<Presets.ExperimentBlock> ExperimentBlock = new List<Presets.ExperimentBlock> {
+
+            Presets.ExperimentBlock.StartBlock,
+            Presets.ExperimentBlock.IntroductionBlock,
+            Presets.ExperimentBlock.PracticeBlock,
+            Presets.ExperimentBlock.EndBlock
+        
+        };
+
+
+        return ExperimentBlock;
+
+
+    }
+
 
     //public static void createPracticeBlock() //List<Presets.ExperimentState>
     //{

@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Presets;
 
-public class ExperimentBlockController : BlockController
+public class IntroductionBlockController : BlockController
 {
-    // Start is called before the first frame update
     void Start()
     {
-        //experimentStates = ExperimentPreset.ConstructExperimentBlock();
+        experimentStates = ExperimentPreset.ConstructIntroductionBlock();
         DisableSelf();
     }
 
@@ -18,10 +18,12 @@ public class ExperimentBlockController : BlockController
     }
 
 
+
     public override void initExperimentBlockStates()
     {
-        //base.initExperimentBlockStates();
-        //experimentStates = ExperimentPreset.();
+        base.initExperimentBlockStates();
+        experimentStates = ExperimentPreset.ConstructIntroductionBlock();
     }
+
 
 }

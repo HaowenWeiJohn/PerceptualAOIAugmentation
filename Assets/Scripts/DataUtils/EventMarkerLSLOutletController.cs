@@ -3,17 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventMarkerLSLOutletController : MonoBehaviour
+public class EventMarkerLSLOutletController : LSLOutletInterface
 {
 
     // event marker: [event state marker]
 
-    public StreamOutlet eventMarkerLSLOutlet;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        initLSLEventMarkerOutlet();
+        initLSLStreamOutlet(
+
+            Presets.EventMarkerLSLOutletStreamName,
+            Presets.EventMarkerLSLOutletStreamType,
+            Presets.EventMarkerChannelNum,
+            Presets.EventMarkerNominalSamplingRate,
+            LSL.channel_format_t.cf_float32
+
+            );
+
     }
 
     // Update is called once per frame
@@ -24,33 +33,45 @@ public class EventMarkerLSLOutletController : MonoBehaviour
 
 
 
-    void initLSLEventMarkerOutlet()
+    //void initLSLEventMarkerOutlet()
+    //{
+    //    StreamInfo streamInfo = new StreamInfo(
+    //                            Presets.EventMarkerLSLOutletStreamName,
+    //                            Presets.EventMarkerLSLOutletStreamType,
+    //                            Presets.EventMarkerChannelNum,
+    //                            Presets.EventMarkerNominalSamplingRate,
+    //                            LSL.channel_format_t.cf_float32
+    //                            );
+
+    //    streamOutlet = new StreamOutlet(streamInfo);
+
+    //}
+
+    public void sendBlockOnEnterMarker(Presets.ExperimentBlock currentExperimentBlock)
     {
-        StreamInfo streamInfo = new StreamInfo(
-                                Presets.EventMarkerLSLOutletStreamName,
-                                Presets.EventMarkerLSLOutletStreamType,
-                                Presets.EventMarkerChannelNum,
-                                Presets.EventMarkerNominalSamplingRate,
-                                LSL.channel_format_t.cf_float32
-                                );
-
-        eventMarkerLSLOutlet = new StreamOutlet(streamInfo);
-
+        float[] currentStateMarker = new float[] { (float)currentExperimentBlock, 0};
+        streamOutlet.push_sample(currentStateMarker);
     }
+
+    public void sendBlockOnExitMarker(Presets.ExperimentBlock currentExperimentBlock)
+    {
+        float[] currentStateMarker = new float[] { -(float)currentExperimentBlock, 0};
+        streamOutlet.push_sample(currentStateMarker);
+    }
+
 
     public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState)
     {
-        float[] currentStateMarker = new float[] {(float)currentExperimentState};
-        eventMarkerLSLOutlet.push_sample(currentStateMarker);
+        float[] currentStateMarker = new float[] {0, (float)currentExperimentState };
+        streamOutlet.push_sample(currentStateMarker);
     }
 
 
     public void sendStateOnExitMarker(Presets.ExperimentState currentExperimentState)
     {
-        float[] currentStateMarker = new float[] { -(float)currentExperimentState };
-        eventMarkerLSLOutlet.push_sample(currentStateMarker);
+        float[] currentStateMarker = new float[] {0, -(float)currentExperimentState };
+        streamOutlet.push_sample(currentStateMarker);
     }
-
 
 
 }

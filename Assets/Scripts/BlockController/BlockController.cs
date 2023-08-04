@@ -6,17 +6,36 @@ public class BlockController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public List<Presets.ExperimentState> expermentProcedure = new List<Presets.ExperimentState>();
+    public List<Presets.ExperimentState> experimentStates = new List<Presets.ExperimentState>();
+    public Presets.ExperimentBlock experimentBlock;
+    public GameManager gameManager;
+    public Presets.BlockState blockState;
 
+    int experimentStateIndex = 0;
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
+        if(gameManager.currentState.getCurrentState() == Presets.State.EndingState)
+        {
+            gameManager.currentState.setCurrentState(Presets.State.IdleState);
+            experimentStateIndex += 1;
+
+            if (experimentStateIndex < experimentStates.Count)
+            {
+                stateSelector(experimentStates[experimentStateIndex]);
+                gameManager.currentState.enterState();
+            }
+            else
+            {
+                existBlock();
+            }
         
+        }
     }
 
     public virtual void initExperimentBlockStates()
@@ -25,7 +44,97 @@ public class BlockController : MonoBehaviour
     }
 
 
-    
+    public void enterBlock()
+    {
 
+        // send event marker
+        EnableSelf();
+        experimentStateIndex = 0;
+        stateSelector(experimentStates[experimentStateIndex]);
+        gameManager.currentState.enterState();
+        gameManager.eventMarkerLSLOutletController.sendBlockOnEnterMarker(experimentBlock);
+
+    }
+
+    public void existBlock()
+    {
+        // send event marker
+
+        experimentStateIndex = 0;
+        gameManager.currentGameState = Presets.GameState.IdleState;
+        DisableSelf();
+        gameManager.eventMarkerLSLOutletController.sendBlockOnExitMarker(experimentBlock);
+    }
+
+
+
+
+    public void stateSelector(Presets.ExperimentState nextState)
+    {
+        switch (nextState)
+        {
+
+
+            case Presets.ExperimentState.StartState:
+                gameManager.currentState = gameManager.startStateController;
+                break;
+            case Presets.ExperimentState.IntroductionInstructionState:
+                gameManager.currentState = gameManager.introductionInstructionStateController;
+                break;
+            case Presets.ExperimentState.PracticeInstructionState:
+                gameManager.currentState = gameManager.practiceInstructionStateController;
+                break;
+            case Presets.ExperimentState.CalibrationState:
+                gameManager.currentState = gameManager.calibrationStateController;
+                break;
+
+            /////////////////////////////////////
+            case Presets.ExperimentState.NoAOIAugmentationInstructionState:
+                gameManager.currentState = gameManager.noAOIAugmentationInstructionStateController;
+                break;
+
+            case Presets.ExperimentState.StaticAOIAugmentationInstructionState:
+                gameManager.currentState = gameManager.staticAOIAugmentationInstructionStateController;
+                break;
+
+            case Presets.ExperimentState.InteractiveAOIAugmentationInstructionState:
+                gameManager.currentState = gameManager.interactiveAOIAugmentationInstructionStateController;
+                break;
+            /////////////////////////////////////
+
+            case Presets.ExperimentState.NoAOIAugmentationState:
+                gameManager.currentState = gameManager.noAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.StaticAOIAugmentationState:
+                gameManager.currentState = gameManager.staticAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.InteractiveAOIAugmentationState:
+                gameManager.currentState = gameManager.interactiveAOIAugmentationStateController;
+                break;
+
+            case Presets.ExperimentState.FeedbackState:
+                gameManager.currentState = gameManager.feedbackStateController;
+                break;
+
+            case Presets.ExperimentState.EndState:
+                gameManager.currentState = gameManager.endStateController;
+                break;
+
+        }
+
+
+    }
+
+    public void EnableSelf()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void DisableSelf()
+    {
+        gameObject.SetActive(false);
+    }
 
 }

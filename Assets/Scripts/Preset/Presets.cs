@@ -12,8 +12,9 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 2; // block marker index 0
+    public static int EventMarkerChannelNum = 3; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
+
 
 
 
@@ -176,7 +177,7 @@ public static class Presets
 
     public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
-        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.NoAOIAugmentationInstructionState,
         ExperimentState.FeedbackState
     };
 

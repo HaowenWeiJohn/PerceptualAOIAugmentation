@@ -49,10 +49,11 @@ public class BlockController : MonoBehaviour
 
         // send event marker
         EnableSelf();
+        gameManager.eventMarkerLSLOutletController.sendBlockOnEnterMarker(experimentBlock);
         experimentStateIndex = 0;
         stateSelector(experimentStates[experimentStateIndex]);
         gameManager.currentState.enterState();
-        gameManager.eventMarkerLSLOutletController.sendBlockOnEnterMarker(experimentBlock);
+
 
     }
 
@@ -62,8 +63,9 @@ public class BlockController : MonoBehaviour
 
         experimentStateIndex = 0;
         gameManager.currentGameState = Presets.GameState.IdleState;
-        DisableSelf();
         gameManager.eventMarkerLSLOutletController.sendBlockOnExitMarker(experimentBlock);
+        DisableSelf();
+
     }
 
 

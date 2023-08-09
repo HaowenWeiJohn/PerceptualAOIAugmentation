@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExperimentBlockController : BlockController
+public class TestBlockController : BlockController
 {
     // Start is called before the first frame update
     void Start()

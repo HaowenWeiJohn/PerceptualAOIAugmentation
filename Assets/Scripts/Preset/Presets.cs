@@ -148,7 +148,7 @@ public static class Presets
         StartBlock = 1,
         IntroductionBlock = 2,
         PracticeBlock = 3,
-        ExperimentBlock = 4,
+        TestBlock = 4,
         EndBlock = 5,
     }
 

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public StartBlockController startBlockController;
     public IntroductionBlockController introductionBlockController;
     public PracticeBlockController practiceBlockController;
-    public ExperimentBlockController experimentBlockController;
+    public TestBlockController testBlockController;
     public EndBlockController endBlockController;
 
 
@@ -166,8 +166,8 @@ void Update()
             case Presets.ExperimentBlock.PracticeBlock:
                 currentBlock = practiceBlockController;
                 break;
-            case Presets.ExperimentBlock.ExperimentBlock:
-                currentBlock = experimentBlockController;
+            case Presets.ExperimentBlock.TestBlock:
+                currentBlock = testBlockController;
                 break;
             case Presets.ExperimentBlock.EndBlock:
                 currentBlock = endBlockController;

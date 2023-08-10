@@ -7,7 +7,7 @@ public class TestBlockController : BlockController
     // Start is called before the first frame update
     void Start()
     {
-        //experimentStates = ExperimentPreset.ConstructExperimentBlock();
+        experimentStates = ExperimentPreset.ConstructTestBlock();
         DisableSelf();
     }
 
@@ -20,8 +20,8 @@ public class TestBlockController : BlockController
 
     public override void initExperimentBlockStates()
     {
-        //base.initExperimentBlockStates();
-        //experimentStates = ExperimentPreset.();
+        base.initExperimentBlockStates();
+        experimentStates = ExperimentPreset.ConstructTestBlock();
     }
 
 }

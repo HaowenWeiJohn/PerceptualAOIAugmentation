@@ -127,18 +127,21 @@ public static class Presets
         
         PracticeInstructionState = 4,
 
-        NoAOIAugmentationInstructionState = 5,
-        NoAOIAugmentationState = 6,
+        TestInstructionState = 5,
 
-        StaticAOIAugmentationInstructionState = 7,
-        StaticAOIAugmentationState = 8,
+        NoAOIAugmentationInstructionState = 6,
+        NoAOIAugmentationState = 7,
 
-        InteractiveAOIAugmentationInstructionState = 9,
-        InteractiveAOIAugmentationState = 10,
+        StaticAOIAugmentationInstructionState = 8,
+        StaticAOIAugmentationState = 9,
 
-        FeedbackState = 11,
+        InteractiveAOIAugmentationInstructionState = 10,
+        InteractiveAOIAugmentationState = 11,
 
-        EndState = 12
+        FeedbackState = 12,
+
+        EndState = 13
+
 
     }
     
@@ -169,15 +172,24 @@ public static class Presets
         ExperimentState.EndState
     };
 
-
     public static List<ExperimentState> PracticeStartBlock = new List<ExperimentState>
     {
         ExperimentState.PracticeInstructionState,
     };
 
+    public static List<ExperimentState> TestStartBlock = new List<ExperimentState>
+    {
+        ExperimentState.TestInstructionState,
+    };
+
+    //public static List<ExperimentState> TestBlock = new List<ExperimentState>
+    //{
+    //    ExperimentState.
+    //}
+
     public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
-        ExperimentState.NoAOIAugmentationInstructionState,
+        ExperimentState.NoAOIAugmentationState,
         ExperimentState.FeedbackState
     };
 

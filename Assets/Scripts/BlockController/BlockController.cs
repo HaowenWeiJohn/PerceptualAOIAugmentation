@@ -75,8 +75,6 @@ public class BlockController : MonoBehaviour
     {
         switch (nextState)
         {
-
-
             case Presets.ExperimentState.StartState:
                 gameManager.currentState = gameManager.startStateController;
                 break;
@@ -85,6 +83,9 @@ public class BlockController : MonoBehaviour
                 break;
             case Presets.ExperimentState.PracticeInstructionState:
                 gameManager.currentState = gameManager.practiceInstructionStateController;
+                break;
+            case Presets.ExperimentState.TestInstructionState:
+                gameManager.currentState = gameManager.testInstructionStateController;
                 break;
             case Presets.ExperimentState.CalibrationState:
                 gameManager.currentState = gameManager.calibrationStateController;

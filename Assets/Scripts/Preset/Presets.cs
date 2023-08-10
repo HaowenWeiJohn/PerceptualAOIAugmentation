@@ -209,7 +209,7 @@ public static class Presets
     public static List<ExperimentState> NoAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.NoAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
-        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.NoAOIAugmentationState,
         ExperimentState.FeedbackState
     };
 

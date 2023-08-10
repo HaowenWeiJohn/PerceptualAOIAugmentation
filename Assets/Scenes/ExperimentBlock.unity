@@ -1139,7 +1139,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 1000}
+  m_SizeDelta: {x: 1900, y: 950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322916465
 MonoBehaviour:
@@ -12209,11 +12209,12 @@ MonoBehaviour:
   startBlockController: {fileID: 1318442876}
   introductionBlockController: {fileID: 1074028166}
   practiceBlockController: {fileID: 1636664701}
-  testBlockController: {fileID: 0}
+  testBlockController: {fileID: 1180163313}
   endBlockController: {fileID: 1550005664}
   startStateController: {fileID: 1975410767}
   introductionInstructionStateController: {fileID: 311712170}
   practiceInstructionStateController: {fileID: 365139248}
+  testInstructionStateController: {fileID: 0}
   calibrationStateController: {fileID: 1055088876}
   noAOIAugmentationInstructionStateController: {fileID: 321473762}
   noAOIAugmentationStateController: {fileID: 680620833}

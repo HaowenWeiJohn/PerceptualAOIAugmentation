@@ -10,7 +10,7 @@ public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
 
 
     private EyeTracker _eyeTracker;
-    public StreamOutlet streamOutlet;
+    //public StreamOutlet streamOutlet;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
                     Presets.GazeDataNominalSamplingRate,
                     LSL.channel_format_t.cf_float32
                     );
+        
 
         //initLSLTobiiProGazeDataOutlet();
     }

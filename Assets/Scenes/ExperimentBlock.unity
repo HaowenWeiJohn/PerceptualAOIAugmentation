@@ -7893,7 +7893,7 @@ GameObject:
   - component: {fileID: 1180163312}
   - component: {fileID: 1180163313}
   m_Layer: 0
-  m_Name: ExperimentBlock
+  m_Name: TestBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12209,7 +12209,7 @@ MonoBehaviour:
   startBlockController: {fileID: 1318442876}
   introductionBlockController: {fileID: 1074028166}
   practiceBlockController: {fileID: 1636664701}
-  experimentBlockController: {fileID: 1180163313}
+  testBlockController: {fileID: 0}
   endBlockController: {fileID: 1550005664}
   startStateController: {fileID: 1975410767}
   introductionInstructionStateController: {fileID: 311712170}

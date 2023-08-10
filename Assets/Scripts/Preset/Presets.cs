@@ -177,6 +177,11 @@ public static class Presets
         ExperimentState.PracticeInstructionState,
     };
 
+    public static List<ExperimentState> TestStartBlock = new List<ExperimentState>
+    {
+        ExperimentState.TestInstructionState,
+    };
+
     //public static List<ExperimentState> TestBlock = new List<ExperimentState>
     //{
     //    ExperimentState.

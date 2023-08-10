@@ -87,6 +87,8 @@ public static class ExperimentPreset
     {
         List<Presets.ExperimentState> ExperimentStates = new List<Presets.ExperimentState> { };
 
+        ExperimentStates = ExperimentStates.Concat(Presets.TestStartBlock).ToList();
+
         ExperimentStates = ExperimentStates.Concat(Presets.NoAOIAugmentationBlock).ToList();
         ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlock).ToList();
         ExperimentStates = ExperimentStates.Concat(Presets.InteractiveAOIAugmentationBlock).ToList();

@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [Header("Practice Instruction State")]
     public PracticeInstructionStateController practiceInstructionStateController;
 
+    [Header("Test Instruction State")]
+    public TestInstructionStateController testInstructionStateController;
+
     [Header("Calibration State")]
     public CalibrationStateController calibrationStateController ;
 

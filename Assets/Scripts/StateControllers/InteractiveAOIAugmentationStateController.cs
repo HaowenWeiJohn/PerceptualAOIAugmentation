@@ -24,9 +24,9 @@ public class InteractiveAOIAugmentationStateController : StateController
 
     public override void enterState()
     {
+        if(gameManager.currentBlock == gameManager.testBlockController) gameManager.imageIndex++;
         aOIAugmentationStateGUIController.EnableSelf();
         base.enterState();
-
     }
 
     public override void exitState()

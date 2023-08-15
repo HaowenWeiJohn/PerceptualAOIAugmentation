@@ -6,7 +6,7 @@ using static Presets;
 
 public class GameManager : MonoBehaviour
 {
-
+    public int imageIndex = -1;
     public Presets.GameState currentGameState;
 
     public StateController currentState;
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         //currentGameState.enterState();
         currentGameState = Presets.GameState.IdleState;
         experimentBlocks = ExperimentPreset.ConstructExperimentBlocks(); // list of Enums
+        imageIndex = -1;
 
         
         // use a key to enter the first game block.

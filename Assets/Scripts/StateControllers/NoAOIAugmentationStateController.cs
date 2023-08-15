@@ -11,7 +11,7 @@ public class NoAOIAugmentationStateController : StateController
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,9 +24,9 @@ public class NoAOIAugmentationStateController : StateController
 
     public override void enterState()
     {
+        if(gameManager.currentBlock == gameManager.testBlockController) gameManager.imageIndex++;
         aOIAugmentationStateGUIController.EnableSelf();
         base.enterState();
-
     }
 
     public override void exitState()

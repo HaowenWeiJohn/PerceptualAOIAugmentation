@@ -38,16 +38,35 @@ public class PolygonAnimationController : MonoBehaviour
     [SerializeField] private float colorPeriod = 1f;
     [SerializeField] private Color color1 = new Color(1f, 1f, 1f, 1f);
     [SerializeField] private Color color2 = new Color(0.5f, 0.5f, 0.5f, 1f);
-
     private Color color;
     private Material materialCopy;
+
+    [Header("Blink")]
+    [SerializeField] private Transform targetTransform;
+    [SerializeField] private float triggerDistance = 5f;
+    [SerializeField] private bool blinkEffect = false;
+    [SerializeField] private float blinkFrequency = 1f;
+    private bool isBlinking = false;
+
+    [Header("Disappear")]
+    [SerializeField] private bool disappear = false;
+    [SerializeField] private float disappearDistance = 0.25f;
+    [SerializeField] private float reappearDistance = 2f;
+    [SerializeField] private float staringTime = 2f;
+    [SerializeField] private float reappearingTime = 3f;
+    private float timeStamp = 0f;
+    private bool isTiming = false;
+
+    private Renderer objectRenderer;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
         materialCopy = Instantiate(polygonMaterial);
         materialCopy.name = polygonMaterial.name;
-        Renderer objectRenderer = GetComponent<Renderer>();
+        objectRenderer = GetComponent<Renderer>();
         objectRenderer.material = materialCopy;
 
         color = color1;
@@ -94,7 +113,7 @@ public class PolygonAnimationController : MonoBehaviour
             Destroy(materialCopy);
             materialCopy = Instantiate(polygonMaterial);
             materialCopy.name = polygonMaterial.name;
-            Renderer objectRenderer = GetComponent<Renderer>();
+            //Renderer objectRenderer = GetComponent<Renderer>();
             objectRenderer.material = materialCopy;
         }
 
@@ -106,7 +125,69 @@ public class PolygonAnimationController : MonoBehaviour
             color.a = minAlpha + (maxAlpha - minAlpha) * (Mathf.Sin((Time.time * 2 * Mathf.PI + 1f) / alphaPeriod)) * 0.5f;
             materialCopy.color = color;
         }
-        if (!materialChangingEffect) materialCopy.color = new Color(1f, 1f, 1f, 1f);
+        if (!materialChangingEffect)
+        {
+            Color tempColor = materialCopy.color;
+            tempColor.a = 1f;
+            materialCopy.color = tempColor;
+        } 
+
+        //Blink
+        //============================================================================
+        if(Vector3.Distance(transform.position, targetTransform.position) < triggerDistance) blinkEffect = false;
+        if(Vector3.Distance(transform.position, targetTransform.position) >= triggerDistance) blinkEffect = true;
+
+        if(blinkEffect)
+        {
+            rotatingEffect = false;
+            materialChangingEffect = false;
+            radiusChangingEffect = false;
+            meshRenderer.polygonRadius = maxOuterRadius;
+            meshRenderer.polygonCenterRadius = 0f;
+            transform.rotation = Quaternion.identity;
+            StartBlinking();
+        }
+        if(!blinkEffect && !disappear)
+        {
+            StopBlinking();
+            rotatingEffect = true;
+            materialChangingEffect = true;
+            radiusChangingEffect = true;
+        }
+
+        //Disappear when staring
+        //================================================================================
+        if(Vector3.Distance(transform.position, targetTransform.position) < disappearDistance)
+        {
+            if(!isTiming)
+            {
+                timeStamp = Time.time;
+                isTiming = true;
+            }
+            materialChangingEffect = false;
+            
+            if((Time.time - timeStamp) < staringTime)
+            {
+                color.a = maxAlpha - maxAlpha * (Time.time - timeStamp) / staringTime;
+            }
+            else 
+            {
+                color.a = 0f;
+                disappear = true;
+            }
+
+            materialCopy.color = color;
+        }
+        if(Vector3.Distance(transform.position, targetTransform.position) >= reappearDistance)
+        {
+            //objectRenderer.enabled = true; 
+            isTiming = false;
+            disappear = false;
+        }
+
+
+        if(Vector3.Distance(transform.position, targetTransform.position) >= disappearDistance) blinkEffect = true;
+
     }
 
     private float compareRGB(float color1, float color2)
@@ -130,4 +211,17 @@ public class PolygonAnimationController : MonoBehaviour
     {
         polygonMaterial = newMaterial;
     }
+
+    //Blink helper functions
+    private void StartBlinking()
+    {
+        if(Time.time % ( 1f / blinkFrequency) > (0.5f * ( 1f / blinkFrequency))) objectRenderer.enabled = true;
+        else objectRenderer.enabled = false;
+    }
+
+    private void StopBlinking()
+    {
+        objectRenderer.enabled = true;
+    }
+
 }

@@ -8,7 +8,7 @@ public class PolygonMeshRendererController : MonoBehaviour
     //mesh properties
     Mesh mesh;
 
-    public Material materialPrefab;
+    //public Material materialPrefab;
     public MeshRenderer meshRenderer;
 
     public Vector3[] polygonPoints;
@@ -83,8 +83,8 @@ public class PolygonMeshRendererController : MonoBehaviour
 
     void setInitialMaterial()
     {
-        polygonMaterial = Instantiate(materialPrefab);
-        meshRenderer.material = polygonMaterial;
+        //polygonMaterial = Instantiate(materialPrefab);
+        //meshRenderer.material = polygonMaterial;
     }
 
 

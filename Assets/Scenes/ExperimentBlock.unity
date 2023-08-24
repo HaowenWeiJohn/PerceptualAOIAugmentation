@@ -5044,7 +5044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 9
+  experimentState: 10
   eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 1387476974}
 --- !u!1 &1065392282
@@ -7963,6 +7963,8 @@ MonoBehaviour:
   experimentBlock: 4
   gameManager: {fileID: 2060634373}
   blockState: 0
+  testBlockImageLoader: {fileID: 0}
+  imageIndex: 0
 --- !u!1 &1184148287
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,7 +8442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 7
+  experimentState: 8
   eventMarkerLSLOutletController: {fileID: 1065392284}
   instructionStateGUIController: {fileID: 475090992}
 --- !u!1 &1318442874
@@ -10225,6 +10227,7 @@ MonoBehaviour:
   gameManager: {fileID: 2060634373}
   blockState: 0
   practiceBlockImageLoader: {fileID: 1559122185}
+  imageIndex: 0
 --- !u!1 &1695930315
 GameObject:
   m_ObjectHideFlags: 0

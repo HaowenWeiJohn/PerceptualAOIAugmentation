@@ -48,6 +48,7 @@ public class BlockController : MonoBehaviour
     {
 
         // send event marker
+        Debug.Log("enterBlock: " + experimentBlock);
         EnableSelf();
         gameManager.eventMarkerLSLOutletController.sendBlockOnEnterMarker(experimentBlock);
         experimentStateIndex = 0;
@@ -60,7 +61,7 @@ public class BlockController : MonoBehaviour
     public void existBlock()
     {
         // send event marker
-
+        Debug.Log("existBlock: " + experimentBlock);
         experimentStateIndex = 0;
         gameManager.currentGameState = Presets.GameState.IdleState;
         gameManager.eventMarkerLSLOutletController.sendBlockOnExitMarker(experimentBlock);

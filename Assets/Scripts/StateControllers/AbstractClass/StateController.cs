@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -26,6 +27,7 @@ public class StateController : MonoBehaviour
 
     public virtual void enterState()
     {
+        Debug.Log("enterState: "+ experimentState);
         EnableSelf();
         setCurrentState(Presets.State.RunningState);
 
@@ -35,6 +37,7 @@ public class StateController : MonoBehaviour
 
     public virtual void exitState()
     {
+        Debug.Log("exitState: " + experimentState);
         DisableSelf();
         setCurrentState(Presets.State.EndingState);
 

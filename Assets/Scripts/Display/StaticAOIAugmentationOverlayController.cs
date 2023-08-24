@@ -34,7 +34,7 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
     void Update()
     {
         float updateFrequency = 1.0f / Time.deltaTime;
-        Debug.Log("Update Frequency: " + updateFrequency + " FPS");
+        //Debug.Log("Update Frequency: " + updateFrequency + " FPS");
         updatePolygonVisualization();
     }
 

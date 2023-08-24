@@ -5,6 +5,13 @@ using UnityEngine;
 public class TestBlockController : BlockController
 {
     // Start is called before the first frame update
+
+    [Header("Image Loader")]
+    public ImageLoader testBlockImageLoader;
+    public int imageIndex = 0;
+
+
+
     void Start()
     {
         experimentStates = ExperimentPreset.ConstructTestBlock();
@@ -23,5 +30,12 @@ public class TestBlockController : BlockController
         base.initExperimentBlockStates();
         experimentStates = ExperimentPreset.ConstructTestBlock();
     }
+
+    //public override void initExperimentBloc
+    
+
+
+
+
 
 }

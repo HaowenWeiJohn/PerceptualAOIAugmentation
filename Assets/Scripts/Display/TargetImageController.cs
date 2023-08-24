@@ -43,12 +43,14 @@ public class TargetImageController : MonoBehaviour
 
     }
 
-    public void setSourceImage()
+    public void setImage(Texture2D imageTexture)
     {
-        //targetImage.sprite = new Sprite() a;
+        Sprite imageSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.one * 0.5f);
+        targetImage.sprite = imageSprite;
+        //targetImage.SetNativeSize();
     }
 
-    
+
 
 
 }

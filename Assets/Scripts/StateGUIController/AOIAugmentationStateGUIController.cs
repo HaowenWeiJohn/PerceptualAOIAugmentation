@@ -18,10 +18,9 @@ public class AOIAugmentationStateGUIController : GUIController
         base.Update();
     }
 
-    public void setImage()
+    public void setImage(Texture2D imageTexture)
     {
-        Debug.Log("Set target image");
-        // set image
+        targetImageController.setImage(imageTexture);
     }
 
 

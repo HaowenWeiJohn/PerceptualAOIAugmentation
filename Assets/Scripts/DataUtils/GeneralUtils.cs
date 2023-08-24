@@ -1,7 +1,8 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
 
 public class GeneralUtils
 {
@@ -74,6 +75,14 @@ public class GeneralUtils
     }
 
 
-
+    public static Texture2D LoadTextureFromFile(string filePath)
+    {
+        byte[] imageData = File.ReadAllBytes(filePath);
+        Texture2D texture = new Texture2D(5375, 2670); // You might need to adjust the size
+        if (texture.LoadImage(imageData))
+            return texture;
+        else
+            return null;
+    }
 
 }

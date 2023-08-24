@@ -228,4 +228,9 @@ public static class Presets
     };
 
 
+    public static string PracticeBlockImageDirectoryPath = "D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
+    public static string TestBlockImageDirectoryPath = "D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
+
+    public static string ImageFileFormat = "*.png";
+
 }

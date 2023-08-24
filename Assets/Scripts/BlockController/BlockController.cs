@@ -29,14 +29,23 @@ public class BlockController : MonoBehaviour
             {
                 stateSelector(experimentStates[experimentStateIndex]);
                 gameManager.currentState.enterState();
+                onExperimentStateEntered();
             }
             else
             {
-                existBlock();
+                exitBlock();
             }
         
         }
     }
+
+
+    public virtual void onExperimentStateEntered()
+    {
+
+    }
+
+
 
     public virtual void initExperimentBlockStates()
     {
@@ -54,11 +63,11 @@ public class BlockController : MonoBehaviour
         experimentStateIndex = 0;
         stateSelector(experimentStates[experimentStateIndex]);
         gameManager.currentState.enterState();
-
+        onExperimentStateEntered();
 
     }
 
-    public void existBlock()
+    public void exitBlock()
     {
         // send event marker
         Debug.Log("existBlock: " + experimentBlock);

@@ -18,12 +18,12 @@ public class GUIController : MonoBehaviour
     }
 
 
-    public void EnableSelf()
+    public virtual void EnableSelf()
     {
         gameObject.SetActive(true);
     }
 
-    public void DisableSelf()
+    public virtual void DisableSelf()
     {
         gameObject.SetActive(false);
     }

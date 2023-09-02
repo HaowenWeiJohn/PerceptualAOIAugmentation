@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class StaticAOIAugmentationOverlayController : MonoBehaviour
+public class StaticAOIAugmentationOverlayController : GUIController
 {
 
     public GameObject polygon;
@@ -142,6 +142,18 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
         }
     }
 
+
+    public override void EnableSelf()
+    {
+        disableAllPolygon();
+        base.EnableSelf();
+    }
+
+    public override void DisableSelf()
+    {
+        disableAllPolygon();
+        base.DisableSelf();
+    }
     // we cannot enable all polygons, this will kill the process!!!!
 
 }

@@ -25,17 +25,20 @@ public class NoAOIAugmentationStateController : StateController
 
     public override void enterState()
     {
-        aOIAugmentationStateGUIController.EnableSelf();
+
         //base.enterState();
         Debug.Log("enterState: " + experimentState);
         EnableSelf();
         setCurrentState(Presets.State.RunningState);
         eventMarkerLSLOutletController.sendStateOnEnterMarker(experimentState, imageIndex);
 
+        aOIAugmentationStateGUIController.EnableSelf();
+        aOIAugmentationStateGUIController.activateNoAOIAugmentationOverlayController();
     }
 
     public override void exitState()
     {
+        aOIAugmentationStateGUIController.deactivateNoAOIAugmentationOverlayController();
         aOIAugmentationStateGUIController.DisableSelf();
         base.exitState();
 

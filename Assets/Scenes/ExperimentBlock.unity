@@ -1823,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &460374815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3163,7 +3163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &669890355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11858,9 +11858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImageController: {fileID: 322916467}
-  noAOIAugmentationOverlay: {fileID: 669890356}
+  noAOIAugmentationOverlayController: {fileID: 669890356}
   staticAOIAugmentationOverlayController: {fileID: 460374816}
-  interactiveAOIAugmentationOverlay: {fileID: 2032533529}
+  interactiveAOIAugmentationOverlayController: {fileID: 2032533529}
 --- !u!1 &2019446633
 GameObject:
   m_ObjectHideFlags: 0
@@ -12077,7 +12077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2032533528
 RectTransform:
   m_ObjectHideFlags: 0

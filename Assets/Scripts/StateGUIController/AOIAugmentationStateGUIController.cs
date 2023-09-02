@@ -8,9 +8,10 @@ public class AOIAugmentationStateGUIController : GUIController
     // Start is called before the first frame update
     public TargetImageController targetImageController;
 
-    public NoAOIAugmentationOverlayController noAOIAugmentationOverlay;
+
+    public NoAOIAugmentationOverlayController noAOIAugmentationOverlayController;
     public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
-    public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlay;
+    public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlayController;
 
     void Start()
     {
@@ -29,6 +30,52 @@ public class AOIAugmentationStateGUIController : GUIController
     }
 
 
+    /// <summary>
+    /// ////////////////////////////////
+    /// 
+    /// </summary>
+    public void activateNoAOIAugmentationOverlayController()
+    {
+        noAOIAugmentationOverlayController.EnableSelf();
+    }
+
+
+    public void deactivateNoAOIAugmentationOverlayController()
+    {
+        noAOIAugmentationOverlayController.DisableSelf();
+    }
+
+
+    /// <summary>
+    /// ////////////////////////////////
+    /// 
+    /// </summary>
+    public void activateStaticAOIAugmentationOverlayController()
+    {
+        staticAOIAugmentationOverlayController.EnableSelf();
+    }
+
+
+    public void deactivateStaticAOIAugmentationOverlayController()
+    {
+        staticAOIAugmentationOverlayController.DisableSelf();
+    }
+
+
+    /// <summary>
+    /// ////////////////////////////////
+    /// 
+    /// </summary>
+    public void activateInteractiveAOIAugmentationOverlayController()
+    {
+        interactiveAOIAugmentationOverlayController.EnableSelf();
+    }
+
+
+    public void deactivateInteractiveAOIAugmentationOverlayController()
+    {
+        interactiveAOIAugmentationOverlayController.DisableSelf();
+    }
 
 
 }

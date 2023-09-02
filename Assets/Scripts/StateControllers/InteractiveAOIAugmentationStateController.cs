@@ -6,7 +6,8 @@ public class InteractiveAOIAugmentationStateController : StateController
 {
     // Start is called before the first frame update
     public AOIAugmentationStateGUIController aOIAugmentationStateGUIController;
-    
+    public int imageIndex = 0;
+
     // AOI Augmentation visualization overlay
 
     void Start()
@@ -25,7 +26,11 @@ public class InteractiveAOIAugmentationStateController : StateController
     public override void enterState()
     {
         aOIAugmentationStateGUIController.EnableSelf();
-        base.enterState();
+        //base.enterState();
+        Debug.Log("enterState: " + experimentState);
+        EnableSelf();
+        setCurrentState(Presets.State.RunningState);
+        eventMarkerLSLOutletController.sendStateOnEnterMarker(experimentState, imageIndex);
 
     }
 

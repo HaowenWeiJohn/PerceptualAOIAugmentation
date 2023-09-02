@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public static class Presets
 {
@@ -20,7 +21,7 @@ public static class Presets
     {
         BlockChannelIndex = 0,
         ExperimentStateChannelIndex = 1,
-        ReportLabelChannelIndex = 2,
+        ImageIndexChannelIndex = 2,
         InterruptLabelChannelIndex = 3, // the 0-5 is row, 7-11 is column
     }
 
@@ -234,9 +235,10 @@ public static class Presets
         ExperimentState.FeedbackState
     };
 
+    public static string ProjectDirectoryPath = Directory.GetCurrentDirectory();
+    public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "OCTReportImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
+    public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "OCTReportImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
-    public static string PracticeBlockImageDirectoryPath = "D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
-    public static string TestBlockImageDirectoryPath = "D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
     public static string ImageFileFormat = "*.png";
 

@@ -139,7 +139,7 @@ public class LSLInletInterface : MonoBehaviour
         while (streamInlet.samples_available()>0) {
             streamInlet.pull_chunk(trashDataBuffer, trashTimestampsBuffer);
         }
-        Debug.Log("Buffer Cleared");
+        //Debug.Log("Buffer Cleared");
     }
 
     

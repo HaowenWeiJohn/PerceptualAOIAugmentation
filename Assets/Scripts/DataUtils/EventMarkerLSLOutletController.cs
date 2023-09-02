@@ -49,47 +49,48 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
 
     public void sendBlockOnEnterMarker(Presets.ExperimentBlock currentExperimentBlock)
     {
-        float[] currentStateMarker = new float[] { (float)currentExperimentBlock,0,0, 0};
-        streamOutlet.push_sample(currentStateMarker);
+        //float[] currentStateMarker = new float[] { (float)currentExperimentBlock,0,0, 0};
+        //streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.BlockChannelIndex] = (float)currentExperimentBlock;
+        streamOutlet.push_sample(eventMarkerArray);
+
     }
 
     public void sendBlockOnExitMarker(Presets.ExperimentBlock currentExperimentBlock)
     {
-        float[] currentStateMarker = new float[] { -(float)currentExperimentBlock,0,0, 0};
-        streamOutlet.push_sample(currentStateMarker);
+        //float[] currentStateMarker = new float[] { -(float)currentExperimentBlock,0,0, 0};
+        //streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.BlockChannelIndex] = (float)currentExperimentBlock * -1.0f;
+        streamOutlet.push_sample(eventMarkerArray);
     }
 
     
 
 
 
-    public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState, int reportIndex=0)
+    public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState, int imageIndex=0)
     {
-        float[] currentStateMarker = new float[] {0, (float)currentExperimentState, 0, 0};
-        streamOutlet.push_sample(currentStateMarker);
+        //float[] currentStateMarker = new float[] {0, (float)currentExperimentState, 0, 0};
+        //streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.ExperimentStateChannelIndex] = (float)currentExperimentState;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.ImageIndexChannelIndex] = (float)imageIndex;
+        streamOutlet.push_sample(eventMarkerArray);
+
     }
 
 
     public void sendStateOnExitMarker(Presets.ExperimentState currentExperimentState)
     {
-        float[] currentStateMarker = new float[] {0, -(float)currentExperimentState,0, 0};
-        streamOutlet.push_sample(currentStateMarker);
+        //float[] currentStateMarker = new float[] {0, -(float)currentExperimentState,0, 0};
+        //streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.ExperimentStateChannelIndex] = (float)currentExperimentState * -1.0f;
+        streamOutlet.push_sample(eventMarkerArray);
+
     }
-
-
-    //public void sendInteractionStateOnEnterMarker(Presets.ExperimentState currentExperimentState, int reportIndex=-1)
-    //{
-    //    float[] currentStateMarker = new float[] { 0, (float)currentExperimentState, 0 };
-    //    streamOutlet.push_sample(currentStateMarker);
-    //}
-
-
-    //public void sendInteractionStateOnExitMarker(Presets.ExperimentState currentExperimentState, int reportIndex=-1)
-    //{
-    //    float[] currentStateMarker = new float[] { 0, -(float)currentExperimentState, 0 };
-    //    streamOutlet.push_sample(currentStateMarker);
-    //}
-
 
 
 

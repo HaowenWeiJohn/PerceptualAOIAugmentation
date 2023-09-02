@@ -28,14 +28,14 @@ public class BlockController : MonoBehaviour
             if (experimentStateIndex < experimentStates.Count)
             {
                 stateSelector(experimentStates[experimentStateIndex]);
-                gameManager.currentState.enterState();
                 onExperimentStateEntered();
+                gameManager.currentState.enterState();
             }
             else
             {
                 exitBlock();
             }
-        
+
         }
     }
 
@@ -62,8 +62,8 @@ public class BlockController : MonoBehaviour
         gameManager.eventMarkerLSLOutletController.sendBlockOnEnterMarker(experimentBlock);
         experimentStateIndex = 0;
         stateSelector(experimentStates[experimentStateIndex]);
-        gameManager.currentState.enterState();
         onExperimentStateEntered();
+        gameManager.currentState.enterState();
 
     }
 

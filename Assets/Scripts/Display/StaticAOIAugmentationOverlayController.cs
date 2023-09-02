@@ -27,7 +27,6 @@ public class StaticAOIAugmentationOverlayController : MonoBehaviour
         getPatchCenterPositions();
         constructPolygon();
         constructPolygonFast();
-
     }
 
     // Update is called once per frame

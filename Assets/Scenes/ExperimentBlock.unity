@@ -1117,7 +1117,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &321473762
 MonoBehaviour:
@@ -3128,7 +3128,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &663282355
 MonoBehaviour:
@@ -3143,9 +3143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 10
+  experimentState: 11
   eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
+  imageIndex: 0
 --- !u!1 &669890354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &680620833
 MonoBehaviour:
@@ -3277,9 +3278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 6
+  experimentState: 7
   eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
+  imageIndex: 0
 --- !u!1 &687767833
 GameObject:
   m_ObjectHideFlags: 0
@@ -5029,7 +5031,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1061065698
 MonoBehaviour:
@@ -8222,6 +8224,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215216054}
   m_CullTransparentMesh: 1
+--- !u!1 &1219038947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219038949}
+  - component: {fileID: 1219038948}
+  m_Layer: 0
+  m_Name: DummyTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1219038948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219038947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848ba3a667cd1b64e94f0c00e55727ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1219038949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219038947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236787618
 GameObject:
   m_ObjectHideFlags: 0
@@ -8427,7 +8473,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1315262009
 MonoBehaviour:
@@ -8698,7 +8744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791685808}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1388072444
 MonoBehaviour:
@@ -8713,9 +8759,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 8
+  experimentState: 9
   eventMarkerLSLOutletController: {fileID: 1065392284}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
+  imageIndex: 0
 --- !u!1 &1393011392
 GameObject:
   m_ObjectHideFlags: 0
@@ -10752,12 +10799,12 @@ Transform:
   - {fileID: 311712169}
   - {fileID: 365139247}
   - {fileID: 1055088875}
-  - {fileID: 680620832}
-  - {fileID: 1388072443}
-  - {fileID: 663282354}
   - {fileID: 321473761}
+  - {fileID: 680620832}
   - {fileID: 1315262008}
+  - {fileID: 1388072443}
   - {fileID: 1061065697}
+  - {fileID: 663282354}
   - {fileID: 1486175698}
   - {fileID: 1145392330}
   m_Father: {fileID: 0}

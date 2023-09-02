@@ -133,12 +133,12 @@ public class PolygonVisualizationController : MonoBehaviour
 
     void enableRenderer()
     {
-        polygonMeshRendererController.meshRenderer.enabled = true;
+        //polygonMeshRendererController.meshRenderer.enabled = true;
     }
 
     void disableRenderer()
     {
-        polygonMeshRendererController.meshRenderer.enabled = false;
+        //polygonMeshRendererController.meshRenderer.enabled = false;
 
     }
 

@@ -7,6 +7,11 @@ public class AOIAugmentationStateGUIController : GUIController
 {
     // Start is called before the first frame update
     public TargetImageController targetImageController;
+
+    public NoAOIAugmentationOverlayController noAOIAugmentationOverlay;
+    public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
+    public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlay;
+
     void Start()
     {
         

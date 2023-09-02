@@ -32,7 +32,7 @@ public class PolygonController : MonoBehaviour
         setPolygonSides(polygonSides);
         setPolygonRadius(polygonRadius);
         setPolygonCenterRadius(polygonCenterRadius);
-        polygonMaterial = polygonMeshRendererController.meshRenderer.material;
+        //polygonMaterial = polygonMeshRendererController.meshRenderer.material;
     }
 
     // Update is called once per frame

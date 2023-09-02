@@ -47,17 +47,19 @@ public class PracticeBlockController : BlockController
         {
             gameManager.noAOIAugmentationStateController.imageIndex = imageIndex;
             gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextures[imageIndex]);
-            
+            imageIndex += 1;   
         }
         else if (gameManager.currentState == gameManager.staticAOIAugmentationStateController)
         {
             gameManager.staticAOIAugmentationStateController.imageIndex = imageIndex;
             gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextures[imageIndex]);
+            imageIndex += 1;
         }
         else if (gameManager.currentState == gameManager.interactiveAOIAugmentationStateController)
         {
             gameManager.interactiveAOIAugmentationStateController.imageIndex = imageIndex;
             gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextures[imageIndex]);
+            imageIndex += 1;
         }
     }
 

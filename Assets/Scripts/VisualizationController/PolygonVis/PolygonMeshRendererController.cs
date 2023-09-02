@@ -8,8 +8,8 @@ public class PolygonMeshRendererController : MonoBehaviour
     //mesh properties
     Mesh mesh;
 
-    public Material materialPrefab;
-    public MeshRenderer meshRenderer;
+    //public Material materialPrefab;
+    //public MeshRenderer meshRenderer;
 
     public Vector3[] polygonPoints;
     public int[] polygonTriangles;
@@ -21,13 +21,13 @@ public class PolygonMeshRendererController : MonoBehaviour
     public int initialPolygonSides;
     public float initialPolygonRadius;
     public float initialPolygonCenterRadius;
-    public Material initialPolygonMaterial;
+    //public Material initialPolygonMaterial;
 
     [Header ("Dynamic Prameters")]
     public int polygonSides;
     public float polygonRadius;
     public float polygonCenterRadius;
-    public Material polygonMaterial;
+    //public Material polygonMaterial;
 
 
     void Start()
@@ -36,7 +36,7 @@ public class PolygonMeshRendererController : MonoBehaviour
         this.GetComponent<MeshFilter>().mesh = mesh;
         // set initial geometry
         setInitialGeometry();
-        setInitialMaterial();
+        //setInitialMaterial();
         // set initial material
 
     }
@@ -83,8 +83,8 @@ public class PolygonMeshRendererController : MonoBehaviour
 
     void setInitialMaterial()
     {
-        polygonMaterial = Instantiate(materialPrefab);
-        meshRenderer.material = polygonMaterial;
+        //polygonMaterial = Instantiate(materialPrefab);
+        //meshRenderer.material = polygonMaterial;
     }
 
 

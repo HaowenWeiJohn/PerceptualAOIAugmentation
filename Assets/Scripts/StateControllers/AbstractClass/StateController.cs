@@ -45,6 +45,14 @@ public class StateController : MonoBehaviour
     }
 
 
+    public virtual void interruptState()
+    {
+        DisableSelf();
+        setCurrentState(Presets.State.InterruptState);
+
+        //eventMarkerLSLOutletController.sendStateOnInterruptMarker();
+    }
+
 
     //public virtual void OnEnable()
     //{

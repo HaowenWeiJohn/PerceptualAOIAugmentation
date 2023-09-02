@@ -12,10 +12,17 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 3; // block marker index 0
+    public static int EventMarkerChannelNum = 4; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
+    public enum EventMarkerChannelInfo
+    {
+        BlockChannelIndex = 0,
+        ExperimentStateChannelIndex = 1,
+        ReportLabelChannelIndex = 2,
+        InterruptLabelChannelIndex = 3, // the 0-5 is row, 7-11 is column
+    }
 
 
     public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSLOutlet";

@@ -10,7 +10,6 @@ public class ArrowAnimation : MonoBehaviour
     public int numberOfReplicas = 10; // Number of replicas to create
     public float spacing = 1.0f; // Spacing between replicas
     public float replicationDelay = 0.2f; // Time delay between each replication in seconds
-    //public int maxReplicasToKeep = 10; // Maximum number of replicas to keep before removing the earliest ones
     public float removalDelay = 0.2f; // Time delay between each removal in seconds
     public int removeAfterReplicas = 3; // Number of replicas after which removal should start
     public float offset = 0.5f;

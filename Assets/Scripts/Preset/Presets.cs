@@ -6,8 +6,8 @@ using System.IO;
 public static class Presets
 {
 
-    public static Vector2Int AttentionGridShape = new Vector2Int (25, 50);
-    public static Vector2Int OriginalImageShape = new Vector2Int (1000, 2000);
+    public static Vector2Int AttentionGridShape = new Vector2Int (32, 32);
+    public static Vector2Int OriginalImageShape = new Vector2Int (512, 1024);
 
 
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";

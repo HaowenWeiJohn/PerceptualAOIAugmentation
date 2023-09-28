@@ -8138,7 +8138,7 @@ MonoBehaviour:
   experimentBlock: 4
   gameManager: {fileID: 2060634373}
   blockState: 0
-  testBlockImageLoader: {fileID: 0}
+  testBlockImageLoader: {fileID: 1752377264}
   imageIndex: 0
 --- !u!1 &1184148287
 GameObject:

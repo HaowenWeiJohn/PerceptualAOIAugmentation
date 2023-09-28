@@ -31,9 +31,45 @@ public class TestBlockController : BlockController
         experimentStates = ExperimentPreset.ConstructTestBlock();
     }
 
-    //public override void initExperimentBloc
-    
 
+    public override void onExperimentStateEntered()
+    {
+        base.onExperimentStateEntered();
+
+        if (gameManager.currentState == gameManager.noAOIAugmentationStateController)
+        {
+            gameManager.noAOIAugmentationStateController.imageIndex = imageIndex;
+            gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextures[imageIndex]);
+            imageIndex += 1;
+        }
+        else if (gameManager.currentState == gameManager.staticAOIAugmentationStateController)
+        {
+            gameManager.staticAOIAugmentationStateController.imageIndex = imageIndex;
+            gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextures[imageIndex]);
+            imageIndex += 1;
+        }
+        else if (gameManager.currentState == gameManager.interactiveAOIAugmentationStateController)
+        {
+            gameManager.interactiveAOIAugmentationStateController.imageIndex = imageIndex;
+            gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextures[imageIndex]);
+            imageIndex += 1;
+        }
+    }
+
+
+    public void enterBlock()
+    {
+        imageIndex = 0;
+        base.enterBlock();
+    }
+
+
+    public void exitBlock()
+    {
+        imageIndex = 0;
+        base.exitBlock();
+
+    }
 
 
 

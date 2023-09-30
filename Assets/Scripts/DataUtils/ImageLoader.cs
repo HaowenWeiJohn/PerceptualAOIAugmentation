@@ -13,6 +13,7 @@ public class ImageLoader : MonoBehaviour
     public string imageDirectoryPath;
     public string[] imageFilePaths;
     public List<Texture2D> imageTextures = new List<Texture2D>(); // List to hold loaded textures
+    public Dictionary<string, Texture2D> imageTextureDict = new Dictionary<string, Texture2D>();
 
 
 
@@ -51,12 +52,14 @@ public class ImageLoader : MonoBehaviour
     {
         if (imageDirectoryExist()) // if the image directory exist
         {
-            string[] imageFilePaths = Directory.GetFiles(imageDirectoryPath, Presets.ImageFileFormat);
+            string[] imageFilePaths = Directory.GetFiles(imageDirectoryPath);
 
             foreach (string imageFilePath in imageFilePaths)
             {
                 Texture2D imageTexture = GeneralUtils.LoadTextureFromFile(imageFilePath);
                 imageTextures.Add(imageTexture);
+                imageTextureDict.Add(Path.GetFileName(imageFilePath), imageTexture);
+
             }
 
         }

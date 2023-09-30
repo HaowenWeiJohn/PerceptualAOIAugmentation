@@ -235,11 +235,29 @@ public static class Presets
         ExperimentState.FeedbackState
     };
 
-    public static string ProjectDirectoryPath = Directory.GetCurrentDirectory();
-    public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
-    public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
+    //public static string ProjectDirectoryPath = Directory.GetCurrentDirectory();
+    //public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
+    //public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
+
+    public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
+    public static string PracticeBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
+    public static string TestBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
 
-    public static string ImageFileFormat = "*.png";
+    //public static string ImageFileFormat = "*.png";
+
+    public static List<string> PracticeBlockImageNames = new List<string>
+    {   "9175_OS_2021_widefield_report.png",
+        "9172_OD_2021_widefield_report.png",
+        "RLS_023_OS_TC.jpg"
+    };
+
+
+    public static List<string> TestBlockImageNames = new List<string>
+    {
+        "9061_OS_2021_widefield_report.png",
+        "RLS_064_OS_TC.jpg",
+        "RLS_078_OS_TC.jpg"
+    };
 
 }

@@ -28,6 +28,9 @@ public class StaticAOIAugmentationOverlayController : GUIController
     {
         float updateFrequency = 1.0f / Time.deltaTime;
         //Debug.Log("Update Frequency: " + updateFrequency + " FPS");
+
+        aOIAugmentationAttentionContourStreamLSLInletController.pullContoursLVTInfo();
+
     }
 
 

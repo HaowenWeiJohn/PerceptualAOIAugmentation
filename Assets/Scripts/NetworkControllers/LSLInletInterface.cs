@@ -153,7 +153,7 @@ public class LSLInletInterface : MonoBehaviour
 
     protected void pullSample()
     {
-        // please not that the data pull_sample function will not change the frameDataBuffer if there is no new data!
+        // please note that the data pull_sample function will not change the frameDataBuffer if there is no new data!
         frameTimestamp = streamInlet.pull_sample(frameDataBuffer, 0);
     }
 

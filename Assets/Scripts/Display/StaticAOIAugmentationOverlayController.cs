@@ -43,6 +43,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     {
         base.DisableSelf();
     }
-    // we cannot enable all polygons, this will kill the process!!!!
+
+
 
 }

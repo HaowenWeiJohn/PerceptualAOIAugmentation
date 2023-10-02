@@ -13,7 +13,7 @@ public class StaticAOIAugmentationStateLSLInletController : LSLInletInterface
     // Start is called before the first frame update
     void Start()
     {
-        streamName = Presets.StaticAOIAugmentationStateLSLInletStreamName;
+        //streamName = Presets.StaticAOIAugmentationStateLSLInletStreamName;
         StartContinousResolver();
     }
 

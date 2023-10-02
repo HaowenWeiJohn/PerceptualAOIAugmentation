@@ -6,8 +6,7 @@ using System.IO;
 public static class Presets
 {
 
-    public static Vector2Int AttentionGridShape = new Vector2Int (32, 32);
-    public static Vector2Int OriginalImageShape = new Vector2Int (512, 1024);
+
 
 
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
@@ -32,17 +31,21 @@ public static class Presets
     public static int GazeDataChannelNum = 51;
     public static float GazeDataNominalSamplingRate = 250;
 
+    // AOIAugmentationAttentionContourStream inlet stream name
+    public static string AOIAugmentationAttentionContourStreamLSLInletStreamName = "AOIAugmentationAttentionContourStream";
 
 
 
 
-    public static string StaticAOIAugmentationStateLSLInletStreamName = "StaticAOIAugmentationStateLSLInlet";
-    public static string StaticAOIAugmentationStateLSLInletStreamType = "AOIAugmentationInlet";
-    public static string StaticAOIAugmentationStateLSLInletStreamID = "3";
 
-    public static int StaticAOIAugmentationStateLSLInletChannelNum = AttentionGridShape[0] * AttentionGridShape[1];
+    //public static Vector2Int AttentionGridShape = new Vector2Int(32, 32);
+    //public static Vector2Int OriginalImageShape = new Vector2Int(512, 1024);
 
-    public static float StaticAOIAugmentationStateLSLInletNominalSamplingRate = 10;
+    //public static string StaticAOIAugmentationStateLSLInletStreamName = "StaticAOIAugmentationStateLSLInlet";
+    //public static string StaticAOIAugmentationStateLSLInletStreamType = "AOIAugmentationInlet";
+    //public static string StaticAOIAugmentationStateLSLInletStreamID = "3";
+    //public static int StaticAOIAugmentationStateLSLInletChannelNum = AttentionGridShape[0] * AttentionGridShape[1];
+    //public static float StaticAOIAugmentationStateLSLInletNominalSamplingRate = 10;
 
 
 
@@ -53,7 +56,7 @@ public static class Presets
 
     public static int MaxScore = 100;
 
-    public static KeyCode NextStateKey = KeyCode.Space;
+    public static KeyCode NextStateKey = KeyCode.KeypadEnter;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
 
@@ -246,14 +249,14 @@ public static class Presets
 
     //public static string ImageFileFormat = "*.png";
 
-    public static List<string> PracticeBlockImageNames = new List<string>
+    public static List<string> PracticeBlockImages = new List<string>
     {   "9175_OS_2021_widefield_report.png",
         "9172_OD_2021_widefield_report.png",
         "RLS_023_OS_TC.jpg"
     };
 
 
-    public static List<string> TestBlockImageNames = new List<string>
+    public static List<string> TestBlockImages = new List<string>
     {
         "9061_OS_2021_widefield_report.png",
         "RLS_064_OS_TC.jpg",

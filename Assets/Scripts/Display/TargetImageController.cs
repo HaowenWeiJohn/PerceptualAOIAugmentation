@@ -12,6 +12,20 @@ public class TargetImageController : MonoBehaviour
 
     public float width = 0;
     public float height = 0;
+
+    public float originalImageWidth = 0;
+    public float originalImageHeight = 0;
+
+
+    public float aspectRatio = 0;
+
+    public float imageWidth = 0;
+    public float imageHeight = 0;
+
+
+
+
+
     public Vector3 localPosition = new Vector3();
     //public Vector2 targetImageShape = new Vector2 (0, 0); // in matrix format height, width
     //public Vector2 targetImagePosition = new Vector2(0, 0); // center position. in canvas space
@@ -33,13 +47,29 @@ public class TargetImageController : MonoBehaviour
         width = targetImageRectTransform.rect.width;
         height = targetImageRectTransform.rect.height;
 
+        originalImageWidth = targetImage.sprite.rect.width;
+        originalImageHeight = targetImage.sprite.rect.height;
+
         localPosition = targetImageRectTransform.localPosition;
 
-        //targetImageShape[0] = targetImageRectTransform.rect.height;
-        //targetImageShape[1] = targetImageRectTransform.rect.width;
+        imageWidth = width;
+        imageHeight = height;
 
-        //targetImagePosition[0] = targetImageRectTransform.localPosition.x;
-        //targetImagePosition[1] = targetImageRectTransform.localPosition.y;
+        if (targetImage.preserveAspect)
+        {
+            aspectRatio = originalImageWidth / originalImageHeight;
+
+            if(imageWidth/imageHeight > aspectRatio)
+            {
+                imageWidth = imageHeight * aspectRatio;
+            }
+            else
+            {
+                imageHeight = imageWidth / aspectRatio;
+            }
+        }
+
+
 
     }
 
@@ -49,6 +79,8 @@ public class TargetImageController : MonoBehaviour
         targetImage.sprite = imageSprite;
         //targetImage.SetNativeSize();
     }
+
+
 
 
 

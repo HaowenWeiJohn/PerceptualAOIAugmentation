@@ -8,13 +8,23 @@ public class AOIAugmentationAttentionContourStreamLSLInletController : LSLInletI
     // Start is called before the first frame update
     void Start()
     {
-        
+        streamName = Presets.AOIAugmentationAttentionContourStreamLSLInletStreamName;
+        StartContinousResolver();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void pullContoursLVTInfo()
+    {
+        if (streamActivated)
+        {
+            pullSample();
+            clearBuffer();
+        }
     }
 
 }

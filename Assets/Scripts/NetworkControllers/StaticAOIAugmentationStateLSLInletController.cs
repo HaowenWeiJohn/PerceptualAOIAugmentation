@@ -20,27 +20,27 @@ public class StaticAOIAugmentationStateLSLInletController : LSLInletInterface
     // Update is called once per frame
     void Update()
     {
-        pullVisualizationSample();
+        //pullVisualizationSample();
     }
 
 
-    void pullVisualizationChunk()
-    {
-        if (activated)
-        {
-            pullChunk();
-            Debug.Log(chunkSampleNumber); // the number of samples in this update 
-        }
-    }
+    //void pullVisualizationChunk()
+    //{
+    //    if (activated)
+    //    {
+    //        pullChunk();
+    //        Debug.Log(chunkSampleNumber); // the number of samples in this update 
+    //    }
+    //}
 
-    void pullVisualizationSample()
-    {
-        if (activated)
-        {
-            pullSample();
-            clearBuffer();
-        }
-    }
+    //void pullVisualizationSample()
+    //{
+    //    if (activated)
+    //    {
+    //        pullSample();
+    //        clearBuffer();
+    //    }
+    //}
 
     
 

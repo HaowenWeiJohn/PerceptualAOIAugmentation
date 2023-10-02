@@ -11,8 +11,10 @@ public class StaticAOIAugmentationOverlayController : GUIController
     public DisplayCoordinateController displayCoordinateController;
     public TargetImageController targetImageController;
 
+    public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
 
-    public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
+
+    //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
 
 
     // Start is called before the first frame update

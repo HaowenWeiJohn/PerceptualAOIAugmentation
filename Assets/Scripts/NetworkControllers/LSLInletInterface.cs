@@ -24,7 +24,8 @@ public class LSLInletInterface : MonoBehaviour
 
 
 
-    public bool activated = false;
+    public bool streamActivated = false;
+    public bool streamAvailable = false;
 
 
     ContinuousResolver continuousResolver;
@@ -37,21 +38,9 @@ public class LSLInletInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-
-
-
-
-    //protected void resolveLSLInlet(string streamName, string streamType)
-    //{
-
-    //    StreamInfo[] results = LSL.LSL.resolve_stream(streamName, streamType);
-
-    //    // open an inlet and print some interesting info about the stream (meta-data, etc.)
-    //    using StreamInlet inlet = new StreamInlet(results[0]);
-    //}
 
 
     protected void initFrameBuffer()
@@ -87,22 +76,63 @@ public class LSLInletInterface : MonoBehaviour
 
 
 
+    //protected IEnumerator ResolveLSLInletArchive()
+    //{
+
+    //    var results = continuousResolver.results();
+    //    while (results.Length == 0)
+    //    {
+    //        yield return new WaitForSeconds(.1f);
+    //        results = continuousResolver.results();
+    //    }
+
+    //    streamInlet = new StreamInlet(results[0]);
+    //    initFrameBuffer();
+    //    clearBuffer();
+
+    //    activated = true;
+    //}
+
+
     protected IEnumerator ResolveLSLInlet()
     {
-        
+
         var results = continuousResolver.results();
-        while (results.Length == 0)
+        while (true)
         {
-            yield return new WaitForSeconds(.1f);
             results = continuousResolver.results();
+            if (results.Length > 0)
+            {
+                // if stream is available on the network
+                streamAvailable = true;
+                if (streamActivated == false)
+                {
+                    // setup the stream if not activated
+                    streamInlet = new StreamInlet(results[0]);
+                    initFrameBuffer();
+                    clearBuffer();
+                    streamActivated = true;
+                    Debug.Log("Stream Activated");
+                }
+            }
+            else
+            {
+                // if stream is not available on the network
+                streamAvailable = false;
+                if (streamActivated == true)
+                {
+                    // remove stream and set stream activated to false
+                    streamInlet = null;
+                    streamActivated = false;
+                    Debug.Log("Stream DeActivated");
+
+                }
+            }
+            yield return new WaitForSeconds(.1f);
         }
 
-        streamInlet = new StreamInlet(results[0]);
-        initFrameBuffer();
-        clearBuffer();
-
-        activated = true;
     }
+
 
 
     protected void startStream()
@@ -123,6 +153,7 @@ public class LSLInletInterface : MonoBehaviour
 
     protected void pullSample()
     {
+        // please not that the data pull_sample function will not change the frameDataBuffer if there is no new data!
         frameTimestamp = streamInlet.pull_sample(frameDataBuffer, 0);
     }
 
@@ -136,32 +167,11 @@ public class LSLInletInterface : MonoBehaviour
 
     protected void clearBuffer()
     {
-        while (streamInlet.samples_available()>0) {
+        while (streamInlet.samples_available() > 0)
+        {
             streamInlet.pull_chunk(trashDataBuffer, trashTimestampsBuffer);
         }
         //Debug.Log("Buffer Cleared");
     }
-
-    
-
-
-
-    //protected void initLSLInlet(string streamName, string streamType, int channelNum, float nominalSamplingRate, LSL.channel_format_t channelFormat)
-    //{
-
-    //    StreamInfo streamInfo = new StreamInfo(
-    //                                        streamName,
-    //                                        streamType,
-    //                                        channelNum,
-    //                                        nominalSamplingRate,
-    //                                        channelFormat
-    //                                        );
-
-    //    streamInlet = new StreamInlet( streamInfo );
-
-    //    frameDataBuffer = new double[streamInlet.info().channel_count()];
-    //    timestampBuffer = new double[streamInlet.info().channel_count()];
-
-    //}
 
 }

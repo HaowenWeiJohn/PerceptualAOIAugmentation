@@ -18,7 +18,7 @@ public class AOIAugmentationAttentionContourStreamLSLInletController : LSLInletI
         
     }
 
-    public void pullContoursLVTInfo()
+    public void pullContoursInfo()
     {
         if (streamActivated)
         {

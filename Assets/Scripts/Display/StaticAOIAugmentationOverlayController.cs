@@ -13,6 +13,13 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
     public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
 
+    public bool contourInfoReceived = false;
+
+
+    public ContourController contourController;
+
+    public List<ContourController> contourControllers = new List<ContourController>();
+
 
     //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
 
@@ -29,10 +36,54 @@ public class StaticAOIAugmentationOverlayController : GUIController
         float updateFrequency = 1.0f / Time.deltaTime;
         //Debug.Log("Update Frequency: " + updateFrequency + " FPS");
 
-        aOIAugmentationAttentionContourStreamLSLInletController.pullContoursLVTInfo();
+
 
     }
 
+
+
+    void AOIAugmentationAttentionContourStream()
+    {
+        aOIAugmentationAttentionContourStreamLSLInletController.pullContoursInfo();
+        if (aOIAugmentationAttentionContourStreamLSLInletController.frameTimestamp!=0)
+        {
+            contourInfoReceived = true;
+            Debug.Log("Contour Info Received");
+            initContours(aOIAugmentationAttentionContourStreamLSLInletController.frameDataBuffer);
+
+
+        }
+        else
+        {
+            Debug.Log("No Contour Info Received");
+        }
+
+    }
+
+
+
+    void initContours(float[] contourslvt)
+    {
+        int currentReadIndex = 0;
+        int overflowFlag = (int)contourslvt[0];
+        currentReadIndex += 1;
+
+        if (overflowFlag != 0)
+        {
+            return;
+        }
+        
+        int contourCount = (int)contourslvt[1];
+        currentReadIndex += 1;
+
+
+        for (int i = 0; i < contourCount; i++)
+        {
+
+            GameObject contourInstance = Instantiate(contourController.gameObject, gameObject.transform.position, Quaternion.identity);
+        }
+
+    }
 
 
 
@@ -41,11 +92,13 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
     public override void EnableSelf()
     {
+        contourInfoReceived = false;
         base.EnableSelf();
     }
 
     public override void DisableSelf()
     {
+        contourInfoReceived = false;
         base.DisableSelf();
     }
 

@@ -5,6 +5,14 @@ using UnityEngine;
 public class ContourController : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public float contourIndex;
+    public int[] hierarchy;
+    public Vector2[] contourVertices;
+
+
+
+
     void Start()
     {
         
@@ -13,6 +21,6 @@ public class ContourController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        int i = 0;
     }
 }

@@ -16,7 +16,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     public bool contourInfoReceived = false;
 
 
-    public ContourController contourController;
+    public GameObject contourPrefab;
 
     public List<ContourController> contourControllers = new List<ContourController>();
 
@@ -35,6 +35,12 @@ public class StaticAOIAugmentationOverlayController : GUIController
     {
         float updateFrequency = 1.0f / Time.deltaTime;
         //Debug.Log("Update Frequency: " + updateFrequency + " FPS");
+
+        if (contourInfoReceived==false)
+        {
+            AOIAugmentationAttentionContourStream();
+        }
+
 
 
 
@@ -64,9 +70,11 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
     void initContours(float[] contourslvt)
     {
-        int currentReadIndex = 0;
+        int nextDataIndex = 0;
+
         int overflowFlag = (int)contourslvt[0];
-        currentReadIndex += 1;
+
+        nextDataIndex += 1;
 
         if (overflowFlag != 0)
         {
@@ -74,13 +82,47 @@ public class StaticAOIAugmentationOverlayController : GUIController
         }
         
         int contourCount = (int)contourslvt[1];
-        currentReadIndex += 1;
+
+        nextDataIndex += 1;
 
 
         for (int i = 0; i < contourCount; i++)
         {
+            int contourIndex = (int)contourslvt[nextDataIndex];
+            nextDataIndex += 1;
 
-            GameObject contourInstance = Instantiate(contourController.gameObject, gameObject.transform.position, Quaternion.identity);
+            int hierarchyInfoLength = (int)contourslvt[nextDataIndex];
+            nextDataIndex += 1;
+            //hierarchyinfo list:
+            int[] hierarchy = new int[hierarchyInfoLength];
+            for (int j = 0; j < hierarchyInfoLength; j++)
+            {
+                hierarchy[j] = (int)contourslvt[nextDataIndex];
+                nextDataIndex += 1;
+            }
+
+            int contourVertexCount = (int)contourslvt[nextDataIndex];
+            nextDataIndex += 1;
+
+            Vector2[] contourVertices = new Vector2[contourVertexCount];
+            for (int j = 0; j < contourVertexCount; j++)
+            {
+                contourVertices[j] = new Vector2(contourslvt[nextDataIndex], contourslvt[nextDataIndex + 1]);
+                nextDataIndex += 2;
+            }
+
+            GameObject contourInstance = Instantiate(contourPrefab, gameObject.transform.position, Quaternion.identity);
+            contourInstance.transform.SetParent(gameObject.transform);
+            contourInstance.transform.localPosition = gameObject.transform.localPosition;
+            contourInstance.transform.localScale = gameObject.transform.localScale;
+
+            ContourController contourController = contourInstance.GetComponent<ContourController>();
+            contourController.contourIndex = contourIndex;
+            contourController.hierarchy = hierarchy;
+            contourController.contourVertices = contourVertices;
+
+            contourControllers.Add(contourController);
+
         }
 
     }

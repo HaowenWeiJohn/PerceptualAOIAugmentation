@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6251869976784382739}
   - component: {fileID: 3067755601989026059}
   m_Layer: 5
-  m_Name: Contour
+  m_Name: ContourPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

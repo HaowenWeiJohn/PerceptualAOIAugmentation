@@ -124,9 +124,9 @@ public static class ExperimentPreset
 
         ExperimentStates = ExperimentStates.Concat(Presets.TestStartBlock).ToList();
 
-        ExperimentStates = ExperimentStates.Concat(Presets.NoAOIAugmentationBlock).ToList();
-        ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlock).ToList();
-        ExperimentStates = ExperimentStates.Concat(Presets.InteractiveAOIAugmentationBlock).ToList();
+        ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlockWithInstructionBlock).ToList();
+        ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlockWithInstructionBlock).ToList();
+        ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlockWithInstructionBlock).ToList();
         //ExperimentStates = ExperimentStates.Concat(Presets.NoAOIAugmentationBlock).ToList();
         //ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlock).ToList();
         //ExperimentStates = ExperimentStates.Concat(Presets.InteractiveAOIAugmentationBlock).ToList();

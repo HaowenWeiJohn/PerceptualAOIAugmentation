@@ -59,6 +59,9 @@ public static class Presets
     public static KeyCode NextStateKey = KeyCode.KeypadEnter;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
+    public static KeyCode StaticAOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
+    public static KeyCode StaticAOIAugmentationEnableDisableContoursHoldKey = KeyCode.LeftAlt;
+
 
     public enum DisplayState
     {
@@ -245,7 +248,6 @@ public static class Presets
     public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
     public static string PracticeBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
     public static string TestBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
-
 
     //public static string ImageFileFormat = "*.png";
 

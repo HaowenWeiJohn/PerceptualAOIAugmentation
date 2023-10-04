@@ -52,12 +52,14 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateStaticAOIAugmentationOverlayController()
     {
+        staticAOIAugmentationOverlayController.removeAllContourContours(); // clear all contours
         staticAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateStaticAOIAugmentationOverlayController()
     {
+        staticAOIAugmentationOverlayController.removeAllContourContours(); // clear all contours
         staticAOIAugmentationOverlayController.DisableSelf();
     }
 

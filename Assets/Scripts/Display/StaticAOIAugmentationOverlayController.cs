@@ -44,7 +44,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
             AOIAugmentationAttentionContourStream();
         }
 
-        enableDisableContoursWithKeyPress();
+        //enableDisableContoursWithKeyPress();
         enableDisableContoursWithKeyHold();
 
 

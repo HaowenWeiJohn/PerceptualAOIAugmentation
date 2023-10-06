@@ -6,9 +6,9 @@ public class ContourController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float contourIndex;
-    public int[] hierarchy;
-    public Vector2[] contourVertices;
+    public float contourIndex = 0;
+    public int[] hierarchy = new int[] { };
+    public Vector2[] contourVertices = new Vector2[] { };
 
     public LineRenderer lineRenderer; // for contour visualization
     public Color lineRendererStartColor = Color.blue;

@@ -21,7 +21,7 @@ public static class Presets
         BlockChannelIndex = 0,
         ExperimentStateChannelIndex = 1,
         ImageIndexChannelIndex = 2,
-        InterruptLabelChannelIndex = 3, // the 0-5 is row, 7-11 is column
+        UserInputsChannelIndex = 3, // the 0-5 is row, 7-11 is column
     }
 
 
@@ -59,8 +59,16 @@ public static class Presets
     public static KeyCode NextStateKey = KeyCode.KeypadEnter;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
-    public static KeyCode StaticAOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
-    public static KeyCode StaticAOIAugmentationEnableDisableContoursHoldKey = KeyCode.LeftAlt;
+
+    public static KeyCode AOIAugmentationInteractionStateUpdateCueKey = KeyCode.U;
+    public static KeyCode AOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
+    public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.LeftAlt;
+    public enum UserInputTypes
+    {
+        AOIAugmentationInteractionStateUpdateCueKeyPressed = 1
+    }
+
+
 
 
     public enum DisplayState
@@ -130,6 +138,8 @@ public static class Presets
         EndingState = 2,
         InterruptState = 3
     }
+
+
 
 
     public enum ExperimentState
@@ -245,7 +255,10 @@ public static class Presets
     //public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
     //public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
-    public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
+    //public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
+    public static string ExperimentImageDir = "D:\\HaowenWei\\Rena\\PhysioLabXR\\physiolabxr\\scripting\\AOIAugmentationScript\\data\\experiment_images";
+
+
     public static string PracticeBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
     public static string TestBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 

@@ -158,7 +158,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     }
     
 
-    public void removeAllContourContours()
+    public void removeAllContours()
     {
 
         foreach (ContourController contourController in contourControllers)
@@ -191,7 +191,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
 
     public void enableDisableContoursWithKeyPress() {
-         bool switchEnableDisableContours = Input.GetKeyDown(Presets.StaticAOIAugmentationEnableDisableContoursPressKey);
+         bool switchEnableDisableContours = Input.GetKeyDown(Presets.AOIAugmentationEnableDisableContoursPressKey);
             if (switchEnableDisableContours)
             {
                 enableContourVisualization = !enableContourVisualization;
@@ -208,7 +208,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
     public void enableDisableContoursWithKeyHold()
     {
-        bool disableContoursKeyHold = Input.GetKey(Presets.StaticAOIAugmentationEnableDisableContoursHoldKey);
+        bool disableContoursKeyHold = Input.GetKey(Presets.AOIAugmentationEnableDisableContoursHoldKey);
         if (disableContoursKeyHold) { 
             if (enableContourVisualization)
             {

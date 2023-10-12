@@ -90,5 +90,12 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     }
 
 
+    public void sendUserInputsMarker(Presets.UserInputTypes UserInputs)
+    {
+
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.UserInputsChannelIndex] = (float)UserInputs;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
 
 }

@@ -40,7 +40,7 @@ public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
             float timestamp = gazeDataArray[50] / 1000000;
             streamOutlet.push_sample(gazeDataArray, timestamp);
             float endTime = Time.time;
-            Debug.Log(startTime-endTime);
+            //Debug.Log(startTime-endTime);
 
             data = _eyeTracker.NextData;
             

@@ -255,8 +255,8 @@ public static class Presets
     //public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
     //public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
-    //public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
-    public static string ExperimentImageDir = "D:\\HaowenWei\\Rena\\PhysioLabXR\\physiolabxr\\scripting\\AOIAugmentationScript\\data\\experiment_images";
+    public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
+    //public static string ExperimentImageDir = "D:\\HaowenWei\\Rena\\PhysioLabXR\\physiolabxr\\scripting\\AOIAugmentationScript\\data\\experiment_images";
 
 
     public static string PracticeBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";

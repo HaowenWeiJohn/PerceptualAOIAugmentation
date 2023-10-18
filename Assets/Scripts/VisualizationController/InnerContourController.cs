@@ -11,7 +11,7 @@ public class InnerContour : MonoBehaviour
     private LineRenderer originalLineRenderer;
     private ContourController contourController;
 
-    private float offsetDistance = 2f;
+    private float offsetDistance;
     private Gradient gradient;
     private GradientColorKey[] colorKey;
     private GradientAlphaKey[] alphaKey;
@@ -24,7 +24,7 @@ public class InnerContour : MonoBehaviour
 
         int pointCount = originalLineRenderer.positionCount;
 
-        offsetDistance = 0.5f * (contourController.lineRendererStartWidth + contourController.lineRendererEndWidth) * 2.1f / 0.025f;
+        offsetDistance = 1.9f + ((0.5f * (contourController.lineRendererStartWidth + contourController.lineRendererEndWidth) - 0.025f) / 0.025f) * 0.5f * 1.9f;
 
         Vector3[] oldPoints = new Vector3[pointCount];
         originalLineRenderer.GetPositions(oldPoints);
@@ -50,8 +50,8 @@ public class InnerContour : MonoBehaviour
         }
         innerLineRenderer.startColor = Color.white;
         innerLineRenderer.endColor = Color.white;
-        innerLineRenderer.startWidth = contourController.lineRendererStartWidth;
-        innerLineRenderer.endWidth = contourController.lineRendererEndWidth;
+        innerLineRenderer.startWidth = contourController.lineRendererStartWidth * 1.1f;
+        innerLineRenderer.endWidth = contourController.lineRendererEndWidth * 1.1f;
         
 
     }

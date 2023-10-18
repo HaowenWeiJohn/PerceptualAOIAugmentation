@@ -1,2 +1,2 @@
 # PerceptualAOIAugmentation
- PerceptualAOIAugmentation AI4VSlab
+ PerceptualAOIAugmentation

@@ -6,13 +6,12 @@ public class InnerContour : MonoBehaviour
 {
     public GameObject originalContour;
     public float period = 1f;
-    public float offsetDistance = 2f;
 
     private LineRenderer innerLineRenderer;
     private LineRenderer originalLineRenderer;
     private ContourController contourController;
-    
 
+    private float offsetDistance = 2f;
     private Gradient gradient;
     private GradientColorKey[] colorKey;
     private GradientAlphaKey[] alphaKey;
@@ -24,6 +23,8 @@ public class InnerContour : MonoBehaviour
         contourController = originalContour.GetComponent<ContourController>();
 
         int pointCount = originalLineRenderer.positionCount;
+
+        offsetDistance = 0.5f * (contourController.lineRendererStartWidth + contourController.lineRendererEndWidth) * 2.1f / 0.025f;
 
         Vector3[] oldPoints = new Vector3[pointCount];
         originalLineRenderer.GetPositions(oldPoints);

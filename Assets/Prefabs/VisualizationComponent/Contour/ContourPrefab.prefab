@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalContour: {fileID: 6248765011764604974}
-  shrinkFactor: 0.8
-  rotatingPeriod: 3
-  offset: 0
+  period: 1
 --- !u!120 &3709086856054176815
 LineRenderer:
   serializedVersion: 2

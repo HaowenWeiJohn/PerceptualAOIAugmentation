@@ -24,6 +24,14 @@ public class FeedbackStateGUIController : GUIController
     public Button nineButton;
     public Button zeroButton;
 
+    [Header("Toggle Radio Buttons")]
+    public Toggle Toggle0Controller;
+    public Toggle Toggle1Controller;
+    public Toggle Toggle2Controller;
+    public Toggle Toggle3Controller;
+    public Toggle Toggle4Controller;
+    public Toggle Toggle5Controller;
+
     [Header("Delete Buttons")]
     public Button deleteButton;
 
@@ -49,7 +57,7 @@ public class FeedbackStateGUIController : GUIController
 
         deleteButton.onClick.AddListener(deleteButtonPressed);
 
-
+        resetRadioButtons();
 
 
     }
@@ -220,16 +228,23 @@ public class FeedbackStateGUIController : GUIController
         messageInputField.text = "";
     }
 
+    public void resetRadioButtons()
+    {
+        Toggle0Controller.isOn = true;
+    }
+
 
     public void EnableSelf()
     {
         clearFeedback();
+        resetRadioButtons();
         base.EnableSelf();
     }
 
     public void DisableSelf()
     {
         clearFeedback();
+        resetRadioButtons();
         base.DisableSelf();
     }
 

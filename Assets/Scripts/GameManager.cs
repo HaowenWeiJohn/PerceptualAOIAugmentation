@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     //public UserInputController userInputController;
 
     [Header("Experiment Blocks")]
-
+    public InitBlockController initBlockController;
     public StartBlockController startBlockController;
     public IntroductionBlockController introductionBlockController;
     public PracticeBlockController practiceBlockController;
@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     public EndBlockController endBlockController;
 
 
-
+    [Header("Init States")]
+    public InitStateController initStateController;
 
     [Header("Start State")]
     public StartStateController startStateController;
@@ -157,6 +158,10 @@ void Update()
     {
         switch (nextBlock)
         {
+
+            case Presets.ExperimentBlock.InitBlock:
+                currentBlock = initBlockController;
+                break;
 
             case Presets.ExperimentBlock.StartBlock:
                 currentBlock = startBlockController;

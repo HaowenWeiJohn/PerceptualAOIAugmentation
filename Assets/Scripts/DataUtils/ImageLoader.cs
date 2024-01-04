@@ -58,7 +58,7 @@ public class ImageLoader : MonoBehaviour
             {
                 Texture2D imageTexture = GeneralUtils.LoadTextureFromFile(imageFilePath);
                 imageTextures.Add(imageTexture);
-                imageTextureDict.Add(Path.GetFileName(imageFilePath), imageTexture);
+                imageTextureDict.Add(Path.GetFileNameWithoutExtension(imageFilePath), imageTexture);
 
             }
 

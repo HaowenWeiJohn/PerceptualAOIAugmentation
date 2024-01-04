@@ -255,8 +255,8 @@ public static class Presets
     //public static string PracticeBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
     //public static string TestBlockImageDirectoryPath = Path.Combine(ProjectDirectoryPath, "Assets", "Prefabs", "ExperimentImages", "Test");//"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\test";
 
-    public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
-    //public static string ExperimentImageDir = "D:\\HaowenWei\\Rena\\PhysioLabXR\\physiolabxr\\scripting\\AOIAugmentationScript\\data\\experiment_images";
+    //public static string ExperimentImageDir = "D://HaowenWei//PycharmProjects//PhysioLabXR//physiolabxr//scripting//AOIAugmentationScript//data//experiment_images";
+    public static string ExperimentImageDir = "D:\\HaowenWei\\PycharmProjects\\PhysioLabXR\\physiolabxr\\scripting\\illumiRead\\AOIAugmentationScript\\data\\experiment_images";
 
 
     public static string PracticeBlockImageDirectoryPath = Path.Combine(ExperimentImageDir, "practice"); //"D:\\HaowenWei\\Rena\\illumiRead\\AOIAugmentation\\experiment_report\\practice";
@@ -265,17 +265,17 @@ public static class Presets
     //public static string ImageFileFormat = "*.png";
 
     public static List<string> PracticeBlockImages = new List<string>
-    {   "9175_OS_2021_widefield_report.png",
-        "9172_OD_2021_widefield_report.png",
-        "RLS_023_OS_TC.jpg"
+    {   "9025_OD_2021_widefield_report",
+        "9071_OD_2021_widefield_report",
+        "RLS_006_OD_TC"
     };
 
 
     public static List<string> TestBlockImages = new List<string>
     {
-        "9061_OS_2021_widefield_report.png",
-        "RLS_064_OS_TC.jpg",
-        "RLS_078_OS_TC.jpg"
+        "RLS_023_OD_TC",
+        "RLS_025_OD_TC",
+        "RLS_045_OD_TC"
     };
 
 }

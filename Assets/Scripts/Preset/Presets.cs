@@ -63,6 +63,7 @@ public static class Presets
     public static KeyCode AOIAugmentationInteractionStateUpdateCueKey = KeyCode.U;
     public static KeyCode AOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
     public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.H;
+
     public enum UserInputTypes
     {
         AOIAugmentationInteractionStateUpdateCueKeyPressed = 1

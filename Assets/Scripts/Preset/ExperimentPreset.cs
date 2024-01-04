@@ -50,6 +50,72 @@ public static class ExperimentPreset
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// <summary>
+    /// ///////////////////////////
+    ///                 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// </summary>
+    /// <returns></returns>
+
+
+    public static List<Presets.ExperimentState> ConstructInitBlock()
+    {
+        List<Presets.ExperimentState> ExperimentStates = new List<Presets.ExperimentState> { };
+        ExperimentStates = ExperimentStates.Concat(Presets.InitBlock).ToList();
+        return ExperimentStates;
+    }
+
+
     public static List<Presets.ExperimentState> ConstructStartBlock()
     {
         List<Presets.ExperimentState> ExperimentStates = new List<Presets.ExperimentState> { };
@@ -85,21 +151,6 @@ public static class ExperimentPreset
 
 
 
-    public static List<Presets.ExperimentBlock> ConstructExperimentBlocks()
-    {
-        List<Presets.ExperimentBlock> ExperimentBlock = new List<Presets.ExperimentBlock> {
-
-            Presets.ExperimentBlock.StartBlock,
-            Presets.ExperimentBlock.IntroductionBlock,
-            Presets.ExperimentBlock.PracticeBlock,
-            Presets.ExperimentBlock.TestBlock,
-            Presets.ExperimentBlock.EndBlock
-        
-        };
-
-        return ExperimentBlock;
-        }
-
 
     //public static void createPracticeBlock() //List<Presets.ExperimentState>
     //{
@@ -132,6 +183,26 @@ public static class ExperimentPreset
         //ExperimentStates = ExperimentStates.Concat(Presets.InteractiveAOIAugmentationBlock).ToList();
 
         return ExperimentStates;
+    }
+
+
+
+
+
+    public static List<Presets.ExperimentBlock> ConstructExperimentBlocks()
+    {
+        List<Presets.ExperimentBlock> ExperimentBlock = new List<Presets.ExperimentBlock> {
+
+            Presets.ExperimentBlock.InitBlock,
+            Presets.ExperimentBlock.StartBlock,
+            Presets.ExperimentBlock.IntroductionBlock,
+            Presets.ExperimentBlock.PracticeBlock,
+            Presets.ExperimentBlock.TestBlock,
+            Presets.ExperimentBlock.EndBlock
+
+        };
+
+        return ExperimentBlock;
     }
 
 }

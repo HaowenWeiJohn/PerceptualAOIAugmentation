@@ -62,7 +62,7 @@ public static class Presets
 
     public static KeyCode AOIAugmentationInteractionStateUpdateCueKey = KeyCode.U;
     public static KeyCode AOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
-    public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.LeftAlt;
+    public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.H;
     public enum UserInputTypes
     {
         AOIAugmentationInteractionStateUpdateCueKeyPressed = 1
@@ -144,6 +144,8 @@ public static class Presets
 
     public enum ExperimentState
     {
+        InitState = 0,
+
         CalibrationState = 1,
         StartState = 2,
 
@@ -178,6 +180,14 @@ public static class Presets
         TestBlock = 4,
         EndBlock = 5,
     }
+
+
+    public static List<ExperimentState> InitBlock = new List<ExperimentState> {
+        ExperimentState.InitState,
+        //ExperimentState.IntroductionInstructionState
+    };
+
+
 
     public static List<ExperimentState> StartBlock = new List<ExperimentState> {
         ExperimentState.StartState,

@@ -179,6 +179,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             contourController.gameObject.SetActive(false);
         }
 
+        eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
+
     }
 
     public void enableAllContours()
@@ -188,6 +190,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
         {
             contourController.gameObject.SetActive(true);
         }
+
+        eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
 
     }
 
@@ -237,8 +241,10 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         if (keyPressed)
         {
-            eventMarkerLSLOutletController.sendUserInputsMarker
-                (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
+            // send update visual cue marker
+            eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
+            //eventMarkerLSLOutletController.sendUserInputsMarker
+            //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
         }
     }
 

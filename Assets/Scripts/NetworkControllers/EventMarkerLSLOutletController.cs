@@ -90,12 +90,27 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     }
 
 
-    public void sendUserInputsMarker(Presets.UserInputTypes UserInputs)
+    public void sendUpdateVisualCueMarker()
     {
-
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.UserInputsChannelIndex] = (float)UserInputs;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.UpdateVisualCueMarker] = 1.0f;
         streamOutlet.push_sample(eventMarkerArray);
     }
+
+
+    public void sendToggleVisualCueVisibilityMarker(bool showVisualCue) {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.ToggleVisualCueVisibilityMarker] = showVisualCue ? 1.0f : -1.0f;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
+
+
+    //public void sendUserInputsMarker(Presets.UserInputTypes UserInputs)
+    //{
+
+    //    float[] eventMarkerArray = createEventMarkerArrayFloat();
+    //    eventMarkerArray[(int)Presets.EventMarkerChannelInfo.UpdateVisualCueMarker] = (float)UserInputs;
+    //    streamOutlet.push_sample(eventMarkerArray);
+    //}
 
 }

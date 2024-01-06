@@ -12,6 +12,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     public TargetImageController targetImageController;
 
     public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
+    public AOIAugmentationAttentionHeatmapStreamLSLInletController aOIAugmentationAttentionHeatmapStreamLSLInletController;
 
     public bool contourInfoReceived = false;
 
@@ -70,7 +71,13 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
     }
 
+    void initHeatmap(float[] heatmaplvt)
+    {
 
+
+
+
+    }
 
     void initContours(float[] contourslvt)
     {

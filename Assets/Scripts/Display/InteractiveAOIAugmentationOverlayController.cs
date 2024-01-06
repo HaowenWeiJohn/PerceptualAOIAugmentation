@@ -12,6 +12,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     public TargetImageController targetImageController;
 
     public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
+    public AOIAugmentationAttentionHeatmapStreamLSLInletController aOIAugmentationAttentionHeatmapStreamLSLInletController;
+
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
 
     public bool contourInfoReceived = false;
@@ -179,6 +181,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             contourController.gameObject.SetActive(false);
         }
 
+        // send toggle visual cue visibility marker
         eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
 
     }
@@ -191,6 +194,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             contourController.gameObject.SetActive(true);
         }
 
+
+        // send toggle visual cue visibility marker
         eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
 
     }

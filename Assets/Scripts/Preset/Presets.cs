@@ -34,6 +34,7 @@ public static class Presets
 
     // AOIAugmentationAttentionContourStream inlet stream name
     public static string AOIAugmentationAttentionContourStreamLSLInletStreamName = "AOIAugmentationAttentionContourStream";
+    public static string AOIAugmentationAttentionHeatmapStreamLSLInletStreamName = "AOIAugmentationAttentionHeatmapStream";
 
 
 

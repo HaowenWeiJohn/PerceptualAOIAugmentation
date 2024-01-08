@@ -5,11 +5,12 @@ using System.IO;
 
 public static class Presets
 {
+    public static float imageMaxWidth = 1800.0f;
+    public static float imageMaxHeight = 900.0f;
 
 
 
-
-    public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
+    public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSL";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
     public static int EventMarkerChannelNum = 5; // block marker index 0
@@ -26,7 +27,19 @@ public static class Presets
     }
 
 
-    public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSLOutlet";
+    public static string TargetImageInfoLSLOutletStreamName = "AOIAugmentationTargetImageInfoLSL";
+    public static string TargetImageInfoLSLOutletStreamType = "TargetImageInfo";
+    public static string TargetImageInfoLSLOutletStreamID = "1";
+    public static int TargetImageInfoChannelNum = 4; // rgba
+    public static float TargetImageInfoNominalSamplingRate = 100;
+
+
+
+
+
+
+
+    public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSL";
     public static string GazeDataLSLOutletStreamType = "GazeData";
     public static string GazeDataLSLOutletStreamID = "2";
     public static int GazeDataChannelNum = 51;
@@ -61,10 +74,24 @@ public static class Presets
     public static KeyCode NextStateKey = KeyCode.KeypadEnter;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
-
+    /// <summary>
+    /// ///////////////////////////////////////////////// Not in use /////////////////////////////////////////////////////
+    /// </summary>
     public static KeyCode AOIAugmentationInteractionStateUpdateCueKey = KeyCode.U;
     public static KeyCode AOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
     public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.H;
+    /// <summary>
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+    /// 
+
+
+
+    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse0; // left mouse button
+    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse1; // right mouse button
+
+
+
 
     public enum UserInputTypes
     {

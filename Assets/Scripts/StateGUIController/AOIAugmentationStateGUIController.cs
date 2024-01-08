@@ -8,7 +8,7 @@ public class AOIAugmentationStateGUIController : GUIController
     // Start is called before the first frame update
     public TargetImageController targetImageController;
 
-
+    [Header("AOI Augmentation Overlay Controller")]
     public NoAOIAugmentationOverlayController noAOIAugmentationOverlayController;
     public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
     public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlayController;
@@ -52,14 +52,14 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateStaticAOIAugmentationOverlayController()
     {
-        staticAOIAugmentationOverlayController.removeAllContours(); // clear all contours
+        staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
         staticAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateStaticAOIAugmentationOverlayController()
     {
-        staticAOIAugmentationOverlayController.removeAllContours(); // clear all contours
+        staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
         staticAOIAugmentationOverlayController.DisableSelf();
     }
 
@@ -70,16 +70,30 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateInteractiveAOIAugmentationOverlayController()
     {
-        interactiveAOIAugmentationOverlayController.removeAllContours();
+        interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
         interactiveAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateInteractiveAOIAugmentationOverlayController()
     {
-        interactiveAOIAugmentationOverlayController.removeAllContours();
+        interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
         interactiveAOIAugmentationOverlayController.DisableSelf();
     }
 
+    public override void EnableSelf()
+    {
+        base.EnableSelf();
+        Cursor.visible = false;
+        targetImageController.ResetImageColor();
+
+    }
+
+    public override void DisableSelf()
+    {
+        base.DisableSelf();
+        Cursor.visible = true;
+        targetImageController.ResetImageColor();
+    }
 
 }

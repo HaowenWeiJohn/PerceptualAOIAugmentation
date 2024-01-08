@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System;
+using System.Runtime.InteropServices;
+using System.Linq;
 
 public class GeneralUtils
 {
@@ -49,8 +52,14 @@ public class GeneralUtils
 
 
 
+    public static List<T> ToListOf<T>(byte[] array, Func<byte[], int, T> bitConverter)
+    {
+        var size = Marshal.SizeOf(typeof(T));
+        return Enumerable.Range(0, array.Length / size)
+                         .Select(i => bitConverter(array, i * size))
+                         .ToList();
+    }
 
-    
 
 
 

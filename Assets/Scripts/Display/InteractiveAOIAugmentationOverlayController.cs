@@ -59,6 +59,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         AOIAugmentationAttentionHeatmapStream();
         EnableDisableHeatmapsWithKeyPress();
+        AOIAugmentationInteractionStateUpdateCueKeyPressed();
 
         //enableDisableContoursWithKeyPress();
         //enableDisableContoursWithKeyHold();
@@ -333,9 +334,9 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     }
 
 
-    public void aOIAugmentationInteractionStateUpdateCueKeyPressed()
+    public void AOIAugmentationInteractionStateUpdateCueKeyPressed()
     {
-        bool keyPressed = Input.GetKeyDown(Presets.AOIAugmentationInteractionStateUpdateCueKey);
+        bool keyPressed = Input.GetKeyDown(Presets.AOIAugmentationUpdateVisualCueKey);
 
         if (keyPressed)
         {

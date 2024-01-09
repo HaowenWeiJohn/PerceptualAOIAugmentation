@@ -1978,6 +1978,7 @@ MonoBehaviour:
   targetImage: {fileID: 322916465}
   targetImageInfoLSLOutletController: {fileID: 1891018577}
   gameManager: {fileID: 2060634373}
+  imageTransparencyHitBoundrySoundEffect: {fileID: 8300000, guid: 7f6a8fc119dc195488b7ab681a82f6c8, type: 3}
 --- !u!1 &323186396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +2882,7 @@ MonoBehaviour:
   heatmapControllers: []
   enableHeatmapVisualization: 1
   aOIAugmentationAttentionHeatmapStreamZMQSubSocketController: {fileID: 1908405793}
+  visualCueReceivedSoundEffect: {fileID: 8300000, guid: 9b9c67f048123674490b3734e3a149f0, type: 3}
 --- !u!1 &465662173
 GameObject:
   m_ObjectHideFlags: 0
@@ -19442,6 +19444,8 @@ MonoBehaviour:
   heatmapControllers: []
   enableHeatmapVisualization: 1
   aOIAugmentationAttentionHeatmapStreamZMQSubSocketController: {fileID: 1908405793}
+  visualCueReceivedSoundEffect: {fileID: 8300000, guid: 9b9c67f048123674490b3734e3a149f0, type: 3}
+  updateVisualCueInstructionSendSoundEffect: {fileID: 8300000, guid: f494570304b2c8e4f8c18fcb727b4560, type: 3}
 --- !u!1 &2041108423
 GameObject:
   m_ObjectHideFlags: 0

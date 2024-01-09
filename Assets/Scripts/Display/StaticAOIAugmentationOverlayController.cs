@@ -38,7 +38,8 @@ public class StaticAOIAugmentationOverlayController : GUIController
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
 
     //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
-
+    [Header("Audio Effect")]
+    public AudioClip visualCueReceivedSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -128,6 +129,10 @@ public class StaticAOIAugmentationOverlayController : GUIController
                 pointer++;
 
             }
+
+            enableHeatmapVisualization = true;
+            // play sound effect
+            AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
 
         }
         else

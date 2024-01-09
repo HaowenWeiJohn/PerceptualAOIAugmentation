@@ -38,6 +38,10 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
 
 
+    [Header("Audio Effect")]
+    public AudioClip visualCueReceivedSoundEffect;
+    public AudioClip updateVisualCueInstructionSendSoundEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -128,6 +132,10 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
                 pointer++;
 
             }
+
+            enableHeatmapVisualization = true;
+            // play sound effect
+            AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
 
         }
         else
@@ -342,6 +350,10 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
         {
             // send update visual cue marker
             eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
+
+            // play sound effect
+            AudioSource.PlayClipAtPoint(updateVisualCueInstructionSendSoundEffect, Camera.main.transform.position);
+
             //eventMarkerLSLOutletController.sendUserInputsMarker
             //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
         }

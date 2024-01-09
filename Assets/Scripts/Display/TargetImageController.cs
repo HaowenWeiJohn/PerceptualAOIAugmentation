@@ -40,6 +40,10 @@ public class TargetImageController : MonoBehaviour
     [Header("Interaction State")]
     public GameManager gameManager;
 
+    [Header("Audio Clip")]
+    public AudioClip imageTransparencyHitBoundrySoundEffect;
+
+
     void Start()
     {
         updateTargetImageInfo();
@@ -124,8 +128,11 @@ public class TargetImageController : MonoBehaviour
     {
         // Get the current color of the image
         float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
-
         Color currentColor = targetImage.color;
+
+
+
+
 
         // Adjust the alpha (transparency) based on the mouse wheel input
         currentColor.r += scrollWheelInput;
@@ -137,6 +144,18 @@ public class TargetImageController : MonoBehaviour
         currentColor.b = Mathf.Clamp(currentColor.b, 0f, 1f);
         // Update the image color with the adjusted transparency
         targetImage.color = currentColor;
+
+
+        if (
+            (scrollWheelInput != 0 && currentColor.r == 1 && currentColor.g == 1 && currentColor.b == 1)
+            ||
+            (scrollWheelInput != 0 && currentColor.r == 0 && currentColor.g == 0 && currentColor.b == 0)
+            )
+        {
+            AudioSource.PlayClipAtPoint(imageTransparencyHitBoundrySoundEffect, Camera.main.transform.position);
+        }
+
+
     }
 
 

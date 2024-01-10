@@ -67,7 +67,14 @@ public class FeedbackStateGUIController : GUIController
     {
         base.Update();
 
-        
+
+        //// text input box skip line validator
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    // Add a new line character to the input field text
+        //    messageInputField.text += "\r\n\r\n";
+        //}
+
 
 
     }

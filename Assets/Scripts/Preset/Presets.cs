@@ -87,8 +87,8 @@ public static class Presets
 
 
 
-    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse0; // left mouse button
-    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse1; // right mouse button
+    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse1; // left mouse button
+    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse0; // right mouse button
 
 
 
@@ -317,5 +317,67 @@ public static class Presets
         "RLS_025_OD_TC",
         "RLS_045_OD_TC"
     };
+
+
+
+
+    public static string IntroductionInstructionStateTitle = "Welcome";
+    public static string IntroductionInstructionStateContent = "Welcome, in this experiment, you will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
+        "\r\n\r\nWith some of the reports, you will receive assistance with your decision-making process: a “heatmap” overlay is shown on the report, indicating parts of the report that are more informative for glaucoma detection." +
+        "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. Your feedback and experience are invaluable to us." +
+        "\r\n\r\nClick the Enter key on the number pad to continue.\r\n";
+
+
+
+
+    public static string PracticeInstructionStateTitle = "Practice";
+    public static string PracticeInstructionStateContent = "In the next three practice trials, we will get you familiarized with the three different conditions. \r\n\r\nClick the Enter key on the number pad to continue.\r\n ";
+
+
+
+
+
+
+
+
+    public static string PracticeNoAOIAugmentationInstructionStateTitle = "[Practice] Condition: No Guidance";
+    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive ROI guidance assistance in the next trial.\r\n";
+
+    public static string TestNoAOIAugmentationInstructionStateTitle = "No Guidance";
+    public static string TestNoAOIAugmentationInstructionStateContent = "You will NOT receive guidance in the next trial.\r\n";
+
+
+
+
+    public static string PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
+    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "Click the right mouse button to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+        "\r\n\r\nWhen you are finished with reading the report, click the Enter key on the number pad to continue.\r\n";
+
+    public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
+    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, BUT you cannot update the guidance.";
+
+
+
+
+
+    public static string PracticeInteractiveAOIAugmentationInstructionStateTitle = "[Practice] Condition: Dynamic Guidance";
+    public static string PracticeInteractiveAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "In addition, you can request guidance to update based on how you are reading the report. Click the left mouse button to update the guidance.\r\n";
+
+    public static string TestInteractiveAOIAugmentationInstructionStateTitle = "Dynamic Guidance";
+    public static string TestInteractiveAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, AND you may update the guidance.";
+
+
+
+
+
+
+    public static string TestInstructionStateTitle = "End of practice"; // starting of test block
+    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the Enter key on the number pad to continue the experiment. \r\n";
+
+
+
+
 
 }

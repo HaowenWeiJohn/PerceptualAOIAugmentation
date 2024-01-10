@@ -23,8 +23,18 @@ public class InteractiveAOIAugmentationInstructionStateController : StateControl
     {
         base.enterState();
         instructionStateGUIController.EnableSelf();
-        instructionStateGUIController.setInstructionTitle("I");
-        instructionStateGUIController.setInstructionContent("Instruction Content");
+
+        if (gameManager.currentBlock.experimentBlock == Presets.ExperimentBlock.PracticeBlock)
+        {
+            instructionStateGUIController.setInstructionTitle(Presets.PracticeInteractiveAOIAugmentationInstructionStateTitle);
+            instructionStateGUIController.setInstructionContent(Presets.PracticeInteractiveAOIAugmentationInstructionStateContent);
+        }
+        else if (gameManager.currentBlock.experimentBlock == Presets.ExperimentBlock.TestBlock)
+        {
+            instructionStateGUIController.setInstructionTitle(Presets.TestInteractiveAOIAugmentationInstructionStateTitle);
+            instructionStateGUIController.setInstructionContent(Presets.TestInteractiveAOIAugmentationInstructionStateContent);
+        }
+
     }
 
     public override void exitState()

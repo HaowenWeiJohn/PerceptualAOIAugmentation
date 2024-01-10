@@ -23,8 +23,20 @@ public class StaticAOIAugmentationInstructionStateController : StateController
     {
         base.enterState();
         instructionStateGUIController.EnableSelf();
-        instructionStateGUIController.setInstructionTitle("S");
-        instructionStateGUIController.setInstructionContent("Instruction Content");
+
+        if (gameManager.currentBlock.experimentBlock == Presets.ExperimentBlock.PracticeBlock)
+        {
+            instructionStateGUIController.setInstructionTitle(Presets.PracticeStaticAOIAugmentationInstructionStateTitle);
+            instructionStateGUIController.setInstructionContent(Presets.PracticeStaticAOIAugmentationInstructionStateContent);
+        }
+        else if (gameManager.currentBlock.experimentBlock == Presets.ExperimentBlock.TestBlock)
+        {
+            instructionStateGUIController.setInstructionTitle(Presets.TestStaticAOIAugmentationInstructionStateTitle);
+            instructionStateGUIController.setInstructionContent(Presets.TestStaticAOIAugmentationInstructionStateContent);
+        }
+
+
+
     }
 
     public override void exitState()

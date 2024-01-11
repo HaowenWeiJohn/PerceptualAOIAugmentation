@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System;
+using System.IO;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FeedbackStateGUIController : GUIController
 {
@@ -24,16 +27,31 @@ public class FeedbackStateGUIController : GUIController
     public Button nineButton;
     public Button zeroButton;
 
-    [Header("Toggle Radio Buttons")]
+    [Header("Toggle Glaucoma Decision Radio Buttons")]
     public Toggle Toggle0Controller;
-    public Toggle Toggle1Controller;
-    public Toggle Toggle2Controller;
-    public Toggle Toggle3Controller;
-    public Toggle Toggle4Controller;
-    public Toggle Toggle5Controller;
+    public Toggle ToggleNoGlaucomaController;
+    public Toggle ToggleGlaucomaController;
+    //public Toggle Toggle3Controller;
+    //public Toggle Toggle4Controller;
+    //public Toggle Toggle5Controller;
+
+
+    [Header("Toggle Glaucoma Decision Radio Buttons")]
+    public Toggle Toggle0Controller2;
+    public Toggle ToggleDecisionConfidence1;
+    public Toggle ToggleDecisionConfidence2;
+    public Toggle ToggleDecisionConfidence3;
+    public Toggle ToggleDecisionConfidence4;
+
 
     [Header("Delete Buttons")]
     public Button deleteButton;
+
+    //[Header("Data Logger")]
+    //public bool logData = true;
+    //DateTime now = DateTime.Now;
+    //string fileName = string.Format("{0}-{1:00}-{2:00}-{3:00}-{4:00}", now.Year, now.Month, now.Day, now.Hour, now.Minute);
+
 
 
 
@@ -238,6 +256,7 @@ public class FeedbackStateGUIController : GUIController
     public void resetRadioButtons()
     {
         Toggle0Controller.isOn = true;
+        Toggle0Controller2.isOn = true;
     }
 
 

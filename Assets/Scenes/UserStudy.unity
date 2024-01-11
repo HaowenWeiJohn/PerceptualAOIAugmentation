@@ -20618,14 +20618,16 @@ MonoBehaviour:
   eightButton: {fileID: 1362829184}
   nineButton: {fileID: 15680853}
   zeroButton: {fileID: 1505062010}
-  Toggle0Controller: {fileID: 1216814186}
-  ToggleNoGlaucomaController: {fileID: 166923890}
-  ToggleGlaucomaController: {fileID: 1117369231}
-  Toggle0Controller2: {fileID: 374749247}
-  ToggleDecisionConfidence1: {fileID: 182711767}
-  ToggleDecisionConfidence2: {fileID: 1811873905}
-  ToggleDecisionConfidence3: {fileID: 1377827725}
-  ToggleDecisionConfidence4: {fileID: 498885453}
+  ToggleGlaucomaDecisionControllers:
+  - {fileID: 1216814186}
+  - {fileID: 166923890}
+  - {fileID: 1117369231}
+  ToggleDecisionConfidenceLevelControllers:
+  - {fileID: 374749247}
+  - {fileID: 182711767}
+  - {fileID: 1811873905}
+  - {fileID: 1377827725}
+  - {fileID: 498885453}
   deleteButton: {fileID: 1236787620}
 --- !u!1 &2032533527
 GameObject:

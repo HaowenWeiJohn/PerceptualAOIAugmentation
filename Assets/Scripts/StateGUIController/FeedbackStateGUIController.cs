@@ -28,20 +28,29 @@ public class FeedbackStateGUIController : GUIController
     public Button zeroButton;
 
     [Header("Toggle Glaucoma Decision Radio Buttons")]
-    public Toggle Toggle0Controller;
-    public Toggle ToggleNoGlaucomaController;
-    public Toggle ToggleGlaucomaController;
+
+    public List <Toggle> ToggleGlaucomaDecisionControllers = new List <Toggle>();
+
+    //public Toggle Toggle0Controller;
+    //public Toggle ToggleNoGlaucomaController;
+    //public Toggle ToggleGlaucomaController;
+
+
     //public Toggle Toggle3Controller;
     //public Toggle Toggle4Controller;
     //public Toggle Toggle5Controller;
 
 
     [Header("Toggle Glaucoma Decision Radio Buttons")]
-    public Toggle Toggle0Controller2;
-    public Toggle ToggleDecisionConfidence1;
-    public Toggle ToggleDecisionConfidence2;
-    public Toggle ToggleDecisionConfidence3;
-    public Toggle ToggleDecisionConfidence4;
+
+    public List<Toggle> ToggleDecisionConfidenceLevelControllers = new List<Toggle>();
+
+
+    //public Toggle Toggle0Controller2;
+    //public Toggle ToggleDecisionConfidence1;
+    //public Toggle ToggleDecisionConfidence2;
+    //public Toggle ToggleDecisionConfidence3;
+    //public Toggle ToggleDecisionConfidence4;
 
 
     [Header("Delete Buttons")]
@@ -255,8 +264,8 @@ public class FeedbackStateGUIController : GUIController
 
     public void resetRadioButtons()
     {
-        Toggle0Controller.isOn = true;
-        Toggle0Controller2.isOn = true;
+        ToggleGlaucomaDecisionControllers[0].isOn = true;
+        ToggleDecisionConfidenceLevelControllers[0].isOn = true;
     }
 
 

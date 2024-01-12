@@ -128,7 +128,7 @@ public class TestBlockController : BlockController
 
         int a = 0;
 
-        Debug.Log("John");
+        //Debug.Log("John");
 
 
 

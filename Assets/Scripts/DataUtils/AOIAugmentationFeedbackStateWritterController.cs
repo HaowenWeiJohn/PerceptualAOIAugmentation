@@ -17,7 +17,7 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
     [Header("Experiment Info")]
     public string ExperimentName = "AOIAugmentation";
     public string ParticipantID = "0";
-    private static readonly string[] ColumnNames = {"Current Block", "Decision", "Confidence Level", "Response"};
+    private static readonly string[] ColumnNames = {"Decision", "Confidence Level", "Response"};
     public string FileName; 
     public bool useCustomLogPath = false;
     public string customLogPath = "";
@@ -67,7 +67,7 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
         for (int i = 0; i < values.Length; ++i)
         {
             values[i] = values[i].Replace("\r", "").Replace("\n", ""); // Remove new lines so they don't break csv
-            line += values[i] + (i == (values.Length - 1) ? "" : ";"); // Do not add semicolon to last data string
+            line += values[i] + (i == (values.Length - 1) ? "" : ","); // Do not add semicolon to last data string
         }
         writer.WriteLine(line);
     }

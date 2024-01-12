@@ -12505,7 +12505,8 @@ MonoBehaviour:
   gameManager: {fileID: 2060634373}
   blockState: 0
   testBlockImageLoader: {fileID: 1752377264}
-  imageIndex: 0
+  experimentImageIndex: 0
+  experimentImages: []
 --- !u!1 &1184148287
 GameObject:
   m_ObjectHideFlags: 0
@@ -17657,7 +17658,8 @@ MonoBehaviour:
   gameManager: {fileID: 2060634373}
   blockState: 0
   practiceBlockImageLoader: {fileID: 1559122185}
-  imageIndex: 0
+  experimentImageIndex: 0
+  experimentImages: []
 --- !u!1 &1662485562
 GameObject:
   m_ObjectHideFlags: 0
@@ -20629,6 +20631,7 @@ MonoBehaviour:
   - {fileID: 1377827725}
   - {fileID: 498885453}
   deleteButton: {fileID: 1236787620}
+  aOIAugmentationFeedbackStateWritterController: {fileID: 519645781}
 --- !u!1 &2032533527
 GameObject:
   m_ObjectHideFlags: 0

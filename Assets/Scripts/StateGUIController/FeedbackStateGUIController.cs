@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FeedbackStateGUIController : GUIController
 {
@@ -60,6 +61,9 @@ public class FeedbackStateGUIController : GUIController
     //public bool logData = true;
     //DateTime now = DateTime.Now;
     //string fileName = string.Format("{0}-{1:00}-{2:00}-{3:00}-{4:00}", now.Year, now.Month, now.Day, now.Hour, now.Minute);
+    [Header("Logging")]
+    public AOIAugmentationFeedbackStateWritterController aOIAugmentationFeedbackStateWritterController;
+    
 
 
 
@@ -266,6 +270,36 @@ public class FeedbackStateGUIController : GUIController
     {
         ToggleGlaucomaDecisionControllers[0].isOn = true;
         ToggleDecisionConfidenceLevelControllers[0].isOn = true;
+    }
+
+
+    public void LogResponse()
+    {
+        List<Toggle> checkedToggles = ToggleGlaucomaDecisionControllers.Where(toggle => toggle.isOn).ToList();
+        int decisionIndex = ToggleGlaucomaDecisionControllers.IndexOf(checkedToggles[0]);
+        // turn the index into a string
+
+
+        List<Toggle> checkedToggles2 = ToggleDecisionConfidenceLevelControllers.Where(toggle => toggle.isOn).ToList();
+        int confidenceIndex = ToggleDecisionConfidenceLevelControllers.IndexOf(checkedToggles2[0]);
+        // turn the index into a string
+
+        string[] logData = new string[] { decisionIndex.ToString(), confidenceIndex.ToString(), messageInputField.text };
+
+        aOIAugmentationFeedbackStateWritterController.Log(logData);
+
+    }
+
+    public bool ResponseAcceptable()
+    {
+        if(messageInputField.text != "" && ToggleDecisionConfidenceLevelControllers[0].isOn!=true && ToggleGlaucomaDecisionControllers[0].isOn != true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

@@ -180,7 +180,7 @@ public static class Presets
         StartState = 2,
 
         IntroductionInstructionState = 3,
-        
+
         PracticeInstructionState = 4,
 
         TestInstructionState = 5,
@@ -200,7 +200,16 @@ public static class Presets
 
 
     }
-    
+
+    public static List<ExperimentState> Conditions = new List<ExperimentState>
+    {
+        ExperimentState.NoAOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.InteractiveAOIAugmentationState
+    };
+
+
+
     public enum ExperimentBlock
     {
         InitBlock = 0,
@@ -305,18 +314,90 @@ public static class Presets
     //public static string ImageFileFormat = "*.png";
 
     public static List<string> PracticeBlockImages = new List<string>
-    {   "9025_OD_2021_widefield_report",
-        "9071_OD_2021_widefield_report",
-        "RLS_006_OD_TC"
+    {   "9071_OD_2021_widefield_report"
     };
 
 
     public static List<string> TestBlockImages = new List<string>
     {
-        "RLS_023_OD_TC",
-        "RLS_025_OD_TC",
-        "RLS_045_OD_TC"
+        "RLS_097_OD_TC",
+        "RLS_006_OD_TC",
+        "RLS_043_OD_TC",
+        //"RLS_083_OD_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_073_OD_TC",
+        //"RLS_033_OS_TC",
+        //"RLS_096_OS_TC",
+        //"8981_OS_2021_widefield_report",
+        //"RLS_073_OS_TC",
+        //"RLS_086_OS_TC",
+        //"RLS_060_OS_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_079_OD_TC",
+        //"RLS_082_OD_TC",
+        //"9025_OD_2021_widefield_report",
+
+
+
+        "RLS_083_OD_TC",
+        "RLS_086_OS_TC",
+        "RLS_045_OD_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_092_OS_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_079_OD_TC",
+        //"RLS_097_OD_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_082_OD_TC",
+        //"RLS_023_OD_TC",
+        //"RLS_092_OS_TC",
+        //"RLS_036_OS_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_073_OD_TC",
+        //"9025_OD_2021_widefield_report"
     };
+
+
+    public static List<string> TestBlockImagesG = new List<string>
+    {
+        "RLS_097_OD_TC",
+        "RLS_006_OD_TC",
+        "RLS_043_OD_TC",
+        //"RLS_083_OD_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_073_OD_TC",
+        //"RLS_033_OS_TC",
+        //"RLS_096_OS_TC",
+        //"8981_OS_2021_widefield_report",
+        //"RLS_073_OS_TC",
+        //"RLS_086_OS_TC",
+        //"RLS_060_OS_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_079_OD_TC",
+        //"RLS_082_OD_TC",
+        //"9025_OD_2021_widefield_report"
+    };
+
+    public static List<string> TestBlockImagesS = new List<string>
+    {
+        "RLS_083_OD_TC",
+        "RLS_086_OS_TC",
+        "RLS_045_OD_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_092_OS_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_079_OD_TC",
+        //"RLS_097_OD_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_082_OD_TC",
+        //"RLS_023_OD_TC",
+        //"RLS_092_OS_TC",
+        //"RLS_036_OS_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_073_OD_TC",
+        //"9025_OD_2021_widefield_report"
+    };
+
 
 
 

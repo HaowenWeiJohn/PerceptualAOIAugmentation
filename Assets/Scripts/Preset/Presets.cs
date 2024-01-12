@@ -5,14 +5,15 @@ using System.IO;
 
 public static class Presets
 {
+    public static float imageMaxWidth = 1800.0f;
+    public static float imageMaxHeight = 900.0f;
 
 
 
-
-    public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSLOutlet";
+    public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSL";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 4; // block marker index 0
+    public static int EventMarkerChannelNum = 5; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
@@ -21,11 +22,24 @@ public static class Presets
         BlockChannelIndex = 0,
         ExperimentStateChannelIndex = 1,
         ImageIndexChannelIndex = 2,
-        UserInputsChannelIndex = 3, // the 0-5 is row, 7-11 is column
+        UpdateVisualCueMarker = 3, // the 0-5 is row, 7-11 is column
+        ToggleVisualCueVisibilityMarker = 4
     }
 
 
-    public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSLOutlet";
+    public static string TargetImageInfoLSLOutletStreamName = "AOIAugmentationTargetImageInfoLSL";
+    public static string TargetImageInfoLSLOutletStreamType = "TargetImageInfo";
+    public static string TargetImageInfoLSLOutletStreamID = "1";
+    public static int TargetImageInfoChannelNum = 4; // rgba
+    public static float TargetImageInfoNominalSamplingRate = 100;
+
+
+
+
+
+
+
+    public static string GazeDataLSLOutletStreamName = "TobiiProFusionUnityLSL";
     public static string GazeDataLSLOutletStreamType = "GazeData";
     public static string GazeDataLSLOutletStreamID = "2";
     public static int GazeDataChannelNum = 51;
@@ -33,6 +47,7 @@ public static class Presets
 
     // AOIAugmentationAttentionContourStream inlet stream name
     public static string AOIAugmentationAttentionContourStreamLSLInletStreamName = "AOIAugmentationAttentionContourStream";
+    public static string AOIAugmentationAttentionHeatmapStreamLSLInletStreamName = "AOIAugmentationAttentionHeatmapStream";
 
 
 
@@ -59,10 +74,24 @@ public static class Presets
     public static KeyCode NextStateKey = KeyCode.KeypadEnter;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
-
+    /// <summary>
+    /// ///////////////////////////////////////////////// Not in use /////////////////////////////////////////////////////
+    /// </summary>
     public static KeyCode AOIAugmentationInteractionStateUpdateCueKey = KeyCode.U;
     public static KeyCode AOIAugmentationEnableDisableContoursPressKey = KeyCode.RightAlt;
     public static KeyCode AOIAugmentationEnableDisableContoursHoldKey = KeyCode.H;
+    /// <summary>
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+    /// 
+
+
+
+    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse1; // left mouse button
+    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse0; // right mouse button
+
+
+
 
     public enum UserInputTypes
     {
@@ -151,7 +180,7 @@ public static class Presets
         StartState = 2,
 
         IntroductionInstructionState = 3,
-        
+
         PracticeInstructionState = 4,
 
         TestInstructionState = 5,
@@ -171,7 +200,16 @@ public static class Presets
 
 
     }
-    
+
+    public static List<ExperimentState> Conditions = new List<ExperimentState>
+    {
+        ExperimentState.NoAOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.InteractiveAOIAugmentationState
+    };
+
+
+
     public enum ExperimentBlock
     {
         InitBlock = 0,
@@ -276,17 +314,151 @@ public static class Presets
     //public static string ImageFileFormat = "*.png";
 
     public static List<string> PracticeBlockImages = new List<string>
-    {   "9025_OD_2021_widefield_report",
-        "9071_OD_2021_widefield_report",
-        "RLS_006_OD_TC"
+    {   "9071_OD_2021_widefield_report"
     };
 
 
     public static List<string> TestBlockImages = new List<string>
     {
-        "RLS_023_OD_TC",
-        "RLS_025_OD_TC",
-        "RLS_045_OD_TC"
+        "RLS_097_OD_TC",
+        "RLS_006_OD_TC",
+        "RLS_043_OD_TC",
+        //"RLS_083_OD_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_073_OD_TC",
+        //"RLS_033_OS_TC",
+        //"RLS_096_OS_TC",
+        //"8981_OS_2021_widefield_report",
+        //"RLS_073_OS_TC",
+        //"RLS_086_OS_TC",
+        //"RLS_060_OS_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_079_OD_TC",
+        //"RLS_082_OD_TC",
+        //"9025_OD_2021_widefield_report",
+
+
+
+        "RLS_083_OD_TC",
+        "RLS_086_OS_TC",
+        "RLS_045_OD_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_092_OS_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_079_OD_TC",
+        //"RLS_097_OD_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_082_OD_TC",
+        //"RLS_023_OD_TC",
+        //"RLS_092_OS_TC",
+        //"RLS_036_OS_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_073_OD_TC",
+        //"9025_OD_2021_widefield_report"
     };
+
+
+    public static List<string> TestBlockImagesG = new List<string>
+    {
+        "RLS_097_OD_TC",
+        "RLS_006_OD_TC",
+        "RLS_043_OD_TC",
+        //"RLS_083_OD_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_073_OD_TC",
+        //"RLS_033_OS_TC",
+        //"RLS_096_OS_TC",
+        //"8981_OS_2021_widefield_report",
+        //"RLS_073_OS_TC",
+        //"RLS_086_OS_TC",
+        //"RLS_060_OS_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_079_OD_TC",
+        //"RLS_082_OD_TC",
+        //"9025_OD_2021_widefield_report"
+    };
+
+    public static List<string> TestBlockImagesS = new List<string>
+    {
+        "RLS_083_OD_TC",
+        "RLS_086_OS_TC",
+        "RLS_045_OD_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_092_OS_TC",
+        //"8918_OS_2021_widefield_report",
+        //"RLS_079_OD_TC",
+        //"RLS_097_OD_TC",
+        //"RLS_085_OS_TC",
+        //"RLS_082_OD_TC",
+        //"RLS_023_OD_TC",
+        //"RLS_092_OS_TC",
+        //"RLS_036_OS_TC",
+        //"RLS_006_OD_TC",
+        //"RLS_073_OD_TC",
+        //"9025_OD_2021_widefield_report"
+    };
+
+
+
+
+
+    public static string IntroductionInstructionStateTitle = "Welcome";
+    public static string IntroductionInstructionStateContent = "Welcome, in this experiment, you will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
+        "\r\n\r\nWith some of the reports, you will receive assistance with your decision-making process: a “heatmap” overlay is shown on the report, indicating parts of the report that are more informative for glaucoma detection." +
+        "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. Your feedback and experience are invaluable to us." +
+        "\r\n\r\nClick the Enter key on the number pad to continue.\r\n";
+
+
+
+
+    public static string PracticeInstructionStateTitle = "Practice";
+    public static string PracticeInstructionStateContent = "In the next three practice trials, we will get you familiarized with the three different conditions. \r\n\r\nClick the Enter key on the number pad to continue.\r\n ";
+
+
+
+
+
+
+
+
+    public static string PracticeNoAOIAugmentationInstructionStateTitle = "[Practice] Condition: No Guidance";
+    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive ROI guidance assistance in the next trial.\r\n";
+
+    public static string TestNoAOIAugmentationInstructionStateTitle = "No Guidance";
+    public static string TestNoAOIAugmentationInstructionStateContent = "You will NOT receive guidance in the next trial.\r\n";
+
+
+
+
+    public static string PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
+    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "Click the right mouse button to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+        "\r\n\r\nWhen you are finished with reading the report, click the Enter key on the number pad to continue.\r\n";
+
+    public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
+    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, BUT you cannot update the guidance.";
+
+
+
+
+
+    public static string PracticeInteractiveAOIAugmentationInstructionStateTitle = "[Practice] Condition: Dynamic Guidance";
+    public static string PracticeInteractiveAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "In addition, you can request guidance to update based on how you are reading the report. Click the left mouse button to update the guidance.\r\n";
+
+    public static string TestInteractiveAOIAugmentationInstructionStateTitle = "Dynamic Guidance";
+    public static string TestInteractiveAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, AND you may update the guidance.";
+
+
+
+
+
+
+    public static string TestInstructionStateTitle = "End of practice"; // starting of test block
+    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the Enter key on the number pad to continue the experiment. \r\n";
+
+
+
+
 
 }

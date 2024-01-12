@@ -23,8 +23,8 @@ public class TestInstructionStateController : StateController
     {
         base.enterState();
         instructionStateGUIController.EnableSelf();
-        instructionStateGUIController.setInstructionTitle("Test Instruction");
-        instructionStateGUIController.setInstructionContent("Instruction Content");
+        instructionStateGUIController.setInstructionTitle(Presets.TestInstructionStateTitle);
+        instructionStateGUIController.setInstructionContent(Presets.TestInstructionStateContent);
     }
 
     public override void exitState()

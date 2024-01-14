@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.ServiceModel.Channels;
 using System.Text;
 using UnityEngine;
@@ -18,30 +19,27 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
 
     // not needed anymore
-    public bool contourInfoReceived = false;
 
     [Header("Event Marker")]
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
 
-    [Header("Contour")]
-    public GameObject contour;
-    public GameObject contourPrefab;
-    public List<ContourController> contourControllers = new List<ContourController>();
-    public bool enableContourVisualization = true;
-    public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
+    //[Header("Contour")]
+    //public GameObject contours;
+    //public GameObject contourPrefab;
+    //public List<ContourController> contourControllers = new List<ContourController>();
+    //public bool enableContourVisualization = true;
+    //public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
 
     [Header("Heatmap")]
-    public GameObject heatmap;
-    public GameObject heatmapPrefab;
-    public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
-    public bool enableHeatmapVisualization = true;
+    public HeatmapOverlayController heatmapOverlayController;
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
+    public bool visualCueReceived = false;
 
-
+    //public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
+    //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
     [Header("Audio Effect")]
     public AudioClip visualCueReceivedSoundEffect;
     public AudioClip updateVisualCueInstructionSendSoundEffect;
-
 
     // Start is called before the first frame update
     void Start()
@@ -53,306 +51,158 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     void Update()
     {
         float updateFrequency = 1.0f / Time.deltaTime;
-        //Debug.Log("Update Frequency: " + updateFrequency + " FPS");
-
-        //if (contourInfoReceived==false)
-        //{
-        //    AOIAugmentationAttentionContourStream();
-        //}
-
-
         AOIAugmentationAttentionHeatmapStream();
+
         EnableDisableHeatmapsWithKeyPress();
         AOIAugmentationInteractionStateUpdateCueKeyPressed();
 
-        //enableDisableContoursWithKeyPress();
-        //enableDisableContoursWithKeyHold();
-
-
     }
 
 
+    //public void SetTargetImageTexture(Texture2D texture)
+    //{
+    //    targetImageController.setImage(texture);
+    //}
 
-    void AOIAugmentationAttentionContourStream()
-    {
-        aOIAugmentationAttentionContourStreamLSLInletController.pullContoursInfo();
-        if (aOIAugmentationAttentionContourStreamLSLInletController.frameTimestamp != 0)
-        {
-            contourInfoReceived = true;
-            Debug.Log("Contour Info Received");
-            initContours(aOIAugmentationAttentionContourStreamLSLInletController.frameDataBuffer);
+    //public void SetHeatmapOverlayTextrue(Texture2D texture, bool enabled=true)
+    //{
+    //    heatmapOverlay.texture = texture;
+    //    heatmapOverlay.SetNativeSize();
+
+    //    heatmapOverlay.enabled = enabled;
+    //}
 
 
-        }
-        else
-        {
-            Debug.Log("No Contour Info Received");
-        }
-
-    }
 
 
     void AOIAugmentationAttentionHeatmapStream()
     {
-
         bool messageReceived = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.ReceiveMessage();
+
+
+
+
         if (messageReceived)
         {
-            RemoveAllHeatmaps(); // remove all heatmaps first
+            visualCueReceived = true;
+            heatmapOverlayController.SetHeatmapVisibility(true);
             Debug.Log("Heatmap Received");
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
             string topicName = Encoding.UTF8.GetString(recieveBytes[0]);
             Debug.Log("Topic Name: " + topicName);
             double timestamp = BitConverter.ToDouble(recieveBytes[1], 0);
             Debug.Log("Timestamp: " + timestamp);
-            int heatmapNumber = BitConverter.ToInt32(recieveBytes[2], 0);
-            Debug.Log("Heatmap Number: " + heatmapNumber);
 
-            int pointer = 3;
-            for (int imageIndex = 0; imageIndex < 6; imageIndex++)
-            {
-                List<int> imagePosition = GeneralUtils.ToListOf<int>(recieveBytes[pointer], BitConverter.ToInt32);
+            byte[] originalImageByte = recieveBytes[2];
+            byte[] heatmapImageByte = recieveBytes[3];
 
-                pointer++;
-                byte[] pngBytes = recieveBytes[pointer];
-                Debug.Log("PNG Bytes Length: " + pngBytes.Length);
-                Texture2D texture = new Texture2D(2, 2);
-                texture.LoadImage(pngBytes);
 
-                GameObject heatmapInstance = Instantiate(heatmapPrefab, gameObject.transform.position, Quaternion.identity);
-                heatmapInstance.transform.SetParent(heatmap.transform);
-                heatmapInstance.transform.localPosition = gameObject.transform.localPosition;
-                heatmapInstance.transform.localScale = gameObject.transform.localScale;
-                HeatmapController heatmapController = heatmapInstance.GetComponent<HeatmapController>();
-                heatmapController.targetImageController = targetImageController;
-                heatmapController.setHeatmapTexture(texture, imagePosition);
+            Texture2D originalImageTexture = new Texture2D(2, 2);
+            originalImageTexture.LoadImage(originalImageByte);
+            targetImageController.setImage(originalImageTexture);
 
-                heatmapControllers.Add(heatmapController);
 
-                pointer++;
+            Texture2D heatmapImageTexture = new Texture2D(2, 2);
+            heatmapImageTexture.LoadImage(heatmapImageByte);
+            heatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
 
-            }
-
-            enableHeatmapVisualization = true;
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
-
-        }
-        else
-        {
-            // do nothing
         }
 
 
 
-    }
 
-    void initContours(float[] contourslvt)
-    {
-        int nextDataIndex = 0;
+        //if (messageReceived)
+        //{
+        //    //RemoveAllHeatmaps(); // remove all heatmaps first
 
-        int overflowFlag = (int)contourslvt[0];
+        //    Debug.Log("Heatmap Received");
+        //    List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
+        //    string topicName = Encoding.UTF8.GetString(recieveBytes[0]);
+        //    Debug.Log("Topic Name: " + topicName);
+        //    double timestamp = BitConverter.ToDouble(recieveBytes[1], 0);
+        //    Debug.Log("Timestamp: " + timestamp);
+        //    int heatmapNumber = BitConverter.ToInt32(recieveBytes[2], 0);
+        //    Debug.Log("Heatmap Number: " + heatmapNumber);
 
-        nextDataIndex += 1;
+        //    int pointer = 3;
+        //    for (int imageIndex = 0; imageIndex < 6; imageIndex++)
+        //    {
+        //        List<int> imagePosition = GeneralUtils.ToListOf<int>(recieveBytes[pointer], BitConverter.ToInt32);
 
-        if (overflowFlag != 0)
-        {
-            return;
-        }
+        //        pointer++;
+        //        byte[] pngBytes = recieveBytes[pointer];
+        //        Debug.Log("PNG Bytes Length: " + pngBytes.Length);
+        //        Texture2D texture = new Texture2D(2, 2);
+        //        texture.LoadImage(pngBytes);
 
-        int contourCount = (int)contourslvt[1];
+        //        GameObject heatmapInstance = Instantiate(heatmapPrefab, gameObject.transform.position, Quaternion.identity);
+        //        heatmapInstance.transform.SetParent(heatmaps.transform);
+        //        heatmapInstance.transform.localPosition = gameObject.transform.localPosition;
+        //        heatmapInstance.transform.localScale = gameObject.transform.localScale;
+        //        HeatmapController heatmapController = heatmapInstance.GetComponent<HeatmapController>();
+        //        heatmapController.targetImageController = targetImageController;
+        //        heatmapController.setHeatmapTexture(texture, imagePosition);
 
-        nextDataIndex += 1;
+        //        heatmapControllers.Add(heatmapController);
 
+        //        pointer++;
 
-        for (int i = 0; i < contourCount; i++)
-        {
-            int contourIndex = (int)contourslvt[nextDataIndex];
-            nextDataIndex += 1;
+        //    }
 
-            int hierarchyInfoLength = (int)contourslvt[nextDataIndex];
-            nextDataIndex += 1;
-            //hierarchyinfo list:
-            int[] hierarchy = new int[hierarchyInfoLength];
-            for (int j = 0; j < hierarchyInfoLength; j++)
-            {
-                hierarchy[j] = (int)contourslvt[nextDataIndex];
-                nextDataIndex += 1;
-            }
+        //    enableHeatmapVisualization = true;
+        //    // play sound effect
+        //    AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
 
-            int contourVertexCount = (int)contourslvt[nextDataIndex];
-            nextDataIndex += 1;
-
-            Vector2[] contourVertices = new Vector2[contourVertexCount];
-            for (int j = 0; j < contourVertexCount; j++)
-            {
-                float x = contourslvt[nextDataIndex];
-                float y = contourslvt[nextDataIndex + 1];
-
-                x = x - (targetImageController.targetImageRectTransform.pivot.x * targetImageController.imageWidth);
-                y = (1 - targetImageController.targetImageRectTransform.pivot.y) * targetImageController.imageHeight - y;
+        //}
+        //else
+        //{
+        //    // do nothing
+        //}
 
 
-                contourVertices[j] = new Vector2(x, y);
-
-
-                nextDataIndex += 2;
-            }
-
-            GameObject contourInstance = Instantiate(contourPrefab, gameObject.transform.position, Quaternion.identity);
-            contourInstance.transform.SetParent(contour.transform);
-            contourInstance.transform.localPosition = gameObject.transform.localPosition;
-            contourInstance.transform.localScale = gameObject.transform.localScale;
-            ContourController contourController = contourInstance.GetComponent<ContourController>();
-
-            contourController.contourIndex = contourIndex;
-            contourController.hierarchy = hierarchy;
-            contourController.contourVertices = contourVertices;
-            contourController.drawContour();
-            contourControllers.Add(contourController);
-
-        }
 
     }
 
 
-
-
-
-
-    public override void EnableSelf()
-    {
-        contourInfoReceived = false;
-        base.EnableSelf();
-    }
-
-    public override void DisableSelf()
-    {
-        contourInfoReceived = false;
-        base.DisableSelf();
-    }
-
-
-
-
-
-
-
-
-    public void RemoveOverlayElements()
-    {
-        RemoveAllHeatmaps();
-        RemoveAllContours();
-
-    }
-
-
-
-
-
-
-
-
-    public void RemoveAllHeatmaps()
-    {
-        foreach (HeatmapController heatmapController in heatmapControllers)
-        {
-            Destroy(heatmapController.gameObject);
-        }
-
-        heatmapControllers.Clear();
-
-    }
-
-    public void DisableAllHeatmaps()
-    {
-        foreach (HeatmapController heatmapController in heatmapControllers)
-        {
-            heatmapController.gameObject.SetActive(false);
-        }
-
-        eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
-    }
-
-    public void EnableAllHeatmaps()
-    {
-        foreach (HeatmapController heatmapController in heatmapControllers)
-        {
-            heatmapController.gameObject.SetActive(true);
-        }
-
-        eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
-    }
 
 
     public void EnableDisableHeatmapsWithKeyPress()
     {
         bool switchEnableDisableHeatmaps = Input.GetKeyDown(Presets.AOIAugmentationToggleVisualCueVisibilityCueKey);
+
         if (switchEnableDisableHeatmaps)
         {
-            enableHeatmapVisualization = !enableHeatmapVisualization;
-            if (enableHeatmapVisualization)
+            if (heatmapOverlayController.HeatmapOverlayEnabled())
             {
-                EnableAllHeatmaps();
+                heatmapOverlayController.SetHeatmapVisibility(false);
+                eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
             }
             else
             {
-                DisableAllHeatmaps();
+                heatmapOverlayController.SetHeatmapVisibility(true);
+                eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
             }
         }
     }
 
 
 
-
-
-
-
-
-
-    public void RemoveAllContours()
-    {
-
-        foreach (ContourController contourController in contourControllers)
-        {
-            Destroy(contourController.gameObject);
-        }
-
-        contourControllers.Clear();
-    }
-
-    public void DisableAllContours()
-    {
-
-        foreach (ContourController contourController in contourControllers)
-        {
-            contourController.gameObject.SetActive(false);
-        }
-
-    }
-
-    public void EnableAllContours()
-    {
-
-        foreach (ContourController contourController in contourControllers)
-        {
-            contourController.gameObject.SetActive(true);
-        }
-
-    }
 
 
     public void AOIAugmentationInteractionStateUpdateCueKeyPressed()
     {
         bool keyPressed = Input.GetKeyDown(Presets.AOIAugmentationUpdateVisualCueKey);
 
-        if (keyPressed)
+        if (keyPressed && visualCueReceived)
         {
             // send update visual cue marker
             eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
 
             // play sound effect
             AudioSource.PlayClipAtPoint(updateVisualCueInstructionSendSoundEffect, Camera.main.transform.position);
+            visualCueReceived = false;
 
             //eventMarkerLSLOutletController.sendUserInputsMarker
             //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
@@ -367,42 +217,34 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
 
 
-    //public void enableDisableContoursWithKeyPress() {
-    //     bool switchEnableDisableContours = Input.GetKeyDown(Presets.AOIAugmentationEnableDisableContoursPressKey);
-    //        if (switchEnableDisableContours)
-    //        {
-    //            enableContourVisualization = !enableContourVisualization;
-    //            if (enableContourVisualization)
-    //            {
-    //                enableAllContours();
-    //            }
-    //            else
-    //            {
-    //                disableAllContours();
-    //            }
-    //        }
-    //}
 
 
-    //public void enableDisableContoursWithKeyHold()
-    //{
-    //    bool disableContoursKeyHold = Input.GetKey(Presets.AOIAugmentationEnableDisableContoursHoldKey);
-    //    if (disableContoursKeyHold) { 
-    //        if (enableContourVisualization)
-    //        {
-    //            disableAllContours();
-    //            enableContourVisualization = false;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        if (enableContourVisualization==false)
-    //        {
-    //            enableAllContours();
-    //            enableContourVisualization = true;
-    //        }
-    //    }
-    //}
+
+
+
+
+    public void CleanUp()
+    {
+        //targetImageController.CleanUp();
+        visualCueReceived = false;
+        heatmapOverlayController.CleanUp();
+
+    }
+
+
+    public override void EnableSelf()
+    {
+        //contourInfoReceived = false;
+        CleanUp();
+        base.EnableSelf();
+    }
+
+    public override void DisableSelf()
+    {
+        //contourInfoReceived = false;
+        CleanUp();
+        base.DisableSelf();
+    }
 
 
 }

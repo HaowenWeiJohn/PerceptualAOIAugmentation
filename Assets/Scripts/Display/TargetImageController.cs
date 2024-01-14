@@ -97,7 +97,7 @@ public class TargetImageController : MonoBehaviour
     {
         Sprite imageSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.one * 0.5f);
         targetImage.sprite = imageSprite;
-        targetImage.SetNativeSize();
+
         // 
 
         // rescale the image to fit the target image rect transform
@@ -120,6 +120,20 @@ public class TargetImageController : MonoBehaviour
         {
             targetImageRectTransform.localScale = new Vector3(xScale, yScale, 1);
         }
+        targetImage.SetNativeSize();
+
+
+
+
+
+        // set the image position to the top left corner of the screen
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        float x = screenWidth / 2;
+        float y = screenHeight / 2;
+
+        targetImageRectTransform.localPosition = new Vector3(-x, y, 0);
 
     }
 
@@ -168,6 +182,12 @@ public class TargetImageController : MonoBehaviour
         currentColor.b = 1f;
         currentColor.a = 1f;
         targetImage.color = currentColor;
+    }
+
+
+    public void CleanUp()
+    {
+        targetImage.sprite = null;
     }
 
 }

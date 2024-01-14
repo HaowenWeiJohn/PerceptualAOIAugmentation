@@ -5,8 +5,8 @@ using System.IO;
 
 public static class Presets
 {
-    public static float imageMaxWidth = 1800.0f;
-    public static float imageMaxHeight = 900.0f;
+    public static float imageMaxWidth = 1500.0f;
+    public static float imageMaxHeight = 750.0f;
 
 
 

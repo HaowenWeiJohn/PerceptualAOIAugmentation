@@ -52,14 +52,14 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateStaticAOIAugmentationOverlayController()
     {
-        staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
+        //staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
         staticAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateStaticAOIAugmentationOverlayController()
     {
-        staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
+        //staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
         staticAOIAugmentationOverlayController.DisableSelf();
     }
 
@@ -70,14 +70,14 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateInteractiveAOIAugmentationOverlayController()
     {
-        interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
+        //interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
         interactiveAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateInteractiveAOIAugmentationOverlayController()
     {
-        interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
+        //interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
         interactiveAOIAugmentationOverlayController.DisableSelf();
     }
 

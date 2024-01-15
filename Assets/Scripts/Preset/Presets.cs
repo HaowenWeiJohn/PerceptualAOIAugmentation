@@ -87,8 +87,8 @@ public static class Presets
 
 
 
-    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse1; // left mouse button
-    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse0; // right mouse button
+    public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse1; // right mouse button
+    public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse2; // left mouse button
 
 
 

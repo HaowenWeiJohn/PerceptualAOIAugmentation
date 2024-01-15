@@ -30,10 +30,20 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     //public bool enableContourVisualization = true;
     //public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
 
-    [Header("Heatmap")]
-    public HeatmapOverlayController heatmapOverlayController;
+    [Header("Heatmap Overlay")]
+    public AOIHeatmapOverlayController aoiHeatmapOverlayController;
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
     public bool visualCueReceived = false;
+
+
+    [Header("Heatmap History Scroll Area")]
+    public ScrollRect interactiveAOIAugmentationHistoryScrollViewScrollRect;
+    public ToggleGroup interactiveAOIAugmentationHistoryScrollViewToggleGroup;
+    public GameObject aoiAugmentationHistoryWidgetControllerPrefab;
+    public List<AOIAugmentationHistoryWidgetController> aoiAugmentationHistoryWidgetControllers = new List<AOIAugmentationHistoryWidgetController>();
+
+    //bool setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = false;
+
 
     //public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
     //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
@@ -55,6 +65,12 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         EnableDisableHeatmapsWithKeyPress();
         AOIAugmentationInteractionStateUpdateCueKeyPressed();
+
+        //if (setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom)
+        //{
+        //    interactiveAOIAugmentationHistoryScrollViewScrollRect.verticalNormalizedPosition = 0;
+        //    setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = false;
+        //}
 
     }
 
@@ -85,7 +101,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
         if (messageReceived)
         {
             visualCueReceived = true;
-            heatmapOverlayController.SetHeatmapVisibility(true);
+            aoiHeatmapOverlayController.SetHeatmapVisibility(true);
             Debug.Log("Heatmap Received");
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
             string topicName = Encoding.UTF8.GetString(recieveBytes[0]);
@@ -94,17 +110,82 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             Debug.Log("Timestamp: " + timestamp);
 
             byte[] originalImageByte = recieveBytes[2];
-            byte[] heatmapImageByte = recieveBytes[3];
+            byte[] aoiHeatmapImageByte = recieveBytes[3];
+
+            byte[] gazeHeatmapImageByte = recieveBytes.Count == 5 ? recieveBytes[4] : null;
 
 
+
+
+            //Texture2D originalImageTexture = new Texture2D(2, 2);
+            //originalImageTexture.LoadImage(originalImageByte);
+            ////targetImageController.setImage(originalImageTexture);
+
+
+            //Texture2D aoiHeatmapImageTexture = new Texture2D(2, 2);
+            //aoiHeatmapImageTexture.LoadImage(aoiHeatmapImageByte);
+            ////heatmapOverlayController.SetHeatmapTexture(aoiHeatmapImageTexture);
+
+
+            
+
+            // create scroll area
+            // 
+
+            GameObject aOIAugmentationHistoryWidget = Instantiate(aoiAugmentationHistoryWidgetControllerPrefab, interactiveAOIAugmentationHistoryScrollViewScrollRect.content.transform);
+
+            AOIAugmentationHistoryWidgetController aOIAugmentationHistoryWidgetController = aOIAugmentationHistoryWidget.GetComponent<AOIAugmentationHistoryWidgetController>();
+            aoiAugmentationHistoryWidgetControllers.Add(aOIAugmentationHistoryWidgetController);
+
+            // set history widget index
+            aOIAugmentationHistoryWidgetController.historyWidgetId = aoiAugmentationHistoryWidgetControllers.Count;
+            // set toggle group
+            aOIAugmentationHistoryWidgetController.visualizationToggleSelection.group = interactiveAOIAugmentationHistoryScrollViewToggleGroup;
+
+            // set scroll rect
+            aOIAugmentationHistoryWidgetController.interactiveAOIAugmentationHistoryScrollViewScrollRect = interactiveAOIAugmentationHistoryScrollViewScrollRect;
+
+            // set target image controller
+            aOIAugmentationHistoryWidgetController.targetImageController = targetImageController;
+            aOIAugmentationHistoryWidgetController.aoiHeatmapOverlayController = aoiHeatmapOverlayController;
+
+
+
+            // set images
             Texture2D originalImageTexture = new Texture2D(2, 2);
             originalImageTexture.LoadImage(originalImageByte);
-            targetImageController.setImage(originalImageTexture);
+            aOIAugmentationHistoryWidgetController.SetAOIBackgroundImageTexture(originalImageTexture);
+
+            Texture2D aoiHeatmapImageTexture = new Texture2D(2, 2);
+            aoiHeatmapImageTexture.LoadImage(aoiHeatmapImageByte);
+            aOIAugmentationHistoryWidgetController.SetAOIBackgroundImageHeatmapOverlayImageTexture(aoiHeatmapImageTexture);
 
 
-            Texture2D heatmapImageTexture = new Texture2D(2, 2);
-            heatmapImageTexture.LoadImage(heatmapImageByte);
-            heatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
+            if (gazeHeatmapImageByte != null)
+            {
+
+                aOIAugmentationHistoryWidgetController.SetGazeAttentionBackgroundImageTexture(originalImageTexture);
+
+                Texture2D gazeHeatmapImageTexture = new Texture2D(2, 2);
+                gazeHeatmapImageTexture.LoadImage(gazeHeatmapImageByte);
+                aOIAugmentationHistoryWidgetController.SetGazeAttentionBackgroundImageHeatmapOverlayImageTexture(gazeHeatmapImageTexture);
+            }
+            else
+            {
+                // do nothing
+            }
+
+            // set visualization toggle selection
+            aOIAugmentationHistoryWidgetController.visualizationToggleSelection.isOn = true;
+            aOIAugmentationHistoryWidgetController.OnAOIAugmentationHistoryWidgetSelected(true);
+            //setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = true;
+
+            Canvas.ForceUpdateCanvases();
+            interactiveAOIAugmentationHistoryScrollViewScrollRect.verticalNormalizedPosition = 0f;
+
+
+            // set scroll area to bottom
+
 
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
@@ -174,14 +255,14 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         if (switchEnableDisableHeatmaps)
         {
-            if (heatmapOverlayController.HeatmapOverlayEnabled())
+            if (aoiHeatmapOverlayController.HeatmapOverlayEnabled())
             {
-                heatmapOverlayController.SetHeatmapVisibility(false);
+                aoiHeatmapOverlayController.SetHeatmapVisibility(false);
                 eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
             }
             else
             {
-                heatmapOverlayController.SetHeatmapVisibility(true);
+                aoiHeatmapOverlayController.SetHeatmapVisibility(true);
                 eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
             }
         }
@@ -214,7 +295,17 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
 
 
+    public void ClearAOIAugmentationHistory()
+    {
 
+        foreach (AOIAugmentationHistoryWidgetController AOIAugmentationHistoryWidgetController in aoiAugmentationHistoryWidgetControllers)
+        {
+            Destroy(AOIAugmentationHistoryWidgetController.gameObject);
+        }
+
+        aoiAugmentationHistoryWidgetControllers.Clear();
+
+    }
 
 
 
@@ -227,7 +318,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //targetImageController.CleanUp();
         visualCueReceived = false;
-        heatmapOverlayController.CleanUp();
+        aoiHeatmapOverlayController.CleanUp();
+        ClearAOIAugmentationHistory();
 
     }
 

@@ -30,8 +30,8 @@ public class StaticAOIAugmentationOverlayController : GUIController
     //public bool enableContourVisualization = true;
     //public AOIAugmentationAttentionContourStreamLSLInletController aOIAugmentationAttentionContourStreamLSLInletController;
 
-    [Header("Heatmap")]
-    public HeatmapOverlayController heatmapOverlayController;
+    [Header("Heatmap Overlay")]
+    public AOIHeatmapOverlayController aoiHeatmapOverlayController;
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
     public bool visualCueReceived = false;
 
@@ -83,7 +83,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
         if (messageReceived)
         {
             visualCueReceived = true;
-            heatmapOverlayController.SetHeatmapVisibility(true);
+            aoiHeatmapOverlayController.SetHeatmapVisibility(true);
             Debug.Log("Heatmap Received");
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
             string topicName = Encoding.UTF8.GetString(recieveBytes[0]);
@@ -102,7 +102,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
             Texture2D heatmapImageTexture = new Texture2D(2, 2);
             heatmapImageTexture.LoadImage(heatmapImageByte);
-            heatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
+            aoiHeatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
 
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
@@ -172,14 +172,14 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
         if (switchEnableDisableHeatmaps)
         {
-            if (heatmapOverlayController.HeatmapOverlayEnabled())
+            if (aoiHeatmapOverlayController.HeatmapOverlayEnabled())
             {
-                heatmapOverlayController.SetHeatmapVisibility(false);
+                aoiHeatmapOverlayController.SetHeatmapVisibility(false);
                 eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
             }
             else
             {
-                heatmapOverlayController.SetHeatmapVisibility(true);
+                aoiHeatmapOverlayController.SetHeatmapVisibility(true);
                 eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
             }
         }
@@ -190,7 +190,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     {
         //targetImageController.CleanUp();
         visualCueReceived = false;
-        heatmapOverlayController.CleanUp();
+        aoiHeatmapOverlayController.CleanUp();
 
     }
 

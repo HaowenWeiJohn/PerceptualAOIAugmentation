@@ -33,7 +33,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
     [Header("Heatmap")]
     public GameObject heatmap;
     public GameObject heatmapPrefab;
-    public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
+    public List<AOIHeatmapController> heatmapControllers = new List<AOIHeatmapController>();
     public bool enableHeatmapVisualization = true;
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
 
@@ -120,7 +120,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
                 heatmapInstance.transform.SetParent(heatmap.transform);
                 heatmapInstance.transform.localPosition = gameObject.transform.localPosition;
                 heatmapInstance.transform.localScale = gameObject.transform.localScale;
-                HeatmapController heatmapController = heatmapInstance.GetComponent<HeatmapController>();
+                AOIHeatmapController heatmapController = heatmapInstance.GetComponent<AOIHeatmapController>();
                 heatmapController.targetImageController = targetImageController;
                 heatmapController.setHeatmapTexture(texture, imagePosition);
                 
@@ -254,7 +254,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
 
     public void RemoveAllHeatmaps()
     {
-        foreach (HeatmapController heatmapController in heatmapControllers)
+        foreach (AOIHeatmapController heatmapController in heatmapControllers)
         {
                 Destroy(heatmapController.gameObject);
             }
@@ -264,7 +264,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
 
     public void DisableAllHeatmaps()
     {
-        foreach (HeatmapController heatmapController in heatmapControllers)
+        foreach (AOIHeatmapController heatmapController in heatmapControllers)
         {
             heatmapController.gameObject.SetActive(false);
         }
@@ -274,7 +274,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
 
     public void EnableAllHeatmaps()
     {
-        foreach (HeatmapController heatmapController in heatmapControllers)
+        foreach (AOIHeatmapController heatmapController in heatmapControllers)
         {
             heatmapController.gameObject.SetActive(true);
         }

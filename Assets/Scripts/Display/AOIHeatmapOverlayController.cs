@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeatmapOverlayController : MonoBehaviour
+public class AOIHeatmapOverlayController : MonoBehaviour
 {
     // Start is called before the first frame update
 

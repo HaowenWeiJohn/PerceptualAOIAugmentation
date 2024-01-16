@@ -63,14 +63,11 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
         float updateFrequency = 1.0f / Time.deltaTime;
         AOIAugmentationAttentionHeatmapStream();
 
-        EnableDisableHeatmapsWithKeyPress();
-        AOIAugmentationInteractionStateUpdateCueKeyPressed();
-
-        //if (setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom)
-        //{
-        //    interactiveAOIAugmentationHistoryScrollViewScrollRect.verticalNormalizedPosition = 0;
-        //    setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = false;
-        //}
+        if (targetImageController.IsCursorOverTargetImage())
+        {
+            EnableDisableHeatmapsWithKeyPress();
+            AOIAugmentationInteractionStateUpdateCueKeyPressed();
+        }
 
     }
 

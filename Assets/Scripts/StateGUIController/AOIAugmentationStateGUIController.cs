@@ -84,7 +84,7 @@ public class AOIAugmentationStateGUIController : GUIController
     public override void EnableSelf()
     {
         base.EnableSelf();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         targetImageController.ResetImageColor();
 
     }
@@ -92,7 +92,7 @@ public class AOIAugmentationStateGUIController : GUIController
     public override void DisableSelf()
     {
         base.DisableSelf();
-        Cursor.visible = true;
+        //Cursor.visible = true;
         targetImageController.ResetImageColor();
     }
 

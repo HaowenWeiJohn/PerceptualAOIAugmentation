@@ -89,7 +89,7 @@ public class PracticeBlockController : BlockController
         if (Presets.Conditions.Contains(gameManager.currentState.experimentState))
         {
             string imageName = experimentImages[experimentImageIndex];
-            int imageIndex = Presets.TestBlockImages.IndexOf(imageName);
+            int imageIndex = Presets.PracticeBlockImages.IndexOf(imageName);
 
             if (gameManager.currentState == gameManager.noAOIAugmentationStateController)
             {

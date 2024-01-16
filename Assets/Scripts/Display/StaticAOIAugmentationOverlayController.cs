@@ -52,8 +52,10 @@ public class StaticAOIAugmentationOverlayController : GUIController
         float updateFrequency = 1.0f / Time.deltaTime;
         AOIAugmentationAttentionHeatmapStream();
 
-        EnableDisableHeatmapsWithKeyPress();
-
+        if (targetImageController.IsCursorOverTargetImage())
+        {
+            EnableDisableHeatmapsWithKeyPress();
+        }
     }
 
 

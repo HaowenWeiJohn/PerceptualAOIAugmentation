@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TargetImageController : MonoBehaviour
@@ -53,13 +54,17 @@ public class TargetImageController : MonoBehaviour
     void Update()
     {
         updateTargetImageInfo();
-
-        if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState || gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState)
+        if (IsCursorOverTargetImage())
         {
-            AdjustTransparency();
-            targetImageInfoLSLOutletController.sendImageInfo(targetImage);
-        }
+            if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState || gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState)
+            {
 
+                // AdjustTransparency only if the cursor  
+
+                AdjustTransparency();
+                targetImageInfoLSLOutletController.sendImageInfo(targetImage);
+            }
+        }
     }
 
     public void updateTargetImageInfo()
@@ -185,9 +190,47 @@ public class TargetImageController : MonoBehaviour
     }
 
 
+
+
+
+
+    public bool IsCursorOverTargetImage()
+    {
+
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> raycastResultList = new List<RaycastResult>();
+
+        EventSystem.current.RaycastAll(pointerEventData, raycastResultList);
+
+        for (int i = 0; i < raycastResultList.Count; i++)
+        {
+            RaycastResult raycastResult = raycastResultList[i];
+            if (raycastResult.gameObject == targetImage.gameObject)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+
+
+
+
+
+
     public void CleanUp()
     {
         targetImage.sprite = null;
     }
+
+
+
+
+
+
 
 }

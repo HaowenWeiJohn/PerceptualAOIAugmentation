@@ -1,0 +1,6 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,G,x,1
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,vwe,1
+PracticeBlock,InteractiveAOIAugmentationState,9071_OD_2021_widefield_report,G,G,asdfasdf,1
+TestBlock,StaticAOIAugmentationState,RLS_097_OD_TC,G,G,asfd,1
+TestBlock,StaticAOIAugmentationState,RLS_083_OD_TC,G,G,asdf,1

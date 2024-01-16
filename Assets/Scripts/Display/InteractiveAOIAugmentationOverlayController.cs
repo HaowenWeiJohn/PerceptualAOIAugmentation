@@ -155,6 +155,9 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             aOIAugmentationHistoryWidgetController.targetImageController = targetImageController;
             aOIAugmentationHistoryWidgetController.aoiHeatmapOverlayController = aoiHeatmapOverlayController;
 
+            // set event marker LSL outlet controller
+            aOIAugmentationHistoryWidgetController.eventMarkerLSLOutletController = eventMarkerLSLOutletController;
+
 
 
             // set images

@@ -72,7 +72,7 @@ public static class Presets
 
     public static int MaxScore = 100;
 
-    public static KeyCode NextStateKey = KeyCode.LeftControl;
+    public static KeyCode NextStateKey = KeyCode.F1;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
     /// <summary>

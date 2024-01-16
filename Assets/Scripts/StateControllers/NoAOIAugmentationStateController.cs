@@ -38,6 +38,17 @@ public class NoAOIAugmentationStateController : StateController
 
     public override void exitState()
     {
+
+        if (!aOIAugmentationStateGUIController.ResponseAcceptable())
+        {
+            return;
+        }
+        else
+        {
+            aOIAugmentationStateGUIController.SetAOIAugmentationFeedbackStateWritter();
+            aOIAugmentationStateGUIController.ClearResponse();
+        }
+
         aOIAugmentationStateGUIController.deactivateNoAOIAugmentationOverlayController();
         aOIAugmentationStateGUIController.DisableSelf();
         base.exitState();

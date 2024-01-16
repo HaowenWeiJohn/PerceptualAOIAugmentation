@@ -36,6 +36,8 @@ public class FeedbackStateController : StateController
         }
         else
         {
+            feedbackStateGUIController.SetAOIAugmentationFeedbackStateWritter();
+            feedbackStateGUIController.ClearResponses();
             feedbackStateGUIController.LogResponse();
         }
 

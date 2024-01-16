@@ -14,7 +14,8 @@ public class TestBlockController : BlockController
     public int experimentImageIndex = 0;
     public List<string> experimentImages = new List<string>();
 
-
+    //[Header("AOIAugmentationStateGUIController")]
+    //public AOIAugmentationStateGUIController aOIAugmentationStateGUIController;
 
     void Start()
     {

@@ -50,7 +50,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     void Update()
     {
         float updateFrequency = 1.0f / Time.deltaTime;
-        AOIAugmentationAttentionHeatmapStream();
+        AOIAugmentationZMQStream();
 
         if (targetImageController.IsCursorOverTargetImage())
         {
@@ -75,7 +75,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
 
 
-    void AOIAugmentationAttentionHeatmapStream()
+    void AOIAugmentationZMQStream()
     {
         bool messageReceived = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.ReceiveMessage();
         
@@ -93,8 +93,17 @@ public class StaticAOIAugmentationOverlayController : GUIController
             double timestamp = BitConverter.ToDouble(recieveBytes[1], 0);
             Debug.Log("Timestamp: " + timestamp);
 
-            byte[] originalImageByte = recieveBytes[2];
-            byte[] heatmapImageByte = recieveBytes[3];
+            string imageName = Encoding.UTF8.GetString(recieveBytes[2]);
+            targetImageController.imageName = imageName;
+            Debug.Log("Image Name: " + imageName);
+
+            string imageType = Encoding.UTF8.GetString(recieveBytes[3]);
+            targetImageController.imageType = imageType;
+            Debug.Log("Image Type: " + imageType);
+
+
+            byte[] originalImageByte = recieveBytes[4];
+            byte[] aoiHeatmapImageByte = recieveBytes[5];
 
 
             Texture2D originalImageTexture = new Texture2D(2, 2);
@@ -103,7 +112,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
 
             Texture2D heatmapImageTexture = new Texture2D(2, 2);
-            heatmapImageTexture.LoadImage(heatmapImageByte);
+            heatmapImageTexture.LoadImage(aoiHeatmapImageByte);
             aoiHeatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
 
             // play sound effect

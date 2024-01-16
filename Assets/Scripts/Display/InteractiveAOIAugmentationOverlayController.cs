@@ -61,7 +61,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     void Update()
     {
         float updateFrequency = 1.0f / Time.deltaTime;
-        AOIAugmentationAttentionHeatmapStream();
+        AOIAugmentationZMQStream();
 
         if (targetImageController.IsCursorOverTargetImage())
         {
@@ -88,7 +88,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
 
 
-    void AOIAugmentationAttentionHeatmapStream()
+    void AOIAugmentationZMQStream()
     {
         bool messageReceived = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.ReceiveMessage();
 
@@ -106,10 +106,19 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             double timestamp = BitConverter.ToDouble(recieveBytes[1], 0);
             Debug.Log("Timestamp: " + timestamp);
 
-            byte[] originalImageByte = recieveBytes[2];
-            byte[] aoiHeatmapImageByte = recieveBytes[3];
+            string imageName = Encoding.UTF8.GetString(recieveBytes[2]);
+            targetImageController.imageName = imageName;
+            Debug.Log("Image Name: " + imageName);
 
-            byte[] gazeHeatmapImageByte = recieveBytes.Count == 5 ? recieveBytes[4] : null;
+            string imageType = Encoding.UTF8.GetString(recieveBytes[3]);
+            targetImageController.imageType = imageType;
+            Debug.Log("Image Type: " + imageType);
+
+
+            byte[] originalImageByte = recieveBytes[4];
+            byte[] aoiHeatmapImageByte = recieveBytes[5];
+
+            byte[] gazeHeatmapImageByte = recieveBytes.Count == 7 ? recieveBytes[6] : null;
 
 
 
@@ -135,7 +144,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             aoiAugmentationHistoryWidgetControllers.Add(aOIAugmentationHistoryWidgetController);
 
             // set history widget index
-            aOIAugmentationHistoryWidgetController.historyWidgetId = aoiAugmentationHistoryWidgetControllers.Count;
+            aOIAugmentationHistoryWidgetController.historyWidgetIndex = aoiAugmentationHistoryWidgetControllers.Count; // start from 1
             // set toggle group
             aOIAugmentationHistoryWidgetController.visualizationToggleSelection.group = interactiveAOIAugmentationHistoryScrollViewToggleGroup;
 
@@ -174,7 +183,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
             // set visualization toggle selection
             aOIAugmentationHistoryWidgetController.visualizationToggleSelection.isOn = true;
-            aOIAugmentationHistoryWidgetController.OnAOIAugmentationHistoryWidgetSelected(true);
+            aOIAugmentationHistoryWidgetController.InitAOIAugmentationHistoryWidgetSelected();
             //setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = true;
 
             Canvas.ForceUpdateCanvases();

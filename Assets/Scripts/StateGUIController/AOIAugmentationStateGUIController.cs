@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,19 @@ public class AOIAugmentationStateGUIController : GUIController
     public NoAOIAugmentationOverlayController noAOIAugmentationOverlayController;
     public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
     public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlayController;
+
+    [Header("Survey Components")]
+    public ToggleGroup GlaucomaDecisionToggleGroup;
+    // message box
+    public TMP_InputField MessageBox;
+
+    [Header("Game Manager")]
+    public GameManager gameManager;
+
+
+    [Header("Logger")]
+    public AOIAugmentationFeedbackStateWritterController aOIAugmentationFeedbackStateWritterController;
+
 
     void Start()
     {
@@ -80,6 +95,51 @@ public class AOIAugmentationStateGUIController : GUIController
         //interactiveAOIAugmentationOverlayController.RemoveOverlayElements();
         interactiveAOIAugmentationOverlayController.DisableSelf();
     }
+
+
+    public void ClearResponse()
+    {
+        GlaucomaDecisionToggleGroup.SetAllTogglesOff();
+        MessageBox.text = "";
+    }
+
+
+    public string GetGlaucomaDecision()
+    {
+        int index = 0;
+        foreach (Toggle toggle in GlaucomaDecisionToggleGroup.ActiveToggles())
+        {
+            index = GlaucomaDecisionToggleGroup.transform.GetSiblingIndex();
+        }
+        return index == 0 ? "S" : "G";
+    }
+
+    public bool ResponseAcceptable()
+    {
+        if (GlaucomaDecisionToggleGroup.AnyTogglesOn() && MessageBox.text != "")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SetAOIAugmentationFeedbackStateWritter()
+    {
+        aOIAugmentationFeedbackStateWritterController.Block = Enum.GetName(typeof(Presets.ExperimentBlock), gameManager.currentBlock.experimentBlock);
+        aOIAugmentationFeedbackStateWritterController.InteractionMode = Enum.GetName(typeof(Presets.ExperimentState), gameManager.currentState.experimentState);
+
+        aOIAugmentationFeedbackStateWritterController.ImageName = targetImageController.imageName;
+        aOIAugmentationFeedbackStateWritterController.GlaucomaGroundTruth = targetImageController.imageType;
+
+        aOIAugmentationFeedbackStateWritterController.GlaucomaDecision = GetGlaucomaDecision();
+        aOIAugmentationFeedbackStateWritterController.Message = MessageBox.text;
+
+    }
+
+
 
     public override void EnableSelf()
     {

@@ -105,6 +105,13 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     }
 
 
+    public void sendVisualCueHistorySelectedMarker(int visualCueHistoryIndex)
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.VisualCueHistorySelectedMarker] = (float)visualCueHistoryIndex;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
+
     //public void sendUserInputsMarker(Presets.UserInputTypes UserInputs)
     //{
 

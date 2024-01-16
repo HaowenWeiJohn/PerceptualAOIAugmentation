@@ -17,10 +17,22 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
     [Header("Experiment Info")]
     public string ExperimentName = "AOIAugmentation";
     public string ParticipantID = "0";
-    private static readonly string[] ColumnNames = {"Decision", "Confidence Level", "Response"};
+    private static readonly string[] ColumnNames = {"CurrentBlock", "InteractionMode", "ImageName", "GlaucomaGroundTruth", "GlaucomaDecision", "Message", "DecisionConfidenceLevel"};
     public string FileName; 
     public bool useCustomLogPath = false;
     public string customLogPath = "";
+
+
+    public GameManager gameManager;
+
+    public string Block = "";
+    public string InteractionMode = "";
+    public string ImageName = "";
+    public string GlaucomaGroundTruth = "";
+
+    public string GlaucomaDecision = "";
+    public string Message = "";
+    public string DecisionConfidenceLevel = "";
 
 
     private StreamWriter writer = null;
@@ -70,6 +82,16 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
             line += values[i] + (i == (values.Length - 1) ? "" : ","); // Do not add semicolon to last data string
         }
         writer.WriteLine(line);
+    }
+
+    public void LogCurrentTrail()
+    {
+        if (!logging || writer == null)
+            return;
+        string[] values = { Block, InteractionMode, ImageName, GlaucomaGroundTruth, GlaucomaDecision, Message, DecisionConfidenceLevel };
+        //string[] values = { Block, InteractionMode, ImageName, GlaucomaDecision, Message, DecisionConfidenceLevel };
+        Debug.Log("Logging: " + values);
+        Log(values);
     }
 
 

@@ -13,7 +13,7 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSL";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 5; // block marker index 0
+    public static int EventMarkerChannelNum = 6; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
@@ -23,7 +23,8 @@ public static class Presets
         ExperimentStateChannelIndex = 1,
         ImageIndexChannelIndex = 2,
         UpdateVisualCueMarker = 3, // the 0-5 is row, 7-11 is column
-        ToggleVisualCueVisibilityMarker = 4
+        ToggleVisualCueVisibilityMarker = 4,
+        VisualCueHistorySelectedMarker = 5
     }
 
 
@@ -71,7 +72,7 @@ public static class Presets
 
     public static int MaxScore = 100;
 
-    public static KeyCode NextStateKey = KeyCode.KeypadEnter;
+    public static KeyCode NextStateKey = KeyCode.LeftControl;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
     /// <summary>

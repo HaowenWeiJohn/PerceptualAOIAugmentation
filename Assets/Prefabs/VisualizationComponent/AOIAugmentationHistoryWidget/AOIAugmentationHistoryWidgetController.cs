@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static FullscreenEditor.FullscreenUtility;
 
 public class AOIAugmentationHistoryWidgetController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
     public ScrollRect interactiveAOIAugmentationHistoryScrollViewScrollRect;
 
 
-    public int historyWidgetId;
+    public int historyWidgetIndex;
 
     public Image aoiBackgroundImage;
     public Image aoiBackgroundImageHeatmapOverlayImage;
@@ -22,6 +23,9 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
 
     public TargetImageController targetImageController;
     public AOIHeatmapOverlayController aoiHeatmapOverlayController;
+
+    [Header("Event Marker")]
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
 
     void Start()
     {
@@ -76,11 +80,23 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
         {
             aoiHeatmapOverlayController.SetHeatmapTexture(aoiBackgroundImageHeatmapOverlayImage.sprite.texture);
             visualizationToggleSelection.image.color = Color.gray;
+
+            // send history selected event
+            eventMarkerLSLOutletController.sendVisualCueHistorySelectedMarker(historyWidgetIndex);
+
         }
         else
         {
             visualizationToggleSelection.image.color = Color.white;
         }
     }
+
+
+    public void InitAOIAugmentationHistoryWidgetSelected()
+    {
+        aoiHeatmapOverlayController.SetHeatmapTexture(aoiBackgroundImageHeatmapOverlayImage.sprite.texture);
+        visualizationToggleSelection.image.color = Color.gray;
+    }
+
 
 }

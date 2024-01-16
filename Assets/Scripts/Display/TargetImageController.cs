@@ -44,6 +44,10 @@ public class TargetImageController : MonoBehaviour
     [Header("Audio Clip")]
     public AudioClip imageTransparencyHitBoundrySoundEffect;
 
+    [Header("Image Meta Info")]
+    public string imageName;
+    public string imageType;
+
 
     void Start()
     {

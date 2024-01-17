@@ -27,6 +27,7 @@ public class NoAOIAugmentationStateController : StateController
     {
 
         //base.enterState();
+        NextStateButton.onClick.AddListener(NextStateButtonClicked);
         Debug.Log("enterState: " + experimentState);
         EnableSelf();
         setCurrentState(Presets.State.RunningState);
@@ -39,13 +40,14 @@ public class NoAOIAugmentationStateController : StateController
     public override void exitState()
     {
 
-        if (!aOIAugmentationStateGUIController.ResponseAcceptable())
+        if (!aOIAugmentationStateGUIController.AllResponseAcceptable())
         {
             return;
         }
         else
         {
             aOIAugmentationStateGUIController.SetAOIAugmentationFeedbackStateWritter();
+            aOIAugmentationStateGUIController.aOIAugmentationFeedbackStateWritterController.LogCurrentTrail();
             aOIAugmentationStateGUIController.ClearResponse();
         }
 

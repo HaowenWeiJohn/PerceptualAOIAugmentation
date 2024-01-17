@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class StateController : MonoBehaviour
     Presets.State currentState = Presets.State.IdleState;
 
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+
+    [Header("Next State Button")]
+    public Button NextStateButton;
+
     void Start()
     {
         //eventMarkerLSLOutletController = GameObject.Find("Game").compopen;
@@ -22,11 +27,13 @@ public class StateController : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update() 
     {
-        stateShift();
+        //stateShift(); // we only use button now
     }
 
     public virtual void enterState()
     {
+        NextStateButton.onClick.AddListener(NextStateButtonClicked);
+
         Debug.Log("enterState: "+ experimentState);
         EnableSelf();
         setCurrentState(Presets.State.RunningState);
@@ -37,6 +44,8 @@ public class StateController : MonoBehaviour
 
     public virtual void exitState()
     {
+        NextStateButton.onClick.RemoveListener(NextStateButtonClicked);
+
         Debug.Log("exitState: " + experimentState);
         DisableSelf();
         setCurrentState(Presets.State.EndingState);
@@ -85,17 +94,25 @@ public class StateController : MonoBehaviour
         currentState = newState;
     }
 
-    public void stateShift()
+    //public void stateShift()
+    //{
+    //    // check the key press and do state shfit
+    //    if (Input.GetKeyDown(Presets.NextStateKey))
+    //    {
+    //        exitState();
+    //    }
+    //    if (Input.GetKeyDown(Presets.InterruptKey))
+    //    {
+    //        currentState = Presets.State.InterruptState;
+    //    }
+    //}
+
+    public void NextStateButtonClicked()
     {
-        // check the key press and do state shfit
-        if (Input.GetKeyDown(Presets.NextStateKey))
-        {
-            exitState();
-        }
-        if (Input.GetKeyDown(Presets.InterruptKey))
-        {
-            currentState = Presets.State.InterruptState;
-        }
+        // set to not selected
+        NextStateButton.interactable = false;
+        NextStateButton.interactable = true;
+        exitState();
     }
 
 }

@@ -346,7 +346,7 @@ public class StaticAOIAugmentationOverlayControllerArchive : GUIController
         if (keyPressed)
         {
             // send update visual cue marker
-            eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
+            eventMarkerLSLOutletController.sendUpdateVisualCueRequestMarker();
             //eventMarkerLSLOutletController.sendUserInputsMarker
             //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
         }

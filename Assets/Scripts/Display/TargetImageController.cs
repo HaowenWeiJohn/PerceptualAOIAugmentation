@@ -228,6 +228,8 @@ public class TargetImageController : MonoBehaviour
 
     public void CleanUp()
     {
+        ResetImageColor();
+        targetImage.enabled = false;
         targetImage.sprite = null;
     }
 

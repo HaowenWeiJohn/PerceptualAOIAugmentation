@@ -11,8 +11,17 @@ public class NoAOIAugmentationOverlayController : GUIController
     public DisplayCoordinateController displayCoordinateController;
     public TargetImageController targetImageController;
 
+    [Header("Event Marker")]
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+
     [Header("AOI Augmentation Overlay Controller")]
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
+
+    [Header("Image Received")]
+    public bool aoiAugmentationOriginalImageReceived = false;
+
+    [Header("AOI Augmentation Cursor Overlay Controller")]
+    public CursorOverlayController cursorOverlayController;
 
     void Start()
     {
@@ -34,6 +43,10 @@ public class NoAOIAugmentationOverlayController : GUIController
 
         if (messageReceived)
         {
+            aoiAugmentationOriginalImageReceived = true;
+            targetImageController.targetImage.enabled = true;
+            cursorOverlayController.DeactivateCursorLoadingImage();
+
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
             string topicName = Encoding.UTF8.GetString(recieveBytes[0]);
             Debug.Log("Topic Name: " + topicName);
@@ -54,6 +67,10 @@ public class NoAOIAugmentationOverlayController : GUIController
             originalImageTexture.LoadImage(originalImageByte);
             targetImageController.setImage(originalImageTexture);
 
+
+            // send AOIAugmentation Start Event Marker
+            eventMarkerLSLOutletController.sendAOIAugmentationInteractionStartMarker();
+
         }
     }
 
@@ -61,14 +78,15 @@ public class NoAOIAugmentationOverlayController : GUIController
     public override void EnableSelf()
     {
 
-
+        aoiAugmentationOriginalImageReceived = false;
+        cursorOverlayController.ActivateCursorLoadingImage();
         base.EnableSelf();
     }
 
     public override void DisableSelf()
     {
 
-
+        aoiAugmentationOriginalImageReceived = false;
         base.DisableSelf();
     }
 

@@ -37,4 +37,15 @@ public class CursorOverlayController : MonoBehaviour
         //Debug.Log(mousePosition);
 
     }
+
+    public void ActivateCursorLoadingImage()
+    {
+        cursorOverlay.SetActive(true);
+    }
+
+    public void DeactivateCursorLoadingImage()
+    {
+        cursorOverlay.SetActive(false);
+    }
+
 }

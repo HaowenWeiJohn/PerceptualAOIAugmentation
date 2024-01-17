@@ -27,6 +27,8 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
     [Header("Event Marker")]
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
 
+    [Header("isOn")]
+    public bool previousStateIsOn = true;
     void Start()
     {
 
@@ -79,16 +81,20 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
         if (isOn)
         {
             aoiHeatmapOverlayController.SetHeatmapTexture(aoiBackgroundImageHeatmapOverlayImage.sprite.texture);
+            targetImageController.setImage(aoiBackgroundImage.sprite.texture);
             visualizationToggleSelection.image.color = Color.gray;
 
             // send history selected event
-            eventMarkerLSLOutletController.sendVisualCueHistorySelectedMarker(historyWidgetIndex);
-
+            if (!previousStateIsOn) // we do not send duplicated selection event
+            {
+                eventMarkerLSLOutletController.sendVisualCueHistorySelectedMarker(historyWidgetIndex);
+            }
         }
         else
         {
             visualizationToggleSelection.image.color = Color.white;
         }
+        previousStateIsOn = isOn;
     }
 
 
@@ -96,6 +102,7 @@ public class AOIAugmentationHistoryWidgetController : MonoBehaviour
     {
         aoiHeatmapOverlayController.SetHeatmapTexture(aoiBackgroundImageHeatmapOverlayImage.sprite.texture);
         visualizationToggleSelection.image.color = Color.gray;
+        previousStateIsOn = true;
     }
 
 

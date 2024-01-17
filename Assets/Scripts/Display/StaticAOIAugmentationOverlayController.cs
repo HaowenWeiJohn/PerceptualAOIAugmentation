@@ -40,6 +40,9 @@ public class StaticAOIAugmentationOverlayController : GUIController
     [Header("Audio Effect")]
     public AudioClip visualCueReceivedSoundEffect;
 
+    [Header("AOI Augmentation Cursor Overlay Controller")]
+    public CursorOverlayController cursorOverlayController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,7 +87,10 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
         if (messageReceived)
         {
+            targetImageController.targetImage.enabled = true;
             visualCueReceived = true;
+            cursorOverlayController.DeactivateCursorLoadingImage();
+
             aoiHeatmapOverlayController.SetHeatmapVisibility(true);
             Debug.Log("Heatmap Received");
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
@@ -117,6 +123,9 @@ public class StaticAOIAugmentationOverlayController : GUIController
 
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
+
+            // send AOIAugmentation Start Event Marker
+            eventMarkerLSLOutletController.sendAOIAugmentationInteractionStartMarker();
         }
 
         
@@ -210,6 +219,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     {
         //contourInfoReceived = false;
         CleanUp();
+        cursorOverlayController.ActivateCursorLoadingImage();
         base.EnableSelf();
     }
 

@@ -17,8 +17,8 @@ public class AOIAugmentationStateGUIController : GUIController
 
     [Header("Survey Components")]
     public ToggleGroup GlaucomaDecisionToggleGroup;
-    // message box
     public TMP_InputField MessageBox;
+    public ToggleGroup ConfidenceLevelToggleGroup;
 
     [Header("Game Manager")]
     public GameManager gameManager;
@@ -27,10 +27,24 @@ public class AOIAugmentationStateGUIController : GUIController
     [Header("Logger")]
     public AOIAugmentationFeedbackStateWritterController aOIAugmentationFeedbackStateWritterController;
 
+    [Header("Buttons")]
+    public Button SubmitResponseButton;
+    public Button NextStateButton;
+
+
+    [Header("Scene Group")]
+    public GameObject TrailGUI;
+    public GameObject ConfidenceLevelFeedbackGroup;
+
+    [Header("Event Marker")]
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+
+    [Header("AOI Augmentation Cursor Overlay Controller")]
+    public CursorOverlayController cursorOverlayController;
 
     void Start()
     {
-        
+        SubmitResponseButton.onClick.AddListener(SubmitResponseButtonClicked);
     }
 
     // Update is called once per frame
@@ -44,6 +58,25 @@ public class AOIAugmentationStateGUIController : GUIController
         targetImageController.setImage(imageTexture);
     }
 
+
+    public void SubmitResponseButtonClicked()
+    {
+        //GetIndexOfSelection();
+        
+        if (!TrailResponseAcceptable())
+        {
+            return;
+        }
+        else
+        {
+            SetAnswerConfidenceLevelGUI();
+            // end AOIAugmentation Interaction
+            cursorOverlayController.DeactivateCursorLoadingImage();
+
+            eventMarkerLSLOutletController.sendAOIAugmentationInteractionEndMarker();
+        }
+
+    }
 
     /// <summary>
     /// ////////////////////////////////
@@ -99,24 +132,120 @@ public class AOIAugmentationStateGUIController : GUIController
 
     public void ClearResponse()
     {
-        GlaucomaDecisionToggleGroup.SetAllTogglesOff();
+        ClearConfidenceLevelToggleGroup();
         MessageBox.text = "";
+        ClearGlaucomaDecisionToggleGroup();
     }
 
 
     public string GetGlaucomaDecision()
     {
-        int index = 0;
-        foreach (Toggle toggle in GlaucomaDecisionToggleGroup.ActiveToggles())
+        //int index = 0;
+        //foreach (Toggle toggle in GlaucomaDecisionToggleGroup.ActiveToggles())
+        //{
+        //    index = GlaucomaDecisionToggleGroup.transform.GetSiblingIndex();
+        //}
+        //return index == 0 ? "S" : "G";
+
+
+        // Get all toggles in the ToggleGroup
+        Toggle[] toggles = GlaucomaDecisionToggleGroup.GetComponentsInChildren<Toggle>();
+
+        // Iterate through the toggles to find the turned-on (selected) one
+        for (int i = 0; i < toggles.Length; i++)
         {
-            index = GlaucomaDecisionToggleGroup.transform.GetSiblingIndex();
+            if (toggles[i].isOn)
+            {
+                // Return the index of the turned-on Toggle
+                return i == 0 ? "S" : "G";
+            }
         }
-        return index == 0 ? "S" : "G";
+
+        // If no Toggle is turned on, return -1 or handle it accordingly
+        return null;
     }
 
-    public bool ResponseAcceptable()
+
+    public void ClearGlaucomaDecisionToggleGroup()
     {
-        if (GlaucomaDecisionToggleGroup.AnyTogglesOn() && MessageBox.text != "")
+        Toggle[] toggles = GlaucomaDecisionToggleGroup.GetComponentsInChildren<Toggle>();
+
+        // Iterate through the toggles to find the turned-on (selected) one
+        for (int i = 0; i < toggles.Length; i++)
+        {
+            if (toggles[i].isOn)
+            {
+                // Return the index of the turned-on Toggle
+                toggles[i].isOn = false;
+            }
+        }
+    }
+
+
+
+
+    public string GetConfidenceLevelSelection()
+    {
+        Toggle[] toggles = ConfidenceLevelFeedbackGroup.GetComponentsInChildren<Toggle>();
+
+        // Iterate through the toggles to find the turned-on (selected) one
+        for (int i = 0; i < toggles.Length; i++)
+        {
+            if (toggles[i].isOn)
+            {
+                // Return the index of the turned-on Toggle
+                return i.ToString();
+            }
+        }
+
+        return null;
+    }
+
+
+    public void ClearConfidenceLevelToggleGroup()
+    {
+        Toggle[] toggles = ConfidenceLevelFeedbackGroup.GetComponentsInChildren<Toggle>();
+
+        // Iterate through the toggles to find the turned-on (selected) one
+        for (int i = 0; i < toggles.Length; i++)
+        {
+            if (toggles[i].isOn)
+            {
+                // Return the index of the turned-on Toggle
+                toggles[i].isOn = false;
+            }
+        }
+    }
+
+
+    public bool TrailResponseAcceptable()
+    {
+        //GetGlaucomaDecision();
+        if (GetGlaucomaDecision()!=null && MessageBox.text.Length>=3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool ConfidenceLevelResponseAcceptable()
+    {
+        if (GetConfidenceLevelSelection()!=null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool AllResponseAcceptable()
+    {
+        if (TrailResponseAcceptable() && ConfidenceLevelResponseAcceptable())
         {
             return true;
         }
@@ -129,15 +258,21 @@ public class AOIAugmentationStateGUIController : GUIController
     public void SetAOIAugmentationFeedbackStateWritter()
     {
         aOIAugmentationFeedbackStateWritterController.Block = Enum.GetName(typeof(Presets.ExperimentBlock), gameManager.currentBlock.experimentBlock);
+        
         aOIAugmentationFeedbackStateWritterController.InteractionMode = Enum.GetName(typeof(Presets.ExperimentState), gameManager.currentState.experimentState);
 
         aOIAugmentationFeedbackStateWritterController.ImageName = targetImageController.imageName;
+        
         aOIAugmentationFeedbackStateWritterController.GlaucomaGroundTruth = targetImageController.imageType;
 
         aOIAugmentationFeedbackStateWritterController.GlaucomaDecision = GetGlaucomaDecision();
+        
         aOIAugmentationFeedbackStateWritterController.Message = MessageBox.text;
 
+        aOIAugmentationFeedbackStateWritterController.DecisionConfidenceLevel = GetConfidenceLevelSelection();
+
     }
+
 
 
 
@@ -145,7 +280,8 @@ public class AOIAugmentationStateGUIController : GUIController
     {
         base.EnableSelf();
         //Cursor.visible = false;
-        targetImageController.ResetImageColor();
+        SetTrailStartGUI();
+        targetImageController.CleanUp();
 
     }
 
@@ -153,7 +289,32 @@ public class AOIAugmentationStateGUIController : GUIController
     {
         base.DisableSelf();
         //Cursor.visible = true;
-        targetImageController.ResetImageColor();
+        SetTrailEndGUI();
+        targetImageController.CleanUp();
     }
+
+
+    public void SetTrailStartGUI()
+    {
+        TrailGUI.SetActive(true);
+        ConfidenceLevelFeedbackGroup.SetActive(false);
+        NextStateButton.gameObject.SetActive(false);
+    }
+
+    public void SetTrailEndGUI()
+    {
+        TrailGUI.SetActive(false);
+        ConfidenceLevelFeedbackGroup.SetActive(false);
+        NextStateButton.gameObject.SetActive(true);
+    }
+
+    public void SetAnswerConfidenceLevelGUI()
+    {
+        TrailGUI.SetActive(false);
+        ConfidenceLevelFeedbackGroup.SetActive(true);
+        NextStateButton.gameObject.SetActive(true);
+    }
+
+
 
 }

@@ -51,6 +51,13 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     public AudioClip visualCueReceivedSoundEffect;
     public AudioClip updateVisualCueInstructionSendSoundEffect;
 
+    [Header("Image Received")]
+    public bool aoiAugmentationOriginalImageReceived = false;
+
+    [Header("AOI Augmentation Cursor Overlay Controller")]
+    public CursorOverlayController cursorOverlayController;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +104,10 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         if (messageReceived)
         {
+            targetImageController.targetImage.enabled = true;
             visualCueReceived = true;
+            cursorOverlayController.DeactivateCursorLoadingImage();
+
             aoiHeatmapOverlayController.SetHeatmapVisibility(true);
             Debug.Log("Heatmap Received");
             List<byte[]> recieveBytes = aOIAugmentationAttentionHeatmapStreamZMQSubSocketController.recieveBytes;
@@ -164,6 +174,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             Texture2D originalImageTexture = new Texture2D(2, 2);
             originalImageTexture.LoadImage(originalImageByte);
             aOIAugmentationHistoryWidgetController.SetAOIBackgroundImageTexture(originalImageTexture);
+            targetImageController.setImage(originalImageTexture);
 
             Texture2D aoiHeatmapImageTexture = new Texture2D(2, 2);
             aoiHeatmapImageTexture.LoadImage(aoiHeatmapImageByte);
@@ -198,6 +209,24 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
+
+
+
+            if (aoiAugmentationOriginalImageReceived == false)
+            {
+                eventMarkerLSLOutletController.sendAOIAugmentationInteractionStartMarker();
+                aoiAugmentationOriginalImageReceived = true;
+            }
+            else
+            {
+                // original image has been received and received another one:
+                eventMarkerLSLOutletController.sendUpdateVisualCueReceivedMarker();
+            }
+
+
+
+
+
         }
 
 
@@ -287,15 +316,19 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         if (keyPressed && visualCueReceived)
         {
-            // send update visual cue marker
-            eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
+            // loading cursor
+            cursorOverlayController.ActivateCursorLoadingImage();
 
+            // send update visual cue marker
+            eventMarkerLSLOutletController.sendUpdateVisualCueRequestMarker();
+                    cursorOverlayController.ActivateCursorLoadingImage();
             // play sound effect
             AudioSource.PlayClipAtPoint(updateVisualCueInstructionSendSoundEffect, Camera.main.transform.position);
             visualCueReceived = false;
 
             //eventMarkerLSLOutletController.sendUserInputsMarker
             //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
+
         }
     }
 
@@ -327,6 +360,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //targetImageController.CleanUp();
         visualCueReceived = false;
+        aoiAugmentationOriginalImageReceived = false;
         aoiHeatmapOverlayController.CleanUp();
         ClearAOIAugmentationHistory();
 
@@ -337,6 +371,8 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //contourInfoReceived = false;
         CleanUp();
+        interactiveAOIAugmentationHistoryScrollViewScrollRect.gameObject.SetActive(true);
+        cursorOverlayController.ActivateCursorLoadingImage();
         base.EnableSelf();
     }
 
@@ -344,6 +380,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //contourInfoReceived = false;
         CleanUp();
+        interactiveAOIAugmentationHistoryScrollViewScrollRect.gameObject.SetActive(false);
         base.DisableSelf();
     }
 

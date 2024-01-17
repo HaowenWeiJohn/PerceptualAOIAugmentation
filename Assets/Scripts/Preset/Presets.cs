@@ -13,7 +13,7 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSL";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 6; // block marker index 0
+    public static int EventMarkerChannelNum = 7; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
@@ -22,9 +22,10 @@ public static class Presets
         BlockChannelIndex = 0,
         ExperimentStateChannelIndex = 1,
         ImageIndexChannelIndex = 2,
-        UpdateVisualCueMarker = 3, // the 0-5 is row, 7-11 is column
+        AOIAugmentationInteractionStartEndMarker = 3,
         ToggleVisualCueVisibilityMarker = 4,
-        VisualCueHistorySelectedMarker = 5
+        UpdateVisualCueMarker = 5, // the 0-5 is row, 7-11 is column
+        VisualCueHistorySelectedMarker = 6
     }
 
 
@@ -264,41 +265,41 @@ public static class Presets
     public static List<ExperimentState> NoAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
         ExperimentState.NoAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
 
     public static List<ExperimentState> StaticAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
         ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
     public static List<ExperimentState> InteractiveAOIAugmentationBlock = new List<ExperimentState> {
         ExperimentState.CalibrationState,
         ExperimentState.InteractiveAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
     public static List<ExperimentState> NoAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.NoAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
         ExperimentState.NoAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
     public static List<ExperimentState> StaticAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.StaticAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
         ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
     public static List<ExperimentState> InteractiveAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.InteractiveAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
         ExperimentState.InteractiveAOIAugmentationState,
-        ExperimentState.FeedbackState
+        //ExperimentState.FeedbackState
     };
 
     //public static string ProjectDirectoryPath = Directory.GetCurrentDirectory();

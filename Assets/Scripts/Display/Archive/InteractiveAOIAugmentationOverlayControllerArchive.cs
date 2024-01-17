@@ -348,7 +348,7 @@ public class InteractiveAOIAugmentationOverlayControllerArchive : GUIController
         if (keyPressed)
         {
             // send update visual cue marker
-            eventMarkerLSLOutletController.sendUpdateVisualCueMarker();
+            eventMarkerLSLOutletController.sendUpdateVisualCueRequestMarker();
 
             // play sound effect
             AudioSource.PlayClipAtPoint(updateVisualCueInstructionSendSoundEffect, Camera.main.transform.position);

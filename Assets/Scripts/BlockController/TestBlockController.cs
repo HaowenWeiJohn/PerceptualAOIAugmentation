@@ -152,19 +152,19 @@ public class TestBlockController : BlockController
             if (gameManager.currentState == gameManager.noAOIAugmentationStateController)
             {
                 gameManager.noAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
 
             }
             else if (gameManager.currentState == gameManager.staticAOIAugmentationStateController)
             {
                 gameManager.staticAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
 
             }
             else if (gameManager.currentState == gameManager.interactiveAOIAugmentationStateController)
             {
                 gameManager.interactiveAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
 
             }
             experimentImageIndex += 1;

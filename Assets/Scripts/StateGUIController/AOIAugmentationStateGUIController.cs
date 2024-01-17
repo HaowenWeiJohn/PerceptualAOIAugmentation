@@ -51,6 +51,25 @@ public class AOIAugmentationStateGUIController : GUIController
     void Update()
     {
         base.Update();
+
+        if (TrailResponseAcceptable())
+        {
+            SubmitResponseButton.interactable = true;
+        }
+        else
+        {
+            SubmitResponseButton.interactable = false;
+        }
+
+        if (ConfidenceLevelResponseAcceptable())
+        {
+            NextStateButton.interactable = true;
+        }
+        else
+        {
+            NextStateButton.interactable = false;
+        }
+        
     }
 
     public void setImage(Texture2D imageTexture)

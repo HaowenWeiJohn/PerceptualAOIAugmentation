@@ -176,7 +176,7 @@ public static class Presets
 
     public enum ExperimentState
     {
-        InitState = 0,
+        InitState = 0, // only for the Unity
 
         CalibrationState = 1,
         StartState = 2,
@@ -196,9 +196,12 @@ public static class Presets
         InteractiveAOIAugmentationInstructionState = 10,
         InteractiveAOIAugmentationState = 11,
 
-        FeedbackState = 12,
+        ResNetAOIAugmentationInstructionState = 12,
+        ResNetAOIAugmentationState = 13,
 
-        EndState = 13
+        FeedbackState = 14,
+
+        EndState = 15
 
 
     }

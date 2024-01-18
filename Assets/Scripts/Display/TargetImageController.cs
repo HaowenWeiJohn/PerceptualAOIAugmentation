@@ -51,16 +51,21 @@ public class TargetImageController : MonoBehaviour
 
     void Start()
     {
-        updateTargetImageInfo();
+        //updateTargetImageInfo();
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateTargetImageInfo();
+        if (targetImage.enabled)
+        {
+            updateTargetImageInfo();
+        }
         if (IsCursorOverTargetImage())
         {
-            if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState || gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState)
+            if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState || 
+                gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState || 
+                gameManager.currentState.experimentState == Presets.ExperimentState.ResnetAOIAugmentationState)
             {
 
                 // AdjustTransparency only if the cursor  

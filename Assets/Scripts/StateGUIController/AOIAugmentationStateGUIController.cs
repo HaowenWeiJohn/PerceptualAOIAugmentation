@@ -14,6 +14,7 @@ public class AOIAugmentationStateGUIController : GUIController
     public NoAOIAugmentationOverlayController noAOIAugmentationOverlayController;
     public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
     public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlayController;
+    public ResnetAOIAugmentationOverlayController resnetAOIAugmentationOverlayController;
 
     [Header("Survey Components")]
     public ToggleGroup GlaucomaDecisionToggleGroup;
@@ -129,6 +130,20 @@ public class AOIAugmentationStateGUIController : GUIController
         //staticAOIAugmentationOverlayController.RemoveOverlayElements(); // clear all contours
         staticAOIAugmentationOverlayController.DisableSelf();
     }
+
+
+
+    public void activateResnetAOIAugmentationOverlayController()
+    {
+        resnetAOIAugmentationOverlayController.EnableSelf();
+    }
+
+
+    public void deactivateResnetAOIAugmentationOverlayController()
+    {
+        resnetAOIAugmentationOverlayController.DisableSelf();
+    }
+
 
 
     /// <summary>

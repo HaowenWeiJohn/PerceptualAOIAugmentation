@@ -1,4 +1,0 @@
-CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
-PracticeBlock,NoAOIAugmentationState,,,G,test,3
-PracticeBlock,StaticAOIAugmentationState,,,S,test,2
-PracticeBlock,InteractiveAOIAugmentationState,,,S,test,3

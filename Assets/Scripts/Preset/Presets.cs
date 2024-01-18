@@ -196,8 +196,8 @@ public static class Presets
         InteractiveAOIAugmentationInstructionState = 10,
         InteractiveAOIAugmentationState = 11,
 
-        ResNetAOIAugmentationInstructionState = 12,
-        ResNetAOIAugmentationState = 13,
+        ResnetAOIAugmentationInstructionState = 12,
+        ResnetAOIAugmentationState = 13,
 
         FeedbackState = 14,
 
@@ -208,9 +208,10 @@ public static class Presets
 
     public static List<ExperimentState> Conditions = new List<ExperimentState>
     {
-        ExperimentState.NoAOIAugmentationState,
+        //ExperimentState.NoAOIAugmentationState,
         ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.InteractiveAOIAugmentationState
+        ExperimentState.InteractiveAOIAugmentationState,
+        //ExperimentState.ResnetAOIAugmentationState // cnn
     };
 
 
@@ -284,6 +285,13 @@ public static class Presets
         //ExperimentState.FeedbackState
     };
 
+    public static List<ExperimentState> ResnetAOIAugmentationBlock = new List<ExperimentState>
+    {
+        ExperimentState.CalibrationState,
+        ExperimentState.ResnetAOIAugmentationState,
+        //ExperimentState.FeedbackState
+    };
+
     public static List<ExperimentState> NoAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.NoAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
@@ -302,6 +310,14 @@ public static class Presets
         ExperimentState.InteractiveAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
         ExperimentState.InteractiveAOIAugmentationState,
+        //ExperimentState.FeedbackState
+    };
+
+    public static List<ExperimentState> ResnetAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState>
+    {
+        ExperimentState.ResnetAOIAugmentationInstructionState,
+        ExperimentState.CalibrationState,
+        ExperimentState.ResnetAOIAugmentationState,
         //ExperimentState.FeedbackState
     };
 
@@ -325,82 +341,65 @@ public static class Presets
 
     public static List<string> TestBlockImages = new List<string>
     {
-        "RLS_097_OD_TC",
-        "RLS_006_OD_TC",
-        "RLS_043_OD_TC",
-        //"RLS_083_OD_TC",
-        //"8918_OS_2021_widefield_report",
-        //"RLS_073_OD_TC",
-        //"RLS_033_OS_TC",
-        //"RLS_096_OS_TC",
-        //"8981_OS_2021_widefield_report",
-        //"RLS_073_OS_TC",
-        //"RLS_086_OS_TC",
-        //"RLS_060_OS_TC",
-        //"RLS_085_OS_TC",
-        //"RLS_079_OD_TC",
-        //"RLS_082_OD_TC",
-        //"9025_OD_2021_widefield_report",
+
+    /////////////////////////////////////////////////////////////
+     "9025_OD_2021_widefield_report",
+     "RLS_079_OD_TC",
+     "RLS_036_OS_TC",
+     "RLS_045_OD_TC",
+     "RLS_060_OS_TC",
+     "RLS_097_OD_TC",
+     "9140_OD_2021_widefield_report",
+     "RLS_092_OS_TC",
+     "RLS_083_OD_TC",
+     "RLS_086_OS_TC",
 
 
+     /////////////////////////////////////////////////////////////
+     "RLS_078_OS_TC",
+     "RLS_064_OS_TC",
+     "RLS_051_OS_TC",
+     "RLS_081_OD_TC",
+     "8962_OS_2021_widefield_report",
+     "9005_OS_2021_widefield_report",
+     "RLS_038_OD_TC",
+     "RLS_053_OD_TC",
+     "RLS_148_OD_TC",
+     "RLS_148_OS_TC"
 
-        "RLS_083_OD_TC",
-        "RLS_086_OS_TC",
-        "RLS_045_OD_TC",
-        //"RLS_006_OD_TC",
-        //"RLS_092_OS_TC",
-        //"8918_OS_2021_widefield_report",
-        //"RLS_079_OD_TC",
-        //"RLS_097_OD_TC",
-        //"RLS_085_OS_TC",
-        //"RLS_082_OD_TC",
-        //"RLS_023_OD_TC",
-        //"RLS_092_OS_TC",
-        //"RLS_036_OS_TC",
-        //"RLS_006_OD_TC",
-        //"RLS_073_OD_TC",
-        //"9025_OD_2021_widefield_report"
     };
 
 
     public static List<string> TestBlockImagesG = new List<string>
     {
-        "RLS_097_OD_TC",
-        "RLS_006_OD_TC",
-        "RLS_043_OD_TC",
-        //"RLS_083_OD_TC",
-        //"8918_OS_2021_widefield_report",
-        //"RLS_073_OD_TC",
-        //"RLS_033_OS_TC",
-        //"RLS_096_OS_TC",
-        //"8981_OS_2021_widefield_report",
-        //"RLS_073_OS_TC",
-        //"RLS_086_OS_TC",
-        //"RLS_060_OS_TC",
-        //"RLS_085_OS_TC",
-        //"RLS_079_OD_TC",
-        //"RLS_082_OD_TC",
-        //"9025_OD_2021_widefield_report"
+     "9025_OD_2021_widefield_report",
+     "RLS_079_OD_TC",
+     "RLS_036_OS_TC",
+     "RLS_045_OD_TC",
+     "RLS_060_OS_TC",
+     "RLS_097_OD_TC",
+     "9140_OD_2021_widefield_report",
+     "RLS_092_OS_TC",
+     "RLS_083_OD_TC",
+
+
+     "RLS_086_OS_TC" // comment out when three conditions
     };
 
     public static List<string> TestBlockImagesS = new List<string>
     {
-        "RLS_083_OD_TC",
-        "RLS_086_OS_TC",
-        "RLS_045_OD_TC",
-        //"RLS_006_OD_TC",
-        //"RLS_092_OS_TC",
-        //"8918_OS_2021_widefield_report",
-        //"RLS_079_OD_TC",
-        //"RLS_097_OD_TC",
-        //"RLS_085_OS_TC",
-        //"RLS_082_OD_TC",
-        //"RLS_023_OD_TC",
-        //"RLS_092_OS_TC",
-        //"RLS_036_OS_TC",
-        //"RLS_006_OD_TC",
-        //"RLS_073_OD_TC",
-        //"9025_OD_2021_widefield_report"
+     "RLS_078_OS_TC",
+     "RLS_064_OS_TC",
+     "RLS_051_OS_TC",
+     "RLS_081_OD_TC",
+     "8962_OS_2021_widefield_report",
+     "9005_OS_2021_widefield_report",
+     "RLS_038_OD_TC",
+     "RLS_053_OD_TC",
+     "RLS_148_OD_TC",
+
+
+     "RLS_148_OS_TC" // comment out when three conditions
     };
 
 
@@ -409,59 +408,63 @@ public static class Presets
 
     public static string IntroductionInstructionStateTitle = "Welcome";
     public static string IntroductionInstructionStateContent = "Welcome, in this experiment, you will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
-        "\r\n\r\nWith some of the reports, you will receive assistance with your decision-making process: a “heatmap” overlay is shown on the report, indicating parts of the report that are more informative for glaucoma detection." +
+        "\r\n\r\nWith some of the reports, you will receive guidance to help with your decision-making process: a “heatmap” overlay will be shown on the report, indicating parts of the report that are more informative for glaucoma detection." +
         "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. Your feedback and experience are invaluable to us." +
-        "\r\n\r\nClick the Enter key on the number pad to continue.\r\n";
-
+        "\r\n\r\nClick the Next button to contune.\r\n";
 
 
 
     public static string PracticeInstructionStateTitle = "Practice";
-    public static string PracticeInstructionStateContent = "In the next three practice trials, we will get you familiarized with the three different conditions. \r\n\r\nClick the Enter key on the number pad to continue.\r\n ";
-
-
-
-
-
-
+    public static string PracticeInstructionStateContent = "In the practice trials, we will get you familiarized with the interface. \r\n\r\nClick the Next to continue.\r\n ";
+    
 
 
     public static string PracticeNoAOIAugmentationInstructionStateTitle = "[Practice] Condition: No Guidance";
-    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive ROI guidance assistance in the next trial.\r\n";
+    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive guidance assistance in the next trial.\r\n";
+    
+
 
     public static string TestNoAOIAugmentationInstructionStateTitle = "No Guidance";
-    public static string TestNoAOIAugmentationInstructionStateContent = "You will NOT receive guidance in the next trial.\r\n";
+    public static string TestNoAOIAugmentationInstructionStateContent = "You will NOT receive guidance in the coming trials.\r\n";
+    
 
 
+    public static string PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Model A Guidance";
+    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay generated from model A will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "Click the right mouse button on the report to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+        "\r\n\r\nWhen you are finished with screening the report and writing the response, click the Submit button to continue.\r\n";
+    
 
-
-    public static string PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
-    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
-        "Click the right mouse button to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
-        "\r\n\r\nWhen you are finished with reading the report, click the Enter key on the number pad to continue.\r\n";
 
     public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
-    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, BUT you cannot update the guidance.";
+    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance generated from model A in the coming trials.";
+    
 
 
-
-
-
-    public static string PracticeInteractiveAOIAugmentationInstructionStateTitle = "[Practice] Condition: Dynamic Guidance";
+    public static string PracticeInteractiveAOIAugmentationInstructionStateTitle = "[Practice] Condition: Perceptual Guidance";
     public static string PracticeInteractiveAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
-        "In addition, you can request guidance to update based on how you are reading the report. Click the left mouse button to update the guidance.\r\n";
+        "In addition, you can request guidance to update based on how you are reading the report. Click the left mouse button on the report to update the guidance and you can click the right mouse button on the report to toggle hide/show the guidance overlay. You can access the history of the guidance heatmap and go back to them any time.\r\n";
+    
 
-    public static string TestInteractiveAOIAugmentationInstructionStateTitle = "Dynamic Guidance";
+
+    public static string TestInteractiveAOIAugmentationInstructionStateTitle = "Perceptual Guidance";
     public static string TestInteractiveAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, AND you may update the guidance.";
+    
 
 
+    public static string PracticeResnetAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Model B Guidance";
+    public static string PracticeResnetAOIAugmentationInstructionStateContent = "An overlay generated from Model B will be shown on the report indicating parts more informative for glaucoma detection. " +
+        "Click the right mouse button on the report to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+        "\r\n\r\nWhen you are finished with reading the report, click the Submit button to continue.\r\n";
+    
+    
 
-
-
-
+    public static string TestResnetAOIAugmentationInstructionStateTitle = "Static Model B Guidance";
+    public static string TestResnetAOIAugmentationInstructionStateContent = "You will receive guidance generated from model B in the coming trials.";
+    
+    
     public static string TestInstructionStateTitle = "End of practice"; // starting of test block
-    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the Enter key on the number pad to continue the experiment. \r\n";
-
+    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the Next button to continue the experiment. \r\n";
 
 
 

@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
     public InteractiveAOIAugmentationInstructionStateController interactiveAOIAugmentationInstructionStateController;
     public InteractiveAOIAugmentationStateController interactiveAOIAugmentationStateController;
 
+    [Header("ResnetAOIAugmentationState")]
+    public ResnetAOIAugmentationInstructionStateController resnetAOIAugmentationInstructionStateController;
+    public ResnetAOIAugmentationStateController resnetAOIAugmentationStateController;
+
     [Header("FeedbackState")]
     public FeedbackStateController feedbackStateController;
 

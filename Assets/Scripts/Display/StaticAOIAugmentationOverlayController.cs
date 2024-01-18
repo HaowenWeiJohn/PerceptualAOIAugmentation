@@ -46,7 +46,7 @@ public class StaticAOIAugmentationOverlayController : GUIController
     // Start is called before the first frame update
     void Start()
     {
-        targetImageController.updateTargetImageInfo();
+        //targetImageController.updateTargetImageInfo();
     }
 
     // Update is called once per frame

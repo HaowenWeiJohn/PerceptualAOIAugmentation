@@ -119,6 +119,20 @@ public class TestBlockController : BlockController
                 }
 
             }
+            else if (condition == Presets.ExperimentState.ResnetAOIAugmentationState)
+            {
+                thisConditionStates.Add(Presets.ExperimentState.ResnetAOIAugmentationInstructionState);
+                for (int j = 0; j < imagesPerCondition / 2; j++)
+                {
+                    thisConditionStates = thisConditionStates.Concat(Presets.ResnetAOIAugmentationBlock).ToList();
+                    thisConditionStates = thisConditionStates.Concat(Presets.ResnetAOIAugmentationBlock).ToList();
+
+                    thisConditionImages.Add(TestBlockImagesG[0]);
+                    TestBlockImagesG.RemoveAt(0);
+                    thisConditionImages.Add(TestBlockImagesS[0]);
+                    TestBlockImagesS.RemoveAt(0);
+                }
+            }
 
             GeneralUtils.ShuffleList(thisConditionImages);
 
@@ -167,6 +181,13 @@ public class TestBlockController : BlockController
                 //gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
 
             }
+            else if(gameManager.currentState == gameManager.resnetAOIAugmentationStateController)
+            {
+                gameManager.resnetAOIAugmentationStateController.imageIndex = imageIndex;
+                //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
+
+            }
+
             experimentImageIndex += 1;
         }
 

@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class InteractiveAOIAugmentationOverlayController : GUIController
+public class ResnetAOIAugmentationOverlayController : GUIController
 {
 
 
@@ -35,28 +35,13 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     public AOIAugmentationAttentionHeatmapStreamZMQSubSocketController aOIAugmentationAttentionHeatmapStreamZMQSubSocketController;
     public bool visualCueReceived = false;
 
-
-    [Header("Heatmap History Scroll Area")]
-    public ScrollRect interactiveAOIAugmentationHistoryScrollViewScrollRect;
-    public ToggleGroup interactiveAOIAugmentationHistoryScrollViewToggleGroup;
-    public GameObject aoiAugmentationHistoryWidgetControllerPrefab;
-    public List<AOIAugmentationHistoryWidgetController> aoiAugmentationHistoryWidgetControllers = new List<AOIAugmentationHistoryWidgetController>();
-
-    //bool setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = false;
-
-
     //public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
     //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
     [Header("Audio Effect")]
     public AudioClip visualCueReceivedSoundEffect;
-    public AudioClip updateVisualCueInstructionSendSoundEffect;
-
-    [Header("Image Received")]
-    public bool aoiAugmentationOriginalImageReceived = false;
 
     [Header("AOI Augmentation Cursor Overlay Controller")]
     public CursorOverlayController cursorOverlayController;
-
 
     // Start is called before the first frame update
     void Start()
@@ -73,9 +58,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
         if (targetImageController.IsCursorOverTargetImage())
         {
             EnableDisableHeatmapsWithKeyPress();
-            AOIAugmentationInteractionStateUpdateCueKeyPressed();
         }
-
     }
 
 
@@ -128,105 +111,21 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             byte[] originalImageByte = recieveBytes[4];
             byte[] aoiHeatmapImageByte = recieveBytes[5];
 
-            byte[] gazeHeatmapImageByte = recieveBytes.Count == 7 ? recieveBytes[6] : null;
 
-
-
-
-            //Texture2D originalImageTexture = new Texture2D(2, 2);
-            //originalImageTexture.LoadImage(originalImageByte);
-            ////targetImageController.setImage(originalImageTexture);
-
-
-            //Texture2D aoiHeatmapImageTexture = new Texture2D(2, 2);
-            //aoiHeatmapImageTexture.LoadImage(aoiHeatmapImageByte);
-            ////heatmapOverlayController.SetHeatmapTexture(aoiHeatmapImageTexture);
-
-
-            
-
-            // create scroll area
-            // 
-
-            GameObject aOIAugmentationHistoryWidget = Instantiate(aoiAugmentationHistoryWidgetControllerPrefab, interactiveAOIAugmentationHistoryScrollViewScrollRect.content.transform);
-
-            AOIAugmentationHistoryWidgetController aOIAugmentationHistoryWidgetController = aOIAugmentationHistoryWidget.GetComponent<AOIAugmentationHistoryWidgetController>();
-            aoiAugmentationHistoryWidgetControllers.Add(aOIAugmentationHistoryWidgetController);
-
-            // set history widget index
-            aOIAugmentationHistoryWidgetController.historyWidgetIndex = aoiAugmentationHistoryWidgetControllers.Count; // start from 1
-            // set toggle group
-            aOIAugmentationHistoryWidgetController.visualizationToggleSelection.group = interactiveAOIAugmentationHistoryScrollViewToggleGroup;
-
-            // set scroll rect
-            aOIAugmentationHistoryWidgetController.interactiveAOIAugmentationHistoryScrollViewScrollRect = interactiveAOIAugmentationHistoryScrollViewScrollRect;
-
-            // set target image controller
-            aOIAugmentationHistoryWidgetController.targetImageController = targetImageController;
-            aOIAugmentationHistoryWidgetController.aoiHeatmapOverlayController = aoiHeatmapOverlayController;
-
-            // set event marker LSL outlet controller
-            aOIAugmentationHistoryWidgetController.eventMarkerLSLOutletController = eventMarkerLSLOutletController;
-
-
-
-            // set images
             Texture2D originalImageTexture = new Texture2D(2, 2);
             originalImageTexture.LoadImage(originalImageByte);
-            aOIAugmentationHistoryWidgetController.SetAOIBackgroundImageTexture(originalImageTexture);
             targetImageController.setImage(originalImageTexture);
 
-            Texture2D aoiHeatmapImageTexture = new Texture2D(2, 2);
-            aoiHeatmapImageTexture.LoadImage(aoiHeatmapImageByte);
-            aOIAugmentationHistoryWidgetController.SetAOIBackgroundImageHeatmapOverlayImageTexture(aoiHeatmapImageTexture);
 
-
-            if (gazeHeatmapImageByte != null)
-            {
-
-                aOIAugmentationHistoryWidgetController.SetGazeAttentionBackgroundImageTexture(originalImageTexture);
-
-                Texture2D gazeHeatmapImageTexture = new Texture2D(2, 2);
-                gazeHeatmapImageTexture.LoadImage(gazeHeatmapImageByte);
-                aOIAugmentationHistoryWidgetController.SetGazeAttentionBackgroundImageHeatmapOverlayImageTexture(gazeHeatmapImageTexture);
-            }
-            else
-            {
-                // do nothing
-            }
-
-            // set visualization toggle selection
-            aOIAugmentationHistoryWidgetController.visualizationToggleSelection.isOn = true;
-            aOIAugmentationHistoryWidgetController.InitAOIAugmentationHistoryWidgetSelected();
-            //setScrollAinteractiveAOIAugmentationHistoryScrollViewreaToBtttom = true;
-
-            Canvas.ForceUpdateCanvases();
-            interactiveAOIAugmentationHistoryScrollViewScrollRect.verticalNormalizedPosition = 0f;
-
-
-            // set scroll area to bottom
-
+            Texture2D heatmapImageTexture = new Texture2D(2, 2);
+            heatmapImageTexture.LoadImage(aoiHeatmapImageByte);
+            aoiHeatmapOverlayController.SetHeatmapTexture(heatmapImageTexture);
 
             // play sound effect
             AudioSource.PlayClipAtPoint(visualCueReceivedSoundEffect, Camera.main.transform.position);
 
-
-
-            if (aoiAugmentationOriginalImageReceived == false)
-            {
-                eventMarkerLSLOutletController.sendAOIAugmentationInteractionStartMarker();
-                aoiAugmentationOriginalImageReceived = true;
-            }
-            else
-            {
-                // original image has been received and received another one:
-                eventMarkerLSLOutletController.sendUpdateVisualCueReceivedMarker();
-            }
-
-
-
-
-
+            // send AOIAugmentation Start Event Marker
+            eventMarkerLSLOutletController.sendAOIAugmentationInteractionStartMarker();
         }
 
 
@@ -307,62 +206,11 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     }
 
 
-
-
-
-    public void AOIAugmentationInteractionStateUpdateCueKeyPressed()
-    {
-        bool keyPressed = Input.GetKeyDown(Presets.AOIAugmentationUpdateVisualCueKey);
-
-        if (keyPressed && visualCueReceived)
-        {
-            // loading cursor
-            cursorOverlayController.ActivateCursorLoadingImage();
-
-            // send update visual cue marker
-            eventMarkerLSLOutletController.sendUpdateVisualCueRequestMarker();
-                    cursorOverlayController.ActivateCursorLoadingImage();
-            // play sound effect
-            AudioSource.PlayClipAtPoint(updateVisualCueInstructionSendSoundEffect, Camera.main.transform.position);
-            visualCueReceived = false;
-
-            //eventMarkerLSLOutletController.sendUserInputsMarker
-            //    (Presets.UserInputTypes.AOIAugmentationInteractionStateUpdateCueKeyPressed);
-
-        }
-    }
-
-
-
-
-
-
-    public void ClearAOIAugmentationHistory()
-    {
-
-        foreach (AOIAugmentationHistoryWidgetController AOIAugmentationHistoryWidgetController in aoiAugmentationHistoryWidgetControllers)
-        {
-            Destroy(AOIAugmentationHistoryWidgetController.gameObject);
-        }
-
-        aoiAugmentationHistoryWidgetControllers.Clear();
-
-    }
-
-
-
-
-
-
-
-
     public void CleanUp()
     {
         //targetImageController.CleanUp();
         visualCueReceived = false;
-        aoiAugmentationOriginalImageReceived = false;
         aoiHeatmapOverlayController.CleanUp();
-        ClearAOIAugmentationHistory();
 
     }
 
@@ -371,7 +219,6 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //contourInfoReceived = false;
         CleanUp();
-        interactiveAOIAugmentationHistoryScrollViewScrollRect.gameObject.SetActive(true);
         cursorOverlayController.ActivateCursorLoadingImage();
         base.EnableSelf();
     }
@@ -380,7 +227,6 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
     {
         //contourInfoReceived = false;
         CleanUp();
-        interactiveAOIAugmentationHistoryScrollViewScrollRect.gameObject.SetActive(false);
         base.DisableSelf();
     }
 

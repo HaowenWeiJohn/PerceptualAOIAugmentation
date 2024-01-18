@@ -5151,7 +5151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logging: 1
   ExperimentName: AOIAugmentation
-  ParticipantID: 0
+  ParticipantID: 02
   FileName: 
   useCustomLogPath: 0
   customLogPath: 

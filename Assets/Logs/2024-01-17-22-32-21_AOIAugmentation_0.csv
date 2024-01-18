@@ -1,1 +1,2 @@
-CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+CurrentBlock;InteractionMode;ImageName;GlaucomaGroundTruth;GlaucomaDecision;Message;DecisionConfidenceLevel,,,
+"My, name is John",asdfasdfasdf,"test, ",test again

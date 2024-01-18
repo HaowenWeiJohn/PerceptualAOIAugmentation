@@ -22,7 +22,7 @@ public class TobiiGazeOverlayController : MonoBehaviour
 
     void Start()
     {
-        
+        DisableGazeOverlay();
     }
 
     // Update is called once per frame
@@ -55,6 +55,18 @@ public class TobiiGazeOverlayController : MonoBehaviour
         gazeOverlay.transform.localPosition = gazePointOverlayPosition;
 
     }
+
+    public void EnableGazeOverlay()
+    {
+        gazeOverlay.SetActive(true);
+    }
+
+    public void DisableGazeOverlay()
+    {
+        gazeOverlay.SetActive(false);
+    }
+
+
 
 
 }

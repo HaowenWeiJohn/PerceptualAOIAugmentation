@@ -1,0 +1,23 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,test,3
+PracticeBlock,InteractiveAOIAugmentationState,9071_OD_2021_widefield_report,G,G,test 2,3
+TestBlock,InteractiveAOIAugmentationState,RLS_097_OD_TC,G,G,test,3
+TestBlock,InteractiveAOIAugmentationState,RLS_086_OS_TC,G,G,test 1,3
+TestBlock,InteractiveAOIAugmentationState,RLS_064_OS_TC,S,G,test,3
+TestBlock,InteractiveAOIAugmentationState,RLS_036_OS_TC,G,G,test ,3
+TestBlock,InteractiveAOIAugmentationState,9025_OD_2021_widefield_report,G,G,test 5234345t3,3
+TestBlock,InteractiveAOIAugmentationState,RLS_053_OD_TC,S,S,test 56456wert,3
+TestBlock,InteractiveAOIAugmentationState,RLS_078_OS_TC,S,G,test ,3
+TestBlock,InteractiveAOIAugmentationState,RLS_060_OS_TC,G,G,essfasdfasdg1343456,3
+TestBlock,InteractiveAOIAugmentationState,RLS_081_OD_TC,S,G,test ,3
+TestBlock,InteractiveAOIAugmentationState,RLS_148_OS_TC,S,G,test ,3
+TestBlock,StaticAOIAugmentationState,RLS_092_OS_TC,G_Suspects_2,G,teset ,3
+TestBlock,StaticAOIAugmentationState,RLS_038_OD_TC,S,G,test ,3
+TestBlock,StaticAOIAugmentationState,9140_OD_2021_widefield_report,G,G,test ,3
+TestBlock,StaticAOIAugmentationState,RLS_045_OD_TC,G,G,test,3
+TestBlock,StaticAOIAugmentationState,RLS_079_OD_TC,G,G,test ,3
+TestBlock,StaticAOIAugmentationState,RLS_083_OD_TC,G,G,test ,3
+TestBlock,StaticAOIAugmentationState,RLS_051_OS_TC,S,S,test ,3
+TestBlock,StaticAOIAugmentationState,RLS_148_OD_TC,S,S,test ,2
+TestBlock,StaticAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,S,test ,2
+TestBlock,StaticAOIAugmentationState,8962_OS_2021_widefield_report,S,S,test ,2

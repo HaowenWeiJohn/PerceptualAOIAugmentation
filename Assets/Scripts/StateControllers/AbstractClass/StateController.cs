@@ -19,6 +19,9 @@ public class StateController : MonoBehaviour
     [Header("Next State Button")]
     public Button NextStateButton;
 
+    [Header("Next State Button Clicked Audio")]
+    public AudioClip nextStateButtonClickedAudio;
+
     void Start()
     {
         //eventMarkerLSLOutletController = GameObject.Find("Game").compopen;
@@ -109,6 +112,10 @@ public class StateController : MonoBehaviour
 
     public void NextStateButtonClicked()
     {
+        // play audio
+
+        AudioSource.PlayClipAtPoint(nextStateButtonClickedAudio, Camera.main.transform.position);
+
         // set to not selected
         NextStateButton.interactable = false;
         NextStateButton.interactable = true;

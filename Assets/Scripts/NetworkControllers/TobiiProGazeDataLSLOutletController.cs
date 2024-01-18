@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
 {
+
+
+    public TobiiGazeOverlayController tobiiGazeOverlayController;
+
     // Start is called before the first frame update
 
 
@@ -42,10 +46,28 @@ public class TobiiProGazeDataLSLOutletController : LSLOutletInterface
             float endTime = Time.time;
             //Debug.Log(startTime-endTime);
 
+            // set gaze data overlay
+            SetOnScreenGazePoint(data);
+
+
             data = _eyeTracker.NextData;
             
 
         }
+    }
+
+
+    void SetOnScreenGazePoint(IGazeData gazeData)
+    {
+        if (gazeData.Left.GazeOriginValid && gazeData.Left.GazePointValid && gazeData.Right.GazeOriginValid && gazeData.Right.GazePointValid) 
+        {
+            tobiiGazeOverlayController.tobiiGazePointOnScreenLocation = new Vector2 (
+                (gazeData.Left.GazePointOnDisplayArea.x + gazeData.Right.GazePointOnDisplayArea.x) / 2,
+                (gazeData.Left.GazePointOnDisplayArea.y + gazeData.Right.GazePointOnDisplayArea.y) / 2
+                );
+
+        }
+
     }
 
     // unpack data

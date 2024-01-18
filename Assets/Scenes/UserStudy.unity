@@ -2758,6 +2758,7 @@ MonoBehaviour:
   experimentState: 3
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 797895051}
 --- !u!1 &314904913
 GameObject:
@@ -2886,6 +2887,7 @@ MonoBehaviour:
   experimentState: 6
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 1775351148}
 --- !u!1 &322916463
 GameObject:
@@ -3773,6 +3775,7 @@ MonoBehaviour:
   experimentState: 4
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 400283929}
 --- !u!1 &370768744
 GameObject:
@@ -6975,6 +6978,7 @@ MonoBehaviour:
   experimentState: 11
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
   imageIndex: 0
 --- !u!1 &669890354
@@ -7047,7 +7051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &677446137
 Transform:
   m_ObjectHideFlags: 0
@@ -7129,6 +7133,7 @@ MonoBehaviour:
   experimentState: 7
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
   imageIndex: 0
 --- !u!1 &687767833
@@ -7746,6 +7751,7 @@ MonoBehaviour:
   experimentState: 13
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
   imageIndex: 0
 --- !u!1 &770920371
@@ -13101,6 +13107,7 @@ MonoBehaviour:
   experimentState: 0
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   initStateGUIController: {fileID: 309160722}
 --- !u!1 &1044512718
 GameObject:
@@ -13284,7 +13291,9 @@ MonoBehaviour:
   experimentState: 1
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   calibrationStateGUIController: {fileID: 2135467453}
+  tobiiGazeOverlayController: {fileID: 677446138}
 --- !u!1 &1061065696
 GameObject:
   m_ObjectHideFlags: 0
@@ -13333,6 +13342,7 @@ MonoBehaviour:
   experimentState: 10
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 1387476974}
 --- !u!1 &1065392282
 GameObject:
@@ -14441,6 +14451,7 @@ MonoBehaviour:
   experimentState: 12
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 148954443}
 --- !u!1 &1133787111
 GameObject:
@@ -14499,7 +14510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please rate the report and your confidence level for your decision
+  m_text: Please rate the confidence level for your last decision
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14803,6 +14814,7 @@ MonoBehaviour:
   experimentState: 12
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   endStateGUIController: {fileID: 1530333568}
 --- !u!1 &1148985944
 GameObject:
@@ -18491,6 +18503,7 @@ MonoBehaviour:
   experimentState: 8
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 475090992}
 --- !u!1 &1318442874
 GameObject:
@@ -18999,6 +19012,7 @@ MonoBehaviour:
   experimentState: 9
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   aOIAugmentationStateGUIController: {fileID: 1976997954}
   imageIndex: 0
 --- !u!1 &1393011392
@@ -20154,6 +20168,7 @@ MonoBehaviour:
   experimentState: 12
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   feedbackStateGUIController: {fileID: 2027213426}
 --- !u!1 &1487703570
 GameObject:
@@ -22979,6 +22994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241ae2379fdb6994ea96830c35b5802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tobiiGazeOverlayController: {fileID: 677446138}
 --- !u!1 &1617162663
 GameObject:
   m_ObjectHideFlags: 0
@@ -26418,6 +26434,7 @@ MonoBehaviour:
   experimentState: 2
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   startStateGUIController: {fileID: 298716547}
 --- !u!1 &1976997952
 GameObject:
@@ -26485,6 +26502,7 @@ MonoBehaviour:
   aOIAugmentationFeedbackStateWritterController: {fileID: 519645781}
   SubmitResponseButton: {fileID: 1874799855}
   NextStateButton: {fileID: 133591924}
+  submitResponseButtonClickedAudio: {fileID: 8300000, guid: 093273d71eb7b8547913756c4744bb61, type: 3}
   TrailGUI: {fileID: 416629715}
   ConfidenceLevelFeedbackGroup: {fileID: 211375537}
   eventMarkerLSLOutletController: {fileID: 1065392284}
@@ -26658,6 +26676,7 @@ MonoBehaviour:
   experimentState: 5
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
+  nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
   instructionStateGUIController: {fileID: 323186398}
 --- !u!1 &2009845214
 GameObject:
@@ -27182,7 +27201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thank you for your time!
+  m_text: Thank you for your participation!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

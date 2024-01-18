@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -168,13 +168,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizationToggleSelection: {fileID: 5315742388769830157}
-  historyWidgetId: 0
+  interactiveAOIAugmentationHistoryScrollViewScrollRect: {fileID: 0}
+  historyWidgetIndex: 0
   aoiBackgroundImage: {fileID: 7957387051703131600}
   aoiBackgroundImageHeatmapOverlayImage: {fileID: 955881822587739178}
   gazeAttentionBackgroundImage: {fileID: 8310794590557215948}
   gazeAttentionBackgroundImageHeatmapOverlayImage: {fileID: 7294498294574984872}
   targetImageController: {fileID: 0}
   aoiHeatmapOverlayController: {fileID: 0}
+  eventMarkerLSLOutletController: {fileID: 0}
+  previousStateIsOn: 1
 --- !u!114 &5315742388769830157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

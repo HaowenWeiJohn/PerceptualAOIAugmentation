@@ -6,6 +6,8 @@ public class CalibrationStateController : StateController
 {
     public CalibrationStateGUIController calibrationStateGUIController;
     // Start is called before the first frame update
+
+    public TobiiGazeOverlayController tobiiGazeOverlayController;
     void Start()
     {
         
@@ -21,14 +23,17 @@ public class CalibrationStateController : StateController
 
     public override void enterState()
     {
+
         base.enterState();
         calibrationStateGUIController.EnableSelf();
+        tobiiGazeOverlayController.EnableGazeOverlay();
     }
 
     public override void exitState()
     {
         base.exitState();
         calibrationStateGUIController.DisableSelf();
+        tobiiGazeOverlayController.DisableGazeOverlay();
     }
 
 

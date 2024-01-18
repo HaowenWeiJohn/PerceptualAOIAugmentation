@@ -192,7 +192,9 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
             }
             else
             {
-                // do nothing
+                // if not receiving gaze attention, which is the first time receiving static aoi augmentation, we do not show those two images in the history overlay
+                aOIAugmentationHistoryWidgetController.gazeAttentionBackgroundImage.enabled = false;
+                aOIAugmentationHistoryWidgetController.gazeAttentionBackgroundImageHeatmapOverlayImage.enabled = false;
             }
 
             // set visualization toggle selection

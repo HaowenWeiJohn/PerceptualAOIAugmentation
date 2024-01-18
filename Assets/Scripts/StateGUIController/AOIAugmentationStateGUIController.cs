@@ -32,6 +32,9 @@ public class AOIAugmentationStateGUIController : GUIController
     public Button SubmitResponseButton;
     public Button NextStateButton;
 
+    [Header("SubmitResponseButton Clicked")]
+    public AudioClip submitResponseButtonClickedAudio;
+
 
     [Header("Scene Group")]
     public GameObject TrailGUI;
@@ -94,6 +97,8 @@ public class AOIAugmentationStateGUIController : GUIController
             cursorOverlayController.DeactivateCursorLoadingImage();
 
             eventMarkerLSLOutletController.sendAOIAugmentationInteractionEndMarker();
+
+            AudioSource.PlayClipAtPoint(submitResponseButtonClickedAudio, Camera.main.transform.position);
         }
 
     }

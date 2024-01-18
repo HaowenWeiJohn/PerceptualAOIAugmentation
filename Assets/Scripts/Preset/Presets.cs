@@ -206,13 +206,7 @@ public static class Presets
 
     }
 
-    public static List<ExperimentState> Conditions = new List<ExperimentState>
-    {
-        //ExperimentState.NoAOIAugmentationState,
-        ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.InteractiveAOIAugmentationState,
-        //ExperimentState.ResnetAOIAugmentationState // cnn
-    };
+
 
 
 
@@ -402,7 +396,13 @@ public static class Presets
      "RLS_148_OS_TC" // comment out when three conditions
     };
 
-
+    public static List<ExperimentState> Conditions = new List<ExperimentState>
+    {
+        //ExperimentState.NoAOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.InteractiveAOIAugmentationState,
+        //ExperimentState.ResnetAOIAugmentationState // cnn
+    };
 
 
 
@@ -420,7 +420,7 @@ public static class Presets
 
 
     public static string PracticeNoAOIAugmentationInstructionStateTitle = "[Practice] Condition: No Guidance";
-    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive guidance assistance in the next trial.\r\n";
+    public static string PracticeNoAOIAugmentationInstructionStateContent = "You will not receive guidance in the next trial.\r\n";
     
 
 

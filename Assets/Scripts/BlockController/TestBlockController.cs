@@ -63,7 +63,8 @@ public class TestBlockController : BlockController
 
 
         // images per condition = len(TestBlockImages) / len(Conditions)
-        int imagesPerCondition = TestBlockImages.Count / Conditions.Count;
+        //int imagesPerCondition = TestBlockImages.Count / Conditions.Count;
+        int imagesPerCondition = (TestBlockImagesG.Count + TestBlockImagesS.Count) / Conditions.Count;
 
 
         for (int i = 0; i < Conditions.Count; i++)

@@ -1,1 +1,0 @@
-CurrentBlock;InteractionMode;ImageName;GlaucomaGroundTruth;GlaucomaDecision;Message;DecisionConfidenceLevel

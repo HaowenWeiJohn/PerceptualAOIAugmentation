@@ -15,8 +15,8 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
 
 
     [Header("Experiment Info")]
-    public string ExperimentName = "AOIAugmentation";
-    public string ParticipantID = "0";
+    //public string ParticipantID = "0";
+
     private static readonly string[] ColumnNames = {"CurrentBlock", "InteractionMode", "ImageName", "GlaucomaGroundTruth", "GlaucomaDecision", "Message", "DecisionConfidenceLevel"};
     public string FileName; 
     public bool useCustomLogPath = false;
@@ -37,10 +37,24 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
 
     private StreamWriter writer = null;
 
+
+    string ExperimentName = "";
+    string ParticipantID = "";
+
     void Start()
     {
 
+        //if gameManager.userStudy =
+        if (gameManager.userStudy == Presets.UserStudy.UserStudy1)
+        {
+            ExperimentName = "ROIAugmentationUserSutyd1";
+        }
+        else if (gameManager.userStudy == Presets.UserStudy.UserStudy2)
+        {
+            ExperimentName = "ROIAugmentationUserStudy2";
+        }
 
+        ParticipantID = gameManager.participantID;
 
         string logPath = useCustomLogPath ? customLogPath : Application.dataPath + "/Logs/";
         Directory.CreateDirectory(logPath);
@@ -88,6 +102,8 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
     {
         if (!logging || writer == null)
             return;
+
+        Message = "\"" + Message + "\"";
         string[] values = { Block, InteractionMode, ImageName, GlaucomaGroundTruth, GlaucomaDecision, Message, DecisionConfidenceLevel };
         //string[] values = { Block, InteractionMode, ImageName, GlaucomaDecision, Message, DecisionConfidenceLevel };
         Debug.Log("Logging: " + values);

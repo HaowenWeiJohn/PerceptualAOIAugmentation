@@ -1,3 +1,0 @@
-CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
-PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,The RNFL is bad,2
-PracticeBlock,InteractiveAOIAugmentationState,9071_OD_2021_widefield_report,G,G,The RNFL is bad also,3

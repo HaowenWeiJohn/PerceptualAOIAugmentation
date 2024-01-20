@@ -49,6 +49,10 @@ public class TargetImageController : MonoBehaviour
     public string imageType;
 
 
+    //[Header("AOI Augmentation Image LineRender")]
+    //public LineRenderer targetImageContourLineRenderer;
+
+
     void Start()
     {
         //updateTargetImageInfo();
@@ -60,6 +64,7 @@ public class TargetImageController : MonoBehaviour
         if (targetImage.enabled)
         {
             updateTargetImageInfo();
+            targetImageInfoLSLOutletController.sendImageInfo(targetImage);
         }
         if (IsCursorOverTargetImage())
         {
@@ -67,14 +72,17 @@ public class TargetImageController : MonoBehaviour
                 gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState || 
                 gameManager.currentState.experimentState == Presets.ExperimentState.ResnetAOIAugmentationState)
             {
-
                 // AdjustTransparency only if the cursor  
-
                 AdjustTransparency();
-                targetImageInfoLSLOutletController.sendImageInfo(targetImage);
             }
         }
+
     }
+
+    //public void setImageContour(Texture2D targetImageTexture)
+    //{
+        
+    //}
 
     public void updateTargetImageInfo()
     {
@@ -148,6 +156,12 @@ public class TargetImageController : MonoBehaviour
         float y = screenHeight / 2;
 
         targetImageRectTransform.localPosition = new Vector3(-x, y, 0);
+
+        //// set the create line renderer to the image bounding box
+        //imageBoudingBoxLineRenderer.positionCount = 4;
+        //imageBoudingBoxLineRenderer.SetPosition(0, new Vector3(-x, y, 0));
+        //imageBoudingBoxLineRenderer.SetPosition(1, new Vector3(-x + imageWidth, y, 0));
+        //imageBoudingBoxLineRenderer.SetPosition(2, new Vector3(-x + imageWidth, y - imageHeight, 0));
 
     }
 

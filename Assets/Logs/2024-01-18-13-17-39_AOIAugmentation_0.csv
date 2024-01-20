@@ -1,6 +1,0 @@
-CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
-PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,RNFL and RGCP,3
-PracticeBlock,InteractiveAOIAugmentationState,9071_OD_2021_widefield_report,G,G,RNFL and RGCP,3
-TestBlock,StaticAOIAugmentationState,RLS_148_OD_TC,S,S,thickness plot,1
-TestBlock,StaticAOIAugmentationState,RLS_081_OD_TC,S,S,wwww,2
-TestBlock,StaticAOIAugmentationState,RLS_051_OS_TC,S,S,scroll,2

@@ -6,7 +6,12 @@ using static Presets;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Experiment Info")]
+    public Presets.UserStudy userStudy;
+    public string participantID;
 
+
+    [Header("Experiment State")]
     public Presets.GameState currentGameState;
 
     public StateController currentState;
@@ -83,6 +88,47 @@ public class GameManager : MonoBehaviour
     //int experimentStateIndex = 0;
     int experimentBlockIndex = 0;
 
+
+
+    void Awake()
+    {
+        //DontDestroyOnLoad(this.gameObject);
+        if (userStudy == Presets.UserStudy.UserStudy1)
+        {
+            Presets.Conditions = Presets.UserStudy1Conditions;
+            Presets.TestBlockImagesG = Presets.UserStudy1TestBlockImagesG;
+            Presets.TestBlockImagesS = Presets.UserStudy1TestBlockImagesS;
+
+
+
+
+
+
+        }
+        else if (userStudy == Presets.UserStudy.UserStudy2)
+        {
+            Presets.Conditions = Presets.UserStudy2Conditions;
+            Presets.TestBlockImagesG = Presets.UserStudy2TestBlockImagesG;
+            Presets.TestBlockImagesS = Presets.UserStudy2TestBlockImagesS;
+
+
+            Presets.PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
+            Presets.PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
+                "Click the right mouse button on the report to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+                "\r\n\r\nWhen you are finished with screening the report and writing the response, click the Submit button to continue.\r\n";
+
+
+
+            Presets.TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
+            Presets.TestStaticAOIAugmentationInstructionStateContent = "You will receive Static guidance in the coming trials.";
+
+
+
+
+
+}
+
+    }
 
     void Start()
     {

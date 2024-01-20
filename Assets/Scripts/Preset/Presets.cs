@@ -335,7 +335,6 @@ public static class Presets
 
     public static List<string> TestBlockImages = new List<string>
     {
-
     /////////////////////////////////////////////////////////////
      "9025_OD_2021_widefield_report",
      "RLS_079_OD_TC",
@@ -360,11 +359,62 @@ public static class Presets
      "RLS_053_OD_TC",
      "RLS_148_OD_TC",
      "RLS_148_OS_TC"
-
     };
 
 
+    public enum UserStudy
+    {
+        UserStudy1 = 1,
+        UserStudy2 = 2
+    }
+
+
     public static List<string> TestBlockImagesG = new List<string>
+    {
+
+    };
+
+    public static List<string> TestBlockImagesS = new List<string>
+    {
+
+    };
+
+    public static List<string> UserStudy1TestBlockImagesG = new List<string>
+    {
+     "9025_OD_2021_widefield_report",
+     "RLS_079_OD_TC",
+     "RLS_036_OS_TC",
+     "RLS_045_OD_TC",
+     "RLS_060_OS_TC",
+     "RLS_097_OD_TC",
+     "9140_OD_2021_widefield_report",
+     "RLS_092_OS_TC",
+     "RLS_083_OD_TC",
+
+
+     //"RLS_086_OS_TC" // comment out when three conditions
+    };
+
+    public static List<string> UserStudy1TestBlockImagesS = new List<string>
+    {
+     "RLS_078_OS_TC",
+     "RLS_064_OS_TC",
+     "RLS_051_OS_TC",
+     "RLS_081_OD_TC",
+     "8962_OS_2021_widefield_report",
+     "9005_OS_2021_widefield_report",
+     "RLS_038_OD_TC",
+     "RLS_053_OD_TC",
+     "RLS_148_OD_TC",
+
+
+     //"RLS_148_OS_TC" // comment out when three conditions
+    };
+
+
+
+
+    public static List<string> UserStudy2TestBlockImagesG = new List<string>
     {
      "9025_OD_2021_widefield_report",
      "RLS_079_OD_TC",
@@ -380,7 +430,7 @@ public static class Presets
      "RLS_086_OS_TC" // comment out when three conditions
     };
 
-    public static List<string> TestBlockImagesS = new List<string>
+    public static List<string> UserStudy2TestBlockImagesS = new List<string>
     {
      "RLS_078_OS_TC",
      "RLS_064_OS_TC",
@@ -396,13 +446,34 @@ public static class Presets
      "RLS_148_OS_TC" // comment out when three conditions
     };
 
+
+
+
     public static List<ExperimentState> Conditions = new List<ExperimentState>
     {
         //ExperimentState.NoAOIAugmentationState,
-        ExperimentState.StaticAOIAugmentationState,
-        ExperimentState.InteractiveAOIAugmentationState,
+        //ExperimentState.StaticAOIAugmentationState,
+        //ExperimentState.InteractiveAOIAugmentationState,
         //ExperimentState.ResnetAOIAugmentationState // cnn
     };
+
+
+
+
+    public static List<ExperimentState> UserStudy1Conditions = new List<ExperimentState>
+    {
+        ExperimentState.NoAOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
+        //ExperimentState.InteractiveAOIAugmentationState,
+        ExperimentState.ResnetAOIAugmentationState // cnn
+    };
+
+    public static List<ExperimentState> UserStudy2Conditions = new List<ExperimentState>
+    {
+        ExperimentState.StaticAOIAugmentationState,
+        ExperimentState.InteractiveAOIAugmentationState,
+    };
+
 
 
 
@@ -436,7 +507,7 @@ public static class Presets
     
 
 
-    public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
+    public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Model A Guidance";
     public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance generated from model A in the coming trials.";
     
 

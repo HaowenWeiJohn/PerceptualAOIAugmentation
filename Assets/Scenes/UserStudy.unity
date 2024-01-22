@@ -14914,7 +14914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 12
+  experimentState: 15
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
   nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
@@ -20268,7 +20268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2060634373}
-  experimentState: 12
+  experimentState: 14
   eventMarkerLSLOutletController: {fileID: 1065392284}
   NextStateButton: {fileID: 133591924}
   nextStateButtonClickedAudio: {fileID: 8300000, guid: 3a83846d6e6dc6e4682121081ebb0b74, type: 3}
@@ -27515,7 +27515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d6cf702f0d7aa46bdd89497acebbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userStudy: 1
+  userStudy: 2
   participantID: 01
   currentGameState: 0
   currentState: {fileID: 0}

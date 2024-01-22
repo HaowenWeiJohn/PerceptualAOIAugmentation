@@ -73,7 +73,7 @@ public static class Presets
 
     public static int MaxScore = 100;
 
-    public static KeyCode NextStateKey = KeyCode.F1;
+    //public static KeyCode NextStateKey = KeyCode.F1;
     public static KeyCode InterruptKey = KeyCode.Escape;
 
     /// <summary>
@@ -91,6 +91,7 @@ public static class Presets
 
     public static KeyCode AOIAugmentationToggleVisualCueVisibilityCueKey = KeyCode.Mouse1; // right mouse button
     public static KeyCode AOIAugmentationUpdateVisualCueKey = KeyCode.Mouse0; // left mouse button
+    public static KeyCode ForceEnableSubmitResponseKey = KeyCode.F1;
 
 
 

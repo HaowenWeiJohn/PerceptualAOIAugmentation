@@ -46,24 +46,42 @@ public class AOIAugmentationStateGUIController : GUIController
     [Header("AOI Augmentation Cursor Overlay Controller")]
     public CursorOverlayController cursorOverlayController;
 
+
+    //bool forceEnableSubmitResponseButton = false;
     void Start()
     {
         SubmitResponseButton.onClick.AddListener(SubmitResponseButtonClicked);
     }
 
-    // Update is called once per frame
     void Update()
     {
         base.Update();
 
-        if (TrailResponseAcceptable())
+        //// when F1 pressed on the keyboard, we enable SubmitResponseButton
+        if (Input.GetKeyDown(Presets.ForceEnableSubmitResponseKey))
         {
             SubmitResponseButton.interactable = true;
         }
-        else
+
+        // if this is practice block, we do not enable the submit button
+
+
+
+        if (gameManager.currentBlock.experimentBlock != Presets.ExperimentBlock.PracticeBlock)
         {
-            SubmitResponseButton.interactable = false;
+            if (TrailResponseAcceptable())// & gameManager.currentBlock.experimentBlock != Presets.ExperimentBlock.PracticeBlock)
+            {
+                SubmitResponseButton.interactable = true;
+            }
+            else
+            {
+                SubmitResponseButton.interactable = false;
+            }
         }
+
+        
+
+
 
         if (ConfidenceLevelResponseAcceptable())
         {
@@ -321,6 +339,8 @@ public class AOIAugmentationStateGUIController : GUIController
         //Cursor.visible = false;
         SetTrailStartGUI();
         targetImageController.CleanUp();
+        //forceEnableSubmitResponseButton = false;
+        SubmitResponseButton.interactable = false;
 
     }
 
@@ -330,6 +350,8 @@ public class AOIAugmentationStateGUIController : GUIController
         //Cursor.visible = true;
         SetTrailEndGUI();
         targetImageController.CleanUp();
+        //forceEnableSubmitResponseButton= false;
+        SubmitResponseButton.interactable = false;
     }
 
 
@@ -354,6 +376,6 @@ public class AOIAugmentationStateGUIController : GUIController
         NextStateButton.gameObject.SetActive(true);
     }
 
-
+    
 
 }

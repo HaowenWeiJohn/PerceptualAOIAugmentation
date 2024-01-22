@@ -1,0 +1,22 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"Test",3
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"test",3
+PracticeBlock,ResnetAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"test",3
+TestBlock,NoAOIAugmentationState,RLS_148_OD_TC,S,G,"tasdfasdf",3
+TestBlock,NoAOIAugmentationState,RLS_083_OD_TC,G,G,"asdfasdf",3
+TestBlock,NoAOIAugmentationState,9140_OD_2021_widefield_report,G,G,"aasdfasf, asf ",3
+TestBlock,NoAOIAugmentationState,RLS_078_OS_TC,S,G,"asdfasf",3
+TestBlock,NoAOIAugmentationState,RLS_053_OD_TC,S,G,"asdfasfasf",3
+TestBlock,NoAOIAugmentationState,RLS_092_OS_TC,G_Suspects_2,G,"asdfasfasfd",3
+TestBlock,StaticAOIAugmentationState,RLS_045_OD_TC,G,G,"tesete",3
+TestBlock,StaticAOIAugmentationState,RLS_038_OD_TC,S,G,"tasdfagg, asdfsdf",3
+TestBlock,StaticAOIAugmentationState,RLS_079_OD_TC,G,G,"tes",3
+TestBlock,StaticAOIAugmentationState,8962_OS_2021_widefield_report,S,G,"testadfasdf",3
+TestBlock,StaticAOIAugmentationState,RLS_097_OD_TC,G,G,"tesg, fasfd ",3
+TestBlock,StaticAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,G,"tetts",3
+TestBlock,ResnetAOIAugmentationState,RLS_036_OS_TC,G,G,"test",3
+TestBlock,ResnetAOIAugmentationState,RLS_064_OS_TC,S,G,"test",3
+TestBlock,ResnetAOIAugmentationState,RLS_060_OS_TC,G,G,"tetstasdag",3
+TestBlock,ResnetAOIAugmentationState,9025_OD_2021_widefield_report,G,G,"tsetagg",3
+TestBlock,ResnetAOIAugmentationState,RLS_081_OD_TC,S,G,"asetg",3
+TestBlock,ResnetAOIAugmentationState,RLS_051_OS_TC,S,G,"tesgg,asfasf",3

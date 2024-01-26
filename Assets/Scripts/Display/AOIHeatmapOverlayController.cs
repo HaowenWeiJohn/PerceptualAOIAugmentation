@@ -22,6 +22,7 @@ public class AOIHeatmapOverlayController : MonoBehaviour
 
     public void SetHeatmapTexture(Texture2D texture, bool setNativeSize = true)
     {
+        ResetImageColor();
         heatmapOverlay.texture = texture;
 
         if (setNativeSize)
@@ -43,9 +44,14 @@ public class AOIHeatmapOverlayController : MonoBehaviour
 
     public void CleanUp()
     {
+        ResetImageColor();
         heatmapOverlay.texture = null;
         heatmapOverlay.enabled = false;
     }
 
+    public void ResetImageColor() 
+    { 
+        heatmapOverlay.color = Color.white; 
+    }
 
 }

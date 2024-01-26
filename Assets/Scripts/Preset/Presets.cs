@@ -36,6 +36,13 @@ public static class Presets
     public static float TargetImageInfoNominalSamplingRate = 100;
 
 
+    public static string HeatmapOverlayImageInfoLSLOutletStreamName = "AOIAugmentationHeatmapOverlayImageInfoLSL";
+    public static string HeatmapOverlayImageInfoLSLOutletStreamType = "HeatmapOverlayImageInfo";
+    public static string HeatmapOverlayImageInfoLSLOutletStreamID = "1";
+    public static int HeatmapOverlayImageInfoChannelNum = 4; // rgba
+    public static float HeatmapOverlayImageInfoNominalSamplingRate = 100;
+
+
 
 
 
@@ -101,7 +108,11 @@ public static class Presets
         AOIAugmentationInteractionStateUpdateCueKeyPressed = 1
     }
 
-
+    public enum VisualCueMode
+    {
+        ChangeTargetImageTransparencyToggleVisualCue = 1,
+        ChangeVisualCueTransparency = 2,
+    }
 
 
     public enum DisplayState

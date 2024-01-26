@@ -55,10 +55,10 @@ public class ResnetAOIAugmentationOverlayController : GUIController
         float updateFrequency = 1.0f / Time.deltaTime;
         AOIAugmentationZMQStream();
 
-        if (targetImageController.IsCursorOverTargetImage())
-        {
-            EnableDisableHeatmapsWithKeyPress();
-        }
+        //if (targetImageController.IsCursorOverTargetImage())
+        //{
+        //    EnableDisableHeatmapsWithKeyPress();
+        //}
     }
 
 

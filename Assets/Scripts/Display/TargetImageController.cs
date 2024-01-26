@@ -35,8 +35,13 @@ public class TargetImageController : MonoBehaviour
     //public Vector2 targetImagePosition = new Vector2(0, 0); // center position. in canvas space
     public Image targetImage;
 
+    [Header("Heatmap Overlay Controller")]
+    public AOIHeatmapOverlayController aoiHeatmapOverlayController;
+
     [Header("Network Controller")]
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
     public TargetImageInfoLSLOutletController targetImageInfoLSLOutletController;
+    public HeatmapOverlayImageInfoLSLOutletController heatmapOverlayImageInfoLSLOutletController;
 
     [Header("Interaction State")]
     public GameManager gameManager;
@@ -47,6 +52,7 @@ public class TargetImageController : MonoBehaviour
     [Header("Image Meta Info")]
     public string imageName;
     public string imageType;
+
 
 
     //[Header("AOI Augmentation Image LineRender")]
@@ -65,15 +71,37 @@ public class TargetImageController : MonoBehaviour
         {
             updateTargetImageInfo();
             targetImageInfoLSLOutletController.sendImageInfo(targetImage);
+            heatmapOverlayImageInfoLSLOutletController.sendImageInfo(aoiHeatmapOverlayController.heatmapOverlay);
         }
         if (IsCursorOverTargetImage())
         {
-            if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState || 
-                gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState || 
+
+
+            if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState ||
+                gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState ||
                 gameManager.currentState.experimentState == Presets.ExperimentState.ResnetAOIAugmentationState)
             {
-                // AdjustTransparency only if the cursor  
-                AdjustTransparency();
+                //// AdjustTransparency only if the cursor  
+                ////AdjustTargetImageBrightness();
+                //AdjustHeatmapOverlayTransparency();
+
+                if (gameManager.visualCueMode == Presets.VisualCueMode.ChangeVisualCueTransparency)
+                {
+                    // user can change the transparency of the visual cue with the mouse wheel
+                    AdjustHeatmapOverlayTransparency();
+                }
+                
+                if (gameManager.visualCueMode == Presets.VisualCueMode.ChangeTargetImageTransparencyToggleVisualCue)
+                {
+                    // user can toggle Heatmap overlay visibility with a key press
+                    EnableDisableHeatmapsWithKeyPress();
+                    // the user can chane the brightness of the target image with the mouse wheel
+                    AdjustTargetImageBrightness();
+
+                }
+
+
+
             }
         }
 
@@ -166,7 +194,7 @@ public class TargetImageController : MonoBehaviour
     }
 
 
-    void AdjustTransparency()
+    void AdjustTargetImageBrightness()
     {
         // Get the current color of the image
         float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
@@ -199,6 +227,38 @@ public class TargetImageController : MonoBehaviour
 
 
     }
+
+
+    public void AdjustHeatmapOverlayTransparency()
+    {
+        float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+        Color currentColor = aoiHeatmapOverlayController.heatmapOverlay.color;
+
+        currentColor.a += scrollWheelInput;
+
+        currentColor.a = Mathf.Clamp(currentColor.a, 0f, 1f);
+
+        aoiHeatmapOverlayController.heatmapOverlay.color = currentColor;
+
+        if(scrollWheelInput != 0 && currentColor.a == 1 ||
+           scrollWheelInput != 0 && currentColor.a == 0
+            )
+        {
+            AudioSource.PlayClipAtPoint(imageTransparencyHitBoundrySoundEffect, Camera.main.transform.position);
+        }
+
+
+
+        //if (
+        //    (scrollWheelInput != 0 && currentColor.r == 1 && currentColor.g == 1 && currentColor.b == 1)
+        //    ||
+        //    (scrollWheelInput != 0 && currentColor.r == 0 && currentColor.g == 0 && currentColor.b == 0)
+        //    )
+        //{
+        //    AudioSource.PlayClipAtPoint(imageTransparencyHitBoundrySoundEffect, Camera.main.transform.position);
+        //}
+    }
+
 
 
     public void ResetImageColor()
@@ -254,7 +314,24 @@ public class TargetImageController : MonoBehaviour
 
 
 
+    public void EnableDisableHeatmapsWithKeyPress()
+    {
+        bool switchEnableDisableHeatmaps = Input.GetKeyDown(Presets.AOIAugmentationToggleVisualCueVisibilityCueKey);
 
+        if (switchEnableDisableHeatmaps)
+        {
+            if (aoiHeatmapOverlayController.HeatmapOverlayEnabled())
+            {
+                aoiHeatmapOverlayController.SetHeatmapVisibility(false);
+                eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(false);
+            }
+            else
+            {
+                aoiHeatmapOverlayController.SetHeatmapVisibility(true);
+                eventMarkerLSLOutletController.sendToggleVisualCueVisibilityMarker(true);
+            }
+        }
+    }
 
 
 

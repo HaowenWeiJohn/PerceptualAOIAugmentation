@@ -72,7 +72,7 @@ public class InteractiveAOIAugmentationOverlayController : GUIController
 
         if (targetImageController.IsCursorOverTargetImage())
         {
-            EnableDisableHeatmapsWithKeyPress();
+            //EnableDisableHeatmapsWithKeyPress();
             AOIAugmentationInteractionStateUpdateCueKeyPressed();
         }
 

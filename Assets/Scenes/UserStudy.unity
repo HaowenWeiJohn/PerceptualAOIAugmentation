@@ -2989,7 +2989,10 @@ MonoBehaviour:
   imageHeight: 0
   localPosition: {x: 0, y: 0, z: 0}
   targetImage: {fileID: 322916465}
+  aoiHeatmapOverlayController: {fileID: 793169595}
+  eventMarkerLSLOutletController: {fileID: 1065392284}
   targetImageInfoLSLOutletController: {fileID: 1891018577}
+  heatmapOverlayImageInfoLSLOutletController: {fileID: 1774584384}
   gameManager: {fileID: 2060634373}
   imageTransparencyHitBoundrySoundEffect: {fileID: 8300000, guid: 7f6a8fc119dc195488b7ab681a82f6c8, type: 3}
   imageName: 
@@ -13880,6 +13883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1891018576}
+  - {fileID: 1774584383}
   - {fileID: 1065392283}
   - {fileID: 1614001335}
   m_Father: {fileID: 405985193}
@@ -24211,6 +24215,50 @@ MonoBehaviour:
   imageDirectoryPath: 
   imageFilePaths: []
   imageTextures: []
+--- !u!1 &1774584382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774584383}
+  - component: {fileID: 1774584384}
+  m_Layer: 0
+  m_Name: HeatmapOverlayImageInfoLSLOutlet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774584383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774584382}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1077251473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774584384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774584382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bd6d862480bbf4283e2ec52714333b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1775351146
 GameObject:
   m_ObjectHideFlags: 0
@@ -27517,6 +27565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userStudy: 2
   participantID: 01
+  visualCueMode: 1
   currentGameState: 0
   currentState: {fileID: 0}
   currentBlock: {fileID: 0}

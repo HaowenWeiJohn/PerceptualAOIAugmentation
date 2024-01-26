@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public Presets.UserStudy userStudy;
     public string participantID;
 
+    [Header("Visual Cue Interaction")]
+    public Presets.VisualCueMode visualCueMode;
+
 
     [Header("Experiment State")]
     public Presets.GameState currentGameState;

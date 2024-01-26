@@ -490,10 +490,10 @@ public static class Presets
 
 
     public static string IntroductionInstructionStateTitle = "Welcome";
-    public static string IntroductionInstructionStateContent = "Welcome, in this experiment, you will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
-        "\r\n\r\nWith some of the reports, you will receive guidance to help with your decision-making process: a “heatmap” overlay will be shown on the report, indicating parts of the report that are more informative for glaucoma detection." +
-        "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. Your feedback and experience are invaluable to us." +
-        "\r\n\r\nClick the Next button to contune.\r\n";
+    public static string IntroductionInstructionStateContent = "You will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
+        "\r\n\r\nIn some reports, you will receive guidance to help with your decision-making process: a “heatmap” overlay will be shown on the report, indicating parts of the report that are more important for detecting glaucoma." +
+        "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. We really appreciate your participation and your feedback is invaluable to us." +
+        "\r\n\r\nClick the <b>Next</b> button to contune.\r\n";
 
 
 
@@ -513,41 +513,43 @@ public static class Presets
 
 
     public static string PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Model A Guidance";
-    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay generated from model A will be shown on the report indicating parts more informative for glaucoma detection. " +
-        "Click the right mouse button on the report to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+    public static string PracticeStaticAOIAugmentationInstructionStateContent = "An overlay generated from <b>Model A</b> will be shown on the report, indicating parts more informative for glaucoma detection." +
+        "\r\n\r\nClick the <b>right mouse button</b> on the report to toggle hide/show the guidance overlay. Use the <b>mouse scroll wheel</b> to change the brightness of the report." +
         "\r\n\r\nWhen you are finished with screening the report and writing the response, click the Submit button to continue.\r\n";
     
 
 
     public static string TestStaticAOIAugmentationInstructionStateTitle = "Static Model A Guidance";
-    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance generated from model A in the coming trials.";
+    public static string TestStaticAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Model A</b> in the coming trials.";
     
 
 
     public static string PracticeInteractiveAOIAugmentationInstructionStateTitle = "[Practice] Condition: Perceptual Guidance";
-    public static string PracticeInteractiveAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for glaucoma detection. " +
-        "In addition, you can request guidance to update based on how you are reading the report. Click the left mouse button on the report to update the guidance and you can click the right mouse button on the report to toggle hide/show the guidance overlay. You can access the history of the guidance heatmap and go back to them any time.\r\n";
+    public static string PracticeInteractiveAOIAugmentationInstructionStateContent = "An overlay will be shown on the report, indicating parts more informative for glaucoma detection. " +
+        "\r\n\r\nIn addition, you can request guidance to update based on how you are reading the report. The updated guidance will show you <b>where to look next, based on where you just looked at.</b>" +
+        "\r\n\r\nClick the <b>left mouse button</b> on the report to update the guidance. Click the <b>right mouse button</b> on the report to toggle hide/show the guidance overlay. " +
+        "\r\n\r\nYou can access <b>the history</b> of the guidance and go back to them any time.\r\n";
     
 
 
     public static string TestInteractiveAOIAugmentationInstructionStateTitle = "Perceptual Guidance";
-    public static string TestInteractiveAOIAugmentationInstructionStateContent = "You will receive guidance in the next trial, AND you may update the guidance.";
+    public static string TestInteractiveAOIAugmentationInstructionStateContent = "In the coming trials, you will receive guidance, and you <b>may update the guidance based on where you just looked at</b>";
     
 
 
     public static string PracticeResnetAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Model B Guidance";
-    public static string PracticeResnetAOIAugmentationInstructionStateContent = "An overlay generated from Model B will be shown on the report indicating parts more informative for glaucoma detection. " +
-        "Click the right mouse button on the report to toggle hide/show the guidance overlay. Use the mouse scroll wheel to change the brightness of the report." +
+    public static string PracticeResnetAOIAugmentationInstructionStateContent = "An overlay generated from <b>Model B</b> will be shown on the report, indicating parts more informative for glaucoma detection. " +
+        "\r\n\r\nClick the <b>right mouse button</b> on the report to toggle hide/show the guidance overlay. Use the <b>mouse scroll wheel</b> to change the brightness of the report." +
         "\r\n\r\nWhen you are finished with reading the report, click the Submit button to continue.\r\n";
     
     
 
     public static string TestResnetAOIAugmentationInstructionStateTitle = "Static Model B Guidance";
-    public static string TestResnetAOIAugmentationInstructionStateContent = "You will receive guidance generated from model B in the coming trials.";
+    public static string TestResnetAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Model B</b> in the coming trials.";
     
     
     public static string TestInstructionStateTitle = "End of practice"; // starting of test block
-    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the Next button to continue the experiment. \r\n";
+    public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the <b>Next</b> button to continue the experiment. \r\n";
 
 
 

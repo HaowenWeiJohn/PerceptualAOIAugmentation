@@ -9,6 +9,7 @@ public class CalibrationDotController : MonoBehaviour
     public float startRadius;
     public float endRadius;
     public Transform dot;
+    
 
     [Header("Gaze Overlay")]
     public Transform gazeOverlay;
@@ -17,13 +18,11 @@ public class CalibrationDotController : MonoBehaviour
     public float calibrationTime;
     public float calibrationRadius;
 
-    [Header("Next Calibration Dot")]
-    public GameObject nextCalibrationDot = null;
-
+    [Header("Calibration Result")]
     public GameObject resultPrefab;
 
 
-    private Vector3 initialScale = new Vector3(20, 20, 20);
+    private Vector3 initialScale = new Vector3(10, 10, 10);
     private Vector3 targetScale;
     private Vector2 dotPosition;
     private Camera cam;
@@ -31,33 +30,23 @@ public class CalibrationDotController : MonoBehaviour
 
     private List<Vector3> calibrationResults = new List<Vector3>();
     private int index = 0;
+    private bool complete = false;
 
     private void Start()
     {
         cam = GetComponent<Camera>();
-        initialScale = 
-        targetScale = new Vector3(endRadius, endRadius, endRadius);//baseDot.localScale;
+        targetScale = new Vector3(endRadius, endRadius, endRadius);
         dotPosition = new Vector2(transform.position.x, transform.position.y);
         
     }
-
-    private void OnEnable()
-    {
-        Debug.Log("Reset calibration dot radius: " + initialScale);
-        dot.localScale = initialScale;
-    }
-
 
     // Update is called once per frame
     void Update()
     {
 
         Vector2 gazeOverlayPosition = new Vector2(gazeOverlay.position.x, gazeOverlay.position.y);
-        Debug.Log("calibration positin: " + dotPosition);
-        Debug.Log("distance: " + Vector2.Distance(dotPosition, gazeOverlayPosition));
         if (Vector2.Distance(dotPosition, gazeOverlayPosition) < calibrationRadius)
         {
-            Debug.Log("Gaze Overlay reached dot");
             isScaling = true;
         }
         else
@@ -91,19 +80,33 @@ public class CalibrationDotController : MonoBehaviour
                 }
                 calibrationResults.Clear();
             }
-            if (nextCalibrationDot != null)
-            {
-                nextCalibrationDot.SetActive(true);
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                 GameObject[] results = GameObject.FindGameObjectsWithTag("CalibrationDot");
-                foreach (GameObject result in results)
-                {
-                    result.SetActive(true);
-                }
-            }
+            complete = true;    
         }
     }
+
+    public void Reset()
+    {
+        dot.localScale = initialScale;
+        complete = false;
+        gameObject.SetActive(false);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public bool isComplete()
+    {
+        return complete;
+    }
+
+
+
+
 }

@@ -49,6 +49,10 @@ public class TargetImageController : MonoBehaviour
     [Header("Audio Clip")]
     public AudioClip imageTransparencyHitBoundrySoundEffect;
 
+    [Header("Cursor Texture")]
+    public Texture2D cursorTexture;
+    public Texture2D cursorTextureYellow;
+
     [Header("Image Meta Info")]
     public string imageName;
     public string imageType;
@@ -75,6 +79,11 @@ public class TargetImageController : MonoBehaviour
         }
         if (IsCursorOverTargetImage())
         {
+            if(gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState)
+            {
+                Cursor.SetCursor(cursorTextureYellow, Vector2.zero, CursorMode.ForceSoftware);
+            }
+
 
 
             if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState ||
@@ -99,10 +108,12 @@ public class TargetImageController : MonoBehaviour
                     AdjustTargetImageBrightness();
 
                 }
-
-
-
             }
+        }
+
+        if (!IsCursorOverTargetImage())
+        {
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         }
 
     }

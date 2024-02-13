@@ -1,0 +1,22 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"bbb",0
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"ggg",0
+PracticeBlock,ResnetAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"ggg",0
+TestBlock,NoAOIAugmentationState,9140_OD_2021_widefield_report,G,G,"diffuse thinning and cupping",0
+TestBlock,NoAOIAugmentationState,RLS_092_OS_TC,G_Suspects_2,G,"superotemporal defec ",0
+TestBlock,NoAOIAugmentationState,RLS_038_OD_TC,S,G,"mild glaucoma with superoinfero thinning",1
+TestBlock,NoAOIAugmentationState,RLS_064_OS_TC,S,S,"normal rnfl with good image quality ",1
+TestBlock,NoAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,S,"no significant defect",0
+TestBlock,NoAOIAugmentationState,RLS_060_OS_TC,G,G,"diffuse loss with temporal sparing",0
+TestBlock,ResnetAOIAugmentationState,RLS_083_OD_TC,G,G,"blurring of disc margins",0
+TestBlock,ResnetAOIAugmentationState,RLS_045_OD_TC,G,G,"diffuse thinning",0
+TestBlock,ResnetAOIAugmentationState,9025_OD_2021_widefield_report,G,G,"inferior loss",0
+TestBlock,ResnetAOIAugmentationState,RLS_053_OD_TC,S,S,"full rnfl, no gcl loss",1
+TestBlock,ResnetAOIAugmentationState,RLS_081_OD_TC,S,G,"mild inferior defects",0
+TestBlock,ResnetAOIAugmentationState,RLS_148_OD_TC,S,S,"normal rnfl and gcl with moderate image quality",1
+TestBlock,StaticAOIAugmentationState,8962_OS_2021_widefield_report,S,S,"normal oct",1
+TestBlock,StaticAOIAugmentationState,RLS_097_OD_TC,G,G,"diffuse thinning with temporal sparing",0
+TestBlock,StaticAOIAugmentationState,RLS_036_OS_TC,G,G,"poor image quality diffuse thinning with nasal sparing",0
+TestBlock,StaticAOIAugmentationState,RLS_079_OD_TC,G,S,"N/a nasally, ",0
+TestBlock,StaticAOIAugmentationState,RLS_051_OS_TC,S,S,"normal oct",0
+TestBlock,StaticAOIAugmentationState,RLS_078_OS_TC,S,S,"normal rnfl with preserved gcl thickness",0

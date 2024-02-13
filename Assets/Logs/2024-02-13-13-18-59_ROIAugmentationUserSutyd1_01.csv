@@ -1,0 +1,22 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"ttt",3
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"www",3
+PracticeBlock,ResnetAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"www",3
+TestBlock,NoAOIAugmentationState,RLS_045_OD_TC,G,G,"Mild glaucoma due to decreased RNFL thickness",1
+TestBlock,NoAOIAugmentationState,RLS_038_OD_TC,S,G,"Beginning of glaucoma, has I/S thinning that correlates with heat map",2
+TestBlock,NoAOIAugmentationState,RLS_083_OD_TC,G,G,"I/S thinning, decreased redness in heat map with increased blue pattern in RNFL thickness map",2
+TestBlock,NoAOIAugmentationState,RLS_081_OD_TC,S,S,"Pt with likely Inferior thinning GCL thickness and heat map but does not correlate with RNFL thickness map and also with artifact ",2
+TestBlock,NoAOIAugmentationState,8962_OS_2021_widefield_report,S,S,"Full RNFL thickness in all maps",3
+TestBlock,NoAOIAugmentationState,RLS_097_OD_TC,G,G,"I/S/N thinning pattern that correlates with heat and RNFL thickness maps",2
+TestBlock,StaticAOIAugmentationState,RLS_092_OS_TC,G_Suspects_2,G,"I/S thinning, more S, correlates with all maps",3
+TestBlock,StaticAOIAugmentationState,RLS_060_OS_TC,G,G,"I/S/N thinning that correlates with heat and RNFL thickness maps",1
+TestBlock,StaticAOIAugmentationState,RLS_078_OS_TC,S,S,"Full maps with normal thickness",3
+TestBlock,StaticAOIAugmentationState,RLS_051_OS_TC,S,S,"Normal thickness that correlates with all maps",3
+TestBlock,StaticAOIAugmentationState,RLS_036_OS_TC,G,G,"I/S thinning, more inferior, correlates with all maps",3
+TestBlock,StaticAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,S,"Only temporal thinning but does not correlates with other maps and Glaucoma usually has a ISNT pattern. Temporal loss usually seen in Neuro etiologies",2
+TestBlock,ResnetAOIAugmentationState,RLS_064_OS_TC,S,S,"Full thickness that correlates with GCL thickness and RNFL thickness maps",2
+TestBlock,ResnetAOIAugmentationState,RLS_079_OD_TC,G,G,"Inferior thinning per all maps",2
+TestBlock,ResnetAOIAugmentationState,RLS_053_OD_TC,S,S,"Full thickness per all maps",1
+TestBlock,ResnetAOIAugmentationState,RLS_148_OD_TC,S,S,"Full thickness ",1
+TestBlock,ResnetAOIAugmentationState,9140_OD_2021_widefield_report,G,G,"ISNT pattern that correlates with all maps",2
+TestBlock,ResnetAOIAugmentationState,9025_OD_2021_widefield_report,G,G,"Inferior thinning ",2

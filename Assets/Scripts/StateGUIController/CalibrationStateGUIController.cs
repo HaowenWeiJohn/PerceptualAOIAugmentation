@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public class CalibrationStateGUIController : GUIController
 {
 
+    [Header("Game Manager")]
+    public GameManager gameManager;
+
     [Header("Buttons")]
     public Button NextStateButton;
     public Button CalibrationNextButton;
@@ -36,12 +39,17 @@ public class CalibrationStateGUIController : GUIController
     private void OnEnable()
     {
         Reset();
+        if(gameManager.skipCalibration == true)
+        {
+            NextStateButton.interactable = true;
+            NextStateButton.onClick.Invoke();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(showCalibration)
+        if (showCalibration)
         {
 
             if (calibrationDotIndex == -1)

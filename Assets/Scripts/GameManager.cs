@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("Visual Cue Interaction")]
     public Presets.VisualCueMode visualCueMode;
 
+    [Header("Eye-tracking Calibration")]
+    public bool skipCalibration;
+
 
     [Header("Experiment State")]
     public Presets.GameState currentGameState;

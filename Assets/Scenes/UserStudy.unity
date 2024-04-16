@@ -7687,7 +7687,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687767833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b43381f66dae054c884a9800451e826, type: 3}
   m_Name: 
@@ -28854,8 +28854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userStudy: 2
-  participantID: 01
-  visualCueMode: 2
+  participantID: 15
+  visualCueMode: 1
+  skipCalibration: 0
   currentGameState: 0
   currentState: {fileID: 0}
   currentBlock: {fileID: 0}
@@ -29669,6 +29670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b075fca3765eb04498fb2fe6727e9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2060634373}
   NextStateButton: {fileID: 133591924}
   CalibrationNextButton: {fileID: 734435487}
   buttonCover: {fileID: 412073774}

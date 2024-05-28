@@ -1,0 +1,4 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,S,"tseta",3
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,S,"tests",3
+PracticeBlock,ResnetAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"testst",3

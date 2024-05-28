@@ -1,0 +1,14 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,S,"qwerqw1",3
+PracticeBlock,InteractiveAOIAugmentationState,9071_OD_2021_widefield_report,G,S,"12351235",3
+TestBlock,StaticAOIAugmentationState,RLS_060_OS_TC,G,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,RLS_148_OD_TC,S,S,"q23q1234",3
+TestBlock,StaticAOIAugmentationState,RLS_081_OD_TC,S,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,RLS_064_OS_TC,S,S,"231234",3
+TestBlock,StaticAOIAugmentationState,RLS_092_OS_TC,G_Suspects_2,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,RLS_036_OS_TC,G,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,RLS_078_OS_TC,S,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,9025_OD_2021_widefield_report,G,S,"12341234",3
+TestBlock,StaticAOIAugmentationState,RLS_045_OD_TC,G,S,"123123",3
+TestBlock,StaticAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,S,"12312",3
+TestBlock,InteractiveAOIAugmentationState,RLS_051_OS_TC,S,S,"123",3

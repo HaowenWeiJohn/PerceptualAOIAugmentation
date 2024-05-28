@@ -1,0 +1,4 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"Patient with inferior thinning which correlates well in both RNFL thickness and heat map",2
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"Patient with inferior thinning that correlates with RNFL thickness map and heat map",2
+PracticeBlock,ResnetAOIAugmentationState,9071_OD_2021_widefield_report,G,G,"Inferior thinning that follows pattern of "ISNT" and correlates with heat and RNFL thickness maps",1

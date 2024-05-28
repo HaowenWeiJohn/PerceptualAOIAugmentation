@@ -117,6 +117,10 @@ public class BlockController : MonoBehaviour
             case Presets.ExperimentState.InteractiveAOIAugmentationInstructionState:
                 gameManager.currentState = gameManager.interactiveAOIAugmentationInstructionStateController;
                 break;
+
+            case Presets.ExperimentState.ResnetAOIAugmentationInstructionState:
+                gameManager.currentState = gameManager.resnetAOIAugmentationInstructionStateController;
+                break;
             /////////////////////////////////////
 
             case Presets.ExperimentState.NoAOIAugmentationState:
@@ -131,6 +135,11 @@ public class BlockController : MonoBehaviour
                 gameManager.currentState = gameManager.interactiveAOIAugmentationStateController;
                 break;
 
+            case Presets.ExperimentState.ResnetAOIAugmentationState:
+                gameManager.currentState = gameManager.resnetAOIAugmentationStateController;
+                break;
+
+            /////////////////////////////////////
             case Presets.ExperimentState.FeedbackState:
                 gameManager.currentState = gameManager.feedbackStateController;
                 break;

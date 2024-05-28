@@ -6,7 +6,18 @@ using static Presets;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Experiment Info")]
+    public Presets.UserStudy userStudy;
+    public string participantID;
 
+    [Header("Visual Cue Interaction")]
+    public Presets.VisualCueMode visualCueMode;
+
+    [Header("Eye-tracking Calibration")]
+    public bool skipCalibration;
+
+
+    [Header("Experiment State")]
     public Presets.GameState currentGameState;
 
     public StateController currentState;
@@ -62,6 +73,10 @@ public class GameManager : MonoBehaviour
     public InteractiveAOIAugmentationInstructionStateController interactiveAOIAugmentationInstructionStateController;
     public InteractiveAOIAugmentationStateController interactiveAOIAugmentationStateController;
 
+    [Header("ResnetAOIAugmentationState")]
+    public ResnetAOIAugmentationInstructionStateController resnetAOIAugmentationInstructionStateController;
+    public ResnetAOIAugmentationStateController resnetAOIAugmentationStateController;
+
     [Header("FeedbackState")]
     public FeedbackStateController feedbackStateController;
 
@@ -79,6 +94,46 @@ public class GameManager : MonoBehaviour
     //int experimentStateIndex = 0;
     int experimentBlockIndex = 0;
 
+
+
+    void Awake()
+    {
+        //DontDestroyOnLoad(this.gameObject);
+        if (userStudy == Presets.UserStudy.UserStudy1)
+        {
+            Presets.Conditions = Presets.UserStudy1Conditions;
+            Presets.TestBlockImagesG = Presets.UserStudy1TestBlockImagesG;
+            Presets.TestBlockImagesS = Presets.UserStudy1TestBlockImagesS;
+
+
+
+
+
+
+        }
+        else if (userStudy == Presets.UserStudy.UserStudy2)
+        {
+            Presets.Conditions = Presets.UserStudy2Conditions;
+            Presets.TestBlockImagesG = Presets.UserStudy2TestBlockImagesG;
+            Presets.TestBlockImagesS = Presets.UserStudy2TestBlockImagesS;
+
+
+            Presets.PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
+            Presets.PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for detecting glaucoma. " +
+                "\r\n\r\nClick the <b>right mouse</b> button on the report to toggle hide/show the guidance overlay. Use the <b>mouse scroll wheel</b> to change the brightness of the report." +
+                "\r\n\r\nWhen you are finished with screening the report and writing the response, click the Submit button to continue.\r\n";
+
+
+            Presets.TestStaticAOIAugmentationInstructionStateTitle = "Static Guidance";
+            Presets.TestStaticAOIAugmentationInstructionStateContent = "In the coming trials, you will receive guidance, but you <b>won't be able to update them based on where you just looked at.</b>";
+
+
+
+
+
+}
+
+    }
 
     void Start()
     {

@@ -15,20 +15,46 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
 
 
     [Header("Experiment Info")]
-    public string ExperimentName = "AOIAugmentation";
-    public string ParticipantID = "0";
-    private static readonly string[] ColumnNames = {"Current Block", "Decision", "Confidence Level", "Response"};
+    //public string ParticipantID = "0";
+
+    private static readonly string[] ColumnNames = {"CurrentBlock", "InteractionMode", "ImageName", "GlaucomaGroundTruth", "GlaucomaDecision", "Message", "DecisionConfidenceLevel"};
     public string FileName; 
     public bool useCustomLogPath = false;
     public string customLogPath = "";
 
 
+    public GameManager gameManager;
+
+    public string Block = "";
+    public string InteractionMode = "";
+    public string ImageName = "";
+    public string GlaucomaGroundTruth = "";
+
+    public string GlaucomaDecision = "";
+    public string Message = "";
+    public string DecisionConfidenceLevel = "";
+
+
     private StreamWriter writer = null;
+
+
+    string ExperimentName = "";
+    string ParticipantID = "";
 
     void Start()
     {
 
+        //if gameManager.userStudy =
+        if (gameManager.userStudy == Presets.UserStudy.UserStudy1)
+        {
+            ExperimentName = "ROIAugmentationUserSutyd1";
+        }
+        else if (gameManager.userStudy == Presets.UserStudy.UserStudy2)
+        {
+            ExperimentName = "ROIAugmentationUserStudy2";
+        }
 
+        ParticipantID = gameManager.participantID;
 
         string logPath = useCustomLogPath ? customLogPath : Application.dataPath + "/Logs/";
         Directory.CreateDirectory(logPath);
@@ -67,9 +93,21 @@ public class AOIAugmentationFeedbackStateWritterController : MonoBehaviour
         for (int i = 0; i < values.Length; ++i)
         {
             values[i] = values[i].Replace("\r", "").Replace("\n", ""); // Remove new lines so they don't break csv
-            line += values[i] + (i == (values.Length - 1) ? "" : ";"); // Do not add semicolon to last data string
+            line += values[i] + (i == (values.Length - 1) ? "" : ","); // Do not add semicolon to last data string
         }
         writer.WriteLine(line);
+    }
+
+    public void LogCurrentTrail()
+    {
+        if (!logging || writer == null)
+            return;
+
+        Message = "\"" + Message + "\"";
+        string[] values = { Block, InteractionMode, ImageName, GlaucomaGroundTruth, GlaucomaDecision, Message, DecisionConfidenceLevel };
+        //string[] values = { Block, InteractionMode, ImageName, GlaucomaDecision, Message, DecisionConfidenceLevel };
+        Debug.Log("Logging: " + values);
+        Log(values);
     }
 
 

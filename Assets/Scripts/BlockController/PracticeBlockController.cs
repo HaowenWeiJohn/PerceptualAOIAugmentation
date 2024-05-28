@@ -13,8 +13,8 @@ public class PracticeBlockController : BlockController
     public int experimentImageIndex = 0;
     public List<string> experimentImages = new List<string>();
 
-
-
+    //[Header("AOIAugmentationStateGUIController")]
+    //public AOIAugmentationStateGUIController aOIAugmentationStateGUIController;
 
 
 
@@ -71,6 +71,11 @@ public class PracticeBlockController : BlockController
                 experimentStates = experimentStates.Concat(Presets.InteractiveAOIAugmentationBlockWithInstructionBlock).ToList();
                 experimentImages.Add(Presets.PracticeBlockImages[0]);
             }
+            else if (condition == Presets.ExperimentState.ResnetAOIAugmentationState)
+            {
+                experimentStates = experimentStates.Concat(Presets.ResnetAOIAugmentationBlockWithInstructionBlock).ToList();
+                experimentImages.Add(Presets.PracticeBlockImages[0]);
+            }
         }
 
 
@@ -89,26 +94,32 @@ public class PracticeBlockController : BlockController
         if (Presets.Conditions.Contains(gameManager.currentState.experimentState))
         {
             string imageName = experimentImages[experimentImageIndex];
-            int imageIndex = Presets.TestBlockImages.IndexOf(imageName);
+            int imageIndex = Presets.PracticeBlockImages.IndexOf(imageName);
 
             if (gameManager.currentState == gameManager.noAOIAugmentationStateController)
             {
                 gameManager.noAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.noAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
                 experimentImageIndex += 1;
             }
             else if (gameManager.currentState == gameManager.staticAOIAugmentationStateController)
             {
                 gameManager.staticAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.staticAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
                 experimentImageIndex += 1;
             }
             else if (gameManager.currentState == gameManager.interactiveAOIAugmentationStateController)
             {
                 gameManager.interactiveAOIAugmentationStateController.imageIndex = imageIndex;
-                gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
+                //gameManager.interactiveAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
                 experimentImageIndex += 1;
 
+            }
+            else if(gameManager.currentState == gameManager.resnetAOIAugmentationStateController)
+            {
+                gameManager.resnetAOIAugmentationStateController.imageIndex = imageIndex;
+                //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
+                experimentImageIndex += 1;
             }
 
         }

@@ -30,6 +30,17 @@ public class FeedbackStateController : StateController
 
     public override void exitState()
     {
+
+        if (!feedbackStateGUIController.ResponseAcceptable()) {
+            return;
+        }
+        else
+        {
+            feedbackStateGUIController.SetAOIAugmentationFeedbackStateWritter();
+            feedbackStateGUIController.ClearResponses();
+            feedbackStateGUIController.LogResponse();
+        }
+
         feedbackStateGUIController.DisableSelf();
         base.exitState();
 

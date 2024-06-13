@@ -76,6 +76,12 @@ public class PracticeBlockController : BlockController
                 experimentStates = experimentStates.Concat(Presets.ResnetAOIAugmentationBlockWithInstructionBlock).ToList();
                 experimentImages.Add(Presets.PracticeBlockImages[0]);
             }
+            else if (condition == Presets.ExperimentState.NextPatchPredictionAOIAugmentationState)
+            {
+                experimentStates = experimentStates.Concat(Presets.NextPatchPredictionAOIAugmentationBlockWithInstructionBlock).ToList();
+                experimentImages.Add(Presets.PracticeBlockImages[0]);
+            }
+
         }
 
 
@@ -121,7 +127,12 @@ public class PracticeBlockController : BlockController
                 //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
                 experimentImageIndex += 1;
             }
-
+            else if (gameManager.currentState == gameManager.nextPatchPredictionAOIAugmentationStateController)
+            {
+                gameManager.nextPatchPredictionAOIAugmentationStateController.imageIndex = imageIndex;
+                //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(practiceBlockImageLoader.imageTextureDict[imageName]);
+                experimentImageIndex += 1;
+            }
         }
 
 

@@ -58,24 +58,6 @@ public static class Presets
     public static string AOIAugmentationAttentionContourStreamLSLInletStreamName = "AOIAugmentationAttentionContourStream";
     public static string AOIAugmentationAttentionHeatmapStreamLSLInletStreamName = "AOIAugmentationAttentionHeatmapStream";
 
-
-
-
-
-    //public static Vector2Int AttentionGridShape = new Vector2Int(32, 32);
-    //public static Vector2Int OriginalImageShape = new Vector2Int(512, 1024);
-
-    //public static string StaticAOIAugmentationStateLSLInletStreamName = "StaticAOIAugmentationStateLSLInlet";
-    //public static string StaticAOIAugmentationStateLSLInletStreamType = "AOIAugmentationInlet";
-    //public static string StaticAOIAugmentationStateLSLInletStreamID = "3";
-    //public static int StaticAOIAugmentationStateLSLInletChannelNum = AttentionGridShape[0] * AttentionGridShape[1];
-    //public static float StaticAOIAugmentationStateLSLInletNominalSamplingRate = 10;
-
-
-
-
-
-
     public static string GameManagerName = "GameManager";
 
     public static int MaxScore = 100;
@@ -211,10 +193,12 @@ public static class Presets
         ResnetAOIAugmentationInstructionState = 12,
         ResnetAOIAugmentationState = 13,
 
-        FeedbackState = 14,
+        NextPatchPredictionAOIAugmentationInstructionState = 14,
+        NextPatchPredictionAOIAugmentationState = 15,
 
-        EndState = 15
+        FeedbackState = 16,
 
+        EndState = 17 
 
     }
 
@@ -298,6 +282,13 @@ public static class Presets
         //ExperimentState.FeedbackState
     };
 
+    public static List<ExperimentState> NextPatchPredictionAOIAugmentationBlock = new List<ExperimentState>
+    {
+        ExperimentState.CalibrationState,
+        ExperimentState.NextPatchPredictionAOIAugmentationState,
+        //ExperimentState.FeedbackState
+    };
+
     public static List<ExperimentState> NoAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState> {
         ExperimentState.NoAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
@@ -324,6 +315,14 @@ public static class Presets
         ExperimentState.ResnetAOIAugmentationInstructionState,
         ExperimentState.CalibrationState,
         ExperimentState.ResnetAOIAugmentationState,
+        //ExperimentState.FeedbackState
+    };
+
+    public static List<ExperimentState> NextPatchPredictionAOIAugmentationBlockWithInstructionBlock = new List<ExperimentState>
+    {
+        ExperimentState.NextPatchPredictionAOIAugmentationInstructionState,
+        ExperimentState.CalibrationState,
+        ExperimentState.NextPatchPredictionAOIAugmentationState,
         //ExperimentState.FeedbackState
     };
 
@@ -377,7 +376,8 @@ public static class Presets
     public enum UserStudy
     {
         UserStudy1 = 1,
-        UserStudy2 = 2
+        UserStudy2 = 2,
+        UserStudyTest = 3
     }
 
 
@@ -402,8 +402,6 @@ public static class Presets
      "9140_OD_2021_widefield_report",
      "RLS_092_OS_TC",
      "RLS_083_OD_TC",
-
-
      //"RLS_086_OS_TC" // comment out when three conditions
     };
 
@@ -418,8 +416,6 @@ public static class Presets
      "RLS_038_OD_TC",
      "RLS_053_OD_TC",
      "RLS_148_OD_TC",
-
-
      //"RLS_148_OS_TC" // comment out when three conditions
     };
 
@@ -437,8 +433,6 @@ public static class Presets
      "9140_OD_2021_widefield_report",
      "RLS_092_OS_TC",
      "RLS_083_OD_TC",
-
-
      "RLS_086_OS_TC" // comment out when three conditions
     };
 
@@ -453,8 +447,6 @@ public static class Presets
      "RLS_038_OD_TC",
      "RLS_053_OD_TC",
      "RLS_148_OD_TC",
-
-
      "RLS_148_OS_TC" // comment out when three conditions
     };
 
@@ -486,12 +478,18 @@ public static class Presets
         ExperimentState.InteractiveAOIAugmentationState,
     };
 
+    public static List<ExperimentState> UserStudyTestConditions = new List<ExperimentState>
+    {
+        ExperimentState.NextPatchPredictionAOIAugmentationState,
+        ExperimentState.StaticAOIAugmentationState,
+    };
+
 
 
 
     public static string IntroductionInstructionStateTitle = "Welcome";
     public static string IntroductionInstructionStateContent = "You will be asked to screen Optical Coherence Tomography (OCT) reports for glaucoma. " +
-        "\r\n\r\nIn some reports, you will receive guidance to help with your decision-making process: a “heatmap” overlay will be shown on the report, indicating parts of the report that are more important for detecting glaucoma." +
+        "\r\n\r\nIn some reports, you will receive guidance to help with your decision-making process: a “heatmap?overlay will be shown on the report, indicating parts of the report that are more important for detecting glaucoma." +
         "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. We really appreciate your participation and your feedback is invaluable to us." +
         "\r\n\r\nClick the <b>Next</b> button to contune.\r\n";
 
@@ -546,8 +544,15 @@ public static class Presets
 
     public static string TestResnetAOIAugmentationInstructionStateTitle = "Static Model B Guidance";
     public static string TestResnetAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Model B</b> in the coming trials.";
-    
-    
+
+    public static string PracticeNextPatchPredictionAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static NextPatchPrediction Model Guidance";
+    public static string PracticeNextPatchPredictionAOIAugmentationInstructionStateContent = "An overlay generated from <b>NextPatchPrediction Model</b> will be shown on the report, indicating parts more informative for glaucoma detection. " +
+        "\r\n\r\nClick the <b>right mouse button</b> on the report to toggle hide/show the guidance overlay. Use the <b>mouse scroll wheel</b> to change the brightness of the report." +
+        "\r\n\r\nWhen you are finished with reading the report, click the Submit button to continue.\r\n";
+
+    public static string TestNextPatchPredictionAOIAugmentationInstructionStateTitle = "Static Next-Patch-Prediction Guidance";
+    public static string TestNextPatchPredictionAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Next-Patch-Prediction Model</b> in the coming trials.";
+
     public static string TestInstructionStateTitle = "End of practice"; // starting of test block
     public static string TestInstructionStateContent = "That was the end of the practice session. \r\n\r\nClick the <b>Next</b> button to continue the experiment. \r\n";
 

@@ -1,0 +1,9 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,StaticAOIAugmentationState,9071_OD_2021_widefield_report,G,S,"sss",3
+TestBlock,StaticAOIAugmentationState,RLS_038_OD_TC,S,S,"ddd",3
+TestBlock,StaticAOIAugmentationState,RLS_079_OD_TC,G,S,"sss",3
+TestBlock,StaticAOIAugmentationState,RLS_097_OD_TC,G,G,"www",3
+TestBlock,StaticAOIAugmentationState,9140_OD_2021_widefield_report,G,G,"wwww",3
+TestBlock,StaticAOIAugmentationState,RLS_083_OD_TC,G,S,"eee",3
+TestBlock,StaticAOIAugmentationState,RLS_053_OD_TC,S,S,"eee",3
+TestBlock,StaticAOIAugmentationState,9005_OS_2021_widefield_report,S_Suspects,G,"eee",3

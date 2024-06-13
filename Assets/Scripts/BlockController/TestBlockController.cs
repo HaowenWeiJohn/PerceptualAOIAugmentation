@@ -135,6 +135,21 @@ public class TestBlockController : BlockController
                 }
             }
 
+            else if (condition == Presets.ExperimentState.NextPatchPredictionAOIAugmentationState)
+            {
+                thisConditionStates.Add(Presets.ExperimentState.NextPatchPredictionAOIAugmentationInstructionState);
+                for (int j = 0; j < imagesPerCondition / 2; j++)
+                {
+                    thisConditionStates = thisConditionStates.Concat(Presets.NextPatchPredictionAOIAugmentationBlock).ToList();
+                    thisConditionStates = thisConditionStates.Concat(Presets.NextPatchPredictionAOIAugmentationBlock).ToList();
+
+                    thisConditionImages.Add(TestBlockImagesG[0]);
+                    TestBlockImagesG.RemoveAt(0);
+                    thisConditionImages.Add(TestBlockImagesS[0]);
+                    TestBlockImagesS.RemoveAt(0);
+                }
+            }
+
             GeneralUtils.ShuffleList(thisConditionImages);
 
             experimentStates = experimentStates.Concat(thisConditionStates).ToList();
@@ -145,10 +160,6 @@ public class TestBlockController : BlockController
         int a = 0;
 
         //Debug.Log("John");
-
-
-
-
 
 
     }
@@ -185,6 +196,12 @@ public class TestBlockController : BlockController
             else if(gameManager.currentState == gameManager.resnetAOIAugmentationStateController)
             {
                 gameManager.resnetAOIAugmentationStateController.imageIndex = imageIndex;
+                //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
+
+            }
+            else if (gameManager.currentState == gameManager.nextPatchPredictionAOIAugmentationStateController)
+            {
+                gameManager.nextPatchPredictionAOIAugmentationStateController.imageIndex = imageIndex;
                 //gameManager.resnetAOIAugmentationStateController.aOIAugmentationStateGUIController.setImage(testBlockImageLoader.imageTextureDict[imageName]);
 
             }

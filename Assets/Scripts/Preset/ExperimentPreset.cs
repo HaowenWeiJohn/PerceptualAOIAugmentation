@@ -36,7 +36,7 @@ public static class ExperimentPreset
         ExperimentStates = ExperimentStates.Concat(Presets.NoAOIAugmentationBlockWithInstructionBlock).ToList();
         ExperimentStates = ExperimentStates.Concat(Presets.StaticAOIAugmentationBlockWithInstructionBlock).ToList();
         ExperimentStates = ExperimentStates.Concat(Presets.InteractiveAOIAugmentationBlockWithInstructionBlock).ToList();
-
+        ExperimentStates = ExperimentStates.Concat(Presets.NextPatchPredictionAOIAugmentationBlockWithInstructionBlock).ToList();
 
         // start game block
 
@@ -49,49 +49,6 @@ public static class ExperimentPreset
         return ExperimentStates;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /// <summary>

@@ -39,6 +39,7 @@ public class NextPatchPredictionAOIAugmentationOverlayController : GUIController
     public bool showBoundingBox = false;
     public Color boundingBoxColor = Color.white;
     public bool loop = true;
+    public bool flipXY = false;
 
     //public List<HeatmapController> heatmapControllers = new List<HeatmapController>();
     //public StaticAOIAugmentationStateLSLInletController staticAOIAugmentationStateLSLInletController;
@@ -248,7 +249,7 @@ public class NextPatchPredictionAOIAugmentationOverlayController : GUIController
         return croppedTexture;
     }
 
-    public static List<Vector2> ParseStringToListOfVector2(string input)
+    public List<Vector2> ParseStringToListOfVector2(string input)
     {
         var vectors = new List<Vector2>();
 
@@ -265,7 +266,14 @@ public class NextPatchPredictionAOIAugmentationOverlayController : GUIController
             float x = float.Parse(coordinates[0].Trim());
             float y = float.Parse(coordinates[1].Trim());
 
-            vectors.Add(new Vector2(x, y));
+            if (flipXY)
+            {
+                vectors.Add(new Vector2(y, x));
+            }
+            else
+            {
+                vectors.Add(new Vector2(x, y));
+            }
         }
 
         return vectors;

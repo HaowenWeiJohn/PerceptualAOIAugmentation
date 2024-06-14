@@ -482,7 +482,7 @@ public static class Presets
     public static List<ExperimentState> UserStudyTestConditions = new List<ExperimentState>
     {
         ExperimentState.NextPatchPredictionAOIAugmentationState,
-        ExperimentState.StaticAOIAugmentationState,
+        //ExperimentState.StaticAOIAugmentationState,
     };
 
 

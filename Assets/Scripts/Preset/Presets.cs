@@ -340,7 +340,8 @@ public static class Presets
     //public static string ImageFileFormat = "*.png";
 
     public static List<string> PracticeBlockImages = new List<string>
-    {   "9071_OD_2021_widefield_report"
+    {   //"9071_OD_2021_widefield_report"
+        "9025_OD_2021_widefield_report"
     };
 
 
@@ -545,12 +546,12 @@ public static class Presets
     public static string TestResnetAOIAugmentationInstructionStateTitle = "Static Model B Guidance";
     public static string TestResnetAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Model B</b> in the coming trials.";
 
-    public static string PracticeNextPatchPredictionAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static NextPatchPrediction Model Guidance";
+    public static string PracticeNextPatchPredictionAOIAugmentationInstructionStateTitle = "[Practice] Condition: NextPatchPrediction Model Guidance";
     public static string PracticeNextPatchPredictionAOIAugmentationInstructionStateContent = "An overlay generated from <b>NextPatchPrediction Model</b> will be shown on the report, indicating parts more informative for glaucoma detection. " +
         "\r\n\r\nClick the <b>right mouse button</b> on the report to toggle hide/show the guidance overlay. Use the <b>mouse scroll wheel</b> to change the brightness of the report." +
         "\r\n\r\nWhen you are finished with reading the report, click the Submit button to continue.\r\n";
 
-    public static string TestNextPatchPredictionAOIAugmentationInstructionStateTitle = "Static Next-Patch-Prediction Guidance";
+    public static string TestNextPatchPredictionAOIAugmentationInstructionStateTitle = "Next-Patch-Prediction Guidance";
     public static string TestNextPatchPredictionAOIAugmentationInstructionStateContent = "You will receive guidance generated from <b>Next-Patch-Prediction Model</b> in the coming trials.";
 
     public static string TestInstructionStateTitle = "End of practice"; // starting of test block

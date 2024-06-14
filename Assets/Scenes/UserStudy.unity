@@ -18840,6 +18840,11 @@ MonoBehaviour:
   aoiHeatmapOverlayController: {fileID: 793169595}
   aOIAugmentationAttentionHeatmapStreamZMQSubSocketController: {fileID: 1908405793}
   visualCueReceived: 0
+  gridSize: {x: 7, y: 7}
+  boundingBoxWidth: 10
+  showBoundingBox: 1
+  boundingBoxColor: {r: 1, g: 0, b: 0.95985556, a: 1}
+  loop: 1
   visualCueReceivedSoundEffect: {fileID: 8300000, guid: 9b9c67f048123674490b3734e3a149f0, type: 3}
   cursorOverlayController: {fileID: 687767835}
 --- !u!1 &1215216054
@@ -26222,7 +26227,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1776219158

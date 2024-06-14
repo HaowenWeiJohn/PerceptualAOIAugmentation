@@ -131,7 +131,6 @@ public class GameManager : MonoBehaviour
             Presets.Conditions = Presets.UserStudyTestConditions;
             Presets.TestBlockImagesG = Presets.UserStudy2TestBlockImagesG;
             Presets.TestBlockImagesS = Presets.UserStudy2TestBlockImagesS;
-            Debug.Log("UserStudyTest Chosen.");
 
             Presets.PracticeStaticAOIAugmentationInstructionStateTitle = "[Practice] Condition: Static Guidance";
             Presets.PracticeStaticAOIAugmentationInstructionStateContent = "An overlay will be shown on the report indicating parts more informative for detecting glaucoma. " +

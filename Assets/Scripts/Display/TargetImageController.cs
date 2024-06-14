@@ -84,11 +84,10 @@ public class TargetImageController : MonoBehaviour
                 Cursor.SetCursor(cursorTextureYellow, Vector2.zero, CursorMode.ForceSoftware);
             }
 
-
-
             if (gameManager.currentState.experimentState == Presets.ExperimentState.InteractiveAOIAugmentationState ||
                 gameManager.currentState.experimentState == Presets.ExperimentState.StaticAOIAugmentationState ||
-                gameManager.currentState.experimentState == Presets.ExperimentState.ResnetAOIAugmentationState)
+                gameManager.currentState.experimentState == Presets.ExperimentState.ResnetAOIAugmentationState ||
+                gameManager.currentState.experimentState == Presets.ExperimentState.NextPatchPredictionAOIAugmentationState)
             {
                 //// AdjustTransparency only if the cursor  
                 ////AdjustTargetImageBrightness();

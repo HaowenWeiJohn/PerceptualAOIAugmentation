@@ -11,7 +11,7 @@ public class AOIAugmentationStateGUIController : GUIController
     public TargetImageController targetImageController;
 
     [Header("AOI Augmentation Overlay Controller")]
-    public NoAOIAugmentationOverlayController noAOIAugmentationOverlayController;
+    public NoAOIAugmentationOverlayController NoAOIAugmentationOverlayController;
     public StaticAOIAugmentationOverlayController staticAOIAugmentationOverlayController;
     public InteractiveAOIAugmentationOverlayController interactiveAOIAugmentationOverlayController;
     public ResnetAOIAugmentationOverlayController resnetAOIAugmentationOverlayController;
@@ -80,9 +80,6 @@ public class AOIAugmentationStateGUIController : GUIController
             }
         }
 
-        
-
-
 
         if (ConfidenceLevelResponseAcceptable())
         {
@@ -128,13 +125,13 @@ public class AOIAugmentationStateGUIController : GUIController
     /// </summary>
     public void activateNoAOIAugmentationOverlayController()
     {
-        noAOIAugmentationOverlayController.EnableSelf();
+        NoAOIAugmentationOverlayController.EnableSelf();
     }
 
 
     public void deactivateNoAOIAugmentationOverlayController()
     {
-        noAOIAugmentationOverlayController.DisableSelf();
+        NoAOIAugmentationOverlayController.DisableSelf();
     }
 
 

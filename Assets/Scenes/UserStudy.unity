@@ -5008,7 +5008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &416629716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18845,6 +18845,7 @@ MonoBehaviour:
   showBoundingBox: 1
   boundingBoxColor: {r: 1, g: 0, b: 0.95985556, a: 1}
   loop: 1
+  flipXY: 0
   visualCueReceivedSoundEffect: {fileID: 8300000, guid: 9b9c67f048123674490b3734e3a149f0, type: 3}
   cursorOverlayController: {fileID: 687767835}
 --- !u!1 &1215216054
@@ -28634,7 +28635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImageController: {fileID: 322916467}
-  noAOIAugmentationOverlayController: {fileID: 669890356}
+  NoAOIAugmentationOverlayController: {fileID: 669890356}
   staticAOIAugmentationOverlayController: {fileID: 460374816}
   interactiveAOIAugmentationOverlayController: {fileID: 2032533529}
   resnetAOIAugmentationOverlayController: {fileID: 392775925}
@@ -29659,7 +29660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d6cf702f0d7aa46bdd89497acebbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userStudy: 3
+  userStudy: 2
   participantID: 15
   visualCueMode: 1
   skipCalibration: 1

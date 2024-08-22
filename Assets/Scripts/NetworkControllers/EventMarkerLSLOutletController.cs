@@ -65,9 +65,12 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
         streamOutlet.push_sample(eventMarkerArray);
     }
 
-    
-
-
+    public void SendBScanLayerSelection(int selectionIndex)
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.BScanLayerSelection] = selectionIndex;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
 
     public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState, int imageIndex=0)
     {

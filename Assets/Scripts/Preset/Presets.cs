@@ -13,7 +13,7 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "AOIAugmentationEventMarkerLSL";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 7; // block marker index 0
+    public static int EventMarkerChannelNum = 8; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
 
@@ -25,7 +25,8 @@ public static class Presets
         AOIAugmentationInteractionStartEndMarker = 3,
         ToggleVisualCueVisibilityMarker = 4,
         UpdateVisualCueMarker = 5, // the 0-5 is row, 7-11 is column
-        VisualCueHistorySelectedMarker = 6
+        VisualCueHistorySelectedMarker = 6,
+        BScanLayerSelection=7
     }
 
 
@@ -492,7 +493,7 @@ public static class Presets
 
     public static string IntroductionInstructionStateTitle = "Welcome";
     public static string IntroductionInstructionStateContent = "You will be asked to screen Optical Coherence Tomography (OCT) b-scans for AMD. " +
-        "\r\n\r\nIn some reports, you will receive guidance to help with your decision-making process: a “heatmap?overlay will be shown on the report, indicating parts of the report that are more important for detecting AMD." +
+        "\r\n\r\nIn some reports, you will receive guidance to help with your decision-making process: a ï¿½heatmap?overlay will be shown on the report, indicating parts of the report that are more important for detecting AMD." +
         "\r\n\r\nThe primary goal of this study is to understand how different types of AI-augmented guidance can assist clinicians like yourself in analyzing medical images. We really appreciate your participation and your feedback is invaluable to us." +
         "\r\n\r\nClick the <b>Next</b> button to contune.\r\n";
 

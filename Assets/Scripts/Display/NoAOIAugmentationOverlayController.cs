@@ -41,6 +41,7 @@ public class NoAOIAugmentationOverlayController : GUIController
     public Texture2D bscan4Texture;
     public Texture2D bscan5Texture;
 
+    public EventMarkerLSLOutletController eventMarkerLSL;
 
     void Start()
     {
@@ -137,30 +138,36 @@ public class NoAOIAugmentationOverlayController : GUIController
     {
         targetImage.GetComponent<Image>().sprite = Sprite.Create(bscan1Texture, new Rect(0, 0, bscan1Texture.width, bscan1Texture.height), new Vector2(0.5f, 0.5f));
         Debug.Log("Bscan1 Set");
+        eventMarkerLSL.SendBScanLayerSelection(1);
     }
 
     public void setBscan2()
     {
         targetImage.GetComponent<Image>().sprite = Sprite.Create(bscan2Texture, new Rect(0, 0, bscan2Texture.width, bscan2Texture.height), new Vector2(0.5f, 0.5f));
         Debug.Log("Bscan2 Set");
+        eventMarkerLSL.SendBScanLayerSelection(2);
+
     }
 
     public void setBscan3()
     {
         targetImage.GetComponent<Image>().sprite = Sprite.Create(bscan3Texture, new Rect(0, 0, bscan3Texture.width, bscan3Texture.height), new Vector2(0.5f, 0.5f));
         Debug.Log("Bscan3 Set");
+        eventMarkerLSL.SendBScanLayerSelection(3);
     }
 
     public void setBscan4()
     {
         targetImage.GetComponent<Image>().sprite = Sprite.Create(bscan4Texture, new Rect(0, 0, bscan4Texture.width, bscan4Texture.height), new Vector2(0.5f, 0.5f));
         Debug.Log("Bscan4 Set");
+        eventMarkerLSL.SendBScanLayerSelection(4);
     }
 
     public void setBscan5()
     {
         targetImage.GetComponent<Image>().sprite = Sprite.Create(bscan5Texture, new Rect(0, 0, bscan5Texture.width, bscan5Texture.height), new Vector2(0.5f, 0.5f));
         Debug.Log("Bscan5 Set");
+        eventMarkerLSL.SendBScanLayerSelection(5);
     }
 
     private void setButtonsImage()

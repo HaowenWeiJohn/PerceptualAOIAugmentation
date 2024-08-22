@@ -1,0 +1,6 @@
+CurrentBlock,InteractionMode,ImageName,GlaucomaGroundTruth,GlaucomaDecision,Message,DecisionConfidenceLevel
+PracticeBlock,NoAOIAugmentationState,067_wet,wet,S,"sss",3
+PracticeBlock,StaticAOIAugmentationState,067_wet,wet,S,"sss",3
+PracticeBlock,ResnetAOIAugmentationState,067_wet,wet,S,"sss",3
+TestBlock,StaticAOIAugmentationState,041_normal,normal,S,"sss",3
+TestBlock,StaticAOIAugmentationState,012_wet,wet,S,"sss",3

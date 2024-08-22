@@ -34133,8 +34133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d6cf702f0d7aa46bdd89497acebbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userStudy: 1
-  participantID: 15
+  userStudy: 3
+  participantID: 1
   visualCueMode: 1
   skipCalibration: 1
   currentGameState: 0
